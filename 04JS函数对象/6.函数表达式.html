@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <div id="box">点击我</div> -->
+  <fieldset style="width: 600px; margin: 0 auto">
+    <legend>检测体重是否标准</legend>
+    <p>输入身高：<input type="text" id="height" placeholder="单位：cm" value="" /></p>
+     <p>输入体重：<input type="text" id="weight" placeholder="单位：斤" value="" /></p>
+    <p>检测结果：<input type="text" id="result" value="" /></p>
+    <p><input type="button" value="开始检测" id="start" /></p>
+  </fieldset>
+</body>
+
+</html>
+<script>
+  // 一.函数可以划分成两大类
+  // 1.普通函数：也叫声明式函数，有函数名称的函数。
+  // 普通函数可以在函数体的上面和下面调用
+  // fn();
+  // function fn() {
+  //   console.log(1);
+  // }
+  // fn();
+  // 2.函数表达式：没有函数名称，也叫匿名函数。
+
+  // 二.函数表达式还可以细分
+  // 1.函数表达式：将函数的结构体赋值给某个变量。
+  // var fn = function (n1, n2) {
+  //   return n1 + n2;
+  // };
+
+  // console.log(fn(1, 3));
+
+  // var fn1 = function abc(n1, n2) {
+  //   return n1 + n2;
+  // };
+  // console.log(fn1(4, 5)); //9 ok的
+  // console.log(abc(3, 4)); //abc函数名失效了，没必要添加名称，只能通过fn1来调用
+
+  // 区别是上面的函数表达式不能前置访问。函数fn变成了变量，变量前置访问是undefined,undefined不能当做函数使用。
+  // fn();//报错
+  // var fn = function () {
+  //   console.log(1);
+  // };
+  // fn();
+
+  // 2.事件处理函数，将函数体赋值给某个事件。
+  // 方法：
+  // 主动的方法(alert/console.log/document.write/parseInt......)
+  // 被动的方法(事件)
+
+  // 点击了box，才会执行函数表达式。
+  // box.onclick = function () {
+  //   alert("你点击我了");
+  // };
+
+  // 案例：开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+  // 通过标签对象下面的value属性获取或者设置对应的值。
+  // height.value = "1000";//设置
+  // console.log(height.value);//获取
+  // start.onclick = function () {
+  //   //判断文本框是否为空
+  //   if (height.value !== "" && weight.value !== "") {
+  //     var h = height.value; //获取身高
+  //     var w = weight.value; //获取体重
+  //     var max = (h - 108) * 2 + 10; //最大体重
+  //     var min = (h - 108) * 2 - 10; //最小体重
+
+  //     if (w > max) {
+  //       result.value = "偏胖，减减肥！";
+  //     } else if (w <= max && w >= min) {
+  //       result.value = "非常标准，继续保持!";
+  //     } else if (w < min) {
+  //       result.value = "太瘦了，多吃点，不要挑食!";
+  //     } else {
+  //       result.value = "输入有误,请输入合法的数据";
+  //     }
+  //   } else {
+  //     result.value = "请输入升高和体重";
+  //   }
+  // };
+
+  // 3.自执行函数，函数的声明和调用写到一起，仅执行一次。
+  // function fn() {
+  //   alert("我被执行了");
+  // }
+  // alert(fn); //函数名就是代表整个的函数结构体。  function fn(){  alert("我被执行了");}
+  // fn();
+  // fn();
+  // fn();
+  // fn();
+
+  // 根据上面的函数名代表整个的函数结构体
+
+  // function fn(){ alert("我被执行了");}(); //这里会报错，无法确定前面的结构是一整个函数。
+
+  // 直接将前面的整个函数利用括号包起来，形成整体。
+  // (function fn() {
+  //   alert("我被执行了");
+  // })();
+
+  // 上面可以自调用，函数名就没有意义。
+  // (function () {
+  //   alert("我被执行了");
+  // })();
+
+  // 自执行函数可以有多种写法，但是仅调用一次,逻辑非也可以将function转换一个整体。
+  // !function () {
+  //   alert("我被执行了");
+  // }();
+</script>

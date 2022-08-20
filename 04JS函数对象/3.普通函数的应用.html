@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 编写一个函数，计算两个数字的和、差、积、商（要求：使用传参的形式）
+  // 分析：
+  // 四种结果 - 条件
+  // 传参：两个数字 + 符号
+  function calc(n1, n2, flag) {
+    switch (flag) {
+      case "+":
+        return n1 + n2;
+      // break; //无需break。return 自动终止函数。
+      case "-":
+        return n1 - n2;
+      case "*":
+        return n1 * n2;
+      case "/":
+        return n1 / n2;
+    }
+  }
+  console.log(calc(3, 5, "+")); //8
+  console.log(calc(30, 5, "+")); //35
+  console.log(calc(3, 5, "*")); //15
+  console.log(calc(3, 5, "-")); //-2
+  console.log(calc(3, 5, "/")); //0.6
+</script>

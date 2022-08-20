@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.数组的操作
+  // 1.索引下标：数组使用索引(index)下标来读取数组项的值，索引下标是固定的，从0开始的整数,通过数组名+中括号进行访问。
+  //nameArr:数组对象
+  var nameArr = [
+    "刘一",
+    "陈二",
+    "张三",
+    "李四",
+    "王五",
+    "赵六",
+    "孙七",
+    "周八",
+    "吴九",
+    "郑十",
+  ];
+  console.log(nameArr[0]); //刘一
+  console.log(nameArr[3]); //李四
+  console.log(nameArr[100]); // 数组项的值存在，不会报错，输出undefined
+
+  // 2.数组的length属性：代表数组的长度，通过设置这个属性，可以从数组的末尾移除项或向数组中添加新项。
+
+  // 注意：数组对象的名称等同于所有的数组项的值。
+  console.log(nameArr); //['刘一', '陈二', '张三', '李四', '王五', '赵六', '孙七', '周八', '吴九', '郑十']
+  console.log(nameArr.length); //10
+
+  nameArr.length = 5; //将数组长度设为5，后面的5项被删除了
+  console.log(nameArr); //['刘一', '陈二', '张三', '李四', '王五']
+
+  nameArr.length = 100; //将数组长度设为100,数组项不够，添加空项。
+  console.log(nameArr); //['刘一', '陈二', '张三', '李四', '王五', empty × 95]
+</script>

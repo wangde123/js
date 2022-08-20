@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 了解变量的特殊情况
+  // 1.声明变量采用var关键字，作者这里的语法非常随便，声明变量不添加var也不会报错。
+  // a = 1;
+  // console.log(a);
+
+  // 2.如果函数内部的变量，也没有添加var关键字，变量的作用域会发送改变，变成全局的。
+  // function fn() {
+  //   var a = 1; //局部变量
+  //   b = 2; // 全局变量
+  // }
+var a=1;
+console.log(a);
+function fn(){
+  a=2
+}
+fn()
+console.log(a);
+  // fn();
+  // console.log(b);
+  // console.log(a); //报错，局部变量  ReferenceError: a is not defined
+
+  // 3.变量的值是可以改变的，改变变量的值也不用添加var
+  // var a = 3;
+  // a = 5;//改变变量的值，无需添加var，如果添加变成重新声明变量。
+
+  // 4.区分当前没有添加var的变量到底是改变变量的值还是声明就没有添加var
+  // var a = 1;
+  // function fn() {
+  //   a = 20; //改变全局变量的值，没有添加var,不是函数内部单独声明的 - 合理的情况
+  //   console.log(a); //20
+  // }
+  // fn();
+  // console.log(a); //20  a是全局，函数内部改变了变量的值为20
+
+  // ----------------------------------------------------------------------
+
+  // function fn1() {
+  //   b = 10; // 这里是你声明变量忽略了var，使得b变成全局变量 - 虽然没有错误，不是一个合理的情况，后面作者会改回来。
+  //   console.log(b); //10
+  // }
+  // fn1();
+  // console.log(b); //10
+</script>

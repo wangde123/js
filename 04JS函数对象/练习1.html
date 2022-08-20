@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    
+    //一.函数的概念
+    //1.ECMAScript中的函数使用function关键字来声明，后面跟一组参数和函数体，通过函数来封装后可以反复调用
+    //2.类是由函数构造的
+    //3.在js中，函数实际上是对象，同时对象是由函数构建的
+
+    //二声明函数
+    //function用来声明函数，后面跟一个自定义函数名加上（参数）{函数体，封装多条语句 return()}。
+    // function fn(){
+    //     console.log(1+2);
+    //     console.log(12+2);
+    //     console.log(13+2);
+    //   }
+    //三.函数的调用
+    //调用函数用自定义的函数名加(),例如:fn()来调用，函数可以调用多次。
+    //方法是由函数构建的，函数是JS的最底层代码
+    //fn()
+    //四.函数体(函数的返回值，函数调用返回的结果)
+    //return关键字用来完成函数的返回值
+    //函数都有一条return语句，return语句导致函数停止执行，并返回它的表达式的值给调用者
+    //如果函数没有return语句，函数的默认值会返回underfined
+    //return结束函数，后面的代码将不会执行
+    // 注意：函数没有说必须添加return,只有需要函数的返回值才添加return。
+    //五.普通函数
+    //完整的普通函数由关键字function+自定义函数名+(形参)+{函数体 函数的返回值：return,函数调用返回的结果}构成
+    //function用来声明函数，定义函数的关键字
+    //函数名，自定义的，取名要语义化
+    //参数,参数分为形参和实参
+    //形参：形参是定义在函数中，整个函数体内都可以使用，多个形参用逗号分隔，用来接收实参的值，占位符号，形参为赋值输出为underfined
+    //实参：实参是定义在函数调用中，实参的值是输入到形参的
+    // function fn(a,b){
+    //     console.log(a+b);
+    // }
+
+    // fn(1,3)
+    // fn()
+    // fn(13)
+    // fn(13,12)
+    // fn(1,2,3,4,5)//对应前两个
+
+    // 案例：创建表格案例
+    // 如果不采用函数封装，那么创建多个表格就会出现代码重复(冗余)，通过函数配合参数解决代码重复问题。
+    //   function fn(a,b){
+    //     document.write('<table>')
+    //    for(i=1;i<=a;i++){
+    //        document.write('<tr>')
+    //         for(j=1;j<=b;j++){
+    //             document.write('<td>1111</td>')
+    //         }
+    //         document.write('</tr>')
+    //    }
+    // document.write('</table>')
+    //   }
+
+    //   fn(1,1)
+    //   fn(5,5)
+    //   fn(8,8)
+
+
+    //return的返回值
+    // function fn(n1,n2){
+    //     return(n1+n2)
+    //     console.log("sssss")
+    // }
+    // console.log( fn(1,2))
+    // document.write(fn(23,23))
+    // alert(fn(4,5))
+    //总结：完整的函数包括function 函数名，参数，函数体返回值
+    //但是没有说每个函数都一定需要上面的四部分，有时候可以省略参数和返回值。
+    // 编写一个函数，计算两个数字的和、差、积、商（要求：使用传参的形式）
+
+    // function fn(a, b, c) {
+    //     switch (c) {
+    //         case "+":
+    //             return (a + b);
+    //         case "*":
+    //             return (a * b)
+    //         case "/":
+    //             return (a / b)
+    //         case "-":
+    //             return (a - b)
+    //     }
+    // }
+    // console.log(fn(1,2,"+"))
+    // document.write(fn(2,3,"*"))
+    // alert(fn(3,6,"-"))
+    // console.log(fn(3,8,"/"))
+
+
+    //改为if语句
+    //     function fn(a,b,c){
+    //         if(c==="+"){
+    // return(a+b);
+    //         }else if(c==="-"){
+    //             return(a-b);
+    //         }else if(c==="*"){
+    //             return(a*b);
+    //         }else if(c==="/"){
+    //             return(a/b);
+    //         }
+    //     }
+    // console.log(fn(1,3,"+"))
+    // document.write(fn(3,5,"*"))
+    // alert(fn(5,3,"/"))
+    // console.log(fn(8,3,"-"))
+
+    // 输入一个日期，判断这个日期是这一年的第几天  例如： 2016/02/11，计算后结果为42
+    //1 ,3,5,7,8,10
+    //2
+    //
+    // function days(year, mouth, day) {
+    //     var max = 0
+    //     max+= day;
+    //     for (i= 1; i <mouth; i++) {
+    //         if (i === 1 || i === 3 || i === 5 || i === 7 || i === 8 || i=== 10) {
+    //             max+= 31;
+    //         } else {max+= 30; }
+    //     }
+
+    //     if (mouth>2&&(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0)) {
+    //         max-= 1;
+    //     } else if(mouth>2){
+    //         max-= 2;
+    //     }
+    //     return max;
+    // }
+    // console.log(days(2020, 1, 20))
+
+    // function fn(year, mouth, day) {
+    //     var max = 0
+    //     max += day;
+    //     for (i = 1; i < mouth; i++) {
+    //         if (mouth === 1 || mouth === 3 || mouth === 5 || mouth === 7 || mouth === 8 || mouth === 10) {
+    //             max += 31;
+    //         } else { max += 30; }
+    //     }
+    //     if (mouth>2&&(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0)) {
+    //         max -= 1;
+    //     } else if(mouth>2){ max -= 2; }
+    //     return max;
+    // }
+    // console.log(fn(2021, 12, 1))
+
+// function fn(year,mouth,day){
+//     var max=0
+//     max+=day
+// for(i=1;i<mouth;i++){
+// if(mouth===1||mouth===3||mouth===5||mouth===7||mouth===8||mouth===10){
+//     max+=31;
+// }else{max+=30;}
+// }
+// if(mouth>2&&(year%4===0&&year%100!==0||year%400===0)){
+//     max-=1;
+// }else if(mouth>2){
+//     max-=2;
+// }
+// return max;
+// }
+// console.log(fn(2023,1,3));
+</script>

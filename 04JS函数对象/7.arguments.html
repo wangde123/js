@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.arguments - 非常重要
+  // 1.arguments就是作者在函数内部默认添加的一个特殊对象，仅能用在函数内部。
+  // 2.函数体内可以通过arguments对象来接收传递进来的参数。
+
+  // 案例:求所有的实参的和
+  // function sum() {
+  //   // arguments.length//:属性，获取参数的长度  22
+  //  // arguments通过索引编号获取对应的参数值，索引编号是默认从0开始的整数，通过中括号获取。
+  //   // 例如：arguments[0]->33   arguments[1]->44    arguments[arguments.length-1]->10
+  //   // return arguments[1];
+  //   for (var i = 0, result = 0; i < arguments.length; i++) {
+  //     result += arguments[i];
+  //   }
+
+  //   return result;
+  // }
+  // console.log(
+  //   sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+  // );
+  function sum() {
+    let result = 0;
+    for (let i = 0; i < arguments.length; i++) {
+      result += arguments[i];
+    }
+    return result;
+  }
+  console.log(sum(1, 2, 3, 4, 5, 6, 7, 8));
+</script>

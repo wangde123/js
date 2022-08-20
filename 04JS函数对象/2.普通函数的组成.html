@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        border: 1px solid orange;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.普通函数的组成
+  // 函数的组成包括下面几部分
+  // function 函数名  参数   函数体(函数的返回值return：函数调用返回的结果)
+  // 1.function声明函数，定义函数的关键字。
+  // 2.函数名：自定义的标识符(见名知意)
+  // 3.参数
+  // 3.1.函数的参数包括形参和实参
+  // 形参：出现在函数定义中，在整个函数体内都可以使用，多个形参用逗号分隔，形参用来接收真实的值。
+  // 可以将形参理解成占位的符号。
+  //a,b形参，自由定义的标识符,但是可以将a,b理解成函数内部声明的变量var a,b; 只是声明了没有赋值,没有赋值就是undefined。
+  // function fn(a, b) {
+  //   (a + b);
+  // }
+  // console.log(fn())
+  // 实参：出现在函数调用中，实参将值传递给形参。实参是具体的值。
+  // fn(3, 5); //8
+  // fn(30, 5); //35
+  // fn(); //NaN
+  // fn(1, 2, 3, 4, 5);
+  // fn(1);
+
+  // 案例：创建表格案例
+  // 如果不采用函数封装，那么创建多个表格就会出现代码重复(冗余)，通过函数配合参数解决代码重复问题。
+  // function createTable(x, y) {
+  //   //x:行，y:列
+  //   document.write("<table>");
+  //   for (var i = 1; i <= x; i++) {
+  //     document.write("<tr>");
+  //     for (var j = 1; j <= y; j++) {
+  //       document.write("<td>1111111</td>");
+  //     }
+  //     document.write("</tr>");
+  //   }
+  //   document.write("</table>");
+  // }
+
+  // createTable(3, 3);
+  // createTable(5, 5);
+  // createTable(7, 7);
+  // createTable(9, 9);
+  // createTable(11, 11);
+
+  // 4. 函数体(函数的返回值：函数调用返回的结果)
+  // return关键字完成函数的返回值。
+  // 函数都有一条return语句，return语句导致函数停止执行，并返回它的表达式的值给调用者。
+  // 如果函数内部没有return语句，函数默认返回undefined
+  //  function fn() {
+  //   (1 + 2);
+  // }
+  // console.log(fn())
+  // return结束函数，return之后的代码不再执行了。
+
+  // 注意：函数没有说必须添加return,只有需要函数的返回值才添加return。
+
+  // function fn(n1, n2) {
+  //   return n1 + n2;
+  //   console.log("hahahahahahahaha"); //return下面的代码不会被执行。
+  // }
+  // document.write(fn(1, 2)); //调用这个函数的结果就是两个数字的和
+
+  // 总结
+  // 函数完整的组成：function  函数名  参数   返回值
+  // 但是没有说每个函数都一定需要上面的四部分，有时候可以省略参数和返回值。
+</script>

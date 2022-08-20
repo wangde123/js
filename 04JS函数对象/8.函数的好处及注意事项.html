@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 函数的好处及注意事项
+  // 1.好处：
+  // 函数是用来帮助我们封装、重用、扩展及调用代码的最方便的工具！
+  // 封装：函数体内可以打包多条语句，形成整体代码块。
+  // 重用：函数可以多次使用，每次使用可以使用不同的参数改变结果。
+  // 扩展：JavaScript底层都是函数，通过函数扩展需求，延申功能，灵活性(灵活的参数配置)
+  
+
+  // 2.注意事项
+  // 2.1.一个函数名称，等同于整个函数结构体(类似其他程序中指针) - 非常重要
+  function fn() {
+    return "abc";
+  }
+  alert(fn); //这里不是调用，输出函数名称    function fn() {return "abc";}
+
+  // 2.2.函数因为其特殊性，拥有独立的类型
+  // alert(typeof fn); //function 函数类型，也属于对象的一种，因为对象也是函数构建的，拥有独立的类型。
+
+  // 2.3.声明的函数如果不调用，函数相当于不存在，通过调用找函数
+  // function fn() {
+  //   flkdjasfkl;
+  //   fjadslfjklds;
+  //   dsafjldsafjl;
+  // }
+  // 只要不调用，上面的代码当作不存在，有没有错误都不会输出。
+</script>

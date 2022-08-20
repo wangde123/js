@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+</body>
+</html>
+<script>
+    // 递归函数实现
+   // 案例：1+2+3+4+....+10 = 55
+// function sum(n){
+// //第一次10+sum(9)
+// //第二次9+sum(8)
+// //第三次8+sum(7)
+// //第四次7+sum(6)
+// //第五次6+sum(5)
+// //第六次5+sum(4)
+// //第七次4+sum(3)4+3+2+1
+// //第八次3+sum(2)3+2+1
+// //第九次2+sum(1)2+1
+// //第十次sum(1)=1基点
+// if(n===1){
+//     return 1;
+// }
+// return n+sum(n-1);
+// }
+// console.log(sum(10));
+
+// 案例：计算n的阶乘
+//5!=5+4!
+//4!=4+3!
+//3!=3+2!
+//2!=2+1!
+//1!=1
+
+// function sum(n){
+// if(n===1){
+//     return 1;
+// }
+// return n*sum(n-1)
+
+// }
+// console.log(sum(5))
+// 2.入职薪水10000，每年涨幅5%，第50年薪水是多少？（递归）
+// for(var year=1,money=10000;year<=50;year++){
+//   money=money+money*0.05
+// }
+// console.log(money)
+// function fn(year,money){
+// if(year<=50){
+//     return fn(++year,money+money*0.05)
+// }
+// return money
+// }
+// console.log(fn(1,10000))
+//3.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+1/6...+1/n,当输入n为奇数时，调用函数求 1+1/3+1/5...+1/n.( 递归实现 )
+//8 1/2+1/4+1/6/=1/8=1/8+fn(6)
+//6 1/2+1/4+1/6=1/6+fn(4)
+//4 1/2+1/4
+//2 1/2
+//9 1/1+1/3+1/5+1/7+1/9
+//7 1/1+1/3+1/5+1/7
+//5 1/1+1/3+1/5
+//3 1/1+1/3
+//1 1/1
+// function fn(n){
+//     if(n===1){
+//         return 1/1
+//     }
+//     if(n===2){
+//         return 1/2
+//     }
+//     return fn(n-2)+1/n
+// }
+// console.log(fn(9))
+</script>

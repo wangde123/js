@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 输入一个日期，判断这个日期是这一年的第几天  例如： 2016/02/11，计算后结果为42
+  // 分析
+  // 2022/4/1   1:31  2:28  3:31 4:1           31+28+31+1 = 91
+  // 2022/5/10  1:31  2:28  3:31 4:30  5:10    31+28+31+30+10 = 130
+  // 闰年2：29，非闰年2：28
+  // 三种条件：大月，小月，是否闰年的2月
+
+  // 压缩条件实现：
+  // 二种条件：大月，小月(2月)，将2月当中小月，这样结果有可能多了1天或者2天，判断闰年减去多了1天或者2天
+
+  // 结果：所以天数的和
+  //year:年，month:月，day:日
+  function getDays(year, month, day) {
+    var result = 0; //存放所以天数的和，结果
+    result += day; //累加
+    for (var i = 1; i < month; i++) {
+      //循环月份,大月的情况
+      if (i === 1 || i === 3 || i === 5 || i === 7 || i === 8 || i === 10) {
+        result += 31; //累减，前面的结果再加上当前的值
+      } else {
+        //小月的情况
+        result += 30;
+      }
+    }
+    // 走到这里，对于2月当作小月30计算，闰年多了1天，非闰年多了2天
+    // 前提是月份必须大于2，否则无效判断，是闰年-1，非闰年-2
+    if (
+      month > 2 &&
+      ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
+    ) {
+      //闰年
+      result -= 1;
+    } else if (month > 2) {
+      result -= 2;
+    }
+
+    return result;
+  }
+  console.log(getDays(2022, 4, 1)); //91 
+  console.log(getDays(2022, 5, 10)); //130
+  console.log(getDays(2022, 1, 20)); //20
+  console.log(getDays(2000, 3, 20)); //31+29+20 = 80
+  console.log(getDays(2000, 2, 1)); //31+1 = 32
+</script>

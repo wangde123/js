@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.递归函数
+  // 1.概念：递归函数是一个函数通过函数名字调用自身的情况下构成的，也就是说函数内部调用函数自己。
+
+  // 2.递归的特点
+  // 递归和循环很相似，很多的递归可以直接使用循环实现，但是递归的代码(思路)更简洁一些。
+  // 递:传递，规律
+  // 归:返回，回来(基点：传递的结束条件，避免一直传递)
+
+  // 描述递归的场景
+  // 我问张三多少岁，比李四大10岁，李四多少岁，比王五大10岁.......
+  // 王五今年30岁(递归的基点)
+
+  // 二.程序的递归解读。
+  // 案例：1+2+3+4+....+10 = 55
+  // 循环实现
+  // for (var i = 1, sum = 0; i <= 10; i++) {
+  //   sum += i;
+  // }
+  // console.log(sum); //55
+
+  // 递归函数实现
+  // 相当于 var n = 10
+  function sum(n) {
+    //基点
+    if (n === 1) {
+      return 1;
+    }
+    return n + sum(n - 1);
+    // 推导过程
+    // 第一次：10+sum(9)
+    // 第二次：9 +sum(8)
+    // 第三次：8 +sum(7)
+    // 第四次：7 +sum(6)
+    // 第五次：6 +sum(5)
+    // 第六次：5 +sum(4)
+    // 第七次：4 +sum(3) = 4+3+2+1
+    // 第八次：3 +sum(2) = 3+2+1
+    // 第九次：2 +sum(1) = 2+1
+    // 第十次：sum(1) = 1;//基点
+  }
+
+  // console.log(sum(10)); //55
+  // 如果出现RangeError: Maximum call stack size exceeded的错误，称之为栈溢出，表示内存放不下。
+
+  // 案例：计算n的阶乘
+  // 5! = 5*4*3*2*1=>5*4!
+  // 4! = 4*3!;
+  // 3! = 3*2!;
+  // 2! = 2*1!;
+  // 1! = 1;//基点
+
+  // 第一次n=5
+  function calc(n) {
+    // 基点
+    if (n === 1) {
+      return 1;
+    }
+    return n * calc(n - 1);
+  }
+
+  // console.log(calc(5)); //120
+</script>

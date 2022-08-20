@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 1.案例：利用递归求斐波那契数列的第20项。
+  // F(1)=1，F(2)=1, F(n)=F(n - 1)+F(n - 2)（n ≥ 3，n ∈ N*）
+  // 1,1,2,3,5,8,13,21,34,55,89,........
+  // 结论：从第三位开始，每一位都是前面两位的和。
+  // n:表示位置，第几位。
+  // function feibo(n) {
+  //   //不管十第一位还是第二位，都是返回1，基点
+  //   if (n === 1 || n === 2) {
+  //     return 1;
+  //   }
+  //   return feibo(n - 1) + feibo(n - 2); //第一次：第20为等于第19位+第18位
+  // }
+
+  // console.log(feibo(20)); //6765
+
+  // for (var i = 1; i <= 21; i++) {
+  //   document.write(feibo(i) + ",");
+  // }
+
+  // 2.入职薪水10000，每年涨幅5%，第50年薪水是多少？（递归）
+  // 循环实现
+  // for (var year = 1, money = 10000; year <= 50; year++) {
+  //   money += money * 0.05; //money = money + money * 0.05;
+  // }
+
+  // console.log(money); //114673.99785753674
+  // function fn(
+  // ){
+  //   let a=1
+  //   return ++a
+  // }
+  // console.log(fn());
+  // let a=1
+  //   console.log(a++);
+  //   console.log(a);
+
+  function calc(money, year) {
+    //   // 从第一年开始，算到第50年结束。
+    if (year <= 50) {
+      return calc(money + money * 0.05, (year += 1));
+    }
+    return money;
+  }
+  console.log(calc(10000, 1)); //114673.99785753674
+
+  // 3.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+1/6...+1/n,当输入n为奇数时，调用函数求 1+1/3+1/5...+1/n.( 递归实现 )
+  // function calc(n) {
+  //   if (n === 1) {
+  //     return 1;
+  //   }
+  //   if (n === 2) {
+  //     return 1 / 2;
+  //   }
+  //   return calc(n - 2) + 1 / n;
+  // }
+
+  // console.log(calc(8)); //1/2+1/4+1/6+1/8=>calc(6)+1/8   1.0416666666666665
+  // console.log(calc(6)); //1/2+1/4+1/6=>calc(4)+1/6
+  // console.log(calc(4)); //1/2+1/4=>calc(2)+1/4
+  // console.log(calc(2)); //1/2 - 基点
+
+  // console.log(calc(7)); //1/1+1/3+1/5+1/7=>calc(5)+1/7
+  // console.log(calc(5)); //1/1+1/3+1/5=>calc(3)+1/5
+  // console.log(calc(3)); //1/1+1/3=>calc(1)+1/3
+  // console.log(calc(1)); //1/1 - 基点
+</script>

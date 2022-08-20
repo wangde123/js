@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 了解JavaScript的编译和执行
+  // 一.代码的执行过程
+  // 1.代码按照顺序执行，顺序过程中可能出现选择或者循环，但是选择中或者循环中依然遵循顺序执行。
+  // 正常的顺序：上--下，左--右，内--外(作用域链)
+
+  // 2.如果执行过程中出现错误，立刻停止下面的所有代码执行。
+
+  // 3.通过执行顺序中添加输出，检测代码那些地方有问题。
+  // console.log(1);
+  // console.log(2);
+  // consloe.log(3);
+  // console.log(4);
+  // console.log(5);
+  // 假设这里没有输出错误的行数，我也清楚console.log(4);之上和console.log(2);之下有错误
+
+  // 二.难点 - 代码逐行执行之前和代码写完还没预览之后发生的事情。
+  // 上面时间段的过程：JavaScript的预解析过程
+  // 预解析过程分为两大阶段
+  // 第一阶段：预编译过程.
+  // 1.找var关键字，如果找到了var关键字，提前将undefined给var后面的变量，继续找普通函数function关键字，如果找到了function,将整个function全部的结构体给function后面的名称。
+  // 2.如果函数名和变量名出现重名，函数名优先，变量名自动消失。
+  // 3.函数的参数类似于变量，函数内部同样做预解析，支持预解析。
+
+  // 第二阶段：逐行执行，浏览器逐行执行编写的代码，遇到错误终止，遇到普通函数声明跳过.....
+
+  // 案例1：下面这段代码预编译之后的结果
+  // a = undefined
+  // fn = function fn(){console.log('我是函数');}
+  // 预编译结束，第一阶段完成，然后执行第二阶段。
+
+  // console.log(a); //前面可以打印a的值，undefined
+  // fn(); //上面可以执行函数，结果和下面的执行是一样的。
+
+  // var a = 1; // 修改了预编译的值
+  // console.log(a); // 1  因为43行将预编译的结果赋值为1
+  // function fn() {
+  //   console.log("我是函数");
+  // }
+  // fn(); //和上面的fn执行的结果一样。
+
+  // 案例2：函数名和变量名重名的情况
+  // 预编译的结果
+ 
+//   a = function a() {
+//     console.log(1+2);
+//   };
+//  console.log(a)
+//  a()
+  // 逐行执行的结果
+  // alert(a); //function a() {console.log("我是函数2");}
+  // var a = 1; //将预编译a的修改为1
+  // alert(a); //1
+  // function a() {
+  //   console.log("我是函数1");
+  // }
+  // alert(a); //1
+  // var a = 2; //将a的值变成2
+  // alert(a); //2
+  // function a() {
+  //   console.log("我是函数2");
+  // }
+  // alert(a); //2
+
+  // 案例：函数的参数类似于变量，函数内部同样做预解析，支持预解析。
+  // 函数内部预编译的结果
+  // a = undefined;
+  // // 逐行执行函数
+
+  // //这里的参数a相当于函数内部的变量,在没有执行前，只是a没有初始化值，var a;
+  // function fn(a) {
+  //   console.log(a);
+  //   a = 2;
+  //   console.log(a);
+  // }
+  // fn(1); 
+  // console.log(a)//仅剩的逐行执行的代码,过程如下：
+  // // 过程
+  // // 1.先将实参1传给上面的a   此时我的预编译的结果被改变了a = 1
+  // // 2.执行79行，打印1
+  // // 3.80行将a的值改成2
+  // // 4.81行输出a的值是2
+  var a = 1;
+function fn() {
+console.log(a);
+a = 2
+console.log(a);
+}
+fn();
+console.log(a);
+</script>

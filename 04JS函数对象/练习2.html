@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box">box点击我</div> -->
+    <!-- <fieldset>
+        <legend>体重判断表</legend>
+        请输入身高：<input type="text" placeholder="cm" value="" id='height'><br>
+        请输入体重：<input type="text" placeholder="斤" value="" id='weight'><br>
+        检测结果：<input type="text" value="" id='scipt'><br>
+        <input type="button" value="开始检测" id='start'>
+
+    </fieldset> -->
+</body>
+
+</html>
+<script>
+    //一.函数的分类
+    //1.普通函数:普通函数也叫声明式函数，有函数名称的函数，普通函数可以在函数体的上面和下面调用
+    // fn()
+    // function fn(){
+    //     console.log('我是函数');
+    // }
+    // fn()
+    //2.函数表达式：没有名称的函数，也叫匿名函数
+
+    //二.函数表达式的细分
+    //1.函数表达式：将函数体赋值给某个变量
+    // var a=function fn(a,b){
+    // return "a+b"
+    // }
+    // console.log(a(2,3))
+    // console.log(fn(3,5));//fn失效了，没有必要添加函数名，只能通过变量名来调用
+
+    //区别是函数赋值给变量后不能前置访问，因为变量前置访问是underfined，underfined不能当作函数
+    // fn()报错，变量不能前置访问
+    // var fn=function(){
+    //     console.log("我是函数");
+    // }
+    // fn()
+
+    //2.事件处理函数：将函数体赋值给某个事件
+    //方法(alert,document.write,console.log,parseInt)
+    //被动的方法:事件
+    //点击了box才会执行函数
+    // box.onclick=function(){
+    //     alert('事件')
+    // }
+
+    // 案例：开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+    // 通过标签对象下面的value属性获取或者设置对应的值。
+    // start.onclick = function () {
+    //     if (height.value !== '' && weight.value !== '') {
+    //         //height.value用来获取value的值
+    //         var h = height.value//获取身高
+    //         var w = weight.value//获取体重
+    //         var weightmax = (h - 108) * 2 + 10//定义最大值
+    //         var weightmin = (h - 108) * 2 - 10//定义最小值
+    //         if (weight.value > weightmax) { scipt.value = '偏胖' } else if (weight.value < weightmin) { scipt.value = '偏瘦' } else if (weight.value < weightmax && weight.value > weightmin) { scipt.value = '标准' } else { scipt.value = '输入有误' }
+    //     } else { scipt.value = '请输入身高和体重' }
+    //     //scipt.value满足前面的条件接收的值
+    // }
+    //自执行函数：函数的声明和调用写到一起，仅执行一次
+    // (function fn(){
+    //     alert('我被执行了')
+    // })()
+    // 自执行函数可以有多种写法，但是仅调用一次,逻辑非!和+都可以将function转换一个整体。
+    //  +function fn(){
+    //      alert('我被执行了')
+    //  }()
+    // !function fn(){
+    //     alert('我被执行了')
+    // }()
+
+    //arguments
+    //1.arguments 是作者在函数内部添加的一个特殊对象，仅作用在函数内部
+    //2.函数体内可以通过arguments对象来接收传递过来的参数。
+    // 案例:求所有的实参的和
+
+    // function fn(){
+    //     // arguments.lenth//用来获取参数的长度20
+    //     // console.log(arguments.length)//20
+    //     // arguments[2]//通过索引编号获取对应的参数值，索引编号是默认从0开始的整数，通过中括号获取。0,1,2
+    //     // console.log(arguments[2]);0-20 21
+    //     // arguments[arguments.length-1]
+    // //    console.log(arguments[arguments.length-1])//20-1=19 0-19--20
+    // for(var a=0,reslt=0;a<arguments.length;a++){
+    //     reslt+=arguments[a]
+    // }
+    // return reslt;
+    // }
+
+    // console.log(fn(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20))
+
+    // var num = 10;
+    // fun();
+    // function fun() {
+    //     console.log(num);
+    //     var num = 20;
+    // }
+    // // 相当于执行了以下代码：
+    // // var num;//声明变量
+    // // function fun() {//函数没调用，跳过不执行
+    // //     var num
+    // //     console.log(num);
+    // //     var num = 20;
+    // // }
+    // // num = 10;//将外层num赋值为10
+    // // fun();//调用函数，返回函数内部，函数内部声明一个num，下面打印，因为未赋值，输出为underfined
+
+
+    // var num=10;
+    // function fn(){
+    //     console.log(num);
+    //     var num=20;
+    //     console.log(num);
+    // }
+    // fn();
+    // 相当于执行了以下代码：
+    // var num//声明变量
+    // function fn(){//函数未调用不执行
+    //     var num
+    //     console.log(num);
+    //      num=20;
+    //     console.log(num);
+    // }
+    // num=10;//外层的num为10
+    // fn();//调用函数，跳转到函数内部，第一个num就近原则，输出为underfined,第二个num赋值20，输出为20；
+
+    // var a=18;
+    // f1();
+    // function f1(){
+    //     var b=9;
+    //     console.log(a);
+    //     console.log(b);
+    //     var a='123';
+    // }
+    // 相当于执行了以下代码：
+    // var a;//声明变量名
+    // function f1(){//函数不调用
+    //     var b;
+    //     var a;
+    //      b=9;
+    //     console.log(a);
+    //     console.log(b);
+    //      a='123';
+    // }
+    // a=18;//外层赋值18
+    // f1()//调用函数，返回函数内部，console.log(a)离上面a最近，声明变量未赋值，未underfined,console.log(b)离上面b，b给了值为9,输出9
+
+
+    // f1();
+    // console.log(c);
+    // console.log(b);
+    // console.log(a);
+    // function f1() {
+    //     var a = b = c = 9;
+    //     console.log(a);
+    //     console.log(b);
+    //     console.log(c);
+    // }
+    // 相当于执行了以下代码
+    // function f1() {//函数不执行
+    //     var a;
+    //     a = b = c = 9;//var a=9;b=9;c=9;b和c直接赋值，没有var变量声明，当全局变量看
+    //     console.log(a);//9
+    //     console.log(b);//9
+    //     console.log(c);//9
+    // }
+    // f1();//函数调用，返回函数内部，a=b=c直接赋值为9，则输出，a b c为9，下面的log c和log b为9，a报错，因为上面c和b为全局变量
+    // console.log(c);//9
+    // console.log(b);//9
+    // console.log(a);//报错
+
+    // fun()
+    // var fun=function(){
+    //     console.log('我是函数');
+    // }
+    //相当于执行了以下代码
+    //var fun
+    //fun()
+    //fun=function(){console.log('我是函数');}
+
+
+    // fn()
+    // function fn(){
+    //     console.log('我是函数');
+    // }
+    //相当于执行了以下代码
+    //function fn(){ console.log('我是函数');}
+    //fn()
+    //function fn(){ console.log('我是函数');}
+
+
+    var a = 1;
+    function fn(a) {
+        console.log(a);
+        a = 2
+        console.log(a);
+    }
+    fn(a);
+    console.log(a);
+    //相当于执行了以下代码:
+    var a//声明变量a
+    function fn(a) {//函数不执行
+        console.log(a);
+        a = 2
+        console.log(a);
+    }
+    a = 1;//外层赋值为1
+    fn(a);//调用函数，返回函数内，上面的a赋值1后，第一个loga在内部往上找不到，会找外面的a，此时输出为1，下面的a赋值为2,输出为2
+    console.log(a);//往上找a,输出为1
+
+    var a = 1;
+    function fn() {
+        console.log(a);
+        a = 2
+        console.log(a);
+    }
+    fn();
+    console.log(a);
+    //相当于执行了以下代码:
+    var a;//声明变量a
+    function fn() {//函数未调用，不执行
+     console.log(a);
+     a = 2
+     console.log(a);
+    }
+    a = 1;//外层赋值1
+     fn();//调用函数，返回函数内部，第一个log往上找a,输出为1，下面的log往上找a,a赋值为全局变量，输出为2，第三个往上找a,a输出为2
+     console.log(a);//2
+
+
+        alert(a);
+    a();
+    var a = 3;
+    function a() {
+    alert(10);
+    }
+    alert(a);
+    function a() {
+    	alert(5);
+    }
+    a = 6;
+    alert(a);
+    var a = function() {
+    alert(8);
+    }
+    a();
+    //相当于执行了以下代码
+    // var a //声明变量a
+    // var a//再次声明
+    // function a() {//变量名与函数名重名，函数优先，变量名消失
+    // alert(10);
+    // }
+    function a() {//函数未调用
+    	alert(5);
+    }
+    alert(a);//打印整个函数function a(){alert(5)}
+    a();//函数调用返回函数内部，alert5
+    a = 3;//赋值a为3
+    alert(a);//alert3
+    a = 6;//赋值a为6
+    alert(a);//alert6
+    a = function() {//函数未调用
+    alert(8);
+    }
+    a();//函数调用alert8
+
+
+    var a = undefined;
+    (function () {
+        var a = b = 3;
+    })();
+    console.log(a);
+    console.log(b);
+    console.log(typeof a);
+    console.log(typeof b);
+    console.log(typeof a !== 'undefined');
+    console.log(typeof b !== 'undefined');
+    //相当于执行了以下代码:
+    var a;//声明变量a
+    (function () {
+        var a;
+        a = b = 3;//var a=3;b=3;c=3;
+    })();
+    a = undefined;//a为underfined
+    console.log(a);//undefined
+    console.log(b);//3
+    console.log(typeof a);//underfined
+    console.log(typeof b);//number
+    console.log(typeof a !== 'undefined');//false,关系运算符只输出布尔值ture和false
+    console.log(typeof b !== 'undefined');//true,关系运算符只输出布尔值ture和false
+
+    var x = 0;
+    var y = 0;
+    var z = 0;
+    function add(n) {
+        n = n + 1;
+        return n;
+    }
+    y = add(x);
+    console.log(y);
+    function add(n) {
+        n = n + 3;
+    }
+    z = add(x);
+    console.log(z);
+    //相当于执行了以下代码
+    var x//声明变量x
+    var y//声明变量y
+    var z//声明变量z
+    // function add(n) {//函数名重复，下面的会覆盖上面
+    //     n = n + 1;
+    //     return n;
+    // }
+     function add(n) {//函数未调用
+        var n
+
+        n = n + 3;
+    }
+    x = 0;//x赋值为0
+    y = 0;//y赋值为0
+    z = 0;//z赋值为0
+    y = add(x);//函数调用，重新定义变量并覆盖上面的变量，返回函数内部，n=3
+    console.log(y);//找不到y的变量，输出为underfined
+    z = add(x);////函数调用，重新定义变量并覆盖上面的变量，返回函数内部，n=3
+    console.log(z);//找不到z的变量，输出为underfined
+    
+</script>
