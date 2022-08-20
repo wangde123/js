@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HappyImage</title>
+		<style>
+			body{
+    background-color: #1F1F1F
+}
+			p {
+				text-align:center;
+				font-size:30px;
+				margin:20px 0;
+				color: aliceblue;
+			}
+            .target {
+				width:700px;
+				height:300px;
+				overflow:hidden;
+				position:relative;
+				margin:20px auto;
+			}
+			.target img {
+				position:absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+			}
+        </style>
+	</head>
+	<body>
+		
+		<p>滑动效果</p>
+		<div class="target" id="target-1">
+            <div>
+                <div><img src="https://www.jq22.com/demo/jqueryhapplblt201912172156/t4.png"></div>
+                <div><img src="https://www.jq22.com/demo/jqueryhapplblt201912172156/t2.png"></div>
+                <div><img src="https://www.jq22.com/demo/jqueryhapplblt201912172156/t3.png"></div>
+                <div><img src="https://www.jq22.com/demo/jqueryhapplblt201912172156/t4.png"></div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <p>淡入效果</p>
+        <div class="target" id="target-2">
+            <div>
+                <div><img src="t4.png"></div>
+                <div><img src="t3.png"></div>
+                <div><img src="t2.png"></div>
+                <div><img src="t1.png"></div>
+            </div>
+        </div>
+        
+        <!-- <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+        <script src="main.min.js"></script> -->
+        <!-- <script>
+            $( "#target-1" ).HappyImage({
+            	effect: "slide"
+            });
+            $( "#target-2" ).HappyImage({
+            	effect: "fade"
+            });
+        </script> -->
+
+	</body>
+</html>

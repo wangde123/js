@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* border: 10px solid blue;
+            padding: 10px;
+            margin: 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" title="标题" name="zhangsan" data-name="wangwu">1111111</div>
+    <input type="checkbox" checked>复选框
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<script>
+    // 1.animate(params,[speed],[easing],[fn])用于创建自定义动画的函数。
+    // params:对象格式，运动属性的终值(结束值)
+    // speed:可选的，运动的速度，单位是ms
+    // easing:可选的，运动的形式，linear匀速，swing缓冲(默认值)
+    // fn:可选的，链式运动的回调函数
+
+    // $('.box').on('mouseover', function() {
+    //     $(this).stop(true).animate({ //省略单位，如果添加单位就是字符串格式，注意引号。
+    //         width: 500,
+    //         height: '500px'
+    //     });
+    // });
+    
+
+    // $('.box').on('mouseout', function() {
+    //     $(this).stop(true).animate({ //省略单位，如果添加单位就是字符串格式，注意引号。
+    //         width: 100,
+    //         height: '100px'
+    //     });
+    // });
+
+    // 注意：jquery运动只要触发了就会载入队列(queue)中,一直到完成,解决方式就是在animate前面添加stop方法。
+
+    // 2.stop([clearQueue],[jumpToEnd])停止所有在指定元素上正在运行的动画。
+    // clearQueue:如果设置成true，则清空队列。可以立即结束动画。
+    // jumpToEnd:如果设置成true，则完成队列。可以立即完成动画。
+
+
+    // 3.显示隐藏
+    // show([speed,[easing],[fn]])显示隐藏的匹配元素(通过宽高和透明度)。
+    // hide([speed,[easing],[fn]])隐藏显示的匹配元素(通过宽高和透明度)。
+    // 一般情况当中display使用
+    $('.box').on('click', function() {
+        $(this).hide(3000);
+    });
+
+
+    // 4.读写css属性值
+    // css(name|pro|[,val|fn]):读写css属性值。
+    // 读
+    // console.log($('.box').css('width')); //100px
+    // console.log($('.box').css('backgroundColor')); //rgb(255, 0, 0)
+
+    // 写
+    // 逐个写入
+    // $('.box').css('width', '400px').css('height', '400px').css('background', 'blue');
+
+    // 整体写入，利用对象的格式，忽略单位
+    // $('.box').css({
+    //     width: 300,
+    //     height: 300,
+    //     background: 'orange'
+    // });
+
+    // 5.尺寸，读写盒子的宽高。
+    // width():读写css的width的值
+    // innerWidth():读写css的width的值 + padding的值
+    // outerWidth():读写css的width的值 + padding的值 + border的值 = 盒模型(offsetWidth)
+    // outerWidth(true):读写css的width的值 + padding的值 + border的值 + margin的值
+
+    // height()
+    // innerHeight()
+    // outerHeight()
+    // outerHeight(true)
+
+
+    // console.log($('.box').width()); //100
+    // console.log($('.box').innerWidth()); //100 + 20
+    // console.log($('.box').outerWidth()); //100 + 20 + 20
+    // console.log($('.box').outerWidth(true)); //100 + 20 + 20 + 20
+
+
+    // 6.元素的属性
+    // attr(name|properties|key,value|fn)设置或返回被选元素的属性值,包括自定义属性。
+    // console.log($('.box').attr('class'));
+    // console.log($('.box').attr('title'));
+    // console.log($('.box').attr('name'));
+    // console.log($('.box').attr('data-name'));
+    // console.log($('input').attr('checked')); //读取复选框返回的checked值分别是undefined/checked
+    // console.log('---------------------------------------------------');
+    // prop(name|properties|key,value|fn)设置或返回被选元素的属性值,不包括自定义的属性。
+    // console.log($('.box').prop('class'));
+    // console.log($('.box').prop('title'));
+    // console.log($('.box').prop('name'));
+    // console.log($('.box').prop('data-name'));
+    // console.log($('input').prop('checked')); //读取复选框返回的checked值分别是false/true,比较适合判断
+
+    // 7.offset([coordinates])获取匹配元素在当前视口的相对偏移（offsetLeft + offsetTop）
+    // 返回值是一个对象，里面包含两个属性left/top
+    // console.log($('.box').offset()); //{top: 8, left: 8}
+    // console.log($('.box').offset().left); //8
+    // console.log($('.box').offset().top); //8
+</script>

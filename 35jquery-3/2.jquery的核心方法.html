@@ -1,0 +1,118 @@
+<style>
+    .tab {
+        width: 402px;
+    }
+    
+    .title {
+        height: 30px;
+        border: 1px solid #ccc;
+    }
+    
+    .title a {
+        display: block;
+        width: 100px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        float: left;
+        background-color: #ccc;
+    }
+    
+    .title a.active {
+        background-color: orange;
+    }
+    
+    .pic {
+        width: 400px;
+        border: 1px solid #ccc;
+    }
+    
+    .pic img {
+        width: 400px;
+        display: none;
+    }
+    
+    .pic img.show {
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="#" class="active">第一张图</a>
+            <a href="#">第二张图</a>
+            <a href="#">第三张图</a>
+            <a href="#">第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="" class="img1">
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<script>
+    // 1.获取元素 - $符号获取一个或者多个元素。
+    // jquery下面获取元素如果不存在，不会报错，一定注意。原生js也不会报错，但是原生js会输出null.
+    // 简单的理解，将querySelector和querySelectorAll统一改成$符号即可。
+    // 通过内容，类型，属性等获取元素对象，没有比jquery更厉害的DOM操作。
+    // console.log($('.title a'));
+    // console.log($('.tab'));
+    // console.log($('.hehe')); //不存在，没有关系
+
+
+    // 2.on(events,[selector],[data],fn)在选择元素上绑定一个或多个事件的事件处理函数。
+    // 注意技巧：学习方法的过程中，如果参数写在中括号里面，表示该参数是可选的。
+    // events：事件类型，没有on，可以给事件绑定多个事件类型，空格分开。
+    // selector：可选的，表示事件委托的元素(表示的是委托的元素)
+    // data：可选的，事件可以传递数据，数据格式是对象。
+    // fn：事件处理函数，函数名或者函数体
+
+    // $('.title a').on('click mouseover', function() {
+    //     console.log(1);
+    // })
+
+    // $('.title a').on('click', function() {
+    //     alert(1);
+    // });
+
+    // 3.off(events,[selector],[fn])在选择元素上移除一个或多个事件的事件处理函数。
+    // $('.title a').off(); //全部移除
+    // $('.title a').off('click'); //移除一个
+
+
+    // 4.addClass(class|fn)为每个匹配的元素添加指定的一个或者多个类名。
+    // $('.title a').on('click', function() {
+    //     $(this).addClass('active')
+    // });
+
+
+    // 5.removeClass([class|fn])从所有匹配的元素中删除全部或者指定的类。
+
+    // 6.eq(index|-index)获取第N个元素,N就是索引，正数从前往后数，负数从后往前数。
+    // $('.title a').eq(0).removeClass();
+
+    // 7.index([selector|element])搜索匹配的元素，并返回相应元素的索引值，从0开始计数。
+    // 索引是兄弟元素的位置，可以通过参数进行筛选兄弟元素。
+    // console.log($('.img1').index('img')); //获取兄弟是img的位置索引  3
+
+
+    // 8.siblings([expr]):获取当前元素之外的兄弟元素。
+    // console.log($('.active').siblings());//其他的三个a元素
+
+
+    // 案例：选项卡
+    // $('.title a').on('click', function() {
+    //     //$(this).index():当前操作的标题索引
+    //     $(this).addClass('active').siblings().removeClass('active'); //当前的元素添加类型，其他的兄弟元素移除类名
+    //     $('.pic img').eq($(this).index()).addClass('show').siblings().removeClass('show');
+    // });
+</script>

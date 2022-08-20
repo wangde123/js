@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">123</div>
+</body>
+
+</html>
+<!-- 引入jquery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    // 一.jquery的概述
+    // 1.JQuery的官网
+    // 官方网站：http://jquery.com/
+    // 中文版：http://www.jquery123.com/
+
+    // jQuery 是一个高效、精简并且功能丰富的 JavaScript 工具库。write less do more 写的少，做的多。
+    // 这让诸如 HTML 文档遍历和操作、事件处理、动画和 Ajax 操作更加简单
+
+
+    // 2.如何引入JQuery
+    // https://www.bootcdn.cn/
+    // https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js
+
+
+    // 3.jquery类型下面最大的对象：jQuery
+    // jQuery对象的简写方式：$
+    // window.jQuery = window.$ = jQuery;
+
+
+    // 4.jQuery的链式操作
+    // 方法间能够形成链式操作，基于每一个方法返回当前的操作的jquery对象(原理：return this)
+    // $('.box').css('background', 'red').css('width', '200px').css('height', '200px'); //解读：每一个css方法都会将当前操作的元素对象返回。
+
+
+    // 5.jquery元素对象和原生js(前面学习的js语法)对象相互转换。
+    // jquery类库下面的方法可以分为两大类
+    // 工具方法：前面带有$.组成的，原生js对象和jquery对象都可以使用。
+    // 实例方法：其他的方法都是实例方法，必须给jquery对象使用
+
+    // 5.1.原生的js原生对象如何转换成jquery元素对象，通过$()将其包起来。
+    // 比如：$(this),$(document),$(window)
+    // console.log(document.querySelector('.box')); //原生js对象
+    // console.log($(document.querySelector('.box'))); //jquery对象
+    // console.log($('.box')); //jquery对象
+
+
+    // 5.2.jquery转原生js，通过get方法实现或者利用中括号添加索引即可。
+    // console.log(document.querySelector('.box'));
+    // console.log($('.box').get(0));
+    // console.log($('.box')[0]);
+
+
+    // 6.如何学习jquery
+    // 通过api查看方法，对于一些核心的方法，看到就明白它的意思。
+    // jquery将开发中常用的一些功能进行了封装，直接使用。
+</script>

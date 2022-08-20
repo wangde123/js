@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .banner {
+            width: 790px;
+            height: 340px;
+            margin: 20px auto;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .banner ul{
+            position:absolute;
+            left: 0;
+            top: 0;
+        }
+        .banner ul li{
+            float: left;
+            width: 790px;
+            height: 340px;
+        }
+        .show{
+            opacity: 1;
+        }
+        ol{
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+        }
+        ol li{
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            border-radius: 50%;
+            margin-right: 5px;
+            text-indent: -999em;
+
+
+        }
+        .active{
+            background-color: rosybrown;
+        }
+        .left,.right{
+            text-decoration: none;
+            position: absolute;
+            font-size: 50px;
+            color: aliceblue;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .left{
+            left: 20px;
+        }
+        .right{
+            right: 20px;
+        }
+
+    </style>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <ul>
+            <li class="show"><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="active">1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ol>
+        <a href="#" class="left">&lt;</a>
+        <a href="#" class="right">&gt;</a>
+    </div>
+    <div class="box">1</div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .scale {
+            margin: 20px 0 0 50px;
+        }
+        .spic{
+            width: 400px;
+            height: 400px;
+            float: left;
+            position: relative;
+            border: 1px solid #eee;
+        }
+        .spic img{
+            width: 400px;
+            height: 400px;
+            display: block;
+        }
+        .sf{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            opacity: 0.3;
+            position: absolute;
+            visibility: hidden;
+            top: 0;
+            left: 0;
+            cursor: move;
+        }
+
+        .bf{
+            float: left;
+            width: 500px;
+            height: 500px;
+            border:  1px solid #eee;
+            visibility: hidden;
+            overflow: hidden;
+            position: relative;
+        }
+        .bpic{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <div class="scale">
+        <div class="spic">
+            <img src="./O1CN017mvRjA1LbENAzZHTu_!!2624331317-0-cib.jpg" alt="">
+            <div class="sf"></div>
+        </div>
+        <div class="bf">
+            <img src="./O1CN017mvRjA1LbENAzZHTu_!!2624331317-0-cib.jpg" alt="" class="bpic">
+        </div>
+    </div>
+</body>
+
+</html>

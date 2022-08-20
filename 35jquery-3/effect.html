@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 402px;
+        }
+        
+        .title {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        
+        .title a {
+            display: block;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            float: left;
+            background-color: #ccc;
+        }
+        
+        .title a.active {
+            background-color: orange;
+        }
+        
+        .pic {
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+        
+        .pic img {
+            width: 400px;
+            display: none;
+        }
+        
+        .pic img.show {
+            display: block;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /* 拖拽的核心改变物体的位置，需要添加定位 */
+            position: absolute;
+        }
+    </style>
+    <script src="script/main.js" type="module"></script>
+    <!-- 
+      main.js模块的主入口文件，所有的模块通过main.js来调用
+     -->
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="#" class="active" j="0">第一张图</a>
+            <a href="#" j="1">第二张图</a>
+            <a href="#" j="2">第三张图</a>
+            <a href="#" j="3">第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="">
+        </div>
+    </div>
+
+    <hr>
+    <div class="box"></div>
+</body>
+
+</html>

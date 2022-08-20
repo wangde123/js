@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+        
+        .banner {
+            width: 790px;
+            height: 340px;
+            border: 1px solid black;
+            margin: 20px auto;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .banner ul li {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: 0;
+            transition: all 0.5s;
+            /* 切换过程 */
+        }
+        
+        .banner ul li.show {
+            opacity: 1;
+        }
+        
+        .banner ol {
+            position: absolute;
+            left: 30px;
+            bottom: 20px;
+        }
+        
+        .banner ol li {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            float: left;
+            margin-right: 5px;
+            border-radius: 50%;
+            text-indent: -999em;
+        }
+        
+        .banner ol li.active {
+            background-color: blue;
+        }
+        
+        .left,
+        .right {
+            position: absolute;
+            top: 50%;
+            font-size: 100px;
+            color: #fff;
+            text-decoration: none;
+            margin-top: -70px;
+        }
+        
+        .left {
+            left: 20px;
+        }
+        
+        .right {
+            right: 20px;
+        }
+    </style>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <!-- 搭建轮播图结构 -->
+    <div class="banner">
+        <ul>
+            <li class="show"><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="active">1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ol>
+        <a href="#" class="left">&lt;</a>
+        <a href="#" class="right">&gt;</a>
+    </div>
+</body>
+
+</html>
