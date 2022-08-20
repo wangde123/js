@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <p>我是原来就存在的</p>
+    </div>
+</body>
+
+</html>
+<script>
+    // 一.创建、添加、删除、克隆、替换
+    // 1.创建元素 - 重点
+    //document.createElement(元素节点)：创建一个元素节点，参数是创建的元素(标签名称)，追加给文档。
+    var cDiv = document.createElement('div'); //创建div元素，cDiv就是元素对象
+    cDiv.innerHTML = '我是创建出来的div里面的内容';
+    console.log(cDiv);
+    // 到这里仅表示元素已经创建，给了document,不会在文档中显示。
+
+    // 2.添加或者追加元素 - 重点
+    // appendChild(创建的元素):将创建的元素(只能算作子元素)追加给某个父元素的内部的最后位置。
+    document.body.appendChild(cDiv); //父元素可以是任意的元素
+    // var father = document.querySelector('.father'); //获取元素，当作创建元素的父元素。
+    // father.appendChild(cDiv);
+
+    // 3.插入元素 - 重点
+    // 父节点.insertBefore(新的节点,存在节点),在父节点内,把新的元素节点插入到已经存在的元素节点的前面
+
+    // var father = document.querySelector('.father'); //获取元素，当作创建元素的父元素。
+    // var p1 = document.querySelector('.father p'); //获取存在的元素。
+    // father.insertBefore(cDiv, p1); //将创建的元素cDiv插入到father盒子的内部，p标签的前面。
+
+    // 4.删除元素：两种方式删除元素 - 重点
+    // 4.1.删除内部的某个子元素 - removeChild()
+    // var father = document.querySelector('.father'); //父元素。
+    // var p1 = document.querySelector('.father p'); //子元素。
+    // father.removeChild(p1); //将father的子元素p1删除。
+    // 4.2.删除自身 - remove()
+    // var father = document.querySelector('.father'); //父元素。
+    // father.remove();
+
+
+    // 5.克隆元素 
+    // 元素.cloneNode(true)  克隆(复制)元素节点，如果参数为true，连同元素节点子元素一起克隆
+    // var father = document.querySelector('.father'); //父元素。
+    // var cloneFather = father.cloneNode(true); //如果参数为true，连同元素节点子元素一起克隆。
+    // document.body.appendChild(cloneFather);
+
+
+    // 6.替换子元素元素
+    // 父节点.replaceChild(新元素, 被替换的元素)
+    // var father = document.querySelector('.father'); //父元素。
+    // var p1 = document.querySelector('.father p'); //子元素。
+    // var cH1 = document.createElement('h1'); //创建h1
+    // cH1.innerHTML = '我是创建出来的';
+    // father.replaceChild(cH1, p1); //cH1替换p1,全部替换包括里面的内容。
+</script>

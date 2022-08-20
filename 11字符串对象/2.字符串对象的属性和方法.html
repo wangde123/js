@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.类数组 - 非常重要
+    // 类数组的概念：也叫伪数组，有一些对象它拥有length属性，且拥有为非负整数的属性(索引)，但是它又不能调用数组的方法，这种对象被称为类数组对象。
+    // 比如：arguments,字符串
+    // var str = 'hello';
+    // console.log(str.length); //5
+    // console.log(str[0]); //h
+    // console.log(str.push('hi')); //报错，不能调用数组的方法
+
+    // 二.字符串的方法
+    // 字符编码相关
+    // 1. charAt(num)：返回对应字符串索引的内容。
+    // var str = 'hello';
+    // console.log(str[0]); //h
+    // console.log(str.charAt(0)); //h
+
+    // 2. charCodeAt(num)：返回对应的字符串索引的内容的unicode编码
+    // 0-9:48-57
+    // A-Z:65-90
+    // a-z:97-122
+    // var str = 'abcdefg';
+    // console.log(str.charCodeAt(0)); //97
+
+    // 3. String.fromCharCode(unicode编码)：将参数中的unicode编码返回成对应的字符串的内容，多个编码用逗号分隔。
+    // console.log(String.fromCharCode(97)); //a
+    // console.log(String.fromCharCode(19987));
+    // for (var i = 0; i <= 50000; i++) {
+    //     document.write(String.fromCharCode(i))
+    // }
+
+    // var arr = [];
+    // for (var i = 65; i <= 90; i++) {
+    //     arr.push(String.fromCharCode(i))
+    // }
+    // console.log(arr);
+
+
+    // 大小写转换 - 重要
+    // 1. toUpperCase()： 转换成大写.
+    // 2. toLowerCase()： 转换成小写.
+    // var str = 'abcdEFGH';
+    // console.log(str.toUpperCase()); //ABCDEFGH
+    // console.log(str.toLowerCase()); //abcdefgh
+
+
+    // 截取字符串的方法 - 重要
+    // 1.substring()：用来截取字符串的内容
+    // var str = 'abcdefg';
+    // console.log(str.substring()); //abcdefg 没有参数，全部截取
+    // console.log(str.substring(2)); //cdefg  一个参数表示截取的起始位置的索引，从索引位置截取到结尾
+    // console.log(str.substring(2, 5)); //cde  表示起始和结束的索引位置，不包括结束位置。
+
+    // 特殊情况：负数当作0处理，如果第一个参数比第二个参数大，自动交互位置
+    // console.log(str.substring(2, -20)); //ab
+    // console.log(str.substring(2, -4)); //ab
+    // console.log(str.substring(2, -2)); //ab
+    // console.log(str.substring(2, 0)); //ab
+    // console.log(str.substring(0, 2)); //ab
+    // console.log(str.substring(-2, 2)); //ab
+
+    // 2.substr():用来截取字符串的内容，参1是开始的索引(如果为负数，从后往前进行数)，参2表示截取的长度，
+
+    // var str = 'abcdefg';
+    // console.log(str.substr(2, 3)); //cde
+    // console.log(str.substr(-2, 3)); //fg
+    // console.log(str.substr(-5, 3)); //cde
+
+
+    // 3.split():根据分隔符(参数)、将字符串拆分成数组，参1是分割字符串的符号。参2用来限制数组的长度 - 重要 - 对比join
+    // var str = 'abcdefg';
+    // console.log(str.split('d')); //['abc', 'efg']
+    // console.log(str.split('h')); //['abcdefg']
+    // console.log(str.split('')); //['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    // console.log(str.split('', 3)); //['a', 'b', 'c']
+
+    // 案例：
+    // 经典面试题
+    // 1.有一个字符串get-element-by-id,希望将其变成小驼峰命名getElementById
+    // split/substring/toUpperCase/join
+    // var str = 'get-element-by-id';
+    // console.log(str.split('-')); //['get', 'element', 'by', 'id']
+    // var arr = str.split('-'); //转换成数组
+    // // 遍历截取对应的值转换成大写字符，进行拼接会字符串
+    // // 从第二个数组项开始
+    // for (var i = 1; i < arr.length; i++) {
+    //     //                E  B  I                         lement   y   d
+    //     // console.log(arr[i].substring(0, 1).toUpperCase() + arr[i].substring(1));
+    //     arr[i] = arr[i].substring(0, 1).toUpperCase() + arr[i].substring(1)
+    // }
+    // console.log(arr.join('')); //getElementById
+ 
+  
+
+</script>

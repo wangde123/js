@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="link.html" id="link">跳转到link页面</a>
+</body>
+
+</html>
+<script>
+    // 一.时间戳的概念
+    // 1.时间戳是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总的毫秒数。1970年1月1日作为UNIX系统的纪元时间（开始时间）
+
+
+    // 2.如何获取时间戳。
+    // var timestamp = new Date().getTime() //推荐
+    // console.log(timestamp);
+    // var timestamp = Date.parse(new Date());
+    // console.log(timestamp);
+    // var timestamp = (new Date()).valueOf();
+    // console.log(timestamp);
+
+    // 3.这个值是时刻变化的(需要时刻变化的值，包括处理浏览器的缓存)
+
+    link.onclick = function() {
+        this.href = 'link.html?t=' + new Date().getTime();
+    }
+</script>

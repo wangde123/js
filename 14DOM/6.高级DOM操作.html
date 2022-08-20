@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul name="zhangsan" age="18">
+            <!-- 这里是一个盒子 -->
+            <li>11111</li>
+            <li>22222</li>
+            <li>33333</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    // 一.高级DOM操作
+    // 1.childNodes 获取当前元素节点的所有子节点,这里面包含空白节点，注释节点，但在IE9之前，IE浏览器会自动忽略空白节点.
+    // childNodes类数组，具有length属性和0开始非负整数的下标。
+    // var ul = document.querySelector('.box ul');
+    // console.log(ul.childNodes); //NodeList(9) [text, comment, text, li, text, li, text, li, text]  comment注释节点
+    // console.log(ul.childNodes.length); //9 长度
+    // console.log(ul.childNodes[0]); //第一个子元素  #text  空白文本节点
+    // console.log(ul.childNodes[5]); //<li>22222</li>
+
+    // 2.children 获取当前元素节点的所有子节点,仅获取元素节点，返回类数组。
+    // var ul = document.querySelector('.box ul');
+    // console.log(ul.children); //HTMLCollection(3) [li, li, li]
+    // console.log(ul.children.length); //3 长度
+    // console.log(ul.children[0]); //<li>11111</li>
+    // console.log(ul.children[5]); //undefined
+
+    // 获取ul元素
+    // var ul1 = document.querySelector('.box ul'); //获取元素，必须知道名称
+    // var ul2 = document.body.children[0].children[0]; //获取元素，无需知道名称
+    // var ul3 = document.body.childNodes[1].childNodes[1]; //获取空白和注释，无需知道名称
+    // console.log(ul1);
+    // console.log(ul2);
+    // console.log(ul3);
+
+    // 二.节点(标签可以叫元素，元素节点，元素对象)
+    // 1.节点可以分为元素节点、属性节点和文本节点,注释节点...，他们分别用不同的数字代表类型。
+    // 2.每一个节点有三个非常重要的属性。
+    // nodeType:节点类型   元素(1) 属性(2) 文本(3) 注释(8)
+    // nodeValue:节点的值
+    // nodeName:节点名称
+    // 演示元素节点
+    // var ul1 = document.querySelector('.box ul'); //元素节点
+    // console.log(ul1.nodeType); //1 
+    // console.log(ul1.nodeName); //UL   大写的标签名称
+    // console.log(ul1.nodeValue); //null
+
+    // 演示属性节点 - Attributes:获取元素对象里面的属性，返回类数组
+    // console.log(ul1.attributes);
+    // console.log(ul1.attributes.length); //2
+    // console.log(ul1.attributes[0]); //name="zhangsan"
+    // console.log(ul1.attributes[0].nodeType); //2
+    // console.log(ul1.attributes[0].nodeName); //name
+    // console.log(ul1.attributes[0].nodeValue); //zhangsan
+
+    // 演示文本节点 + 注释节点
+    // var t = document.body.childNodes[1].childNodes[1].childNodes[0]; //文本节点
+    // console.log(t); //#text
+    // console.log(t.nodeType); //3
+    // console.log(t.nodeName); //#text
+    // console.log(t.nodeValue); //换行的空隙
+
+    // var t = document.body.childNodes[1].childNodes[1].childNodes[1]; //注释节点
+    // console.log(t); //<!-- 这里是一个盒子 -->
+    // console.log(t.nodeType); //8
+    // console.log(t.nodeName); //#comment
+    // console.log(t.nodeValue); //这里是一个盒子
+</script>

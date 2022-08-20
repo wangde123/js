@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+//     window. onload=function(){
+// console.log(box1)
+//      }
+  </script>
+</head>
+
+<!-- <body style="height: 1200px;width: 10000px;"> -->
+  <!-- <div id="box1">我是box</div> -->
+  <!-- <div class="box">
+    <p class="p1">我是原来就存在的1</p>
+    <p class="p1">我是原来就存在的2</p>
+    <p class="p1">我是原来就存在的3</p>
+    <p class="p1">我是原来就存在的4</p>
+  </div> -->
+  <!-- <ul>
+    <li class="list">1</li>
+    <li>2</li>
+    <li class="list">3</li>
+    <li>4</li>
+    <li class="list">5</li>
+    <div class="box">
+      <ol>
+          <li>111111</li>
+          <li>222222</li>
+          <li>333333</li>
+          <li>444444</li>
+      </ol>
+  </div>
+</ul> -->
+</body>
+
+</html>
+<script>
+  //location：控制浏览器地址栏操作
+  //href:读取地址栏的内容
+  // console.log( location.href);
+  // location.href='https://www.jd.com/'//通过herf属性设置地址栏的信息
+
+
+  //reload(true) 刷新页面,如果参数为true,通过缓存刷新(第二次)
+  // 浏览器访问过的页面会被存储，所以第二次访问页面比第一次访问快，依靠浏览器的自动缓存。
+  // alert('hello')
+  // location.reload()//刷新页面
+  // location.reload(true)//刷新页面,第二次通过缓存刷新。
+
+  // 1.3.地址栏的完整的组成
+  //协议+域名+端口+路径+数据+哈希值
+  // 第一部分：协议(ftp,file,http,https,ws.....),浏览器自动添加协议，而且也会协议。
+  // 协议的功能：两台电脑要通信，必须添加协议。
+  // 第二部分：域名(网址,url)
+  // 电脑的唯一标识是ip地址，但是ip地址比较难记，才产生了域名，方便推广和记忆的。
+  // 域名需要用户独立注册的，监管制度。
+
+  // 第三部分：端口(设备与外界通讯交流的出口)
+  // 服务器：存储源码的，比较昂贵的电脑。
+  // 端口可以说是访问服务器的门，一个服务器可以存放多套程序，但是服务器对应一个ip，如何区分。
+  // 一台服务器对应一个ip地址，拥有5套程序，给一套程序配一个端口。
+  // http: //202.108.22.5/:3000   一个系统
+  // http: //202.108.22.5/:4000   一个系统
+  // http: //202.108.22.5/:5000   一个系统
+
+  // 端口的取值范围：0--65535   配置服务器时可以自定义。
+  // http协议的默认端口：80
+  // https协议的默认端口：443
+
+  // 第四部分：路径
+  // 进入服务器，访问文件的位置
+  // 例如：http://www.baidu.com/about/html/index.html
+  // 路径：/about/html/index.html
+  //https://list.jd.com/list.html?cat=1315,1342,1348
+  // 协议       域名    路径  
+
+  // 第五部分：数据
+  // 通过地址栏传输数据，通过路径后面添加?拼接数据，多条数据通过&符号连接。
+  // http://www.baidu.com/about/html/index.html?name=zhangsan&age=18&sex=男
+  //数据
+
+  // 第六部分：哈希值
+  // 通过路径后面添加#拼接对应的名称，实现单页面跳转应用。
+  // http://www.baidu.com/about/html/index.html?name=zhangsan&age=18&sex=男#about 哈希值
+  // 重点：通过location对象的hash属性获取#后面的数据，包括#。
+
+  // 总结location下面的属性和方法
+  // location.href 地址栏信息
+  // location.search ？数据
+  // location.hash 哈希值#
+  // location.reload() 刷新页面
+
+
+  // 一.了解window的其他子对象
+  // 1.history对象
+
+  // 浏览者通常可以使用浏览器的前进与后退按钮访问曾经浏览过的页面。JScript的history对象记录了用户曾经浏览过的页面，并可以实现浏览器前进与后退相似的导航功能。
+  // history.go() 函数 -- 前进或后退指定的页面数（负数后退，正数前进）
+  // history.length 属性 -- history对象中缓存了多少个URL
+
+
+  // 2.navigator对象:浏览器相关的信息
+  // userAgent  用户代理信息，通过该属性可以获取浏览器及操作系统信息
+  // console.log(window.navigator.userAgent);
+  // Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
+  // Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko
+  // Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)
+  // Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)
+
+  // -ms-
+  // -o-
+  // -webkit-
+  // -moz-
+  // console.log(window.navigator.userAgent);
+  //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36
+
+
+  // 1.浏览器(window)常用事件类型
+  // 1.1.onload事件：页面内容加载完成后触发此事件(DOM结构，图片等内容.....)
+  // 等到页面所以的内容加载完成，才会触发事件处理函数。
+  // 通过此事件在任意地方编写代码，不用考虑顺序，它总是最后执行
+
+  // 1.2.onscroll事件：拖动浏览器的滚动条触发此事件 - 高频事件(触发频率很高，随便拖到一下触发几次甚至10几次)
+  // var num = 0
+  // onscroll = function () {
+  //   num++
+  //   console.log(num)
+  //   location.href = 'http://www.jd.com';//拖动跳转京东
+  // }
+  // 1.3.onresize事件：浏览器窗口缩放所触发的事件。
+  // 当页面的可视区发生变化，立刻触发此事件，属于高频事件
+  // 可视区：浏览器能够看得见的地方。
+  // var num=0
+  // onresize=function(){
+  //   num++
+  //   console.log(num)
+  // }
+
+  // 1.可视区的宽高:浏览器内部看得见的区域。
+  // document.documentElement.clientWidth
+  // document.documentElement.clientHeight
+  // console.log(document.documentElement.clientWidth)
+  // console.log(document.documentElement.clientHeight);
+  // onresize=function(){
+  //   console.log(document.documentElement.clientWidth)
+  //   console.log(document.documentElement.clientHeight);
+  // }
+  // 2.滚动条距离：滚动条离起始点的位置
+  // document.documentElement.scrollTop
+  // document.documentElement.scrollLeft
+  //  window.onscroll=function(){
+  //     console.log(document.documentElement.scrollTop);//上下
+  //     console.log(document.documentElement.scrollLeft);//左右
+  //   }
+  // var i = 0
+  // var t = window.setInterval(function () {//开始
+  //   i++
+  //   console.log(i);
+  // }, 2000)
+  // window.clearInterval(t)//停止
+
+  // var i=0
+  // var t=null
+  //   box1.onclick = function () {
+  //     window.clearInterval(t)
+  //     t = window.setInterval(function () {//开始
+  //       i++
+  //       console.log(i);
+  //     }, 2000)
+  //   }
+  //   clearInterval(t)
+  // var t = setTimeout(function () {
+  //   location.href = 'http://www.jd.com';//延时定时器开始
+  // }, 2000)
+  // window.clearTimeout(t)//停止
+
+  // console.log(document.head)
+  // console.log(document.body);
+  // console.log(document.title);
+  // console.log(document.documentElement);
+
+  // alert(box1)//[object HTMLDivElement]
+  // console.log(box1);// <div id="box1">我是box</div>
+
+  //getElementById():获取包含此ID选择器的元素节点
+  // alert(document.getElementById("box1"))//[object HTMLDivElement]
+
+
+  //getElementsByClassName()获取相同类名的元素节点列表，返回类数组(length和从0开始非负整数的下标)
+
+// console.log(document.getElementsByClassName('list'));
+//  var lists=document.getElementsByClassName('list')
+//  console.log(lists)
+//  console.log(lists[0]);
+//  console.log(lists[1]);
+
+//getElementsByTagName()获取相同标签名称的节点列表，返回类数组，(length和从0开始非负整数的下标)
+// var lists=document.getElementsByTagName('li')
+// console.log(lists);
+// console.log(lists[0]);
+
+//使用最多的获取元素对象的方式 - 重点
+    // 如果给当前的元素添加css样式，先写选择器，我们这里将这个选择器当作方法的参数。
+    // 包含各种选择器：id，class,标签，包含......
+    //querySelector()//通过选择器获取元素， 如果获取多个只返回第一个
+  //  console.log(document. querySelector('.box ol li'));
+
+  //querySelectorAll()//通过选择器获取元素，可同时获取多个元素，类数组(length和从0开始非负整数的下标)
+  // var lists=document. querySelectorAll('.box ol li')
+  // console.log(lists);
+  // console.log(lists[2]);
+   // 将写css时的选择器当作这两个方法的参数即可。
+
+
+//    document.createElement(元素节点)//创建元素
+//    appendchild(创建元素)//将创建的元素(只能算作子元素)追加给某个父元素的内部的最后位置。
+//   父节点. insertBefore(新节点,存在的节点)//在父节点内,把新的元素节点插入到已经存在的元素节点的前面
+//  removeChild()//删除内部的某个子元素
+//  remove()//删除自身
+//   元素.cloneNode(true) //克隆元素节点,如果参数为true,连同元素节点子元素一起克隆
+//   父节点.replaceChild(新元素, 被替换的元素)//替换子元素
+
+// //创建元素
+// cDiv=document.createElement('div')
+// cDiv.innerHTML='div里的内容'
+// //追加元素
+// document.body.appendChild(cDiv)//放在body后面的最后位置
+
+
+// var p1=document.querySelector('.p1')//获取原来就存在的元素
+// var father=document.querySelector('.box')//获取父元素这个盒子
+// cDiv=document.createElement('div')//创建新元素
+// cDiv.innerHTML='div里的内容'//新元素内容
+// father.insertBefore(cDiv,p1)//将创建的新元素追加到原来的元素的前面
+
+
+// var father=document.querySelector('.box')
+// var child=document.querySelector('.p1')
+// father.removeChild(child)
+// father.remove()
+
+
+// var father=document.querySelector('.box')
+// console.log(father.cloneNode(true));
+// console.log(father.cloneNode());
+
+// var father=document.querySelector('.box')
+// var child=document.querySelector('.p1')
+// var ch=document.createElement('h1')
+// ch.innerHTML='我是创建的'
+// father.replaceChild(ch,child)
+</script>
+</script>

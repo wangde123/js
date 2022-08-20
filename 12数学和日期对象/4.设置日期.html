@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.设置日期
+    // 1.利用字符串设置日期，注意这种设置不会自动进位，不会月份自动+1
+    // var d = new Date('2022-10-1 12:13:14');
+    // console.log(d.toLocaleString()); //2022/10/1 下午12:13:14
+
+    // var d = new Date('2022/10/1 12:13:14');
+    // console.log(d.toLocaleString()); //2022/10/1 下午12:13:14
+
+    // var d = new Date('2022.10.1 12:13:14');
+    // console.log(d.toLocaleString()); //2022/10/1 下午12:13:14
+
+    // var d = new Date('2022\10\1 12:13:14'); //这里会出现问题，\在很多语言里面表示转义字符。
+    // console.log(d.toLocaleString()); //2022/1/1 下午12:13:14
+
+    // var d = new Date('2022-15-40 12:13:14');
+    // console.log(d.toLocaleString()); //Invalid Date(无效的日期)
+
+
+    // 2.利用数字设置日期，数字间用逗号分隔，设置的数字如果超过6个，多的自动去掉。
+    // 月份自动+1，超过范围自动进位。
+    // var d = new Date(2022, 10, 1, 12, 13, 14);
+    // console.log(d.toLocaleString()); //2022/11/1 下午12:13:14
+    // var d = new Date(2022, 15, 1, 12, 13, 14);
+    // console.log(d.toLocaleString()); //2023/4/1 下午12:13:14
+
+    // 3.利用日期对象提供的方法进行设置，会自动进位。
+    // getFullYear/setFullYear
+    // getMonth/setMonth
+    // getDate/setDate
+    // getHours/setHours
+    // getMinutes/setMinutes
+    // getSeconds/setSeconds
+
+    // var d = new Date();
+    // d.setDate(d.getDate() + 10);
+    // console.log(d.toLocaleString()); //10天后的日期    2022/4/22 下午2:36:31
+
+    // var d = new Date();
+    // d.setMonth(d.getMonth() + 4); //月份已经自动+1
+    // console.log(d.toLocaleString()); //2022/8/12 下午2:38:59
+</script>

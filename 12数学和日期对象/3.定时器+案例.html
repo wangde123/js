@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button id="box">停止定时器</button> -->
+
+    <div id="time"></div>
+</body>
+
+</html>
+<script>
+    // 一.间隔定时器:约定的时间内反复执行代码。
+    // 1.开启间隔定时器的方法：window.setInterval(function(){},1000)  约定的时间内反复执行里面的函数。
+    // 参1：函数名或者函数体
+    // 参2：时间，单位是毫秒(ms)
+    // var i = 0;
+    // var t = setInterval(function() { //每隔1s执行一次函数。
+    //     i++;
+    //     console.log(i);
+    // }, 1000);
+
+
+    // 2.关闭间隔定时器的方法：window.clearInterval(定时器的返回值)
+    // 参1：开启定时器时的返回值,返回值不需要知道具体的值，存入变量即可。
+    // box.onclick = function() {
+    //     clearInterval(t);
+    // };
+
+    // 二.获取元素对象(标签)的内容。
+    // 1.通过id选择器获取元素对象。
+    // console.log(box);
+    // 2.通过innerHTML属性读写元素对象里面的内容，包括标签。
+    // console.log(box.innerHTML); //读
+    // box.innerHTML = '<h1>我是新的值</h1>'; // 写
+
+
+    // 三.页面动态输出当前的年月日 星期  时分秒
+    // function showDate() {
+    //     var d = new Date();
+    //     var week = null; //接收星期
+    //     switch (d.getDay()) {
+    //         case 1:
+    //             week = '星期一';
+    //             break;
+    //         case 2:
+    //             week = '星期二';
+    //             break;
+    //     }
+    //     time.innerHTML = d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日' + week + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    // }
+    // showDate();
+    // setInterval(showDate, 1000); //注意此时的参数是函数体，给定时器调用的，不是函数自己调用，
+    // setInterval(showDate(), 1000); //下面的格式是错误的,不是自己调用，是定时器调用
+</script>

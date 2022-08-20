@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 402px;
+        }
+        
+        .title {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        
+        .title a {
+            display: block;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            float: left;
+            background-color: #ccc;
+        }
+        
+        .title a.active {
+            background-color: orange;
+        }
+        
+        .pic {
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+        
+        .pic img {
+            width: 400px;
+            display: none;
+        }
+        
+        .pic img.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="#" class="active">第一张图</a>
+            <a href="#">第二张图</a>
+            <a href="#">第三张图</a>
+            <a href="#">第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 第一步：获取元素
+    var links = document.querySelectorAll('.title a'); //4个标题  类数组
+    var imgs = document.querySelectorAll('.pic img'); //4个图片  类数组
+
+    // 第二步：选项卡的思路，标题和图片匹配，映射关系。
+    // 思路：
+    // 通过事件处理函数里面通过this找到当前操作的元素(标题)
+    // 能够找到当前操作的元素(标题)里面的自定义属性(属性值就是标题的索引)
+    // 通过自定义属性找准标题的索引,标题和图片是映射关系，将索引给图片，形成一一匹配。
+    // 1.给四个标题同时添加点击事件
+    for (var i = 0; i < links.length; i++) { //i:0,1,2,3
+        // 2.通过自定义对象的操作，通过点或中括号给元素对象添加自定义的属性，比写死要方便
+        console.log(i)
+        // links[i].hehe = i; //添加自定义索引（自定义属性）
+        // links[i].onclick = function() {
+        //     //i:不能使用，表示循环的结束值4，因为只要事件存在，说明循环结束了。
+
+
+        //     // for (var i = 0; i < links.length; i++) {
+        //     //     //提前将所有标题上面的类名active给删掉，下面的代码会给当前的加上
+        //     //     links[i].className = '';
+
+        //     //     //提前将所有图片上面的类名show给删掉，下面的代码会给当前的加上
+        //     //     imgs[i].className = '';
+        //     // }
+
+        //     // this当前点击的标题
+        //     // this.className = 'active'; //className属性是用来读写元素里面的类名，不能使用class，class被作者用来js里面的面向对象里面，当作类使用。
+        //     // this.hehe获取标题里面的索引值。
+        //     // imgs[this.hehe].className = 'show'; //和标题对应的图片显示，标题的索引和图片的索引一样的。
+        // }
+    }
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 已知字符串"sfadjkleriuwqofhskadjfhzcvxbnveywqriufgewyqrutfdashgfvcxznvfdahtueqtr"编程实现以下功能:
+    // 统计每个字符出现的次数，显示结果;
+    // 去掉重复的字符
+    // 第一步去重
+    // 第二步统计字符出现的次数 - (如何联想到对象接收结果??)
+
+    // var str = 'sfadjkleriuwqofhskadjfhzcvxbnveywqriufgewyqrutfdashgfvcxznvfdahtueqtr';
+    // var obj = {}; //接收字符出现的次数
+    // // 将字符串变成数组，排序方便统计
+    // var arr = str.split('').sort(); //去重前的数组
+    // var newArr = []; //接收去重后的数组
+    // console.log(arr);
+    // //['a', 'a', 'a', 'a', 'b', 'c', 'c', 'd', 'd', 'd', 'd', 'e', 'e', 'e', 'e', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'g', 'g', 'h', 'h', 'h', 'h', 'i', 'i', 'j', 'j', 'k', 'k', 'l', 'n', 'n', 'o', 'q', 'q', 'q', 'q', 'r', 'r', 'r', 'r', 's', 's', 's', 't', 't', 't', 'u', 'u', 'u', 'u', 'v', 'v', 'v', 'v', 'w', 'w', 'w', 'x', 'x', 'y', 'y', 'z', 'z']
+    // // 采用标记思维实现去重
+    // // 进场(携带标记)
+    // arr.forEach(function(value) { //value:每一个数组项的值
+    //     var flag = 1; //每一个数组项带上flag标记进场
+
+    //     // 检测
+    //     newArr.forEach(function(item) { //遍历新数组，一开始是空的  item新数组的每一项值
+    //         if (value === item) { //满足条件说明arr数组项存在newArr中
+    //             obj[value]++; //走这里，至少是第二次，每一次+1.  obj.a=4
+    //             flag = 2;
+    //         }
+    //     });
+    //     // 出场(标记进行回收)
+    //     // 思考问题：走这里都是第一次出现的，长度应该是1
+    //     if (flag === 1) {
+    //         obj[value] = 1; //obj.a = 1
+    //         newArr.push(value);
+    //     }
+    // });
+
+
+    // console.log(newArr.join('')); // abcdefghijklnoqrstuvwxyz
+
+    // console.log(obj); //个数
+
+</script>

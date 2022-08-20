@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div class="box">
+        <ul>
+            <li>11111111</li>
+            <li>2222222</li>
+            <li>333333</li>
+            <li>4444444</li>
+            <li>55555555</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+ //1.innerHTML : 读写元素节点里的内容（包括元素）,从节点起始位置到终止位置全部内容,包括内部的元素。
+ var di=document.querySelector('.box')
+//  console.log(di);
+//  console.log(di.innerHTML);
+//  di.innerHTML='<strong>123</strong>'
+//2.outerHTML : 读写元素节点里的内容（包括元素）,除了包含innerHTML全部内容外, 还包含元素节点本身。
+// console.log(di.outerHTML)
+//  // 3.innerText    : 读写某个元素节点的文本内容。不包含标签
+//  console.log(di.innerText);
+ // 案例：输出无序列表，里面包含1000个li
+// var str='<ul>'
+//     for(var i=1;i<=1000;i++){
+//         str+='<li>'+i+'</li>'
+//     }
+//     str+='</ul>'
+//     document.body.innerHTML=str
+
+
+
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1111111</li>
+        <li>2222222</li>
+        <li>3333333</li>
+        <li>4444444</li>
+    </ul>
+</body>
+
+</html>
+<script>
+    // 高级选取： 第一个子节点， 最后一个子节点， 上一个兄弟节点， 下一个兄弟节点(包含空白和不包含空白等分成8个属性)
+    // var ul = document.body.children[0];
+    // console.log(ul);
+    // firstChild: 第一个子节点(包含空白)
+    // console.log(ul.firstChild); //换行空白  #text
+    // firstElementChild: 第一个子节点(不包含空白)
+    // console.log(ul.firstElementChild); //<li>1111111</li>
+    // lastChild: 最后一个子节点(包含空白)
+    // console.log(ul.lastChild); //换行空白  #text
+    // lastElementChild: 最后一个子节点(不包含空白)
+    // console.log(ul.lastElementChild); // <li>4444444</li>
+
+    // previousSibling: 上一个兄弟节点(包含空白)
+    // console.log(ul.firstElementChild); //<li>1111111</li>
+    // console.log(ul.firstElementChild.previousSibling); //空白节点，换行  #text
+    // previousElementSibling: 上一个兄弟节点(不包含空白)
+    // console.log(ul.firstElementChild.previousElementSibling); //null
+    // nextSibling: 下一个兄弟节点(包含空白)
+    // console.log(ul.firstElementChild.nextSibling); //空白节点，换行  #text
+    // nextElementSibling: 下一个兄弟节点(不包含空白)
+    // console.log(ul.firstElementChild.nextElementSibling); //<li>22222222</li>
+</script>

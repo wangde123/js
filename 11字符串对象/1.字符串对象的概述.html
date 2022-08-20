@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      height: 100px;
+      background-color: blue;
+    }
+    footer {
+      height: 100px;
+      background-color: red;
+    }
+    .container {
+      height: calc(100% - 200px);
+    }
+  </style>
+
+  <body>
+    <header></header>
+    <div class="container"></div>
+    <footer></footer>
+  </body>
+</html>
+<script>
+  // 一.六大对象 - 一切皆对象
+  // 六大对象是任何一门语言都具有的基础。
+  // 1.自定义对象
+  // 2.函数对象
+  // 3.数组对象
+  // 4.字符串对象(包装对象)
+  // 5.数学对象
+  // 6.日期对象
+
+  // 二.字符串对象
+  // 1.字符串对象也有两种创建方式
+  // 1.1.构造函数创建 - 不推荐，系统帮助我们完成的。
+  // var str1 = new String('hello');
+  // console.log(str1);
+  // console.log(typeof str1); //object
+  // 1.2.字面量创建 - 推荐的字符串的创建方式
+  // var str2 = 'hello';
+  // console.log(str2);
+  // console.log(typeof str2); //string
+  // console.log(str1 == str2); // true 值是相等的
+
+  // 2.字符串叫做字符串对象，但是字符串是属于基本类型，为什么基本类型具有属性和方法????
+  // 基本类型下面的number/string/boolean叫做包装对象，不是真正的对象。
+  // 包装对象：
+  // 当我们使用包装对象的属性和方法的时候，系统会自动临时帮我们以对象的形式创建这个值，但是执行完成之后，自动生成的对象会立刻销毁。
+
+  // 例子：
+  // 包装对象
+  // var str = 'hello';
+  // str.length = 3; // var str = new String('hello')系统自动完成的, 执行完即销毁
+  // console.log(str.length); //5   var str = new String('hello')系统自动完成的，用完即销毁
+
+  // 真正的对象
+  // var arr = [1, 2, 3, 4, 5];
+  // arr.length = 3;
+  // console.log(arr.length); //3
+
+  // var arr1 = [];
+  // arr1.hehe = 100;
+  // console.log(arr1.hehe); //100
+
+  // var a = 1;
+  // a.b = 2;
+  // console.log(a.b); //undefined
+  // let arr = [1, [5, 3, 9, 6], [6, 4, [1, 5, [3, 2, 7]]], [8, 7, 4, 0, [8, 9]]];
+  // console.log([...new Set(arr.flat(Infinity))].sort((a, b) => b - a));
+  // function fn(arr) {
+  //   return [...new Set(arr.flat(Infinity))].sort((a, b) => b - a);
+  // }
+  // console.log(fn(arr));
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="pic.jpg" alt="商品图片" class="pic" tips="我是tips里面的内容" aaa="bbbbbb">
+    <!-- <img src="pic.jpg" alt="商品图片" class="pic" data-name="zhangsan" data-age="18" data-sex="男"> -->
+
+</body>
+
+
+</html>
+<script>
+    // 一.元素属性的操作
+    // 元素属性：标签里面除了标签名之外的内容(src/alt/class)
+    // var img = document.querySelector('img'); //获取图片对象
+    // 1.读写默认(标签本身具有的)的属性。
+    // console.log(img.src);
+    // console.log(img['src']);
+    // img.src = 'pic1.jpg';
+
+    // 2.读写自定义的属性。
+    // 2.1.利用对象的操作方式，点和中括号无法获取元素里面设置(写死)的自定义属性 - 重点
+    // 除非你使用对象的点和中括号设置的属性(设置的属性在结构中不可见)，才可以使用对象的操作方式获取
+    // console.log(img.tips); //undefined,无法获取
+    // img.hehe = '我是自定义属性';
+    // console.log(img.hehe); //我是自定义属性
+
+
+    // 2.2.系统提供了三个方法，可以读写删自定义或者默认的属性
+    // getAttribute() 获取特定元素节点属性的值,包括自定义属性和默认属性
+    // console.log(img.getAttribute('tips')); //我是tips里面的内容
+    // console.log(img.getAttribute('aaa')); //我是tips里面的内容
+    // setAttribute() 设置特定元素节点属性的值,包括自定义属性和默认属性
+    // img.setAttribute('data-name', 'zhangsan');
+    // removeAttribute() 移除特定元素节点属性,包括自定义属性和默认属性
+    // img.removeAttribute('tips');
+    // img.removeAttribute('aaa');
+    // img.removeAttribute('src');
+
+    // 这里的三个方法仅适合一种场景：元素对象里面已经写死了自定义属性。
+
+
+    // 二.dataset属性操作 - 重点
+    // html5中我们可以使用data-前缀设置我们需要的自定义属性,来进行一些数据的存放,这里的data-前缀就被称为data属性,数量不受限制,在控制和渲染数据的时候提供了非常强大的控制.
+    // var img = document.querySelector('img'); //获取图片对象
+    // console.log(img.dataset); //一次性获取，转换成对象格式 {name: 'zhangsan', age: '18', sex: '男'}
+    // console.log(img.dataset.name);
+    // console.log(img.dataset.age);
+    // console.log(img.dataset['sex']);
+</script>

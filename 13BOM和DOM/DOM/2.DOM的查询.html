@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">id选择器box</div>
+    <ul>
+        <li class="list">1</li>
+        <li>2</li>
+        <li class="list">3</li>
+        <li>4</li>
+        <li class="list">5</li>
+    </ul>
+    <div class="box">
+        <ol>
+            <li>111111</li>
+            <li>222222</li>
+            <li>333333</li>
+            <li>444444</li>
+        </ol>
+    </div>
+</body>
+
+</html>
+<script>
+    // 一.DOM查询 - 查找页面的元素
+    // 1.直接通过id选择器获取,alert输出元素的值，console.log输出元素的结构，结果是一样的,仅表示输出的区别。
+    // alert(box); //[object HTMLDivElement]
+    // console.log(box); //<div id="box">id选择器box</div>
+
+    // 2.getElementById():获取包含此ID选择器的元素节点
+    // alert(document.getElementById('box'));//[object HTMLDivElement]
+
+    // 3.getElementsByClassName()获取相同类名的元素节点列表，返回类数组(length和从0开始非负整数的下标)
+    // var lists = document.getElementsByClassName('list'); //获取三个包含list类的li标签
+    // console.log(lists); //HTMLCollection(3) [li.list, li.list, li.list]
+    // console.log(lists[0]);
+    // console.log(lists[1]);
+    // console.log(lists[2]);
+
+    // 4.getElementsByTagName()获取相同标签名称的节点列表，返回类数组，(length和从0开始非负整数的下标)
+    // var lists = document.getElementsByTagName('li');
+    // console.log(lists); //HTMLCollection(5) [li.list, li, li.list, li, li.list]
+    // console.log(lists.length); //5
+
+
+    // 5.使用最多的获取元素对象的方式 - 重点
+    // 如果给当前的元素添加css样式，先写选择器，我们这里将这个选择器当作方法的参数。
+    // 包含各种选择器：id，class,标签，包含......
+    // querySelector() 通过选择器获取元素， 如果获取多个只返回第一个。
+    // console.log(document.querySelector('.box ol li'));
+    // querySelectorAll() 通过选择器获取元素，可同时获取多个元素，类数组(length和从0开始非负整数的下标)
+    // var lists = document.querySelectorAll('.box ol li');
+    // console.log(lists); //NodeList(4) [li, li, li, li]
+    // console.log(lists.length); //4
+    // console.log(lists[0]); // <li>111111</li>
+    // 将写css时的选择器当作这两个方法的参数即可。
+</script>

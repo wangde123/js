@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 200px;
+            background-color: #ff0000;
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            margin: 20px;
+            padding: 10px;
+            border: 5px solid blue;
+            font-size: 18px;
+        }
+        
+        .father {
+            position: absolute;
+            left: 200px;
+            top: 100px;
+            width: 300px;
+            height: 400px;
+            /* border: 1px solid orange; */
+        }
+        
+        #hehe {
+            width: 200px;
+            height: 200px;
+            background-color: #abcdef;
+        }
+    </style>
+</head>
+<body>
+   <div class="father">
+        <div class="box"></div>
+    </div>
+    <hr>
+    <div class="header"></div>   
+</body>
+</html>
+<script>
+   // 1.offsetWidth、offsetHeight：获取盒模型(width+border+padding)的尺寸
+//    var sr=document.querySelector('.box')
+//    console.log(sr.offsetWidth,sr.offsetHeight)
+
+  // 2.offsetLeft、offsetTop：获取元素相对可视区的位置，无论是否有定位，都可以获取。
+//   var sr=document.querySelector('.box')
+//   console.log(sr.offsetLeft);// 有定位 使用定位值50 + margin20 = 70
+//   console.log(sr.offsetLeft);//没有定位输出28   默认的8 + margin20 = 28
+//   console.log(sr.offsetLeft);//// 父级有定位，以父级为基准，使用定位值50 + margin20 = 70
+
+ // 3.offsetParent ：获取元素的定位父级,如果不存在定位父级，输出body
+ var sr=document.querySelector('.box')
+ console.log(sr.offsetParent);
+</script>

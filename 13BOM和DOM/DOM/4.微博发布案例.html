@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            padding: 30px;
+        }
+        
+        li {
+            list-style: none;
+            padding: 10px;
+            width: 600px;
+            line-height: 24px;
+            font-size: 14px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog">
+        <textarea name="" id="" cols="80" rows="10"></textarea><br>
+        <button>发布内容</button>
+        <ul class="list">
+
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+  
+    
+
+
+    // // 第一步，获取元素
+    // var textarea = document.querySelector('.blog textarea');
+    // var btn = document.querySelector('.blog button');
+    // var list = document.querySelector('.list');
+    // // 第二步，添加点击事件
+    // btn.onclick = function() {
+    //     if (textarea.value !== '') { //判断textarea框里面是否存在内容,通过自动的value属性
+    //         var cLi = document.createElement('li'); //创建li元素
+    //         cLi.innerHTML = textarea.value; //将文本框的内容赋值给li元素
+    //         // 最后插入的元素添加到最上面，必须使用插入完成。
+    //         // 新的知识：
+    //         // children属性：获取某个元素对象的子元素，类数组。
+    //         list.insertBefore(cLi, list.children[0]); //插入元素,将当前创建的cLi元素插入到list的第一个子元素的上面。即使 list.children[0]不存在，insertBefore也不会报错。
+    //         textarea.value = ''; //清空文本区域
+    //     } else {
+    //         alert('请输入内容');
+    //     }
+    // }
+</script>

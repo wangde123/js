@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 30px;
+        }
+
+        li {
+            list-style: none;
+            padding: 10px;
+            width: 600px;
+            line-height: 24px;
+            font-size: 14px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog">
+        <textarea name="" id="" cols="80" rows="10"></textarea><br>
+        <button>发布内容</button>
+        <ul class="list">
+
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    var textarea = document.querySelector('textarea')
+    var btn = document.querySelector('.blog button')
+    var lists = document.querySelector('.list')
+    btn.onclick = function () {
+        if (textarea.value !== '') {
+            var cLi = document.createElement('li')
+            cLi.innerHTML = textarea.value
+            lists.insertBefore(cLi, lists.children[0])
+textarea.value=''
+cLi.onclick=function(){
+    cLi.remove()
+}
+        } else { alert('请输入内容') }
+    }
+</script>

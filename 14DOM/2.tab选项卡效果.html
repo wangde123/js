@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 402px;
+        }
+        
+        .title {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        
+        .title a {
+            display: block;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            float: left;
+            background-color: #ccc;
+        }
+        
+        .title a.active {
+            background-color: orange;
+        }
+        
+        .pic {
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+        
+        .pic img {
+            width: 400px;
+            display: none;
+        }
+        
+        .pic img.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="#" class="active" j="0">第一张图</a>
+            <a href="#" j="1">第二张图</a>
+            <a href="#" j="2">第三张图</a>
+            <a href="#" j="3">第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 第一步：获取元素
+    var links = document.querySelectorAll('.title a'); //4个标题  类数组
+    var imgs = document.querySelectorAll('.pic img'); //4个图片  类数组
+
+    // 第二步：选项卡的思路，标题和图片匹配，映射关系。
+    // 1.给四个标题同时添加点击事件
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = function() {
+            // i:4 这里的i是循环的最后一次值。循环不结束，就不会有点击事件。
+            // this:谁调用函数，this指向谁,this指向当前点击的标题。
+            // 类选择的名称必须通过className属性获取，不能直接使用class获取，因为class被其他内容占有了
+            for (var i = 0; i < links.length; i++) { //清空所有标题上面的类名
+                links[i].className = '';
+                imgs[i].className = '';
+            }
+            this.className = 'active'; //当前点击的标题赋值新的类名。
+            imgs[this.getAttribute('j')].className = 'show'; //this.getAttribute('j'):当前标题身上的自定义属性值，和图片的长度一致
+        }
+    }
+</script>

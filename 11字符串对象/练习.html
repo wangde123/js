@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 1.字符串对象也有两种创建方式
+  // // 1.1.构造函数创建 - 不推荐，系统帮助我们完成的。
+  // var str = new String('hello')
+  // console.log(str);//String {'hello'}
+  // console.log(typeof (str))//object
+
+  // //字面量创建
+  // var str1 = 'hello'
+  // console.log(str1)//hello
+  // console.log(typeof (str1));//string
+  // console.log(str1 == str);//值相等
+
+  // 包装对象：
+  //string,boolean,number都是包装对象，所谓的包装对象用完销毁，后面无法取值
+  // 当我们使用包装对象的属性和方法的时候，系统会自动临时帮我们以对象的形式创建这个值，但是执行完成之后，自动生成的对象会立刻销毁。
+  // var str='hello'
+  // str.length=3 //var str = new String('hello')系统自动完成的, 执行完即销毁
+  // console.log(str.length)//5
+  // //真正的对象
+  // var arr=[1,2,3,4,5,6]
+  // arr.length=3
+  // console.log(arr.length);//3
+
+  // var arr1=[]
+  // arr1.hehe=100
+  // console.log(arr1.hehe);
+
+  // var a=1
+  // a.b=2
+  // console.log(a.b)//underfined,number是包装对象
+  //字符串对象的属性
+  //类数组；伪数组：有一些对象他具有数组的length属性，且拥有为负整数的属性（索引），但他又不能调用数组的方法，这种对象叫做类数组对象，比如argmemnts,字符串
+  // var str='hello'
+  // console.log(str.length);
+  // console.log(str[1]);
+  // console.log(str.push('hehe'));//Uncaught TypeError: str.push is not a function
+
+  // 二.字符串的方法
+  // 字符编码相关
+  // 0-9:48-57
+  //A-Z:65-90
+  // a-z:97-122
+  // 1. charAt(num)：返回对应字符串索引的内容。
+  // var str='hello'
+  // console.log(str.charAt(0));//h
+  // console.log(str[0]);//h
+
+  //2. charCodeAt(num)：返回对应的字符串索引的内容的unicode编码
+  // var str='hello'
+  // console.log(str.charCodeAt(0));
+
+  // console.log(String.fromCharCode(97));
+  // console.log(String.fromCharCode(48));
+  // console.log(String.fromCharCode(65));
+  // var arr=[]
+  // for(i=65;i<=90;i++){
+  //     arr.push(String.fromCharCode(i))
+  // }
+  // console.log(arr);
+
+  //大小写转换
+  // toUpperCase()//转换成大写
+  // toLowerCase()//转换成小写
+  // var str='abcdefg'
+  //    console.log( str.toUpperCase());
+  //    console.log(str.toLowerCase());
+
+  //截取字符串的方法
+  //substring()用来截取字符串的内容
+  // var str='abcdefg'
+  // console.log(str.substring());//没有参数，全部截取
+  // console.log(str.substring(2));//一个参数，从当前索引位置开始截取 c,d,e,f,g
+  // console.log(str.substring(2,4));//从索引当前2的位置截取到索引4，不包括索引4
+
+  // 特殊情况：负数当作0处理，如果第一个参数比第二个参数大，自动交互位置
+  //  var str='abcdefg'
+  //  console.log(str.substring(2,-3));//ab
+  //  console.log(str.substring(-3,2));//ab
+  //  console.log(str.substring(0,2));//ab
+  //  console.log(str.substring(2,0));//ab
+
+  //substr():用来截取字符串的内容，参1是开始的索引(如果为负数，从后往前进行数)，参2表示截取的长度，
+  //  var str='abcdefg'
+  //  console.log(str.substr(2,2));//cd 从索引2位置开始，截取2个值
+  //  console.log(str.substr(-3,2));//ef 索引从后往前数3，截取2个值
+  //  console.log(str.substr(-8,2));//ab 超过到最后的值
+
+  // 3.split():根据分隔符(参数)、将字符串拆分成数组，参1是分割字符串的符号。参2用来限制数组的长度 - 重要 - 对比join
+  //  var str = 'abcdefg';
+  // console.log(str.split('d'));// ['abc', 'efg'] 从d分割
+  // console.log(str.split('h'));//['abcdefg'],找不到h
+  // console.log(str.split(''));//['a', 'b', 'c', 'd', 'e', 'f', 'g']
+  // console.log(str.split('',3));//['a', 'b', 'c'],第二参数表示截取的位数
+
+  // 案例：
+  // 经典面试题
+  // 1.有一个字符串get-element-by-id,希望将其变成小驼峰命名getElementById
+  //     var str='get-element-by-id'
+  //     var arr=str.split('-')
+  //     console.log(arr);
+  //     for(i=1;i<arr.length;i++){
+  //     //    console.log( arr[i].substring(0,1).toUpperCase()+arr[i].substring(1))
+  //       arr[i]= arr[i].substring(0,1).toUpperCase()+arr[i].substring(1)//返回到原数组
+  //     }
+  // console.log(arr.join(''))
+
+  // 一.字符串的方法
+  //trim()//创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果.
+  // var str = '    dfa  dafsd     dasfdasf        ';
+  // console.log('(' + str + ')');
+  // console.log('(' + str.trim() + ')');
+
+  // 2. replace()：用来对字符串进行查找和替换操作，并返回一个新的字符串
+  //  var str1 = 'zhangsan';
+  //  console.log(str1.replace('a','*'));//仅替换第一个
+
+  // 3. match()：返回一个数组，其中存放了与它找到的匹配文本有关的信息
+  //  var str2 = 'wangwu';
+  //  console.log(str2.match('g'));//['g', index: 3, input: 'wangwu', groups: undefined]
+
+  // 4. search()：方法用于检索字符串中指定的子字符串
+  //    var str3 = 'i am student';
+  //    console.log(str3.search("am"));// 2 ''也算
+  //    console.log(str3.search('amg'));//-1
+
+  // 二.数组和字符串共有的方法 - 重点
+
+  //1. slice() //截取字符串的方法，如果为负数，从后往前进行截取，包括开始的索引。
+  // var str = 'abcdefg';
+  // console.log(str.slice(2,3));//c
+  // console.log(str.slice(2,-3));//cd
+
+  // 2. indexOf和lastIndexOf():区别是如果第二个参数为负数，数组是从后往前找，字符串是当做0处理。
+  //    var str = 'abcdefg';
+  //    console.log(str.indexOf('a',3));// -1 找不到
+  //    console.log(str.indexOf('c',0))//2
+  //    console.log(str.indexOf('e',-3));//4
+
+  // 3. concat( )：和数组方法使用一致。
+  // var str = 'hello';
+  // console.log(str.concat('ser',str,str));//helloserhellohello
+
+  //4. includes( ) : 和数组方法使用一致。找字符是否存在字符串中，返回布尔值
+  // var str = 'hello';
+  // console.log(str.includes('p'));//false
+  // console.log(str.includes('h'));//true
+
+  // 已知字符串"sfadjkleriuwqofhskadjfhzcvxbnveywqriufgewyqrutfdashgfvcxznvfdahtueqtr"编程实现以下功能:
+  // 统计每个字符出现的次数，显示结果;
+  // 去掉重复的字符
+  // 第一步去重
+  // 第二步统计字符出现的次数 - (如何联想到对象接收结果??)
+  // var obj = {}
+  // var str = "sfadjkleriuwqofhskadjfhzcvxbnveywqriufgewyqrutfdashgfvcxznvfdahtueqtr"
+  // var arr = str.split('').sort()
+  // var newArr = []
+  // arr.forEach(function (value) {
+  //     flag = 1;
+  //     newArr.forEach(function (item) {
+  //         if (value === item) {
+  //             flag = 2
+  //             obj[value]++
+  //         }
+  //     })
+
+  //     if (flag === 1) {
+  //         newArr.push(value)
+  //         obj[value]=1
+  //     }
+  // })
+
+  // console.log(newArr.join(''))
+  // console.log(obj)
+</script>

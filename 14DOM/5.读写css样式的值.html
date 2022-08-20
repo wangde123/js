@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 200px;
+        background-color: #ff0000;
+        position: absolute;
+        left: 50px;
+        top: 100px;
+        margin: 20px;
+        padding: 10px;
+        border: 5px solid blue;
+        font-size: 18px;
+      }
+
+      .father {
+        position: absolute;
+        left: 200px;
+        top: 100px;
+        width: 300px;
+        height: 400px;
+        border: 1px solid orange;
+      }
+
+      #hehe {
+        width: 200px;
+        height: 200px;
+        background-color: #abcdef;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="father">
+        <div class="box"></div>
+    </div>
+    <hr> -->
+    <div class="header"></div>
+  </body>
+</html>
+<script>
+  // 一.利用js提供的属性来获取css属性值：属性仅仅用来读取,没有单位。
+  // 1.offsetWidth、offsetHeight：获取盒模型(width+border+padding)的尺寸
+  // var box = document.querySelector('.box');
+  // console.log(box.offsetWidth, box.offsetHeight); //100+10+20 = 130     200+10+20 = 230
+
+  // 2.offsetLeft、offsetTop：获取元素相对可视区的位置，无论是否有定位，都可以获取。
+  // 如果父级存在定位，以父级为基准计算。
+  // var box = document.querySelector('.box');
+  // console.log(box.offsetLeft); //没有定位输出28   默认的8 + margin20 = 28
+  // console.log(box.offsetLeft); // 有定位 使用定位值50 + margin20 = 70
+  // console.log(box.offsetLeft); // 父级有定位，以父级为基准，使用定位值50 + margin20 = 70
+
+  // 3.offsetParent ：获取元素的定位父级,如果不存在定位父级，输出body
+  // var box = document.querySelector('.box');
+  // console.log(box.offsetParent); //<div class="father">...
+
+  // 二.获取任意的css属性值:存在单位，输出单位
+  // getComputedStyle  - 标准浏览器 - 重点
+  // var box = document.querySelector('.box');
+  // console.log(window.getComputedStyle(box)['width']); //100px
+  // console.log(window.getComputedStyle(box).width); //100px
+  // console.log(window.getComputedStyle(box).font-size); //报错，这里的格式有问题，点符号后面不能跟中杠。
+  // console.log(window.getComputedStyle(box).fontSize); //18px 将带中杠改成驼峰命名，可以获取。
+  // console.log(window.getComputedStyle(box)['background-color']) //rgb(255, 0, 0)
+
+  // 如何清除单位 - parseInt/parseFloat
+  // console.log(parseInt(getComputedStyle(box)['width'])); //100
+
+  // currentStyle - 非标准浏览器IE - 了解
+  // console.log(box.currentStyle.width);
+  // console.log(box.currentStyle['width']);
+
+  // 三.设置css的属性值。
+  // 1.逐个设置css样式
+  // var header = document.querySelector('.header');
+  // header.style.width = '300px';
+  // header.style.height = '300px';
+  // header.style.background = 'red';
+  // header.style = 'width:500px;height:500px;background:purple';//总体设置
+
+  // 2.利用属性cssText设置,属性值就是正常的css代码。
+  // var header = document.querySelector('.header');
+  // header.style.cssText = 'width:500px;height:500px;background:blue';
+
+  // 3.利用css选择器设置。
+  // var header = document.querySelector('.header');
+  // header.id = 'hehe';
+</script>

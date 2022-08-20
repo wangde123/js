@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 320px;
+            height: 60px;
+            border: 1px solid red;
+            font-size: 34px;
+            font-weight: bolder;
+            text-align: center;
+            line-height: 60px;
+            margin: 50px auto;
+            cursor: pointer;
+        }
+        
+        #btn {
+            width: 100px;
+            height: 40px;
+            margin: 10px auto;
+            display: block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">点击开始抽奖</div>
+    <button id="btn">停止</button>
+</body>
+
+</html>
+<script>
+    // 1.设置奖品
+    var arr = [
+        '谢谢惠顾',
+        '笔记本电脑',
+        '新马泰10日游',
+        '再来一次',
+        '洗衣粉一大袋',
+        '兰博基尼5元代金券',
+        '干煸四季豆',
+        '纸巾一包',
+        '购物车一张',
+        '乌克兰基辅一日游'
+    ];
+    var t = null; //接收定时器返回值的变量,关闭定时器需要这个值。
+    // 点击box，开启定时器
+    box.onclick = function() {
+        // 通过定时器执行下面的代码。
+        t = setInterval(function() {
+            var i = parseInt(Math.random() * arr.length); //随机数组项有规律，Math.random()*数组的长度，取整
+            box.innerHTML = arr[i]; //i:必须是随机的数字，而且范围是0 ->arr.length-1
+        }, 5);
+    };
+
+    // 点击button按钮，停止定时器
+    btn.onclick = function() {
+        clearInterval(t); //t:开启定时器的返回值，通过这个值来关闭定时器。
+    };
+</script>

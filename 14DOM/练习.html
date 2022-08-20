@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 402px;
+        }
+
+        .title {
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+
+        .title a {
+            display: block;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            float: left;
+            background-color: #ccc;
+        }
+
+        .title a.active {
+            background-color: orange;
+        }
+
+        .pic {
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+
+        .pic img {
+            width: 400px;
+            display: none;
+        }
+
+        .pic img.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="#" class="active" j="0">第一张图</a>
+            <a href="#" j="1">第二张图</a>
+            <a href="#" j="2">第三张图</a>
+            <a href="#" j="3">第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="">
+        </div>
+    </div>
+    <!-- <img src="pic.jpg" alt="商品图片" class="pic" tips="我是tips里面的内容" aaa="bbbbbb"> -->
+    <!-- <img src="pic.jpg" alt="商品图片" class="pic" data-name="zhangsan" data-age="18" data-sex="男"> -->
+</body>
+
+</html>
+<script>
+    // var img = document.querySelector('img')//获取图片对象
+    // console.log(img)
+    // console.log(img.src)//获取
+    // console.log(img['src'])//获取
+    //  img.src = 'pic3.jpg';//替换
+
+    //利用对象的操作方式，点和中括号无法获取元素里面设置(写死)的自定义属性
+    // 除非你使用对象的点和中括号设置的属性(设置的属性在结构中不可见)，才可以使用对象的操作方式获取
+    // //  console.log(img.tips);
+    // img.hehe='自定义属性'
+    // console.log(img.hehe)//自定义属性
+
+    // getAttribute() 获取特定元素节点属性的值,包括自定义属性和默认属性
+    // console.log(img.getAttribute('tips'));
+    // console.log(img.getAttribute('aaa'));
+    //setAttribute() 设置特定元素节点属性的值,包括自定义属性和默认属性
+    // img.setAttribute('data-name','zhangsan')
+    // img.removeAttribute('tips')
+    // img.removeAttribute('aaa')
+    // img.removeAttribute('class')
+    // img.removeAttribute('src')
+
+    //dataset属性操作 - 重点
+    // html5中我们可以使用data-前缀设置我们需要的自定义属性,来进行一些数据的存放,这里的data-前缀就被称为data属性,数量不受限制,在控制和渲染数据的时候提供了非常强大的控制.
+    // var img=document.querySelector('img')
+    // console.log(img.dataset);
+    // console.log(img.dataset.name);
+    // console.log(img.dataset.age);
+    // console.log(img.dataset.sex);
+    // img.dataset.name='wangwu'
+//     var links = document.querySelectorAll('.title a')
+//     var imgs = document.querySelectorAll('.pic img')
+//   for(var i=0;i<links.length;i++){
+//        links[i].hehe=i
+//       links[i].onclick=function(){
+        
+//           for(var i=0;i<links.length;i++){
+//             links[i].className=''
+//             imgs[i].className=''
+//           }
+//           this.className='active'
+//           imgs[this.hehe].className='show'
+//       }
+//   }
+
+
+
+</script>
