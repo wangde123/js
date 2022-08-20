@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 断点：
+  // 断点概念：代码执行到断点的地方，停止执行，等待指示。
+  // 第一种方式：直接在代码里面要停止的地方添加一个关键字 - debugger(按照语法规则，不能随便方法)
+  // F10：循环每一步的顺序。
+  // F8：每一次循环的过程
+  // 通过左侧的watch面板监听变量的变化。
+  for (var i = 1, sum = 0; i <= 10; i++) {
+    debugger;
+    sum += i;
+    debugger;
+  }
+  console.log(sum);
+</script>

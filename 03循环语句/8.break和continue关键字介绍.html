@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // break和continue关键字介绍
+  // 提升性能的，如果是一个十次的循环，1次就可以得到我想要的结果，直接退出循环。
+
+  // 1.break关键字
+  // break 语句会立即退出整个循环，强制继续执行循环后面的其它语句。
+  // for (var i = 1; i <= 10; i++) {
+  //   if (i === 5) {
+  //     break;
+  //   }
+  //   console.log(i);
+  // }
+  // console.log("我是循环之外的代码");
+
+
+  // 2.continue关键字
+  // continue 语句代表立即退出循环，但退出的是当前循环继续执行下一次循环。
+  // 结束当前这一次循环，继续执行下一次的循环。
+  for (var i = 1; i <= 10; i++) {
+    if (i === 5) {
+      continue;
+    }
+    console.log(i);
+  }
+  console.log("我是循环之外的代码");
+  
+</script>

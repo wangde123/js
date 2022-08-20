@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    td {
+      border: 1px solid red;
+      padding: 10px 25px;
+    }
+  </style>
+</head>
+
+<body></body>
+
+</html>
+<script>
+  // 一.for循环
+  // JS里面for循环和while循环可以相互转换的，但是for循环可以理解成while循环的一种紧凑写法。
+  // for循环的执行顺序不太友好。
+
+  // 1.for语句也是一种前测试循环语句，条件在循环体的前面，它具有在执行循环之前初始化变量和定义循环后要执行的代码的能力。
+
+  // 2.for循环的结构 - 重点
+  // for(初始值;限制条件;计数器变量的更新){  满足限制条件执行的循环体  }
+  // 2.1.初始值：可以是多条语句，中间用逗号隔开，初始值仅执行一次，后面的分号不能省略。
+  // 2.2.限制条件：可以是多条语句，中间用逗号隔开，注意如果多个限制条件，最终起到限制作用的是后面一条限制条件，代码是左到右的执行顺序，后面的分号不能省略
+  // 2.3.计数器变量的更新,++,--,+=,-=,可以是多条语句，中间用逗号隔开,变量的累计累减。
+
+  // 修改案例.通过循环计算1+2+3+4+.....+100的和
+  // var sum = 0;
+  // var i = 1;
+  // while (i <= 100) {
+  //   sum += i; //sum = sum + i;
+  //   i++;
+  // }
+  // console.log(sum); //5050
+
+  // for (var sum = 0, i = 1; i <= 100; i++) {
+  //   sum += i;
+  // }
+  // console.log(sum); //5050
+
+  // 修改案例：打印9*9的表格
+  // document.write("<table>");
+  // var i = 1;
+  // while (i <= 9) {
+  //   document.write("<tr>");
+  //   var j = 1;
+  //   while (j <= i) {
+  //     document.write("<td>" + j + "x" + i + "=" + i * j + "</td>");
+  //     j++;
+  //   }
+  //   document.write("</tr>");
+  //   i++;
+  // }
+  // document.write("</table>");
+
+  document.write("<table>");
+  for (var i = 1; i <= 9; i++) {
+    document.write("<tr>");
+    for (var j = 1; j <= i; j++) {
+      document.write("<td>" + j + "x" + i + "=" + i * j + "</td>");
+    }
+    document.write("</tr>");
+  }
+  document.write("</table>");
+
+  // 二.for循环结构中的限制条件
+  // 最终起到限制作用的是后面一条限制条件
+//   for (var i = 1, j = 1; i <= 5, j <= 10; i++, j++) {
+//   console.log(i); //i的值是1-10，起作用的限制条件是j <= 10;
+//   }
+
+//  // 到这里循环已经结束
+//   console.log(i); //11
+//   console.log(j); //11
+
+  // 经典面试题
+  // for (var i = 1, j = 1; i <= 5, j <= 10; i++, j++) {
+  //   var sum = i + j; //sum是i和j的最后一次满足条件的值。
+  // }
+
+  // console.log(i); //11
+  // console.log(j); //11
+  // console.log(sum); //20
+
+  // for (var i = 1, j = 1; i <= 10, j <= 5; i++, j++) {
+  //   var sum = i + j; //sum是i和j的最后一次满足条件的值。
+  // }
+
+  // console.log(i); //6
+  // console.log(j); //6
+  // console.log(sum); //10
+
+  // 三.for循环的嵌套
+  // 循环的嵌套规律：外层循环一次,内层的循环全部完成,如果外层继续循环一次,内层循环又要全部完成.....
+
+  // 案例：利用星型字符（*）输出如下图形：三角形
+  // for (var i = 1; i <= 5; i++) {
+    
+  //   for (var j = 1; j <= i; j++) {
+  //     document.write("*");
+      
+  //   }
+  //   document.write("<br>");
+   
+  // }
+
+  // 四.经典面试题
+  // 100块钱买100只鸡，母鸡5元一只，公鸡3元一只，小鸡1元3只，有多少种买法。
+  // 思路：
+  // 循环帮助对中间的过程进行操作。
+  // 结果：100块钱买100只鸡
+  // 假设：母鸡：i只，公鸡j只，小鸡k只
+
+  //终极条件：100只鸡 + 100块钱
+  //母鸡的情况:至少买0个，最多20个，其他的依此类推。
+  // for (var i = 0; i <= 20; i++)  {
+  //   // for (var j = 0; j <= 33; j++) {
+  //   //   // for (var k = 0; k <= 100; k++) {
+  //   //   //   // if (i + j + k === 100 && i * 5 + j * 3 + k / 3 === 100) {
+  //   //   //   //   // console.log(
+  //   //   //   //   //   "母鸡：" + i + "只，公鸡：" + j + "只，" + "小鸡" + k + "只"
+  //   //   //   //   // );
+  //   //   //   // }
+  //   //   // }
+  //   // }
+  // }
+</script>

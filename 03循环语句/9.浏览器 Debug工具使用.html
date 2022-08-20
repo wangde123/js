@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.浏览器Debug工具使用
+  // debug:delete(删除) + bug(漏洞，故障，程序错误，缺陷)
+  // 1.debug常见错误类型，
+  // 通过浏览器的控制面板(f12)，console下面查看当前的页面是否有错误(错误类型，错误行号)。
+  // 如果你的代码有错误，可以截图发给我，但是最好带上行号截图。
+  // 1.1.引用错误--referenceError:使用的变量或者其他信息不存在。
+  // var num = 10;
+  // alert(unm); //ReferenceError: unm is not defined
+
+  // 1.2.语法错误--syntaxError：使用的代码违背了作者约定的语法规则或者格式，这种错误vscode会提示。
+  // var 1a = 100;
+  // Uncaught SyntaxError: Invalid or unexpected token
+  // 未捕获的SyntaxError:无效或意外的标记
+
+  // 1.3.类型错误--TypeError：代码没有写错，但不能这样使用。
+  // 123(); // 123 is not a function   123不是一个函数
+
+  // 1.4.范围错误--RangeError:使用的值不在语法约定的范围内。
+  // var num = 3.1415;v
+  // console.log(num.toFixed(2)); //3.14
+  // console.log(num.toFixed(-2)); //错误
+
+  // 二.自定义错误 - 提前了解
+  // 通过系统提供的Error类来实现，通过new关键字调用类生成对象，产生一个错误对象。
+  // throw关键字将错误对象括号里面的信息抛出到浏览器控制面板下面。
+  // throw new Error("我错了");
+  // console.log("原谅你了"); //上面的代码出现错误，下面的代码就无法执行。
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        border: 1px solid red;
+        padding: 10px 25px;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
+<script>
+  // while循环的应用
+  // 案例1：打印100以内的偶数
+  // var a = 1;
+  // while (a <= 100) {
+  //   if (a % 2 === 0) {
+  //     //偶数的条件
+  //     document.write(a + ",");
+  //   }
+  //   a++;
+  // }
+
+  // 案例2：打印九九乘法表。
+  // 1.打印9*9的表格
+  document.write("<table>");
+
+  // 循环tr
+  // 规律：
+  // 第一行循环一组td  外层第1次循环，内层循环1次
+  // 第二行循环二组td  外层第2次循环，内层循环2次
+  // 第三行循环三组td  外层第3次循环，内层循环3次
+  // ......
+  // 内层循环的次数，刚好是外层的第几次循环。i的值
+  var i = 1;
+  while (i <= 9) {
+    document.write("<tr>");
+
+    // 循环td
+    var j = 1;
+    while (j <= i) {
+      document.write("<td>" + j + "x" + i + "=" + i * j + "</td>");
+      j++;
+    }
+
+    document.write("</tr>");
+    i++;
+  }
+  document.write("</table>");
+</script>

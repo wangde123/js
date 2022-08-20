@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.while循环
+  // while 语句属于前测试循环语句，也就是说，在循环体内的代码被执行之前， 就会对限制条件求值。因此，循环体内的代码有可能永远不会被执行。
+
+  // while循环的语法结构：
+  // while( 限制条件 ){  满足条件执行的循环语句块  }
+
+  // // 1.输出1-10的数字。
+  // var a = 1; //初始值，执行一次
+  // // a<=10   循环的限制条件
+  // while (a <= 10) {
+  //   // 满足条件执行的循环体
+  //   console.log(a);
+  //   a++; //符号在前在后都不影响这里的+1，不涉及赋值。
+  // }
+  // console.log("表示循环结束"); //这里的内容要等到上面的循环完成才执行。
+
+  // 2.通过循环计算1+2+3+4+.....+100的和
+  // 2.1.设定循环的初始值
+  // var sum = 0; //存放结果的初始值
+  // var i = 1; //循环的初始值
+
+  // // 2.2.设置限制条件
+  // while (i <= 100) {    0      +    1  +  2 +    3       +   4+5+6+7
+  // //                   sum          i
+  // //                           sum        i
+  // //                                sum          i
+  //  // 2.3.循环
+  //   sum += i; //sum = sum + i;  累加，上一次的结果，应用到下一次的运算中。 sum0+i1--sum1+i2--sum3i3--sum6i4--sum10i5
+  //   i++;
+  // }
+  // console.log(sum); //5050
+
+  // 3.利用select渲染年份。
+  // document.write("<select>");
+  // // 循环实现1900 - 3000
+  // var year = 1900;
+  // while (year <= 3000) {
+  //   document.write("<option>" + year + "</option>");
+  //   year++;
+  // }
+  // document.write("</select>");
+
+  // 4.循环的嵌套。
+  // 循环的嵌套规律：外层循环一次,内层的循环全部完成,如果外层继续循环一次,内层循环又要全部完成.....
+
+  // // 外层循环
+  // var i = 1; //初始值
+  // //限制条件
+  // while (i <= 10) {
+  //   // 循环体
+  //   document.write("我是外层的第" + i + "次循环<br>");
+  //   i++;
+
+  //   //循环内层嵌套
+  //   var j = 1; //初始值
+  //   //限制条件
+  //   while (j <= 10) {
+  //     // 循环体
+  //     document.write("&emsp;&emsp;我是内存的第" + j + "次循环<br>");
+  //     j++;
+  //   }
+  // }
+</script>
