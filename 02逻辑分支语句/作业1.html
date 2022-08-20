@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //   document.write('<select>');
+    // for(var i=1900;i<=5000;i++
+    // ){
+    //   document.write("<option>"+ i +"</option>")
+    // }
+    // if(1){
+    //     alert('正确');
+    // }
+    //案例：如果输入的是数字直接输出，否则不予理会。
+    // var num =prompt('请输入一个数字');
+    // if(!isNaN(num)){
+    //     alert(num)
+    // } else{
+    //     alert('输入有误');
+    // }
+    // 案例：输入一个整数，判断这个数字是偶数还是奇数
+    // var num=+prompt('请输入一个数');
+    // if(num%2===0){
+    //     alert('偶数')
+    // }else{
+    //     alert('非偶数')
+    // }
+    // 案例：输入年份，计算某一年是否是闰年（条件：闰年能被4整除且不能被100整除，或能被400整除）
+    // var year = prompt('请输入一个4位年份');
+    // if (!isNaN(year)) {
+    //     if (year > 999 && year < 9999) {
+    //         if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    //             alert('闰年');
+    //         } else {
+    //             alert('平年');
+    //         }
+    //     } else {
+    //         alert('输入的不是四位数');
+    //     }
+    // }
+    // else {alert('输入有误')}
+
+    //根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+
+    // var height = prompt('请输入身高');
+    // var weight = prompt('请输入体重');
+    // if (weight > (height - 108) * 2 + 10) {
+    //     alert(
+    //         '你太胖了'
+    //     )
+    // } else if (weight < (height - 108) * 2 - 10) {
+    //     alert('你太瘦了')
+    // } else if (weight > (height - 108) * 2 - 10 && weight < (height - 108) * 2 + 10) {
+    //     alert('标准')
+    // } else (alert('输入有误'))
+    //案例：输入分数，判定成绩等级（5个等级0-100）
+    // var score=+prompt('请输入一个0-100的分数');
+    // if(score===100){
+    //     alert('A')
+    // }else if(score>=90&&score<100){
+    //     alert('B')
+    // }else if(score>=80&&score<90){
+    //     alert('C')
+    // }else if(score>=70&&score<80){
+    //     alert('D')
+    // }else if(score>=60&&score<70){
+    //     alert('E')
+    // }else if(score>=0&&score<60){
+    //     alert('F')
+    // }else(alert('输入有误'))
+    var score = +prompt('请输入一个0-100的分数');
+    switch (true) {
+        case score === 100:
+            alert('优秀')
+            break;
+        case score >= 90 && score < 100:
+            alert('良好')
+            break;
+        case score >= 80 && score < 90:
+            alert('中上')
+            break;
+        case score >= 70 && score < 80:
+            alert('中下')
+            break;
+        case score >= 60 && score < 70:
+            alert('及格')
+            break;
+        case score >= 0 && score < 60:
+            alert('不及格')
+            break;
+        default: alert('输入有误')
+
+    }
+
+
+
+
+
+    // 案例：未来的开发中，系统提供的日期对象输出的星期是一个数字，如果需要对应的中文，通过switch来实现。
+    // var week = +prompt('请输入0-7数字');
+    // switch (week) {
+    //     case 0:
+    //         alert('星期日');
+    //         break;
+    //     case 1:
+    //         alert('星期一');
+    //         break;
+    //     case 2:
+    //         alert('星期二');
+    //         break;
+    //     case 3:
+    //         alert('星期三');
+    //         break;
+    //     case 4:
+    //         alert('星期四');
+    //         break;
+    //     case 5:
+    //         alert('星期五');
+    //         break;
+    //     case 6:
+    //         alert('星期六');
+    //         break;
+    //     default: alert('输入错误')
+    // }
+
+    // 案例：输入一个月份，判断这个月的天数(采用case穿透力)。
+    // 大月31天：1,3,5,7,8,10,12
+    // 小月30天：4,6,9,11
+    // 2月：闰年29天，非闰年28天
+    // var month = +prompt('请输入数字月份');
+    // var year = +prompt('请输入年份');
+    // switch (month
+    // ) {
+    //     case 1:
+    //     case 3:
+    //     case 5:
+    //     case 7:
+    //     case 8:
+    //     case 10:
+    //     case 12:
+    //         alert('31天')
+    //         break;
+    //     case 1:
+    //     case 4:
+    //     case 6:
+    //     case 9:
+    //     case 11:
+    //         alert('30天');
+    //     case 2:
+    //         if (!isNaN(year)) {
+    //             if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    //                 alert('润年29天')
+    //             } else {
+    //                 alert('平年28天')
+    //             }
+    //         }
+    //         else {
+    //             alert('输入的不是数字')
+    //         }
+    //         break;
+    //     default: alert('输入错误')
+
+    // }
+
+
+</script>

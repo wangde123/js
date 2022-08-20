@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.三目运算符 - ?:
+  // 1.三目运算符基本语法结构：条件?语句1:语句2
+  // 解读：判断条件是否成立，如果成立执行语句1，条件不成立执行语句2
+  // 2.三目的特点
+  // 2.1.整个三目运算符可以有返回值。
+  // 2.2.允许嵌套使用
+  // 2.3.满足条件执行的语句必须是一条语句。
+
+  // 案例：输入一个数字，如果这个数字小于10,前面补0
+  // var num = prompt("请输入一个数字");
+  // if (num < 10) {
+  //   console.log("0" + num);
+  // } else {
+  //   console.log(num);
+  // }
+
+  // 三目实现
+  // var num = prompt("请输入一个数字");
+  // num < 10 ? console.log("0" + num) : console.log(num);
+  // var num1 = num < 10 ? "0" + num : num;
+  // console.log(num1);
+
+  // 案例：三目的嵌套使用。
+  // 输入三个数字，输出其中的最大值。
+  // 思路：两两比较，先比较a和b，然后再利用a和b的最大值去和c比较。
+
+  // var a = 15;
+  // var b = 55;
+  // var c = 25;
+  // var max = a > b ? (a > c ? a : c) :( b > c ? b : c); //max接收最大值
+  // console.log(max);
+</script>

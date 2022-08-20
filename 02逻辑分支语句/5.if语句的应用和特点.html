@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.if语句的特点。
+  // 1.if语句的条件可以是任意的表达式，但结果一定是布尔值(系统利用Boolean()函数实现)
+  // if (100) {//100相当于true
+  //   console.log("条件为真");
+  // }
+
+  // 2.else可以省略，同时else具有短路操作(里面的代码不执行)。
+  // 注意的是如果if满足，立刻输出结果，不执行else,如果是else满足，if还是要执行。
+  // if ("hehe") {
+  //   //hehe字符串相当于true
+  //   console.log("只要条件为真，就会执行我这里的代码块");
+  // } else {
+  //   dafjlkdasjflk;
+  //   console.log("如果if条件为真，我就短路了，我可以随便写，反正不会执行");
+  //   kasdlfjlkadsf;
+  // }
+
+  // 3.核心的特点：开发过程中，尽量将最大的可能给if语句，if语句执行了，else就可以短路。
+
+  // 二.if应用
+  // 开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+  // 思路：根据结果预测有几种情形，使用对应的分支（标准体重，偏胖，偏瘦）
+  // 确定偏胖：超过最大体重
+  // 确定偏瘦：小于最小体重
+  // 确定标准：介于最大和最小之间的值
+
+  // 1.输入身高和体重
+  // var height = prompt("请输入身高(cm)：");
+  // var weight = prompt("请输入体重(斤)：");
+  // var max = (height - 108) * 2 + 10; //最大值
+  // var min = (height - 108) * 2 - 10; //最小值
+
+  // if (weight > max) {
+  //   console.log("少吃点，你已经偏胖了");
+  // } else if (weight <= max && weight >= min) {
+  //   console.log("恭喜你，你的身材很标准");
+  // } else if (weight < min) {
+  //   console.log("多吃点，不要挑食，你太瘦了");
+  // } else {
+  //   console.log("输入有误");
+  // }
+</script>

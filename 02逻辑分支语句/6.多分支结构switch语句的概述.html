@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.多分支结构switch语句的概述
+  // 1.switch 语句与 if 语句的关系最为密切，而且也是在其他语言中普遍使用的一种流程控制语句。
+  // 2.switch 语句的语法结构
+  // switch语句包含四个关键字(switch,case,break,default)
+  // if语句包含的关键字(if,else,else if)
+  // switch(值){
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   case 值:  语句块; break;
+  //   ......
+  //   default:
+  // }
+
+  // 3.解读结构(switch语句的特点)
+  // 3.1.switch括号里面的值和case(情形)后面的值进行全等(恒等)比较，如果case后面的值和switch括号里面的值恒等，执行对应的case(情形)后面的语句块。
+  // 3.2.case具有穿透力，如果没有break来终止switch语句，继续执行下一个条件里面的语句块。
+  // 3.3.break用来结束switch语句。
+  // 3.4.default和else类似，用来表示其他情形，可以省略。
+  // 3.5.非常重要的特点：switch找case一步到位，不是按照顺序。if是按照顺序
+
+  // 案例：未来的开发中，系统提供的日期对象输出的星期是一个数字，如果需要对应的中文，通过switch来实现。
+  var week = +prompt("请输入一个数字(0-6):"); //字符串
+  switch (week) {
+    case 0:
+      console.log("星期日");
+      break;
+    case 1:
+      console.log("星期一");
+      break;
+    case 2:
+      console.log("星期二");
+      break;
+    case 3:
+      console.log("星期三");
+      break;
+    case 4:
+      console.log("星期四");
+      break;
+    case 5:
+      console.log("星期五");
+      break;
+    case 6:
+      console.log("星期六");
+      break;
+    default:
+      console.log("输入有误");
+  }
+</script>

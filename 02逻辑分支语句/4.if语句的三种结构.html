@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // if语句的三种结构
+
+  // 1.单分支的语法结构：一种情况
+  // if (条件) {
+  //   条件为真执行的语句块;
+  // }
+
+  // if (1) {//条件为真，1转布尔值为true
+  //   console.log("满足条件");
+  // }
+
+  // 2.双分支语句
+  // 双分支的语法结构：两种情况
+  // if(条件){
+  //   条件为真执行的代码块
+  // }
+  // else{
+  //   条件为假执行的代码块
+  // }
+
+  // 案例：输入一个整数，判断这个数字是偶数还是奇数
+  // var num = prompt("请输入一个整数：");
+  // if (num % 2 === 0) {
+  //   console.log("偶数");
+  // } else {
+  //   console.log("奇数");
+  // }
+
+  // 案例：输入年份，计算某一年是否是闰年（条件：闰年能被4整除且不能被100整除，或能被400整除）
+  // 双分支的嵌套
+  // var year = prompt("请输入一个四位数字的年份：");
+  // // 1.约定你输入的一定是数字，否则提示警告。
+  // if (!isNaN(year)) {
+  //   //走这里，表示输入的是数字，继续判断是四位的数字吗？
+
+  //   if (year >= 1000 && year <= 9999) {
+  //     // 走这里表示输入的是四位的数字，继续判断是闰年吗?
+
+  //     if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  //       alert("恭喜你，输入的年份是闰年!!!");
+  //     } else {
+  //       alert("很遗憾，你输入的不是闰年，是平年");
+  //     }
+  //   } else {
+  //     //不是四位的数字
+  //     alert("注意：你输入的数字不是四位的数字");
+  //   }
+  // } else {
+  //   //不是数字
+  //   alert("注意：你输入的不是数字");
+  // }
+
+  // 3.多分支语句
+  // 多分支语法结构：多种情况
+
+  // if (条件1) {
+  //   条件1为真执行的代码块;
+  // } else if (条件2) {
+  //   条件2为真执行的代码块;
+  // } else if (条件3) {
+  //   条件3为真执行的代码块;
+  // } else if (条件4) {
+  //   条件4为真执行的代码块;
+  // } else if (条件5) {
+  //   条件5为真执行的代码块;
+  // } else if (条件6) {
+  //   条件6为真执行的代码块;
+  // }
+  // ......
+  // else{
+  //   除了上面条件之外的其他情况，执行这里的语句块
+  // }
+
+  // 案例：输入分数，判定成绩等级（5个等级0-100）
+  // var score = +prompt("请输入分数0-100："); //prompt输入的值都是字符串格式。
+  // if (score === 100) {
+  //   console.log("A");
+  // } else if (score >= 90 && score < 100) {
+  //   //这里禁止采用90<=score<100这种方式。
+  //   console.log("B");
+  // } else if (score >= 80 && score < 90) {
+  //   console.log("C");
+  // } else if (score >= 70 && score < 80) {
+  //   console.log("D");
+  // } else if (score >= 60 && score < 70) {
+  //   console.log("E");
+  // } else if (score >= 0 && score < 60) {
+  //   console.log("不及格，继续好好努力");
+  // } else {
+  //   // 上面条件之外的情况
+  //   console.log("输入有误");
+  // }
+</script>

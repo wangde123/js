@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.梳理第一章的核心的内容点，需要你去整理熟悉理解应用。
+  // 1.前端开发的工作目标(渲染，用户体验，性能优化)
+  // 2.javascript的核心组成(ECMAscript/BOM/DOM)
+  // 3.类，对象，属性，方法
+  // 4.变量的特点以及命名方式
+  // 5.变量的数据类型以及检测 - 6种
+  // 6.运算符
+  // 数学运算符：+ %
+  // 赋值运算符：= +=
+  // 关系运算符：== ===
+  // 逻辑运算符：&&  ||  !
+  // 一元运算符：++ --
+  // 7.显式转换和隐式转换
+  // 显示转换：parseInt/parseFloat
+  // 隐式转换：+ - * / % ++ -- == !
+  // 8.关注对象下面的方法
+  // alert/document.write/console.log/toFixed
+
+  // 二.作业
+  // 作业涉及到当前章节基础内容
+  // 1.为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+  // 涉及到的知识点：变量+字符串的拼接+prompt+数学运算
+  // var time = prompt("请输入战士连续作者的小时数：");
+  // var day = parseInt(time / 24);
+  // var hour = time % 24;
+  // document.write(
+  //   "为抵抗洪水，战士连续作战" +
+  //     time +
+  //     "小时，编程计算共" +
+  //     day +
+  //     "天零" +
+  //     hour +
+  //     "小时"
+  // );
+
+  // 2.一元运算符使用
+  // ++应用
+  // ++在前：先+1，后使用
+  // ++在后：先使用，后+1
+  // var k = 0;
+  // console.log(k++ + ++k + k + k++); //6
+  // console.log(k); //3
+
+  // 3.输入一个五位数，分别输出个十百千万位
+  // 涉及到的知识点：输入，数学运算(+,-,*,/,%)
+  // var num = prompt("请输入一个五位数："); //13579
+  // console.log("你输入的数字是：" + num);
+  // console.log("个位是：" + (num % 10));
+  // console.log("十位是：" + parseInt((num % 100) / 10));
+  // console.log("百位是：" + parseInt((num % 1000) / 100));
+  // console.log("千位是：" + parseInt((num % 10000) / 1000));
+  // console.log("万位是：" + parseInt(num / 10000));
+
+  // 4.基本测试题，并写出理由;
+  // +:两边存在字符串就是拼接，其他都要转数字运算。
+  // var bar = true;
+  // console.log(bar + 0); // 1 + 0 = 1
+  // console.log(bar + "xyz"); //truexyz
+  // console.log(bar + true); // 1 + 1  = 2
+  // console.log(bar + false); // 1 + 0 = 1
+
+  // 基本运算符
+  // console.log(1 == true); //1 == 1 true
+  // console.log(1 === true); //false
+  // console.log(isNaN(23)); //false
+  // console.log(isNaN("shuai")); //true
+  // console.log(isNaN("321shuai")); //true
+  // console.log(isNaN("321")); //false
+  // console.log(NaN === NaN); //false
+  // console.log(typeof NaN); //number
+
+  // console.log(1 + +"2" + "2"); //3+"2" = 32
+  // console.log("A" - "B" + "2"); //NaN + "2" = NaN2
+  // console.log("A" - "B" + 2); //NaN + 2 = NaN
+
+  // console.log(0 || 2 || 1); //2
+  // console.log(0 && 0 && false); //0
+
+  // console.log(0.2 + 0.4 == 0.6); //false
+
+  // console.log(Boolean("0")); //true  将括号里面的值转换成布尔值，不是数字0是字符串。
+  // console.log(Boolean(0)); //false
+</script>

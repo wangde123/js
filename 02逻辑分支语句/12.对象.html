@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="img/1.jpeg" alt="12345" id="pic" />
+  </body>
+</html>
+<script>
+  // 一.对象，属性，方法
+  // 对象：类下面具体的实例，拥有属性(对象的特点，外观)和方法(对象的功能)。
+  // 1.HTML标签
+  // 标签可以叫做元素(element),或者叫元素对象(object)
+  // HTML结构中除了标签名，内容之外，标签里面还存在属性(alt,src,href,target,title,id)
+  // 例如：title:属性名   标题：属性值
+
+  // 2.通过标签里面的id选择器名称获取这个标签(元素对象) - 操作属性
+  // pic表示img元素对象
+  // console.log(pic.alt); //12345  获取
+  // pic.alt = 56789; //修改属性
+  // pic.src = "img/4.jpeg";
+
+  // 3.被动的方法(事件) - 函数
+  // 通过事件对当前的元素对象进行互动。
+  // onclick:鼠标单击
+  // function () {}整体结构,表示函数
+  // 点击pic图片的时候，执行后面的函数(函数大括号里面的代码块),反复执行。
+  var num = 1;
+  pic.onclick = function () {
+    num++;
+    if (num > 4) {
+      num = 1;
+    }
+    pic.src = "img/" + num + ".jpeg";
+  };
+</script>
