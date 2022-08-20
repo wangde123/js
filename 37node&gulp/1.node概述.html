@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<!-- 
+  一.Nodejs概述  - http://nodejs.cn/
+  1.Node.js是一个基于ChromeV8引擎的 JavaScript 运行环境。
+  谷歌浏览器的核心：ChromeV8引擎(c++)
+  安装Node.js环境，环境中具有ChromeV8引擎，脱离浏览器执行代码(后端代码可以脱离浏览器)。
+  Node.js主要实现服务器端操作，取代php+mysql（Node.js + mongodb数据库)
+
+  2.Node.js使用了一个事件驱动、非阻塞式I/O的模型,使其轻量又高效(input/output).
+  非阻塞I/O模型： 当使用Node.js来实现数据库操作、文件系统等操作时，要进行的异步操作，异步操作的核心传统实现方式就是回调函数和事件。
+
+
+  二.Node.js安装
+  1.下载安装包安装，只能安装一个版本的。
+    - LTS 稳定版本  -  一路next - 注意不要修改路径
+    - 检查node是否安装成功,通过命令行检查。
+    - node -v  打印node版本，注意空格  node --version
+    - npm -v   打印npm版本，node的包管理工具，安装node自带安装了npm,里面集成100多万个包，需要任何一个包都可以通过npm进行安装
+
+  2.nvm安装
+    允许电脑里面安装多个node版本，随意进行切换，就是安装过程太麻烦。
+    nvm 的官方版本只支持Linux 和 Mac。 Windows 用户，可以用nvm-windows。（注意安装前卸载电脑里面的node版本）
+    
+  三.node相关使用
+  1.REPL方式：通过命令编写js代码。
+  2.文件执行 
+    Node.js都是js文件，后缀名就是  xxx.js   
+    node 文件名
+
+  四.安装modemon工具，监听Node.js文件改动的工具 - nodemon
+  npm install nodemon -g    -g:全局安装
+
+  nodemon js文件，监听js文件的变化。
+
+
+  五.npm
+  安装完node的同时，npm也已经安装完成了
+  也可以通过DOS或者linux命令任意位置输入npm -v或者npm --vesion 查看版本
+  NodeJS自带的包管理工具npm为你和你的团队打开了连接整个 JavaScript 天才世界的一扇大门，它是世界上最大的软件注册表。
+
+  NMP安装插件是从NPM官网下载对应的插件包，该网站的服务器在国外，经常会出现下载缓慢或出现异常，这时便需要找到另外的方法提供稳定的下载，
+
+  六.cnpm
+  阿里巴巴的淘宝团队把NMP官网的插件都同步到了在中国的服务器，提供给我们从这个服务器上稳定下载资源。
+  安装cnpm，将下面这行代码输入命令行
+  npm install -g cnpm --registry=https://registry.npm.taobao.org
+  以后任何包的安装将npm改成cnpm，目前比较快的一种方式。
+  
+  cnpm -v  检查是否安装成功
+
+  七.nrm
+  nrm(npm registry manager )是npm的镜像源管理工具，有时候国外资源太慢，那么我们可以用这个来切换镜像源。
+  首先全局安装 nrm     npm install  nrm -g
+  列出可用的源：nrm ls  
+  使用哪个源：nrm use taobao    表示使用淘宝源
+
+
+  八.yarn
+  facebook取代npm安装包的一种方式。
+
+  Yarn 对你的代码来说是一个包管理器。它可以让你使用并分享 全世界开发者的（例如 JavaScript）代码,Yarn 能够快速、安全、 并可靠地完成这些工作。
+
+  npm install -g yarn   安装全局yarn
+
+ -->
