@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // cookie的使用以及封装
+    // 一.cookie存储
+    // 1.cookie以字符串的形式进行存储的，Key值相同，存储时就会覆盖。
+    // 2.cookie名称和值可以自己定义，存储的是字符串，不能超过4KB，关闭浏览器cookie就消失
+    // document.cookie = 'username=zhangsan_cookie';
+    // document.cookie = 'age=20';
+    // document.cookie = 'sex=男';
+
+    // 3.带有过期时间(expires)的cookie，配合日期对象实现
+    // let d = new Date('2022-10-1 12:13:14');//这里的设置日期不够理想，通过天数设置。
+    // let d = new Date();
+    // d.setDate(d.getDate() + 31); //设置离当前几天后的日期
+    // document.cookie = 'username=zhangsan;expires=' + d;
+
+
+    // 4.不同目录里面的cookie不能互相访问，配置路径解决
+    // 比如：A目录里面存储了本地存储，B目录无法访问，除非配置了路径
+    // 一般将cookie存储在根目录上面，这样内部的文件随意访问cookie  path=/
+    // let d = new Date();
+    // d.setDate(d.getDate() + 31); //设置离当前几天后的日期
+    // document.cookie = `username=zhangsan;expires=${d};path=/`;
+
+
+    // 封装函数实现cookie的设置
+    function setCookie(key, value, day) { //key:自定义的名称  value:值，day:过期的天数
+        let d = new Date();
+        d.setDate(d.getDate() + day); //设置离当前几天后的日期
+        document.cookie = `${key}=${value};expires=${d};path=/`;
+    }
+
+    setCookie('id', '0001', 10);
+    setCookie('username', 'lisi', 10);
+    setCookie('age', '20', 10);
+
+    // 如果存储的是对象格式
+    // 注意：所有对象的值都是[object Object]，获取这个[object Object]就没什么意义。
+    // JSON.stringify():将对象转换成json格式的字符串
+    // JSON.parse():将json格式的字符串转换成对象
+    // setCookie('objData', JSON.stringify(obj), 20);
+
+    // 5.关注的cookie属性
+    // name:自定义的键值
+    // value:键对应的值
+    // domain:主机(主域名)
+    // path:路径
+    // expires:过期时间
+    // size: cookie的大小， 不能超过4k
+</script>

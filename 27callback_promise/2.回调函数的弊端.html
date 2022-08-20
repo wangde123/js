@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 回调地狱：回调函数嵌套可读性很差
+    function $ajax(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', url, true);
+        xhr.send();
+        xhr.onload = function() {
+            if (xhr.readyState === 4) {
+                callback(xhr.responseText); //xhr.responseText是实参，传递给回调函数的形参d，d接收到了数据。
+            }
+        }
+    }
+
+    // 利用上面的函数获取三个接口的数据，看看嵌套的可读性问题。
+    // http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php
+    // http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php
+    // http://localhost/JS2204(2203)/week05/Day26_ajax/code/render_case/backEnd/shoppong_list.php
+
+    $ajax('http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', function(d) {
+        console.log(d);
+        let arr = JSON.parse(d);
+        let str = '<ul>';
+        for (let value of arr) {
+            str += `
+                <li id="${value.sid}">
+                  <a href="#">
+                      <img src="${value.url}"/>
+                      <p>${value.title}</p>
+                      <span>${value.price}</span>
+                      <span class="close">X</span>
+                  </a>
+                </li>
+            `;
+        }
+        str += '</ul>';
+        console.log('-----------------------------------------------------------------------');
+        $ajax('http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', function(d) {
+            console.log(d);
+            let arr = JSON.parse(d);
+            let str = '<ul>';
+            for (let value of arr) {
+                str += `
+                <li id="${value.sid}">
+                  <a href="#">
+                      <img src="${value.url}"/>
+                      <p>${value.title}</p>
+                      <span>${value.price}</span>
+                      <span class="close">X</span>
+                  </a>
+                </li>
+            `;
+            }
+            console.log('-----------------------------------------------------------------------');
+            $ajax('http://localhost/JS2204(2203)/week05/Day26_ajax/code/render_case/backEnd/shoppong_list.php', function(d) {
+                console.log(d);
+                let arr = JSON.parse(d);
+                let str = '<ul>';
+                for (let value of arr) { //遍历数组对象，value是一个对象
+                    str += `
+                <li id="${value.sid}">
+                  <a href="#">
+                      <img src="${value.url}"/>
+                      <p>${value.title}</p>
+                      <span>${value.price}</span>
+                      <span class="close">X</span>
+                  </a>
+                </li>
+            `;
+                }
+            })
+        })
+    });
+
+
+    // 总结：回调函数嵌套可读性的确不好，但是前提是代码量比较大的时候，正常情况下(代码量适中的时候)还是允许大家使用回调函数的。
+</script>

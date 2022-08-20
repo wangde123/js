@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // promise对象下面的静态方法：
+  // 1.Promise.all()：用于将多个 Promise 实例，包装成一个新的 Promise 实例，接受一个数组作为参数，只有数组里面的每个状态都变成resolve，则新的 Promise 实例状态才会变成resolve.
+  // function $ajax(url) { //返回promise对象，调用then和catch
+  //     return new Promise((resolve, reject) => {
+  //         let xhr = new XMLHttpRequest();
+  //         xhr.open('get', url, true);
+  //         xhr.send();
+  //         xhr.onload = function() {
+  //             if (xhr.readyState === 4) {
+  //                 if (xhr.status === 200) {
+  //                     resolve(xhr.responseText);
+  //                 } else {
+  //                     reject('接口地址错误');
+  //                 }
+
+  //             }
+  //         }
+  //     });
+  // }
+
+  // 包装成一个新的 Promise 实例
+  // let newPromise = Promise.all([
+  //     $ajax('http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php'),
+  //     $ajax('http://api.k780.com/?app=phone.get&phone=13800138000&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json'),
+  //     $ajax('http://api.k780.com/?app=idcard.get&idcard=110101199001011114&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json')
+  // ]);
+
+  // 一次性获取三个接口的值，而且任意一个接口出错，所有的接口都出错。
+  // newPromise.then((d) => {
+  //     console.log(d); //返回三个接口数据组成的数组。
+  // }).catch((e) => {
+  //     console.log(e);
+  // });
+
+  // 2.Promise.race()：方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例，接受一个数组作为参数，只要其中有一个实例率先改变状态，则整个的状态就跟着改变。那个状态快，跟着这个走。
+  let p1 = new Promise((resolve, reject) => {
+    // setTimeout(() => {
+    resolve("第一个状态");
+    // }, 2000);
+  });
+  let p2 = new Promise((resolve, reject) => {
+    // setTimeout(() => {
+    reject("第二个状态");
+    // }, 500);
+  });
+  let p3 = new Promise((resolve, reject) => {
+    // setTimeout(() => {
+    resolve("第三个状态");
+    // }, 1000);
+  });
+
+  let newPro = Promise.race([p1, p2, p3]);
+  // let newPro = Promise.race([p2, p1, p3]);
+
+  newPro
+    .then(() => {
+      console.log("success");
+    })
+    .catch(() => {
+      console.log("fail");
+    });
+
+  // 3.Promise.resolve()：方法也会返回一个新的 resolve 实例，该实例的状态为resolve
+
+  // Promise.resolve(100).then((n) => {
+  //     console.log(n); //100
+  // });
+
+  // 4.Promise.reject()：方法也会返回一个新的 Promise 实例，该实例的状态为rejected
+
+  // Promise.reject(100).catch((n) => {
+  //     console.log(n); //100
+  // });
+
+  // 总结：
+  // promise通过回调函数实现的，但是取代回调函数，反之不行。
+  // promise比回调函数强大一些。
+  // promise是异步的。
+  // let p1 = new Promise((resolve, reject) => {
+  //   resolve("OK");
+  // });
+
+  //   let p2 = new Promise((resolve, reject) => {
+  //     // throw "Error!";
+  //     // reject("Oh no!");
+  //   });
+
+  // let p3 = new Promise((resolve, reject) => {
+  //   resolve("successful");
+  // });
+  // const arr = [p1, p3];
+
+  //   let result = Promise.all(arr);
+  // all 方法封装
+  // Promise.all = function (arr) {
+  //   // 返回结果为Promise对象
+  //   return new Promise((resolve, reject) => {
+  //     // 存放返回结果 【数组】
+  //     let arr = [];
+  //     // 遍历promises
+  //     for (let i = 0; i < arr.length; i++) {
+  //       Promises[i].then(
+  //         (v) => {},
+  //         (r) => {
+  //           reject(r);
+  //         }
+  //       );
+  //     }
+  //   });
+  // };
+</script>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.回调函数概念
+    // 函数做参数，传递给另外一个函数调用，回调函数也叫高阶函数(callback).
+    // 在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中,并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。
+    // function A() {
+    //     console.log('A');
+    // }
+
+    // function B(A) {
+    //     A();
+    //     console.log('B');
+    // }
+
+    // B(A); //A：回调函数
+
+    // 改写
+    function B(A) {
+        A();
+        console.log('B');
+    }
+
+    B(function() { // 没有名称(函数表达式)，就叫做匿名回调函数
+        console.log('A');
+    });
+
+    // 注意：箭头函数一般都是用来简写回调函数。
+    // 比如学过的回调函数应用的方法：
+    // every some filter map forEach
+    // replace
+    // setInterval/setTimeout
+    // reduce  findIndex ......
+    // window.setInterval(() => {}, 1000);
+
+
+    // 二.回调函数对异步的应用
+    // 1.异步顺序问题。
+    // function a() {
+    //     setTimeout(() => {
+    //         console.log('a');
+    //     }, 1000);
+    // }
+
+    // function b() {
+    //     setTimeout(() => {
+    //         console.log('b');
+    //     }, 500);
+    // }
+
+    // a();
+    // b();
+    // 输出顺序：b,a,希望输出a,b通过回调函数实现。
+    // function a(b) {
+    //     setTimeout(() => {
+    //         console.log('a');
+    //         b();
+    //     }, 1000);
+    // }
+
+    // function b() {
+    //     setTimeout(() => {
+    //         console.log('b');
+    //     }, 500);
+    // }
+    // a(b);
+    // a('abc'); //如果传递的不是函数做参数，程序就会报错，通过判断解决。
+
+    // function a(b) {
+    //     setTimeout(() => {
+    //         console.log('a');
+    //         //这里必须先确认b是否存在，如果存在确定是否是函数，才能做最终的调用
+    //         b && typeof b === 'function' && b();
+    //     }, 1000);
+    // }
+
+    // function b() {
+    //     setTimeout(() => {
+    //         console.log('b');
+    //     }, 500);
+    // }
+    // a(b);
+    // a();
+    // a('abc');
+    // 注意：回调函数进行封装时必须进行判断
+
+    // 2.核心的应用，获取异步操作的值。
+    // http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php
+    // 封装函数实现获取数据。
+    // function $ajax() {
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open('get', 'http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php', true);
+    //     xhr.send();
+    //     xhr.onload = function() {
+    //         if (xhr.readyState === 4) {
+    //             return xhr.responseText;
+    //         }
+    //     }
+    // }
+    // console.log($ajax()); //获取不到数据，返回undefined，因为treturn不是$ajax的，是内部的onload事件的。
+
+
+    // function $ajax() {
+    //     let data = null;
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open('get', 'http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php', true);
+    //     xhr.send();
+    //     xhr.onload = function() {
+    //         if (xhr.readyState === 4) {
+    //             data = xhr.responseText;
+    //             console.log(5);
+    //         }
+    //     }
+    //     console.log(6);
+    //     return data;
+
+    // }
+    // console.log($ajax()); //无法获取，xhr.responseText是异步。比return还要慢一拍。
+
+
+
+    function $ajax(callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php', true);
+        xhr.send();
+        xhr.onload = function() {
+            if (xhr.readyState === 4) {
+                callback(xhr.responseText); //xhr.responseText是实参，传递给回调函数的形参d，d接收到了数据。
+            }
+        }
+    }
+    $ajax(function(d) { //整个函数当作参数传递给$ajax函数做参数，并且$ajax里面调用此函数。
+        console.log(d);
+    });
+</script>

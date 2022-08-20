@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.本地存储的概述
+    // 1.概念
+    // 在HTML5中，新加入了一个localStorage对象，这个对象主要是用来作为本地存储来使用的，即能够在用户浏览器中对数据进行本地的存储.
+    // HTML5中加入的对于低版本的IE浏览器都是不支持,移动端开发是个核心的知识。
+
+    // 2.本地存储的特点。
+    // localStorage永久存储，除非手动删除.
+    // localStorage会将数据直接存储到本地浏览器，存储大小支持最大5MB，但只有在高版本的浏览器中才支持的.
+    // 目前所有的浏览器中都会把localStorage的值类型限定为string类型。
+    // 不同的浏览器本地存储不能相互进行访问
+
+    // 3.本地存储存储的位置
+    // 浏览器控制面板(f12) - Application选项里面 - 左侧localStorage
+    // 通过控制面板删除本地存储
+
+    // 4.本地存储涉及的方法
+    // window.localStorage.setItem()
+    // window.localStorage.getItem()
+    // window.localStorage.removeItem()
+
+    // 二.cookie
+    // 1.概念
+    // Cookie又叫会话跟踪技术(会员卡)是由Web服务器保存在用户浏览器上的小文本文件，它可以包含相关用户的信息。
+
+    // 2.特点
+    // 禁用Cookie后，无法正常注册登陆。 
+    // cookie是与浏览器相关的，不同浏览器之间所保存的cookie也是不能互相访问的； 
+    // cookie可以被删除。因为每个cookie都是硬盘上的一个文件； 
+    // cookie安全性不够高-xss攻击
+    // cookie的值类型限定为string类型,cookie大小一般只有4kb左右，可以单独配置.
+
+    // 3.cookie存储的位置
+    // 浏览器控制面板(f12) - Application选项里面 - 左侧cookie
+    // 通过控制面板删除选中的或者全部的cookie
+</script>

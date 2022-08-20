@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.获取数据。
+    // https://suggest.taobao.com/sug?k=1&area=c2c&q=apple
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'https://suggest.taobao.com/sug?k=1&area=c2c&q=apple', true);
+    // xhr.send();
+    // xhr.onload = function() {
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText); //报错， No 'Access-Control-Allow-Origin'
+    //     }
+    // }
+
+    // 产生的跨域的错误
+
+    // 二.为什么产生跨域的错误。
+    // 1.因为浏览器的同源策略，什么叫同源策略。
+    // 2.同源策略的概念：
+    // 阻止从一个域名上加载的脚本获取或操作另一个域名上的文档属性(数据)。
+    // 也就是说，受到请求的URL的域必须与当前Web页面的域相同。同源策略是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。
+    // 3.产生跨域的情况
+    // 3.1.域名不同，产生跨域。
+    // 3.2.协议不同，产生跨域。例如：http和https产生跨域
+    // 3.3.端口不同，产生跨域。
+    // 3.4.域名和域名对应的ip地址也会产生跨域，比如：localhost和127.0.0.1产生跨域
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://127.0.0.1/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', true);
+    // xhr.send();
+    // xhr.onload = function() {
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText); //报错， No 'Access-Control-Allow-Origin'
+    //     }
+    // };
+    // 3.5.一级域名和二级域名产生跨域。 
+    // 例如：https://www.baidu.com/   https://map.baidu.com/  http://news.baidu.com/
+</script>

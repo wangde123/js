@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function setCookie(key, value, day) { //key:自定义的名称 value:值，day:过期的天数
+        let d = new Date();
+        d.setDate(d.getDate() + day);
+        document.cookie = `${key}=${value};expires=${d};path=/`;
+    }
+
+    // 一.cookie的获取
+    // 如果cookie不存在，输出空白. 
+    // alert(document.cookie); //获取所有的cookie   age=20; id=0001; username=lisi
+    // 希望封装一个函数，输入key返回对应的value
+    function getCookie(key) {
+        let cookieArr = document.cookie.split('; '); //注意分号后面的空格 ['age=20', 'id=0001', 'username=lisi']
+        for (let value of cookieArr) {
+            let newArr = value.split('='); //将每一个数组项继续拆成数组
+            if (key === newArr[0]) { //新数组的第1项就是key值，第2项就是value
+                return newArr[1];
+            }
+        }
+    }
+    // console.log(getCookie('username')); //lisi
+    // console.log(getCookie('age')); //20
+    // console.log(getCookie('id')); //0001
+
+    // 二.cookie的删除
+    // 技巧：利用过期时间 + cookie如果key值存在会覆盖。
+    function delCookie(key) {
+        setCookie(key, '', -1);
+    }
+    delCookie('age')
+    delCookie('id')
+</script>

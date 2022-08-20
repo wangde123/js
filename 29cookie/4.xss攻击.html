@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="5.xss.php" method="post">
+        <input type="text" value="" style="width: 600px;" name="search" class="search">
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>
+<script>
+    // 一.XSS概念：
+    // XSS（Cross Site Script）攻击全称跨站脚本攻击，XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript。
+
+    const search = document.querySelector('.search');
+    search.onblur = function() {
+        // this.value = this.value.replace(/<|>/g, '');//过滤
+        this.value = encodeURIComponent(this.value); //编码
+    }
+
+    // 面试中回答xss攻击的解决方式。
+    // 输入过滤、输出转义
+
+
+    // 总结一下：
+    // 1.encodeURI()，和encodeURIComponent()是对字符进行编码(除了数字和英文字母)。
+    // 2.decodeURI()，和decodeURIComponent()是对相应编码过的字符进行解码。
+</script>

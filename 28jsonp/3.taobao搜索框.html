@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="search">
+        <input type="text" class="search_content"><br>
+        <ul class="list">
+
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    // taobao搜索框的实现
+    // https://suggest.taobao.com/sug?k=1&area=c2c&q=apple&code=utf-8&ts=1651716784581&callback=taobao
+    // 1.获取元素
+    const search_content = document.querySelector('.search_content');
+    const list = document.querySelector('.list');
+
+    // 3.通过函数返回数据，进行渲染。
+    function taobao(d) {
+        console.log(d.result); //获取数据，开始渲染li元素
+        let str = '';
+        for (let value of d.result) { //遍历二维数组
+            str += `
+            <li>${value[0]}</li>
+          `;
+        }
+        list.innerHTML = str;
+    }
+
+    // 2.创建script元素，因为基于事件触发产生不同的数据。
+    search_content.oninput = function() {
+        // 优化一下，最终只有最后创建的才是需要的，前面的都变得没有意义
+        let jsonp = document.querySelector('#jsonp');
+        if ('#jsonp') { //如果包含#jsonp的script标签存在就删除，保证创建一个。
+            jsonp.remove();
+        }
+        let cScript = document.createElement('script');
+        cScript.src = 'https://suggest.taobao.com/sug?k=1&area=c2c&q=' + search_content.value + '&code=utf-8&ts=1651716784581&callback=taobao';
+        cScript.id = 'jsonp'; //创建的script标签添加也给id选择器
+        document.body.appendChild(cScript);
+    }
+</script>

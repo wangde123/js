@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.COMMONJS规范、AMD规范(了解)、CMD规范(了解) - 模块化诞生过程
+  // CommonJS 最开始是Mozilla的工程师于2009年开始的一个项目，它的目的是让浏览器之外的JavaScript能够通过模块化的方式来开发和协作,Nodejs实现了这一规范。
+  // CommonJS 是最早的规范。
+  // CommonJS 的规范中，每个 JavaScript 文件就是一个独立的模块.
+  // CommonJS 的规范中提出定义模块 调用模块 配置模块的方式方法
+  // CommonJS 规范的主要适用场景是服务器端编程， 所以采用同步加载模块的策略
+
+  // 规范是最早的规范，但是不适合前端开发，根据COMMONJS规范产生AMD规范
+
+  // AMD 是Asynchronous Module Definition 的简称，即“异步模块定义”，是从CommonJS讨论中诞生的。
+  // AMD 优先照顾浏览器的模块加载场景，使用了异步加载和回调的方式。
+  // 浏览器端异步加载库Require.js实现的就是AMD规范。
+  // AMD 规范虽然适合前端开发，需要引入require.js的插件(工具)
+  //先加载后使用
+
+  // CMD规范，全称”Common Module Definition”，称为 通用模块加载规范 。一般也是用在浏览器端。浏览器端异步加载库Sea.js实现的就是CMD规范。(SeaJS的作者是前淘宝UED,现支付宝前端工程师玉伯)
+  // CMD 规范虽然适合前端开发，需要引入Sea.js的插件(工具)
+  //先使用后加载
+
+  // 二.模块化思想
+  // 模块化思想就是指将页面根据内容的关联性分解成不同的且相互独立的模块进行开发，每个模块之间没有必然的联系，互不影响，想要什么功能，就加载什么模块(每个JavaScript文件就是一个独立的模块)，大家必须以同样的方式编写模块，否则达不到预想的效果。
+
+  // 三.ES6的模块化
+  // https://es6.ruanyifeng.com/#docs/module
+  // 在ES6之前，社区制定了一些模块加载方案，最主要的有CommonJS和AMD两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代CommonJS和AMD规范，成为浏览器和服务器通用的模块解决方案。
+
+  // 注意两个问题：
+  // 1.模块化需要服务器加载(php服务器或者vscode安装Live Server服务器)
+  // 2.vscode安装Live Server插件
+</script>

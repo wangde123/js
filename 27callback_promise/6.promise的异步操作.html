@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // promise的异步操作
+    console.log(1);
+    let promise = new Promise((resolve, reject) => {
+        console.log(2);
+        resolve();
+    });
+
+    promise.then(() => { //异步
+        console.log(3);
+    }).catch(() => {
+        console.log(4);
+    });
+
+    console.log(5);
+
+    // 1,2,5,3
+    // promise实例对象里面代码是同步的，但是then和catch里面的代码是异步的。
+    // 异步总结：
+    // 定时器(里面的函数)
+    // ajax(获取接口数据，监听事件)
+    // promise(then和catch里面的代码)
+</script>

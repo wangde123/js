@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.localStroage和sessionStorage以及cookie的区别 - 重点
+
+    // 1.localStroage属于永久存储，如何实现具有过期时间。
+    // 约定的时间之后，使用removeItem方法删除本地存储，联系倒计时效果，定时器也可以。
+    // localStorage.setItem('username', 'zhangsan');
+    // setInterval(() => {
+    //     let futureTime = parseInt(new Date('2022-5-6 14:35:00').getTime() / 1000);
+    //     let currentTime = parseInt(new Date().getTime() / 1000);
+    //     console.log(futureTime, currentTime);
+    //     if (futureTime <= currentTime) {
+    //         localStorage.clear(); //清除所有的本地存储
+    //         // localStorage.removeItem(''); //清除具体的本地存储
+    //     }
+    // }, 1000);
+
+    // 2.sessionStorage
+    // 和localStorage特性是一样的，唯一的区别就是关闭浏览器(回话结束，临时的)，本地存储立刻消失。
+    // sessionStorage.setItem('name', 'zhangsan');
+
+    // 3.三者的区别
+    // 3.1.localStroage和sessionStorage所有的特点几乎都一样，大小5M左右，它们是因为本地存储数据而存在。
+    // 3.2.cookie 大小是4kb，服务器存在客户端浏览器上的
+    // 3.3.cookie可以自由设定过期时间，localStroage永久存储，sessionStorage临时存储
+</script>

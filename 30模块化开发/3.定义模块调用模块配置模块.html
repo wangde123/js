@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="use_module.js" type="module"></script> -->
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // ES6模块化开发 - 冲突和依赖
+  // 每个JavaScript文件就是一个独立的模块.
+  // 将页面根据内容的关联性分解成不同的且相互独立的模块进行开发
+  // 1.定义模块
+  // export命令用于规定模块的对外接口(export default 暴露一个变量或者函数，调用的时候自定义名称)
+
+  // 2.调用模块
+  // import命令用于输入其他模块提供的功能,暴露多个变量或者函数,在调用时候必须知道暴露的变量或者函数名称
+
+  // 3.配置模块 - (./)
+
+  // 4.HTML页面加载模块规则
+  // 浏览器加载 ES6 模块，也使用script标签，但是要加入type="module"属性。
+  // 可以放置在任意位置，都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本。
+
+  // 5.和模块化相关的其他问题
+  // 5.1.改变模块化的名称 - as语法
+  // import { fn as fn1 } from './zhangsan.js';
+  // 直接调用fn1，fn的名称修改为fn1
+
+  // 5.2.export default关键字暴露一块代码，暴露一个变量或者函数，调用的时候自定义名称。
+  var a = {
+    n: 1,
+  };
+  var b = a;
+  a.x = a = {
+    n: 2,
+  };
+  console.log(b.x);
+  console.log(a.x);
+</script>

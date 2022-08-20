@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.如何解决跨域问题。
+    // 跨域一般都需要后端参与，协商解决，不能单纯依赖前端，除非特殊的情况(比如jsonp格式的数据)。
+    // 1.后端代理
+    // 后端不存在跨域，可以通过公司后端(同域)协助获取数据。
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week06/Day27_jsonp/code/taobao.php', true);
+    // xhr.send();
+    // xhr.onload = function() {
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText); 
+    //     }
+    // }
+
+    // 2.cors
+    // CORS全称是"跨域资源共享"它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。
+    // 需要提供接口的后端在接口源码中添加下面两句代码
+    // 前提是后端必须添加下面的两句代码，必须找到接口的作者。
+    // header('Access-Control-Allow-Origin:*')//允许跨域访问的域名，*表示所有域名。
+    // header('Access-Control-Allow-Method:POST,GET')//允许跨域访问的请求方式。
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://127.0.0.1/JS2204(2203)/week06/Day27_jsonp/code/taobao.php', true);
+    // xhr.send();
+    // xhr.onload = function() {
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+
+    // 3.JSONP(JSON with Padding：用JSON数据填充)
+    // JSONP是一种数据格式，将json格式的数据填充给函数，利用函数获取数据。
+    // 通过JS 回调函数的形式实现跨域访问，由于同源策略的限制，XHR只允许请求当前源的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。
+    // 3.1.script标签src不存在跨域，可以引入任意扩展名的文件，如果里面存在js代码，可以直接使用。
+    // 3.2.回调函数,传递给前端的函数名。
+    // 3.3.get方式 - JSONP弊端
+</script>
+<!-- script标签引入第三方js文件 -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script> -->
+<!-- <script>
+    alert($);
+</script> -->
+<!-- script标签引入本地的文件 -->
+<!-- <script src="hello.txt"></script>
+<script>
+    console.log(arr); //['zhangasn', 'lisi', 'wangwu']
+</script> -->
+
+<!-- script引入本地的文件，但是里面只有数据 -->
+<!-- <script>
+    function fn(data) {
+        console.log(data);
+    }
+</script>
+<script src="jsonp.txt"></script> -->
+<!-- fn(["zhangasn", "lisi", "wangwu"]) -->
+
+<!-- <script>
+    function taobao(d) {
+        console.log(d);
+    }
+</script>
+<script src="https://suggest.taobao.com/sug?k=1&area=c2c&q=%E8%A1%A3%E6%9C%8D&code=utf-8&ts=1651716784581&callback=taobao"></script> -->
