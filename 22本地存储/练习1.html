@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .list {
+            width: 1190px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        .list li {
+            list-style: none;
+            width: 200px;
+            padding: 10px;
+            float: left;
+            margin: 0 16px 16px 0;
+            border: 1px solid #ccc;
+            height: 310px;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .list li img {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+
+        .list li p {
+            width: 200px;
+            height: 48px;
+            line-height: 24px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list"></div>
+
+</body>
+
+</html>
+<script>
+    let arrData = [{
+        "sid": "1",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/9\/1\/CiMGi1QzWDIA6GsmybYBbtKs_390x390.jpg",
+        "title": "\u60e0\u666e\uff08HP\uff09 \u8584\u9510ENVY15 X360 15.6\u82f1\u5bf8\u8f7b\u8584\u672c\u7ffb\u8f6c\u89e6\u63a7\u5c4f\u7a84\u8fb9\u6846\u5b9a\u5236\u8d85\u6781\u7b14\u8bb0\u672c \u6700\u65b011\u4ee3cpu \u53ef\u9009 16G\u5185\u5b58\/1TB\u56fa\u6001PCIE MX450-2G\u6ee1\u8840\u7248\u6728\u7eb9\u9ed1",
+        "price": "9399"
+    }, {
+        "sid": "2",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/8\/25\/3t4FKLvwkcqTkSiu25ZaoAPv_390x390.jpg",
+        "title": "\u60e0\u666e(HP)\u6697\u5f71\u7cbe\u70757 \u6e38\u620f\u672c 16.1\u82f1\u5bf8\u7b14\u8bb0\u672c\u7535\u8111 \u9ad8\u7aef\u72ec\u663e \u9ad8\u8272\u57df 144Hz\u7535\u7ade\u5c4f \u6b63\u7248win10 \u9ed1\u8272",
+        "price": "9999"
+    }, {
+        "sid": "3",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/8\/25\/FHrVplDiv7Gh8LNkG67dMkKQ_390x390.jpg",
+        "title": "\u96f7\u795e(ThundeRobot)911pro\u6656\u91d115.6\u82f1\u5bf8\u6e38\u620f\u7b14\u8bb0\u672c\u7535\u8111\u5341\u4e00\u4ee3i7-11800H RTX3070\u3010\u9001\u9f20\u6807\u3011",
+        "price": "10499"
+    }, {
+        "sid": "4",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/8\/26\/kXuc4wzNfZ7gUHHGKqJKDi84_390x390.jpg",
+        "title": "\u96f7\u795e(ThundeRobot)911MT\u7cfb\u521715.6\u82f111\u4ee3i5-11260H\u6e38\u620f\u672c\u7b14\u8bb0\u672c\u7535\u8111 RTX3050\u5355\u8272\u663e\u793a\u952e\u76d816G\/512G SSD 144Hz\u7535\u7ade\u5c4f\u3010\u9001\u9f20\u6807\u3011",
+        "price": "5999"
+    }, {
+        "sid": "5",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/6\/11\/50NAoB3Qkdk4l46SJRXVAoiF_390x390.jpg",
+        "title": "\u8054\u60f3\uff08Lenovo\uff09\u62ef\u6551\u8005R9000P 2021\u516b\u6838\u9510\u9f99R7\u8bbe\u8ba1\u5236\u56fe\u9ad8\u8272\u57df\u5168\u9762\u5c4f\u8f7b\u8584\u7b14\u8bb0\u672c\u7535\u8111 \u9ad8\u6027\u80fd\u7535\u7ade\u6e38\u620f\u672c 16\u82f1\u5bf8\u9ad8\u8272\u57df165Hz\u5168\u9762\u5c4f\u7b14\u8bb0\u672c\u7535\u8111",
+        "price": "10599"
+    }, {
+        "sid": "6",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/8\/26\/7Uvj1nWsFsuLiFuOrJlkQ5UY_390x390.jpg",
+        "title": "\u96f7\u795e\uff08ThundeRobot\uff09IGER L1\u5c0f\u767d15.6\u82f1\u5bf8\u8f7b\u8584\u7b14\u8bb0\u672c\u5168\u9762\u5c4f\u7b2c11\u4ee3i5\/i7\u5b66\u751f\u7f51\u8bfe\u5546\u52a1\u529e\u516c\u7b14\u8bb0\u672c\u7535\u8111win10\u3010\u9001\u9f20\u6807\u3011",
+        "price": "4499"
+    }, {
+        "sid": "7",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/6\/15\/ehnKG97Us18rfsIXBmW6hGe1_390x390.jpg",
+        "title": "\u8054\u60f3(Lenovo)\u62ef\u6551\u8005R7000P 2021\u6b3e 15.6\u82f1\u5bf8\u7b14\u8bb0\u672c\u7535\u8111 \u65b0\u9510\u9f99 \u516b\u6838 R7-5800H 16G 512G RTX3060 165Hz",
+        "price": "9199"
+    }, {
+        "sid": "8",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/3\/4\/MrK2YcLFgA1IvSPK3V4DzPF5_390x390.jpg",
+        "title": "\u8054\u60f3ThinkPad S2 \u82f1\u7279\u5c14\u9177\u777fi5 13.3\u82f1\u5bf8\u8f7b\u8584\u529e\u516c\u7b14\u8bb0\u672c\u7535\u8111(i5-10210U 16G 512GSSD 100%sRGB\u89e6\u63a7\u5c4f)\u9ed1",
+        "price": "5599"
+    }, {
+        "sid": "9",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/4\/13\/Hv6AWv4flTMKxzpKbVk4Iwbg_390x390.jpg",
+        "title": "Acer\/\u5b8f\u7881\u8702\u9e1fSF114 \u82f1\u7279\u5c14\u56db\u6838 \u5fae\u8fb9\u68462021\u6b3e\u9ad8\u901f\u56fa\u600114\u82f1\u5bf8\u5546\u52a1\u529e\u516c\u5b66\u751f\u7f51\u8bfe\u4fbf\u643a\u7c89\u8272\u624b\u63d0\u7b14\u8bb0\u672c",
+        "price": "3199"
+    }, {
+        "sid": "10",
+        "url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/5\/7\/MB82Tr9Yf7p1Opsg1FGjKpVw_390x390.jpg",
+        "title": "\u8054\u60f3\u5c0f\u65b0Pro14 \u9ad8\u6027\u80fd\u8f7b\u8584\u672c 14\u82f1\u5bf8\u5168\u9762\u5c4f\u7b14\u8bb0\u672c\u7535\u8111( 16G 512G 2.2K \u4f4e\u84dd\u5149\u62a4\u773c\u5c4f ) \u6807\u538b\u7248",
+        "price": "6499"
+    }];
+    const list = document.querySelector('.list')
+    let str = '<ul>'
+    for (value of arrData) {
+        
+  str+=`<li>
+    <img src="${value.url}">
+    <p>${value.title}</p>
+    <span>${value.price}</span>
+    <br>
+    <button>加入购物车</button>
+        </li>`
+    }
+    str += '</ul>'
+    list.innerHTML = str
+
+
+</script>

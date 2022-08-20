@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 静态方法
+    // 1.前面学习过的静态方法
+    // Array.isArray
+    // Array.from
+    // String.fromCharCode
+    // Object.assign
+    // Object.keys
+    // Object.values
+
+    // 2.静态方法的概念
+    // 构造函数开头的方法
+    // 如果在一个方法前，加上static关键字，就表示该方法不会被实例对象继承(使用)，而是直接通过类来调用，这就称为“静态方法”。
+
+
+    // 3.class实现静态方法
+    // class Person {
+    //     constructor(name, age) {
+    //         this.name = name;
+    //         this.age = age;
+    //     }
+
+    //     init() { //实例方法
+    //         console.log(this.name + this.age);
+    //     }
+
+    //     static showinfo() {
+    //         console.log('我是静态方法');
+    //     }
+    // }
+
+    // let p1 = new Person('zhangsan', 19);
+    // p1.init(); //zhangsan19
+    // // p1.showinfo();//报错，静态方法不会给实例对象使用。
+    // Person.showinfo() //正确的，我是静态方法
+
+    // 4.了解传统方式实现静态方法。
+    // function Person(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    // }
+
+    // Person.prototype.init = function() { //实例方法
+    //     console.log(this.name + this.age);
+    // };
+
+    // Person.showinfo = function() { //静态方法
+    //     console.log('我是静态方法');
+    // }
+
+    // let p1 = new Person('zhangsan', 19);
+    // p1.init(); //zhangsan19
+    // p1.showinfo(); //报错，静态方法不会给实例对象使用。
+    // Person.showinfo() //正确的，我是静态方法
+</script>

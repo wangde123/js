@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // http状态码
+    // ajax对象下面有一个status属性，可以获取http状态码。
+    // HTTP状态码是用以表示网页服务器超文本传输协议(http)响应状态的3位数字代码。
+    // 根据http的状态码检测通信是否正常。
+    // 200 请求已成功，请求所希望的响应头或数据体将随此响应返回。出现此状态码是表示正常状态。
+    // 301 被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI 之一。
+    // 304 没有修改，如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容并没有改变。
+    // 403 服务器已经理解请求，但是拒绝执行它，权限问题
+    // 404 没有找到,请求失败，请求所希望得到的资源未被在服务器上发现
+    // 5开头  服务器的错误
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://api.k780.com/?app=life.postcode&postcode=528400&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            } else {
+                throw new Error('接口地址错误'); //自定义错误，并且抛出到浏览器下面。
+            }
+
+        }
+    }
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 修改this的指向
+    // 1.利用函数下面的方法call,apply,bind
+    // window.num = 2;
+    // const obj = {
+    //     num: 1
+    // }
+
+    // function fn() {
+    //     console.log(this.num);
+    // }
+
+    // fn(); //2, this->window
+    // fn.call(obj); //1 this->obj
+    // fn.apply(obj); //1 this->obj
+    // fn.bind(obj)(); //1 this->obj  重点，很多时候需要函数体，而不是调用的结果。
+
+    // 2.将正则的this存储下来。
+    // window.num = 2;
+
+    // function fn() {
+    //     console.log(this.num);
+    // }
+
+    // const obj = {
+    //     num: 1,
+    //     shownum1: function() {
+    //         fn(); //函数前面没有对象，指向window
+    //     },
+    //     shownum2: fn,
+    //     shownum3: function() {
+    //         console.log(this.num);
+    //     },
+    //     shownum4: function() {
+    //         let _this = this;
+    //         console.log(_this.num);
+    //     },
+    //     shownum5: function() {
+    //         let _this = this;
+    //         return function() {
+    //             console.log(_this.num); //_this->obj
+    //         }
+    //     }
+    // }
+
+    // obj.shownum1(); //this->window  输出2
+    // obj.shownum2(); //this->obj  输出1
+    // obj.shownum3(); //this->obj  输出1
+    // obj.shownum4(); //this->obj  输出1
+    // obj.shownum5()(); //this->obj 输出1
+
+    // 3.new关键字 - 指向new出来的实例对象
+    // window.num = 10;
+    // function fn() {
+    //     console.log(this.num);
+    // }
+    // fn(); //10  this->window
+    // new fn(); //undefined this->实例对象
+</script>

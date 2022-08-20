@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.面向对象的两种写法
+    // 1.传统的面向对象写法(混合开发：构造函数+原型)
+    // 上面的写法方便理解作者的写法，已经变成传统的了。
+
+    // function Person(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    // }
+
+    // Person.prototype.init = function() {
+    //     return this.name + this.age;
+    // };
+    // let p1 = new Person('zhangsan', 18);
+    // console.log(p1.init());
+
+    // 2.ES6最佳的面向对象写法(class开发)
+    // 语法糖:也译为糖衣语法，指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖能够增加程序的可读性，从而减少程序代码出错的机会。
+
+    // ES6 提供了更接近传统语言(后端)的写法，引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。基本上，ES6 的class可以看作只是一个语法糖，它的绝大部分功能，ES5之前都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
+
+    // 死死的记住新的写法的结构
+    class Person {
+        constructor(name, age) { //构造函数
+            this.name = name;
+            this.age = age;
+        }
+
+        init() { // 原型
+            return this.name + this.age;
+        }
+    }
+    let p1 = new Person('zhangsan', 18);
+    console.log(p1.init());
+
+    console.log(typeof Person); //function
+    
+</script>

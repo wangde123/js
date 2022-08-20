@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.理解构造函数(类)
+    // 类，构造函数，实例对象
+    // 1.类(构造函数)的概念
+    // 类就是一类事物，而对象就是一类事物中的具体事物，一类事物中包含若干个具体的事物。
+
+    // 2.对象：
+    // 类下面的具体事物叫做实例对象，具有一定的功能，被构造函数(类)构造出来的。
+
+    // 3.构造函数的使用
+    // 3.1.构造函数的基本特点：首字母大写   new运算符实例化对象(核心)。
+    // function Person() {
+    //     console.log(1)
+    // }
+    // Person(); //Person是普通函数
+    // new Person(); //Person是构造函数，new Perosn()产生实例对象
+
+
+    // 3.2.构造函数也是普通函数,对构造函数使用new运算符，就能生成实例对象，并且函数里面this变量会绑定在实例对象上
+
+    function Person(name, age) {
+        this.a = name; //属性
+        this.b = age; //属性
+        this.c = function() { //方法
+            console.log(`我的名字叫${this.a},我今年${this.b}岁`);
+        };
+    }
+
+    // 通过类可以创建任意多个具有相同属性和方法的实例对象
+    let p1 = new Person('zhangsan', 18); //p1:实例对象  Person:类或构造函数  this->p1
+    console.log(p1.a); //zhangsan
+    let p2 = new Person('lisi', 20); //p2:实例对象  Person:类或构造函数  this->p2
+    console.log(p2.a); //lisi
+    let p3 = new Person('wangwu', 25); //p3:实例对象  Person:类或构造函数  this->p3
+    console.log(p3.a); //wangwu
+    p1.c();
+    p2.c();
+    p3.c();
+</script>

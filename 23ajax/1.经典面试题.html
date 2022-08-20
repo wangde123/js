@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!-- <script>
+    // 面试题
+    // 构造函数 + 函数表达式 + 普通函数 + 原型方法
+    // 重名的函数：预解析(预编译，逐行执行)
+    function A() { //构造函数
+        B = function() { //这里的函数表达式没有添加var或者let进行声明，全局的
+            console.log(10)
+        }
+        return this
+    };
+
+    A.B = function() { //静态方法，直接绑定在构造函数下面的
+        console.log(20)
+    };
+
+    A.prototype.B = function() { //原型
+        console.log(30)
+    };
+
+    var B = function() { //函数表达式
+        console.log(40)
+    };
+
+    function B() { //普通函数
+        console.log(50)
+    }
+
+    A.B(); //20   静态方法，分析其他的函数都不合适。
+    B(); //40 代码最下面的两个函数先通过预解析进行筛选，预解析的结果是下面的普通函数B，然后逐行执行，逐行执行的时候函数表达式改变预编译的结果，最终调用的是上面的函数表达式B
+    A().B(); //10 调用最上面的A函数，里面B函数就出来了，B根据逐行执行，覆盖前面出现过的B函数表达式。
+    B(); //10  继续调用A函数里面的B函数，上面已经覆盖过了。如果注释45行，结果也是40
+    new A.B(); //20 运算符优先级，点符号的优先级大于new运算符  new (A.B())
+    (new A).B(); //30  实例化，调用构造函数或者原型上面的方法，构造函数里面没有方法，调用原型上面的方法
+    new A().B(); //30 A后面添加括号，提升优先级。(实例化，调用构造函数或者原型上面的方法，构造函数里面没有方法，调用原型上面的方法)
+</script> -->
+
+
+<script>
+    // 构造函数
+    // function Person() {
+    //     this.num = 10;
+    // }
+
+    // let p1 = new Person();
+    // console.log(p1.num); //10
+
+    // let p2 = new Person;
+    // console.log(p2.num); //10
+    // 上面的两种实例化区别不大，唯一的区别是如果构造函数有参数，下面的调用无法传参。
+
+
+    // 普通函数
+    // function fn() {
+    //     alert('普通函数调用了');
+    // }
+    // fn();
+    // new fn();
+
+    // function Foo() {
+    //     getName = function() {
+    //         console.log(1)
+    //     }; //会修改全局的下的getName return this;// 构造函数的返回值值得注意，如果是引用类型，则得到引用数据，null除外 } 
+    //     Foo.getName = function() {
+    //         console.log(2);
+    //     };
+    //     Foo.prototype.getName = function() {
+    //         console.log(3)
+    //     };
+    //     var getName = function() {
+    //         console.log(4)
+    //     };
+
+        function getName() {
+            console.log(5)
+        } //请写出以下输出结果：
+    //     // Foo.getName(); //2 getName(); // 4 Foo().getName(); // 1 getName();// 1 new Foo.getName(); // 2 这里是new了一个Foo.getName函数，并没有先执行Foo.getName()在去执行new操作 new Foo().getName(); // 3 (new Foo()).getName() 此时的getName是找到Foo构造函数的原型对象上的getName属性 new new Foo().getName(); // 3 new ((new Foo()).getName)(); /*******************升级版********************/ // function Foo() { // this.getName = function() { // console.log(3); // return { // getName: getName//这个就是第六问中涉及的构造函数的返回值问题 // } // };//这个就是第六问中涉及到的， JS 构造函数公有方法和原型链方法的优先级 // getName = function() { // console.log(1); // }; // return this // } // Foo.getName = function() { // console.log(2); // }; // Foo.prototype.getName = function() { // console.log(6); // }; // var getName = function() { // console.log(4); // }; // function getName() { // console.log(5); // } //答案： // Foo.getName(); //2 // getName(); //4 // console.log(Foo()) // Foo().getName(); //1 // getName(); //1 // new Foo.getName(); //2 // new Foo().getName(); //3 // //多了一问 // new Foo().getName().getName(); //3 1 // new new Foo().getName(); //3
+    </script> 

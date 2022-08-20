@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 介绍new关键字
+    // 以 new 操作符调用函数的时候，函数内部发生以下变化：
+    // 1.创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
+    // 2.属性和方法被加入到 this 引用的对象中。
+    // 3.并且最后隐式的返回 this 。
+    // 4.new关键字可以改变函数内部的this指向，让this指向实例对象。
+
+    // function Person() {
+    //     this.name = 'zhangsan';
+    //     this.age = 18;
+    //     return 'hehe';
+    // }
+
+    // console.log(Person()); //hehe
+    // console.log(new Person()); //Person {} 
+    // 注意：如果new一个函数，函数变成构造函数，里面会自动帮你返回this，return的其他值无效了。
+
+    // 为什么会有上面的三个变化。
+    // function Person() {
+    //     this = new Object(); //创建空对象，并且 this 变量引用该对象
+    //     this.name = 'zhangsan'; //属性和方法被加入到 this 引用的对象中。
+    //     this.age = 18;
+    //     // return this;//并且最后隐式的返回 this ,这一步看不到，系统完成的，可以理解成创建也是系统完成。
+    // }
+
+    // new关键字可以改变函数内部的this指向，让this指向实例对象。
+
+    // function Fn() {
+    //     alert(this);
+    // }
+    // Fn(); //this->[object Window]
+    // new Fn(); //this->[object Object]对象的值
+</script>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box"></div> -->
+    <!-- <img src="pic3.jpg" alt=""> -->
+</body>
+
+</html>
+<script>
+    // function Perosn(name,age){
+    //     this.a=name;
+    //     this.b=age;
+    //     this.c=function(){
+    //         console.log(`我的名字叫${this.a},我${this.b}岁`);
+    //     }
+
+    // }
+    // let p1=new Perosn('zhangsan',18)//this=>p1
+    // console.log(p1.a,p1.b);
+    // p1.c()
+    // let p2=new Perosn('lisi',19)//this=>p2
+    // console.log(p2.a,p2.b);
+    // p2.c()
+
+
+    // function Array() {//构造函数
+    //     // this.length=arguments.length
+    // }
+
+    // Array.prototype.push = function () {//原型
+    //     for (let i = 0; i < arguments.length; i++) {
+    //         this[this.length] = arguments[i]
+    //         // alert(this)
+    //     }
+    //     return this.length
+
+    // }
+    // let arr1 = new Array(1, 2, 3)
+    // // console.log(new Array(1,2,3).length)
+    // console.log(arr1);
+    // console.log(arr1.push(40, 50, 60)); 
+
+
+    // function Drag(name,age) {
+    //     this.name = name;
+    //     this.age = age;
+    //     alert(2)
+    //     this.init()
+    // }
+
+    // Drag.prototype.init = function () {
+    //     alert(3)
+    //     console.log(this.name);
+    // }
+    // new Drag('zhangsan', 18)
+
+    // function Drag() {
+    //     this.box = document.querySelector('img');
+    // }
+    // Drag.prototype.init = function () {
+    //     this.box.onmousedown = (e) => {
+    //         let shortx = e.offsetX;
+    //         let shorty = e.offsetY;
+
+    //        this.box.onmousemove = (e) => {
+    //             this.box.style.left = e.clientX - shortx + 'px';
+    //             this.box.style.top = e.clientY - shorty + 'px';
+    //         }
+
+    //        this.box. onmouseup = () => {
+    //             this.box.onmousemove = null;
+    //         }
+
+    //         return false;
+
+    //     }
+
+
+
+    // }
+    // console.log(new Drag);
+    // new Drag().init()
+
+    // class Drag {
+    //     constructor() {
+    //         this.box = document.querySelector('.box')
+
+    //     }
+    //     init() {
+    //         this.box.onmousedown = (e) => {
+    //             let shortx = e.offsetX
+    //             let shorty = e.offsetY
+
+    //             document.onmousemove = (e) => {
+    //                 this.box.style.left = e.clientX - shortx + 'px'
+    //                 this.box.style.top = e.clientY - shorty + 'px'
+    //             }
+
+    //             document.onmouseup = () => {
+    //                document.onmousemove = null
+    //             }
+
+    //             return false
+    //         }
+    //     }
+    // }
+    //    let p1=new Drag
+    //     p1.init() 
+    // new Drag().init()
+    //     function Perosn(){
+    //         console.log('3');
+    //     }
+    //     Perosn.prototype.init=function(){
+    // console.log('5');
+    //     }
+
+    //     class Perosn {
+    //         constructor(name, age) {
+    //             this.name = name
+    //             this.age = age
+    //         }
+    //         init() {
+    //             return this.name + this.age
+    //         }
+    //         static show(){
+    //             console.log('5');
+    //         }
+    //     }
+    //     let p1 = new Perosn('zhangsan', 18)
+    //     console.log(p1.init())
+    // Perosn.show()
+
+    function Perosn(age, name, sex) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+
+    }
+    // Perosn.prototype.showname=function(){
+    //     console.log(this.name);
+    // }
+    // Perosn.prototype.showage=function(){
+    //     console.log(this.age);
+    // }
+    // Perosn.prototype.showsex=function(){
+    //     console.log(this.sex);
+    // }
+    // new Perosn(18,'zhangsan','nan').showname()
+    // new Perosn(18,'zhangsan','nan').showage()
+    // new Perosn(18,'zhangsan','nan').showsex()
+    Perosn.prototype = {
+        showname: function () {
+            console.log(this.name);
+        },
+        showage: function () {
+            console.log(this.age);
+        },
+        showsex :function () {
+            console.log(this.sex);
+        }
+    }
+   new Perosn(18,'zhangsan','nan').showname()
+    new Perosn(18,'zhangsan','nan').showage()
+    new Perosn(18,'zhangsan','nan').showsex()
+</script>

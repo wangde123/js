@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.原型prototype
+    // 原型(prototype):每一个函数都有一个原型对象(属性)，原型上面绑定是公有的属性或者方法，而且里面的this依然指向实例对象。
+
+    // function Array() {
+    //     this.length = arguments.length; //系统提供的所有属性都是写在构造函数里面。
+    // }
+
+    // Array.prototype.push = function() { //系统提供的所有实例方法都是绑定在原型上面。
+    //     // this:当前的实例对象，arr1/arr2
+
+    // };
+
+    // let arr1 = new Array(1, 2, 3); //arr1:实例对象   Array:构造函数
+    // let arr2 = new Array(4, 5, 6, 7); //arr2:实例对象   Array:构造函数
+
+    // console.log(arr1.push(40, 50, 60)); //6
+    // console.log(arr1); //[1,2,3,40,50,60]
+    // console.log(arr1.push == arr2.push); //true
+
+
+    // 二.传统的面向对象的写法：作者采用此思路实现系统的类和对象。
+    // 混合开发：构造函数+原型实现。
+</script>

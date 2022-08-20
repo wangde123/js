@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 一.传统面向对象的应用
+    // 对比函数式编程做到以下几点改变。
+    // 1.全局变量改写成属性，减少全局变量的是使用。
+    // 2.函数改写成方法，减少全局函数的使用。
+    // 3.注意this的指向
+    // 谁调用函数this指向谁，箭头函数里面的this来自于父级，不会改变。
+    // 构造函数里面的this指向实例对象
+    // 原型里面的this指向实例对象
+    // 事件处理函数里面的this指向当前操作的元素。
+
+
+    // 二.方法和属性的调用方式 - 重点
+    // 构造函数里面的属性和方法是私有的(对象和对象是不同的)，都是可以给实例对象使用的
+    // function Drag() {
+    //     alert(1); //new Drag立刻调用此函数
+    //     let a = 100; //拥有块级作用域，代码块之外无法使用
+    //     this.name = 'zhangsan'; //实例对象即可使用
+    //     this.init(); //也可以调用原型的方法，this就是实例对象。
+    // }
+
+    // 原型里面的属性和方法是公有的，都是可以给实例对象使用的
+    // Drag.prototype.init = function() { //原型：初始化方法，一般习惯性用init命名
+    //     console.log(this.name); //zhangsan,调用构造函数的里面的属性和方法
+    //     alert(2);
+    // };
+    // 不管是构造函数里面的属性和方法，还是原型上面的属性和方法，都是给实例对象使用的。
+    // 第一种调用方式
+    // let d1 = new Drag();
+    // d1.init();
+
+    // 改写调用方式
+    // new Drag().init();
+
+    // 改写调用方式
+    // new Drag()
+
+    // 三.拖拽效果
+    //    const Drag=function() {
+    //         this.box = document.querySelector('.box'); //获取元素对象
+    //     };
+
+    //     Drag.prototype.init = function() {
+    //         // this:指向实例
+    //         // let _this = this; //将实例对象的this存储下来，但是没有箭头函数方便。
+    //         this.box.onmousedown = (e)=> {
+    //             let shortx = e.offsetX;
+    //             let shorty = e.offsetY;
+
+    //             document.onmousemove = (e) =>{
+    //                 //这里的this指向document
+    //                 this.box.style.left = e.clientX - shortx + 'px';
+    //                 this.box.style.top = e.clientY - shorty + 'px';
+    //             };
+
+    //             document.onmouseup = ()=> {
+    //                 document.onmousemove = null;
+    //             };
+    //             return false; //阻止默认行为
+    //         };
+    //     };
+    class Drag {
+        constructor() {
+            this.box = document.querySelector('.box');
+        }
+        init() {
+            this.box.onmousedown = (e) => {
+                let shortx = e.offsetX;
+                let shorty = e.offsetY;
+
+                document.onmousemove = (e) => {
+                    //这里的this指向document
+                    this.box.style.left = e.clientX - shortx + 'px';
+                    this.box.style.top = e.clientY - shorty + 'px';
+                };
+
+                document.onmouseup = () => {
+                    document.onmousemove = null;
+                };
+                return false; //阻止默认行为
+            };
+        }
+    }
+    new Drag().init();
+</script>

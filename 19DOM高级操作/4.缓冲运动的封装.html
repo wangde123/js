@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 0px;
+            top: 110px;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0px;
+            top: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>
+<script>
+    // 1.封装函数实现缓存运动 - 参数配置
+    // 参数配置：将函数中可能出现改变的地方设为参数。
+
+    // 2.问题，多物体运动，出现只能一个物体运动，其他的物体无法运动。
+    // 多个物体对应一个定时器，只能保证一个物体运动。
+    // 解决方式：给每一个物体一个定时器。物体定时器的格式取决于返回值，通过对象的方式将定时器的返回值给物体当作属性。
+
+    let speed = 0; //速度
+    const bufferMove = function(element, attr, target) { //element:运动的元素，attr:运动的属性名，target:运动的目标点
+        window.clearInterval(element.t); //关闭定时器，防止事件下面会出现定时器的叠加
+        element.t = window.setInterval(() => { //开启定时器
+            // 1.获取运动属性的当前值
+            let attrValue = parseInt(window.getComputedStyle(element)[attr]); //干掉单位
+            // 2.获取由快到慢速度
+            speed = (target - attrValue) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            // 3.判断运动是否停止
+            if (attrValue === target) { //如果当前盒子的位置等于目标点，关闭定时器，停止运动
+                window.clearInterval(element.t);
+            } else { //继续运动
+                element.style[attr] = attrValue + speed + 'px'; //box.offsetLeft:获取元素的位置
+            }
+        }, 1000 / 60);
+    };
+
+    const box = document.querySelector('.box');
+    const box1 = document.querySelector('.box1');
+    const box2 = document.querySelector('.box2');
+
+    box.onmouseover = function() {
+        bufferMove(this, 'width', 800);
+    };
+
+    box.onmouseout = function() {
+        bufferMove(this, 'width', 100);
+    };
+
+    box1.onmouseover = function() {
+        bufferMove(this, 'width', 800);
+    };
+
+    box1.onmouseout = function() {
+        bufferMove(this, 'width', 100);
+    };
+
+    box2.onmouseover = function() {
+        bufferMove(this, 'width', 800);
+    };
+
+    box2.onmouseout = function() {
+        bufferMove(this, 'width', 100);
+    };
+</script>

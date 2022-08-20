@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 碰撞运动：
+    // 碰撞到浏览器的边界如何处理。
+    // 处理方法：速度取反，改变物体的位置
+    const box = document.querySelector('.box');
+    let t = null;
+    let speedx = 3;
+    let speedy = 6;
+    box.onclick = function() {
+        clearInterval(t);
+        t = setInterval(() => {
+            // 判断盒子碰撞到浏览器的边界
+            let left1 = box.offsetLeft + speedx;
+            let top1 = box.offsetTop + speedy;
+            if (left1 >= document.documentElement.clientWidth - box.offsetWidth) {
+                speedx *= -1;
+                left1 = document.documentElement.clientWidth - box.offsetWidth;
+            } else if (left1 < 0) {
+                speedx *= -1;
+            }
+
+            if (top1 >= document.documentElement.clientHeight - box.offsetHeight) {
+                speedy *= -1;
+                top1 = document.documentElement.clientHeight - box.offsetHeight
+            } else if (top1 < 0) {
+                speedy *= -1;
+            }
+            box.style.left = left1 + 'px';
+            box.style.top = top1 + 'px';
+        }, 1000 / 60);
+    };
+</script>

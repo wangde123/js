@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.对比系统提供的构造函数和自定义的构造函数的区别。
+    // 1.系统提供的构造函数，数组为例
+    // 函数名等同于函数结构体。
+    // function Array() {} //作者默认提供的，如果手动写出来，作者的构造函数就被覆盖了。
+    // let arr = new Array(1, 2, 3); //arr:实例对象   Array:构造函数
+    // alert(Array); //function Array() { [native code] }
+    // console.log(arr.length); //3
+    // console.log(arr.push(4)); //4
+
+
+
+    // 2.自定义的构造函数
+    // function Person(name, age) {
+    //     this.a = name; //属性
+    //     this.b = age; //属性
+    //     this.c = function() { //方法
+    //         return `我的名字叫${this.a},我今年${this.b}岁`;
+    //     };
+    // }
+    // let p1 = new Person('zhangsan', 18); //p1:实例对象  Person:类或构造函数  this->p1
+    // // alert(Person); //输出当前Person函数结构体
+    // console.log(p1.a);
+    // console.log(p1.c());
+
+    // 3.实现作者的意图
+    // 作者默认提供的，如果手动写出来，作者的构造函数就被覆盖了。
+    function Array() {
+        this.length = arguments.length; //this指向实例对象,通过arguments对象实现作者提供的length属性。
+        this.push = function() {
+            return '我是push的返回值'
+        }
+    }
+    let arr1 = new Array(1, 2, 3); //arr1:实例对象   Array:构造函数
+    let arr2 = new Array(4, 5, 6, 7); //arr2:实例对象   Array:构造函数
+
+    console.log(arr1.push == arr2.push); //false 
+    // 自己手动编写的Array构造函数,覆盖系统默认提供的构造函数，对比里面的方法返回false，使用系统的构造函数对比结果返回true
+    // 可以证明系统的数组对象方法不是写在构造函数里面的，但是属性是写在构造函数里面的。
+
+    // 4.构造函数的弊端。
+    // 构造函数弊端：构造函数里面的属性和方法都是私有的(根据开发习惯，属性私有是正常的，而方法必须是公有为主)
+</script>

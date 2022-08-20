@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //原型(prototype):每一个函数都有一个原型对象(属性对象)，原型上面绑定是公有的属性或者方法，而且里面的this依然指向实例对象。
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    // 原型的分开写法
+    // Person.prototype.showname = function() { //实例方法
+    //     console.log(this.name);
+    // };
+
+    // Person.prototype.showage = function() { //实例方法
+    //     console.log(this.age);
+    // };
+
+    // Person.prototype.showsex = function() { //实例方法
+    //     console.log(this.sex);
+    // };
+
+    // 原型的合并写法
+    Person.prototype = {
+        showname: function() {
+            console.log(this.name);
+        },
+        showage: function() {
+            console.log(this.age);
+        },
+        showsex: function() {
+            console.log(this.sex);
+        }
+    };
+
+    let p1 = new Person('zhangsan', 19, '女');
+    p1.showname()
+    p1.showage()
+    p1.showsex()
+</script>

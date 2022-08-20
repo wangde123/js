@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.函数对象的属性和方法。
+    // 1.函数对象的属性：length
+    // length:获取参数的长度，区分arguments.length
+
+    // function fn() {
+    //     console.log(arguments.length); //3  获取实参的长度
+    // }
+    // fn(1, 2, 3);
+
+    // function sum(a, b, c) {}
+    // console.log(sum); //返回函数体
+    // console.log(sum.length); //3  根本没有调用此函数，输出函数声明时函数的参数(形参)长度
+
+    // 2.apply 、 call 、bind的介绍（函数的方法,改变this的指向）- 面试
+    // this是Js语言的一个关键字，它代表函数运行时,自动生成的一个内部对象，只能在函数内部使用，随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则,那就是this指的是调用函数的那个对象。
+    // 2.1.call方法：改变this指向的，第一个参数就是新的this指向，从第二个参数开始表示函数自身的参数。
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // var b = 2000; //变量，var声明的变量是window的属性。
+
+    // console.log(a); //1000;
+    // console.log(window.a); //undefined,let声明的变量不是window的属性。
+
+    // console.log(b); //2000;
+    // console.log(window.b); //2000;var声明的变量是window的属性
+
+
+    // function hehe() {
+    //     console.log(a); //1000
+    //     console.log(this.a); //this->window,相当于window.a,不存在undefined
+    //     console.log(b); //2000
+    //     console.log(this.b); //2000   this->window,var声明的变量是window的属性,存在window.b
+    // }
+    // hehe();
+
+
+
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // var b = 2000; //变量，var声明的变量是window的属性。
+    // const obj = {
+    //     a: 100,
+    //     b: 200,
+    //     showa() {
+    //         console.log(this.a);
+    //         console.log(this.b);
+    //     }
+    // };
+    // obj.showa(); //  this->obj  输出100  200
+    // obj.showa.call(window); //this->window   输出undefined,2000
+
+
+
+    // function fn() {
+    //     alert(this);
+    // }
+    // fn(); //this->window,严格模式下面指向undefined
+    // fn.call(1) //this->1
+
+
+    // 案例：
+
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // const obj = {
+    //     a: 100,
+    //     showa() {
+    //         console.log(this.a);
+    //     }
+    // };
+
+    // function sum(x, y) {
+    //     console.log(this.a + x + y);
+    // }
+
+    // call第一个参数就是新的this指向，从第二个参数开始表示函数自身的参数。
+    // sum.call(window, 3, 7); //undefined+3+7 = NaN
+    // sum.call(obj, 3, 7); // 100+3+7 = 110
+
+    // 2.2.apply方法：改变this指向的，第一个参数就是新的this指向，第二个参数是数组或者类数组，里面放函数自身的参数。
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // const obj = {
+    //     a: 100,
+    //     showa() {
+    //         console.log(this.a);
+    //     }
+    // };
+
+    // function sum(x, y) {
+    //     console.log(this.a + x + y);
+    // }
+
+    // call第一个参数就是新的this指向， 从第二个参数开始表示函数自身的参数。
+    // apply第一个参数就是新的this指向， 第二个参数是数组或者类数组，里面放函数自身的参数。区别是某些特殊情况下，apply占一点点写法优势。
+    // sum.apply(window, [3, 7]); //undefined+3+7 = NaN
+    // sum.apply(obj, [3, 7]); // 100+3+7 = 110
+
+    // 计算1+2+3+......10的和
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // // const obj = {
+    //     a: 100,
+    // //     showa() {
+    // //         console.log(this.a);
+    // //     }
+    // // };
+
+    // function sum(n1, n2, n3, n4, n5, n6, n7, n8, n9, n10) {
+    //     console.log(this.a + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + n10)
+    // }
+
+    // sum.call(obj, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10); //155
+    // sum.apply(obj, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); //155
+
+    // let str = 'hello';
+    // console.log(Array.prototype.slice.call(str));
+    // console.log(Array.prototype.slice.apply(str));
+
+
+    //2.3.bind方法：改变this指向的，第一个参数就是新的this指向， 从第二个参数开始表示函数自身的参数，仅返回函数体。
+
+    // let a = 1000; //变量，let声明的变量不是window的属性。
+    // const obj = {
+    //     a: 100,
+    //     showa() {
+    //         console.log(this.a);
+    //     }
+    // };
+
+    // function sum(x, y) {
+    //     console.log(this.a + x + y);
+    // }
+
+    // call第一个参数就是新的this指向， 从第二个参数开始表示函数自身的参数。
+    // apply第一个参数就是新的this指向， 第二个参数是数组或者类数组， 里面放函数自身的参数。 区别是某些特殊情况下， apply占一点点写法优势。
+    // bind第一个参数就是新的this指向， 从第二个参数开始表示函数自身的参数，仅返回函数体，需要再次调用。
+    // sum.bind(window, 3, 7)(); //undefined+3+7 = NaN
+    // sum.bind(obj, 3, 7)(); // 100+3+7 = 110
+    // window.num = 100; //window添加属性
+    // const obj = {
+    //     num: 1000
+    // }
+
+    // function fn() {
+    //     console.log(this.num);
+    // }
+
+    // fn(); //100
+
+    // 定时器里面改变this指向，让this指向obj
+    // window.setInterval(fn.call(obj), 2000); //此时的定时器无效，已经调用fn函数
+
+    // window.setInterval(fn.bind(obj), 2000); //bind返回的就是函数体，定时器的第一个参数就是函数体
+    
+</script>

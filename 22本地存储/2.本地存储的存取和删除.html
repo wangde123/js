@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.本地存储 - 存
+    // 1.本地存储采用自定义的键值对进行存储，永久存储，支持5MB大小。
+    // 2.localStorage对象进行操作，也可以写成window.localStorage
+    // 第一种存储格式：对象下面的点符号
+    // localStorage.username = 'zhangsan';
+    // 第二种存储格式：对象下面的中括号
+    // localStorage['age'] = 18;
+    // 第三种存储格式：localStorage对象下面的方法 - 推荐的
+    // localStorage.setItem('sex', '男');
+    // 3.如果存储的key值相同，后面会覆盖前面的。
+    // localStorage.setItem('sex', '不男不女');
+
+    // // 4.存储自定义对象
+    // // 注意：所有对象的值都是[object Object]，获取这个[object Object]就没什么意义。
+    // const obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // };
+    // localStorage.setItem('objData', obj); //[object Object]
+    // JSON.stringify():将对象转换成json格式的字符串
+    // localStorage.setItem('objData', JSON.stringify(obj));
+
+
+    // 二.本地存储 - 获取
+    // 第一种获取格式：对象下面的点符号
+    // console.log(localStorage.username);//zhangsan
+    // console.log(localStorage.age);
+    // console.log(localStorage.sex);
+    // 第二种获取格式：对象下面的中括号
+    // console.log(localStorage['username']); //zhangsan
+    // localStorage['age'] = 18;
+    // 第三种获取格式：localStorage对象下面的方法 - 推荐的
+    // console.log(localStorage.getItem('objData')); //字符串格式{"a":1,"b":2,"c":3}
+    // JSON.parse():将json格式的字符串转换成对象格式。
+    // console.log(JSON.parse(localStorage.getItem('objData')));
+
+
+    // 三.本地存储 - 删除
+    // 1.手动在控制面板里面删除 - 不推荐
+    // 2.利用localStorage.removeItem()方法进行逐个删除
+    // localStorage.removeItem('username')
+    // localStorage.removeItem('age')
+    // 3.clear方法，删除所有的本地存储，慎用。
+    // localStorage.clear();
+
+
+    // 四.总结
+    // 1.本地存储 - 存，取，删对应的三个方法。
+    // 2.本地存储key值相同，后面的覆盖前面的。
+    // 3.如果获取的本地存储不存在，输出null，不会报错。
+    // console.log(localStorage.getItem('hehe')); //null
+    // 4.5MB大小，永久存储，字符串格式。
+</script>

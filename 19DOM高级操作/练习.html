@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 1200px;
+            top:0;
+        }
+.box1{
+    width: 1px;
+    height: 500px;
+    background-color: #000;
+    position: absolute;
+    left: 800px;
+    top:0;
+}
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+
+</html>
+<script>
+    const box = document.querySelector('.box')
+    let t=null
+    let speed=0
+    box.onclick = function () {
+       t=window.setInterval(function () {
+           speed=Math.ceil((800-box.offsetLeft)/10)
+           speed=Math.floor((800-box.offsetLeft)/10)
+            box.style.left = box.offsetLeft + speed + 'px'
+
+            if(box.offsetLeft===800){
+            clearInterval(t)
+        }   
+        }, 1000 / 60)
+
+       
+    }
+
+</script>

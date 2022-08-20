@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="line" style=" width: 1px;height: 500px;background-color: black;position: absolute;left: 600px;top: 0px;"></div>
+</body>
+
+</html>
+<script>
+    // 前提：运动的前提利用属性的改变模拟出来。
+    // 1.让物体运动起来。
+    // const box = document.querySelector('.box');
+    // box.onclick = function() {
+    //     window.setInterval(() => {
+    //         box.style.left = box.offsetLeft + 1 + 'px'; //box.offsetLeft:获取元素的位置
+    //     }, 1000 / 60);
+    // };
+
+    // 2.让物体动起来，在事件下面会出现定时器的叠加。
+    // 解决方式：每次开启下一个定时器之前，清除上一个定时器。
+    // const box = document.querySelector('.box');
+    // let t = null;
+    // box.onclick = function() {
+    //     window.clearInterval(t); //关闭定时器，防止事件下面会出现定时器的叠加
+    //     t = window.setInterval(() => { //开启定时器
+    //         box.style.left = box.offsetLeft + 1 + 'px'; //box.offsetLeft:获取元素的位置
+    //     }, 1000 / 60);
+    // };
+
+
+    // 3.让物体动起来，采用缓冲运动。
+    // 缓存运动原则：由快到慢，最终停下来(目标点)。
+    // const box = document.querySelector('.box');
+    // let t = null;
+    // let speed = 0; //速度
+    // box.onclick = function() {
+    //     window.clearInterval(t); //关闭定时器，防止事件下面会出现定时器的叠加
+    //     t = window.setInterval(() => { //开启定时器
+    //         // 求由快到慢速度
+    //         // speed = Math.ceil((600 - box.offsetLeft) / 10); //如果速度<1，浏览器就忽略，影响运动，采用向上取整。
+    //         speed = Math.floor((600 - box.offsetLeft) / 10);
+    //         if (box.offsetLeft === 600) { //如果当前盒子的位置等于目标点，关闭定时器，停止运动
+    //             window.clearInterval(t);
+    //         } else { //继续运动
+    //             box.style.left = box.offsetLeft + speed + 'px'; //box.offsetLeft:获取元素的位置
+    //         }
+    //         console.log(speed);
+    //     }, 1000 / 60);
+    // };
+
+    // 4.封装函数实现缓存运动
+    let t = null;
+    let speed = 0; //速度
+    const bufferMove = function() {
+        window.clearInterval(t); //关闭定时器，防止事件下面会出现定时器的叠加
+        t = window.setInterval(() => { //开启定时器
+            // 1.求由快到慢速度
+            speed = (600 - box.offsetLeft) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            // 2.判断运动是否停止
+            if (box.offsetLeft === 600) { //如果当前盒子的位置等于目标点，关闭定时器，停止运动
+                window.clearInterval(t);
+            } else { //继续运动
+                box.style.left = box.offsetLeft + speed + 'px'; //box.offsetLeft:获取元素的位置
+            }
+        }, 1000 / 60);
+    }
+
+    const box = document.querySelector('.box');
+
+    box.onclick = function() {
+        bufferMove();
+    };
+</script>

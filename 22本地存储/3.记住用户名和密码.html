@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset style="width:600px; margin:50px auto;">
+        <legend>登录</legend>
+        <p><label for="">用户名：</label><input type="text" class="username"></p>
+        <p><label for="">密&emsp;码：</label><input type="password" class="password"></p>
+        <p><input type="checkbox" class="checkbox">记住用户名和密码</p>
+        <p><input type="button" value="登录" class="login_btn"></p>
+    </fieldset>
+</body>
+
+</html>
+<script>
+    // 全局变量->属性
+    // 全局函数->方法
+    // this指向问题
+
+    // 思路
+    // 判断本地存储是否存在用户名和密码，存在取出赋值到对应的文本框。
+    // 复选框是否选中，通过复选框下面的checked属性进行判断。
+    class Remember {
+        constructor() {
+            //定义的属性，之前的全局变量
+            this.username = document.querySelector('.username');
+            this.password = document.querySelector('.password');
+            this.checkbox = document.querySelector('.checkbox');
+            this.login_btn = document.querySelector('.login_btn');
+        }
+        init() {
+            // 点击登录按钮，确认复选框是否勾选，如果勾选，存入本地存储。
+            this.login_btn.onclick = () => { //箭头函数，否则里面的this指向当前操作的元素对象。
+                // alert(this.checkbox.checked); //true和false确定复选框是否勾选。
+                if (this.checkbox.checked) { //如果勾选，存入本地存储
+                    localStorage.setItem('user', this.username.value);
+                    localStorage.setItem('pass', this.password.value);
+                } else { //不勾选，不存储到本地存储里面或者删除已经存在的本地存储
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('pass');
+                }
+                alert('按钮被点击了');
+            };
+
+
+            // 判断是否存在本地存储，存在取出赋值到对应的文本框
+            if (localStorage.getItem('user') && localStorage.getItem('pass')) {
+                this.username.value = localStorage.getItem('user');
+                this.password.value = localStorage.getItem('pass');
+                this.checkbox.checked = true; //选择记住，复选框必须勾选。
+            }
+
+        }
+    }
+
+    new Remember().init();
+</script>

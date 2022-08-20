@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // JSON对象的介绍 - 非常重要
+    // 1.前端工作的核心：
+    // 渲染：页面结构不是写死的，通过后端(数据库)提供的数据进行渲染结构。
+    // 后端提供数据给前端，什么结构的数据?？
+    // 后端提供数据给前端，数据是否很好的操作，具有什么特点??
+
+    // 2.JSON
+    // 2.1.概念
+    // 前后端交互非常核心的数据结构
+    // JSON使用JavaScript语法来描述数据对象，但是JSON仍然独立于语言和平台，JSON解析器和JSON库支持许多不同的编程语言。 
+    // JSON拥有独立的扩展名，就是.json
+
+    // 2.2.JSON特点
+    // json是一种轻量级的数据交换格式，不是js独有的.
+    // json组成采用js语法进行描述(简单值+'对象'+'数组').
+    // json里面字符串需要添加双引号,json里面的内容都是字符串或者数字,网页中的数据。
+    // json不能包含JavaScript相关的语法。
+
+
+    // let arr = '[{"sid": "1","url": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/9\/1\/CiMGi1QzWDIA6GsmybYBbtKs_390x390.jpg","title": "惠普（HP） 薄锐ENVY15 X360 15.6英寸轻薄本翻转触控","price": "9399","sailnumber": "202","piclist": "https:\/\/img1.tianhong.cn\/upload\/\/bbc\/tbImage\/2021\/9\/1\/CiMGi1QzWDIA6GsmybYBbtKs_390x390.jpg"}]';
+
+    // 3.JSON下面提供的静态方法，将数据转换成对象格式，或者对象格式转换成字符串。
+    // 3.1.JSON.parse():将json格式的字符串转换成对象。
+    // console.log(arr);
+    // console.log(JSON.parse(arr)); //转对象
+    // console.log(JSON.parse(arr)[0]); //输出数组第一项
+    // console.log(JSON.parse(arr)[0].sid); //输出数组第一项里面对象的sid属性值
+    // console.log(JSON.parse(arr)[0].url); //输出数组第一项里面对象的url属性值
+
+    // 3.2.JSON.stringify():将对象转换成json格式的字符串。
+    // const obj = {
+    //     name: 'zhangsan',
+    //     age: 18,
+    //     sex: '男'
+    // };
+
+    // alert(obj); //[object Object]
+    // alert(JSON.stringify(obj)); //'{"name":"zhangsan","age":18,"sex":"男"}'
+
+
+    // let str = '{"success":"1","result":{"status":"ALREADY_ATT","phone":"13800138000","area":"010","postno":"100000","att":"中国,北京","ctype":"中国移动138卡","par":"1380013","prefix":"138","operators":"中国移动","style_simcall":"中国,北京","style_citynm":"中华人民共和国,北京市"}}';
+    // console.log(str);
+    // console.log(JSON.parse(str));
+
+    // 注意：前期学的数组和对象就是为了后期对数据的操作。因为数据最终都会转换成数组和对象操作。
+</script>

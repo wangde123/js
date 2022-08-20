@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.服务器的相关介绍
+    // 1.概念：
+    // 通俗来讲，就是一台昂贵(配置要求比较高)的电脑，安装对应的软件，用来存放开发源码。
+
+    // 2.服务器的配置
+
+    // 2.1.php服务器(phpstudy)，后端采用php实现，因为php的语法和js语法比较接近，方便了解学习。
+    // https://www.xp.cn/  下载对应的php服务器软件
+
+    // 2.2.安装流程
+    // 2.2.1.进入phpstudy网址，下载对应的软件，phpstudy集成软件(php,apache,mysql)。
+    // 2.2.2.找到对应的文件，选择立即安装，直到结束。
+    // 2.2.3.安装完成后，桌面显示图标启动图标(phpstudy_pro)
+    // 2.2.4.到盘符下面找到一个phpstudy_pro目录，进入目录里面，找到WWW目录，WWW目录就是服务器里面存放源码的位置。
+    // 2.2.5.启动服务器，点击启动图标。
+    // 启动apache(php服务器)
+    // 启动mysql(php配合的数据库)
+
+    // 2.2.6.配置环境
+    // 打开phpstudy  - 设置 - 配置文件 - 点击vhosts.conf - 0localhost_80 - 通过记事本和vscode等软件打开文件
+    // 找到Options FollowSymLinks ExecCGI 这行代码，注释，前面添加#
+    // 上面这行代码的下面添加一行代码：Options +Indexes +FollowSymLinks +ExecCGI
+    // 重新启动服务器，通过localhost获取127.0.0.1访问服务器里面的文件。
+    // 进入www目录，将前面写的代码目录放入www目录中，通过目录访问里面文件，可以是html、php文件等文件。
+
+
+    // https://www.runoob.com/mongodb/mongodb-osx-install.html  mac系统参考安装。
+
+
+    // 2.3.如何访问服务器，以后只要和php相关的任何操作，包含是html文件，都需要通过器访问。
+    // 访问服务器有两种方式：ip地址，本地域名
+    // ip地址：127.0.0.1  大家都一样
+    // 本地域名：localhost  大家都一样
+
+
+
+
+    // 3.通信协议 - http/https/ftp/file/ws......
+    // 两台电脑要通信，必须具有协议，浏览器自动隐藏协议，注意一下。
+    // http:超文本传输协议
+    // https:加密的超文本传输协议，比http通信更安全。
+
+
+    // 4.端口
+    // 电脑的唯一标识是ip地址，一台电脑只有一个ip地址，如果放多套程序，通过端口进行访问。
+    // 端口是一个数字：范围0-65535 ，自由通过服务器软件进行配置
+    // 127.0.0.1:80   80端口   http的默认端口
+    // 127.0.0.1:88   88端口
+    // 127.0.0.1:443  443端口  https的默认端口
+    // 因为ip地址比较难记忆，产生域名(网址)，将域名绑定在ip地址上面，通过域名访问程序。
+    // 重点：看大纲里面http请求图片。
+</script>

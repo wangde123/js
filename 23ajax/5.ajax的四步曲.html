@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.ajax的四步曲 - 解决前后端交互问题
+    // 1.第一步：创建ajax对象
+    let xhr = new XMLHttpRequest();
+    // 2.第二步：open方法：打开接口地址，准备通信
+    // xhr.open(请求类型，接口地址，是否异步)
+    // 参1：请求类型，get post (put delete)  -->  (get--select 查、post--insert 插入、put--update 更新 、delete--delete 删除)
+    // 参2：接口地址，完整的url地址(地址里面包含数据)  - https://www.nowapi.com/ 通过此网址拿到接口地址，进行测试。
+    // 参3：是否异步，true异步，false同步
+    xhr.open('get', 'http://api.k780.com/?app=phone.get&phone=13777777777&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json', true);
+
+    // 3.第三步：send方法：发送请求
+    // 通过就绪状态码确认发送解析是否完成。
+    //  ajax的属性：readyState:就绪状态码--0(初始化) 1(请求建立) 2(发送完成) 3(解析) 4(完成)
+    // (0)：请求初始化（还没有调用 open()）。
+    // (1)：请求已经建立，但是还没有发送（还没有调用 send()）。
+    // (2)：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
+    // (3)：请求在处理中；通常响应中已有部分数据可用，但是服务器还没有完成响应的生成。
+    // (4)：响应已完成；您可以获取并使用服务器的响应了 - 最关键的
+    xhr.send();
+
+    // 4.第四步：监听第三步，看就绪状态码是否处于完成状态，如果完成，获取服务器的响应。
+    xhr.onreadystatechange = function() { //只要第三步的就绪状态码发送改变，事件就触发。
+        if (xhr.readyState === 4) { //响应已完成
+            //获取服务器响应的数据：xhr.responseText属性，返回值都是字符串格式。
+            console.log(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
+            console.log(JSON.parse(xhr.responseText).result);
+        }
+    }
+</script>

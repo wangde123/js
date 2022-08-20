@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 100px;
+            top: 400px;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            left: 800px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>
+<script>
+    // 定点抛物线运动(曲线运动)
+    // 抛物线方法：y = a*x*x + b*x + c;
+    // 一.方程解读：x,y运动的距离，通过两个盒子的定位获取  
+    // a:曲率，抛物线的弧度，这个值是约定的，一般范围：0.002-0.009，通过此值将抛物线约定在可视区内显示。
+    // b?
+    // c:运动盒子的位置当作起始位置(原点)，x=0,y=0->c=0;此步骤就是干掉c  使用方法变成y = a*x*x + b*x.
+
+
+    // 二.进行抛物线运动。
+    // 1.x轴的运动，一直向前，可以控制运动的速度，但是y轴的运动必须根据曲线方程实现。
+    // 开始运动
+    const box1 = document.querySelector('.box1');
+    const box2 = document.querySelector('.box2');
+    box1.onclick = function() {
+        // 克隆元素，克隆一个box1的副本，让副本进行运动。
+        let clonebox = box1.cloneNode(true); //克隆box1
+        clonebox.style.cssText = 'width:50px;height:50px;opacity:0.3;';
+        document.body.appendChild(clonebox); //追加
+        // 获取盒子的初始位置，必须提前存储，一旦运动改变了。
+        const start = {
+            x: clonebox.offsetLeft, //100
+            y: clonebox.offsetTop //400
+        };
+
+        // 获取两个盒子间运动的距离，上面方程中的x,y的值，方便求b的值
+        const distance = {
+            x: box2.offsetLeft - start.x,
+            y: box2.offsetTop - start.y
+        }
+
+
+        // 求b
+        let a = 0.0018; //随便修改
+        let b = (distance.y - a * distance.x * distance.x) / distance.x; //x,y即两个盒子间运动的距离
+        // 按照抛物线开始运动
+        let speedx = 0;
+        let t = setInterval(() => {
+            speedx += 10;
+            clonebox.style.left = start.x + speedx + 'px';
+            clonebox.style.top = start.y + a * speedx * speedx + b * speedx + 'px';
+            // 判断克隆的盒子到了目标点，删除克隆的盒子
+            if (clonebox.offsetLeft >= box2.offsetLeft) {
+                clearInterval(t); //停止定时器
+                clonebox.remove(); //删除克隆的盒子。
+            }
+        }, 1000 / 60);
+    };
+</script>

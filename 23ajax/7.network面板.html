@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // network面板
+    // 前后端通信的核心工具，可以此面板查看前端给了什么，后端返回了什么。
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://api.k780.com/?app=life.postcode&postcode=528400&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json', true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            } else {
+                throw new Error('接口地址错误'); //自定义错误，并且抛出到浏览器下面。
+            }
+
+        }
+    }
+</script>

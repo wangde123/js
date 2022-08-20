@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="move.js"></script>
+<script>
+    // 模拟烟花效果(构造函数+原型)
+    function FireWork(x, y) { //x，y鼠标的位置
+        this.x = x; //后面的x是参数，前面的x是自定义的属性名，经常采用同名的写法。
+        this.y = y;
+        this.ch = document.documentElement.clientHeight; //可视区的高度
+    }
+
+    FireWork.prototype.init = function() {
+        this.createBox(); //调用创建一个盒子的方法
+    };
+
+    // 1.点击可视区，可视区对应的垂直方法创建一个盒子，然后让盒子飞到鼠标点击的位置
+    FireWork.prototype.createBox = function() {
+        this.fireBox = document.createElement('div'); //创建盒子
+        this.fireBox.style.cssText = `width:5px;height:5px;background:#fff;position:absolute;left:${this.x}px;top:${this.ch}px;`; //添加样式
+        document.body.appendChild(this.fireBox);
+        this.boxMove(); //盒子运动
+    }
+
+    // 2.创建的盒子飞入可视区的鼠标位置处，然后消失，随后设计爆炸。
+    FireWork.prototype.boxMove = function() {
+        bufferMove(this.fireBox, {
+            top: this.y
+        }, () => { //删除飞入的盒子
+            this.fireBox.remove();
+            this.fireFragment(); //产生烟花碎片的方法
+        });
+    };
+
+    // 3.设计爆炸效果(随机产生一堆30-60的div，设置不同的颜色，运动散开)
+    FireWork.prototype.fireFragment = function() {
+        for (let i = 1; i <= this.randomNum(30, 60); i++) { //随机产生一堆30-60的div
+            this.fragment = document.createElement('div');
+            this.fragment.style.cssText = `width:5px;height:5px;background:rgb(${this.randomNum(0,255)},${this.randomNum(0,255)},${this.randomNum(0,255)});position:absolute;left:${this.x}px;top:${this.y}px;`;
+            document.body.appendChild(this.fragment);
+            this.fragmentMove(this.fragment); // 将当前创建的碎片运动
+        }
+    };
+
+    // 4.碎片运动
+    FireWork.prototype.fragmentMove = function(fragment) { //fragment:创建时传入的碎片
+        // 碎片运动是没有具体的方向，随机的速度
+        // 随机的速度应该是正负之分，要不然都往右下去了。
+        let speedx = parseInt((Math.random() > 0.5 ? '-' : '') + this.randomNum(1, 15)); //相对公平随机值产生正负号
+        let speedy = parseInt((Math.random() > 0.5 ? '-' : '') + this.randomNum(1, 15)); //相对公平随机值产生正负号
+        console.log(speedx, speedy);
+        // 存储初始速度
+        let initx = this.x;
+        let inity = this.y;
+        // 开始运动
+        fragment.t = setInterval(() => {
+            //当前位置累加不同的速度
+            initx += speedx;
+            inity += speedy++;
+            //如果掉落的碎片运动出了可视区，删掉它，并且停止它身上的定时器
+            if (inity >= this.ch) {
+                clearInterval(fragment.t); //停止定时器
+                fragment.remove(); //删除烟花碎片
+            }
+            fragment.style.left = initx + 'px';
+            fragment.style.top = inity + 'px';
+        }, 1000 / 60);
+    };
+
+    // 5.产生随机数的方法
+    FireWork.prototype.randomNum = function(min, max) {
+        if (min > max) { //交互位置，保证第一个数是小于第二个数
+            var temp = min;
+            min = max;
+            max = temp;
+        }
+        return Math.round(Math.random() * (max - min)) + min; //+前面随机产生0-5即可
+    }
+
+    // 点击文档，实例化对象，同时将鼠标的位置传入构造函数里面。
+    document.onclick = function(e) {
+        new FireWork(e.clientX, e.clientY).init();
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.ajax的概述
+    // 1.概念
+    // ajax全称“Asynchronous；([eɪˈsɪŋkrənəs]异步) Javascript And XML”，并不是一种新技术，是由javascript、XML、XMLHttpRequest组合在一起、能实现异步提交的功能，是一种创建交互式网页应用的网页开发技术。
+    // XML:可扩展的标记语言，类似于html语言，但是xml里面的标签可以自定义的，早期表示数据的一种方式，也要遵循一定的规则，但是现在很少用，因为有了json。
+    // XMLHttpRequest : ajax进行交互的类(构造函数)，负责生成ajax对象。
+
+    // 2.ajax的特点（异步提交）
+    // 可以快速创建动态网页； 
+    // 无需重新加载整个网页的情况下， 能够更新部分网页； 
+    // 提高用户的体验性
+
+
+    // 3.ajax的工作原理
+    // 客户端发送请求，请求交给xhr(XMLHttpRequest)，xhr把请求提交给服务，服务器进行业务处理，服务器响应数据交给xhr对象，xhr对象接收数据，由javascript把数据写到页面上。
+
+
+    // 二.同步和异步
+    // 浏览器走异步的话性能都会提高
+    // JS语言是一门“单线程”的语言，只有一个主线程，不能同时进行多个任务和流程，同步和异步的差别就在于这条流水线上各个流程的执行顺序不同。
+
+    // 同步任务(阻塞模式)指的是在主线程上排队执行的任务， 只有前一个任务执行完毕， 才能执行后一个任务；
+
+    // 异步任务(非阻塞莫斯)指的是不进入主线程、 而进入"任务队列"的任务，只有等主线程任务执行完毕， 该任务才会进入主线程执行。
+    // 目前学习过的异步：定时器，ajax，事件也包含异步，看具体的情况。
+
+    // alert(a); //报错，阻塞下面的代码
+    // alert(123);
+
+    // setTimeout(() => { //异步
+    //     alert(a);
+    // }, 0);
+    // alert(123);
+    
+    
+    
+</script>
