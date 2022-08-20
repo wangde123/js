@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+  // 赋值、数学、关系运算符
+  // 一.赋值运算符
+  // 1.赋值运算符通过数学中的等号(=)实现.
+  // 将等号右边的结果赋值给左边,优先级最低。
+
+  // var a = 100; //含义：将100赋值给变量a
+  // a = a + 10; //含义：将右边的a+10结果赋值给左边的a
+  // console.log(a); //110
+
+
+
+  // 2.复合的赋值运算符：+=   -=   *=   /=   %=   (更快捷，更优)
+  // var n = 10;
+  // n += 10; //n = n + 10;
+  // console.log(n); //20
+
+  // var a = 10;
+  // a = 20; //改变
+  // console.log(a); //20
+
+  // var b = 10;
+  // b += 20; //b=b+20  累加
+  // b += 30;//b=b+30
+  // console.log(b); //10+20+30
+  var b=10;
+  b+=20;//b=b+20 将10+20赋值给b，下面b得到30
+  b+=30;//b=b+30 将30+30赋值给b，下面得到60
+  b+=40;//b=b+40 将60+40赋值给b，下面得到100
+  b+=50;//b=b+50 将100+50赋值给b，下面得到150
+  b+=60;//b=b+60 将150+60赋值给b，下面得到210
+  console.log(b);
+  var c=prompt('a')
+  c+=prompt('a')
+
+
+   // var a = 100;
+  // // a = a + 10 + 10;
+  // a+=10+10;
+  // console.log(a);
+
+  // 二.数学运算符  +  -  *  /  %
+  // 1.重点关注：+
+  // 这里的加号有三层意思，分别用来表示正号，加号，拼接符号。
+  // 1.1.加号：正常的加法运算，如果两个无法相加值进行相加，系统默认输出NaN(关键字，表示不是一个数字)
+  // console.log(1 + 3); //4
+  // console.log(undefined + undefined); //NaN
+
+  // console.log(null + 3);
+  // console.log(undefined + 3);
+  // console.log(undefined+null);
+  // console.log(null+null);
+  // console.log(false+false);
+  // console.log(true+true);
+
+  // 1.2.正号：具有转换功能，将任意类型的值转换成数字，如果无法转换数字，也会输出NaN
+  // var n = 10;
+  // console.log(+n); //10
+  // console.log(+true); //1
+  // console.log(+false); //0
+  // console.log(+"hello"); //NaN
+  //console.log(+'');//0
+
+
+
+
+
+
+
+
+  // 1.3.(重点)拼接符号：如果加号两边任意一边是字符串，加号就会变成拼接符号，将它们连接起来。结果就是字符串
+  // console.log(3 + "100"); //3100
+  // console.log("3" + "100"); //3100
+  // var name = "zhangsan";
+  // var age = 18;
+  // console.log("我的姓名是" + name + "，我今年" + age + "岁"); //我的姓名是zhangsan，我今年18岁
+
+  // var a = "hello";
+  // var b = "world";
+  // console.log(a + "," + b);
+
+  // console.log("A" - "B" + "2"); //NaN + "2" = NaN2
+  // console.log("A" - "B" + 2); //NaN + 2 = NaN
+  // console.log("b"+2);//b2
+
+  // 2.%:求模，取余数。
+  // console.log(9 % 2); //1
+  // console.log(9 % 3); //0
+  // console.log(3 % 9); //3  规律：如果前面的数小于后面的数，结果就是前面的数。
+  // 规律：num是任意的正整数，num%5取余，结果一定是0,1,2,3,4
+
+  // 3.注意：除了+号，其他的- * / % 都可以将字符串格式的数字转换成真正的数字进行运算符。也是当计算无法得到结果的时候输出NaN
+  // console.log("3" + "5"); //35
+  // console.log("3" - "5"); //-2
+  // console.log("3" * "5"); //15
+  // console.log("3" / "5"); //0.6
+  // console.log("a"*5);//NaN
+</script>

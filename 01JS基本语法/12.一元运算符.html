@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一元运算符 - (++ / --)
+  // 只能操作一个值的操作符叫做一元操作符，是ECMAScript中最简单的操作符。
+  // 不管是++还是--，不管是在操作数的前面还是后面都是自身+1或者-1的意义，重点是在于赋值
+
+  // 1.++
+  // 1.1.前置型应该位于要操作的变量之前，先将操作数+1或者减1，再参与运算。
+  // var a = 1;
+  // a++;
+  // ++a;
+  // a++;
+  // ++a;
+  // console.log(a); //5
+  // 重点是在于赋值
+  // var a = 1;
+  // var b = ++a; //先将a+1，再赋值给b
+  // console.log(a); //2
+  // console.log(b); //2
+
+  // 1.2.后置型则应该位于要操作的变量之后，先参与运算后自身再+1或者减1。
+  // var c = 1;
+  // var d = c++; // 先把c的值给d，然后c再自身+1
+  // console.log(c); //2
+  // console.log(d); //1
+
+  // 案例：
+  // var a = 1;
+  // var b = ++a + a++;
+  // console.log(a); //3
+  // console.log(b); //4
+
+  // var k = 0;
+  // var j = ++k + k++ + k + ++k;
+  // console.log(k); //3
+  // console.log(j); //7
+
+  // var c = 1;
+  // console.log(++c); //2  ++c是一个等式
+  // console.log(c); //2  输出值
+
+  // var d = 1;
+  // console.log(d++); //1
+  // console.log(d); //2
+
+  // var a = 1;
+  // console.log(a++); //1
+  // console.log(++a); //3
+  // console.log(a); //3
+</script>
