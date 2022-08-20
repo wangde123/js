@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 利用星型字符（*）输出如下图形：三角形 , 菱形
+
+  // 利用循环实现
+  // for (var i = 1; i <= 10; i++) {
+  //   //1,2,3,4,5.....
+  //   for (var j = 1; j <= 10 - i; j++) {
+  //     // 10,9,8,7
+  //     document.write("&emsp;");
+  //   }
+  //   for (var j = 1; j <= 2 * i - 1; j++) {
+  //     //1,3,5,7,9....
+  //     document.write("杭"); //&emsp;空格，刚好是一个字的尺寸
+  //   }
+  //   document.write("<br>");
+  // }
+
+  // for (var i = 9; i >= 1; i--) {
+  //   //1,2,3,4,5.....
+  //   for (var j = 1; j <= 10 - i; j++) {
+  //     // 10,9,8,7
+  //     document.write("&emsp;");
+  //   }
+  //   for (var j = 1; j <= 2 * i - 1; j++) {
+  //     //1,3,5,7,9....
+  //     document.write("杭"); //&emsp;空格，刚好是一个字的尺寸
+  //   }
+  //   document.write("<br>");
+  // }
+
+  // 绝对值，js的绝对值的方法：Math.abs()
+
+  for (var i = -5; i <= 5; i++) {
+    //循环11次，-5，-4，-3......1,2,3,4,5  控制行数
+    for (var j = 0; j <= 10 - Math.abs(i); j++) {
+      // 6,7,8,9,10
+      if (j < Math.abs(i)) {
+        //输出空格：5，4，3，2，1...
+        document.write("&emsp;");
+      } else {
+        //输出文字：1，3，5，7，9....
+        document.write("杭");
+      }
+    }
+    document.write("<br>");
+  }
+</script>

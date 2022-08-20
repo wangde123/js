@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* fieldset {
+            width: 230px;
+            margin: 0 auto;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <fieldset>
+        <legend>洪水战士抵抗时间</legend>
+    时间：<input type="text" value="" id="time" placeholder="请输入战士抵抗时间">
+    结果：<input type="text" value=""id="max" placeholder="计算结果为多少天多少小时">
+    <input type="button" value="开始" id="slc">
+</fieldset> -->
+    <!-- <fieldset>
+        <legend>请输入一个5位数</legend>
+        数字：<input type="text" value="" id="num" placeholder="请输入一个五位数">
+        结果：<input type="text" value="" id="sto">
+        <input type="button" value="计算" id="scl">
+    </fieldset> -->
+    <!-- <fieldset>
+        <legend>请输入一个4位数</legend>
+        数字：<input type="text" value="" id="num" placeholder="请输入一个4位数">
+        结果：<input type="text" value="" id="stol">
+        <input type="button" value="计算" id="cls">
+    </fieldset> -->
+</body>
+
+</html>
+<script>
+    //1.为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+    // slc.onclick= function fn(){
+    //     var hour=parseInt(time.value%24);
+    //     var day=parseInt(time.value/24);
+    //    max.value= day+'天'+hour+'时'
+
+    // }
+
+    //2.var k=0;  console.log(k++ + ++k +k +k++ ); //0+2+2+2=6
+
+    //3.输入一个五位数，分别输出个十百千万位；
+    // scl.onclick = function () {
+    //     if(num.value!==''&&!isNaN(num.value)){
+    //     var wan = parseInt(num.value / 10000);
+    //     var qian = parseInt((num.value % 10000) / 1000);
+    //     var bai = parseInt((num.value % 1000) / 100);
+    //     var shi = parseInt((num.value % 100) / 10);
+    //     var ge = num.value % 10;
+    //     sto.value=wan+'万'+qian+'千'+bai+'百'+shi+'十'+ge
+    // }else{sto.value='输入有误'}
+    // }
+
+
+    //4.基本测试题，并写出理由;
+    //  var bar = true; 
+    // console.log(bar + 0);//1
+    // console.log(bar + "xyz");//truexyz
+    // console.log(bar + true); //2
+    // console.log(bar + false);//1
+
+
+    // console.log(1 == true);//true
+    // console.log(1 === true);//false
+    // console.log(isNaN(23));//false
+    // console.log(isNaN('shuai'));//true
+    // console.log(isNaN('321shuai'));//true
+    // console.log(isNaN('321'));//fasle
+    // console.log(NaN === NaN);//false
+    // console.log(typeof NaN);//number
+    // console.log(1 + +"2" + "2");//32
+    // console.log("A" - "B" + "2");//NaN2
+    // console.log("A" - "B" + 2);//NaN
+    // console.log(0 || 2 || 1)//2
+    // console.log(0 && 0 && false);//0
+    // console.log(0.2 + 0.4 == 0.6);//false
+    // console.log(Boolean('0'));//true
+
+    //5.基本测试题，并写出理由;
+    //  var a = 10;
+    // var b = 20;
+    // var c = 10;
+    // console.log(a = b);//b赋值给a a=20
+    // console.log(a == b);//true
+    // console.log(a == c);//false
+
+
+    //案例：输入年份，计算某一年是否是闰年（闰年能被4整除且不能被100整除，或能被400整除）；
+    // cls.onclick= function(){
+
+    //     if (!isNaN(num.value)) {
+    //         if (num.value > 999 && num.value < 9999) {
+    //             if (num.value % 4 === 0 && num.value % 100 !== 0 || num.value % 400 === 0) {
+    //                 stol.value='闰年'
+    //             } else { stol.value='平年' }
+    //         } else { stol.value='输入的不是4位数' }
+    //     } else { stol.value='输入的不是数字' }
+    // }
+    //案例：输入三个数字，输出三个数中最大的数字。
+//    function fn(){
+    
+//         var a = +prompt('请输入第一个数');
+//         var b = +prompt('请输入第二个数');
+//         var c = +prompt('请输入第三个数');
+//         var max = a > b ? (a > c ? a : c) : (b > c ? b : c)
+//         return max
+// }
+//     document.write(fn())
+
+//大家都知道，男大当婚，女大当嫁。那么女方家长要嫁女儿，当然要提出一定的条件：
+//高：180cm以上; 富:1000万以上; 帅:500以上;
+//如果这三个条件同时满足，则:‘我一定要嫁给他’
+//如果三个条件有为真的情况，则:‘嫁吧，比上不足，比下有余。’
+//如果三个条件都不满足，则:‘不嫁！’
+// var num=prompt('输入身高(cm)')
+// var doc=prompt('输入资产（万）')
+// var shuai=prompt('输入颜值')
+// if(!isNaN(num)&&!isNaN(doc)&&!isNaN(shuai)){
+// if(num>180&&doc>1000&&shuai>500){
+//     alert('一定嫁')
+// }else if(num>180||doc>1000||shuai>500){
+//     alert('嫁')
+// }else{alert('不嫁')}}else{alert('输入错误')}
+
+//求出1/1-1/2+1/3-1/4…..1/100的和1/1-1/2+1/3-1/4+1/5-1/6+1/7-1
+// var max=0;
+// var num=1;
+
+// while(num<=100){
+// if(num%2===0){
+//    max-=1/num
+// }else{
+//     max+=1/num
+// }
+// num++
+// }
+// document.write(max)
+//打印出1000-2000年中所有的闰年，并以每行四个数的形式输出。
+
+// for(var num=1000;num<=2000;num++){
+//     if((num % 4 === 0 && num % 100 !== 0)||num % 400 === 0){
+// document.write(num+'<br>')
+//     }
+// }
+</script>

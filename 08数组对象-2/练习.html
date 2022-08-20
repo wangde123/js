@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //数组的创建
+    //构造函数创建，利用关键字new
+    // var arr = new Array(1, 2, 3, 4, 5)
+    // console.log(arr)
+    // //字面量创建数组
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // console.log(arr1)
+    // //数组的length
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // console.log(arr1.length)//[1,2,3,4,5,6]
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // arr1.length = 3
+    // console.log(arr1);//[1,2,3]
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // arr1.length=10
+    // console.log(arr1)//[1,2,3,4,5,6,空属性*4]
+    //索引下标
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // console.log(arr1[0]);//1
+    //数组的类型
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // console.log(typeof(arr1))//object
+    //遍历
+    // var arr1 = [1, 2, 3, 4, 5, 6]
+    // for(i=0;i<arr1.length;i++){
+    //     console.log(arr1[i])
+    // }
+    //数组的静态方法和动态方法
+    //静态方法：类（构造函数）作为对象，或者直接绑定在类名下面的方法。
+    //     Array.isArray()//判断括号里的是不是数组
+    //     var a=null
+    //     var arr=[1,2]
+    //    console.log(Array.isArray(a)) //false
+    //    console.log(Array.isArray(arr)) //true
+    //数组的方法：（动态方法，实例方法，原型方法）
+    // 通过new关键字调用类(构造函数)，产生实例对象，给实例对象使用的方法就是动态方法，实例方法，原型方法。
+    // 1.第一组方法：栈方法(后进先出)
+    // //push()//可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度，改变原数组
+    // var arr=[1,2,3,4,5,6]
+    // console.log(arr.push(7,8))//，把7，8添加到数组的末尾，返回修改后的长度，长度为8，改变原数组
+    // console.log(arr)//[1,2,3,4,5,6,7,8]
+    //pop//从数组末尾移除最后一项，减少数组的length值，然后返回移除的项的值，改变原数组
+    // var arr=[1,2,3,4,5,'s']
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值s
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值5
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值4
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值3
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值2
+    // console.log(arr.pop())//减少数组的length值，然后返回移除的项的值1
+    // console.log(arr)//[]
+
+    //案例：清空一个数组。
+    //1利用循环遍历+pop
+    // var arr=[1,2,3,4,5,'s']
+    // for(var i=0,len=arr.length;i<len;i++){
+    //     arr.pop()
+
+    // }
+    // console.log(arr)
+    // //2.利用变量的特点
+    // var arr=[1,2,3,4,5,'s']
+    // var arr=[]
+    // console.log(arr)
+    //  //3.利用length属性。
+    //  var arr=[1,2,3,4,5,'s']
+    //  arr.length=0
+    //  console.log(arr)
+
+    // 第二组方法：队列方法(先进先出)
+    //unshift()//可以接收任意数量的参数，把它们逐个添加到数组前面，并返回修改后数组的长度，改变原数组
+    // var arr=[1,2,3,4,5,'s']
+    // console.log(arr.unshift("k",2,3))
+    // console.log(arr)
+    //shift()从数组前面移除一项，减少数组的length值，然后返回移除的项，改变原数组
+    // var arr=[1,2,3,4,5,'s']
+    // console.log(arr.shift())//返回移出的项的值1
+    // console.log(arr)//[2,3,4,5,'s']
+
+    // 第三组方法：重排序方法
+    //reverse()方法会反转数组项的顺序，改变原数组
+    //  var arr=[1,2,3,4,5,6]
+    //  console.log(arr.reverse())//[6,5,4,3,2,1]
+    //  console.log(arr)//[6,5,4,3,2,1]
+    //sort()//方法按字母升序排列数组项，如果按其他方式而非字母表顺序进行数组排列，必须给sort方法传递一个比较函数做参数，改变原数组
+    // 排序字符串，通过unicode编码进行升序排序
+    //a-z 97-122
+    //A-Z 65-90
+    //0-9 48-77
+    // var arr=[1,3,2,5,4,6]
+    // console.log(arr.sort())//按升序排列[1,2,3,4,5,6]
+    // console.log(arr)//改变原数组[1,2,3,4,5,6]
+    // var arr=[1,3,2,5,4,6]
+    // function fn(a,b){
+    //     return a-b;
+
+    // }
+    // console.log(arr.sort(fn))//[1,2,3,4,5,6]
+    // var arr=[1,3,2,5,4,6]
+    // function fn(a,b){
+    //     return b-a;
+
+    // }
+    // console.log(arr.sort(fn))//[6,5,4,3,2,1]
+
+    // 交互位置 - 利用中间变量交互
+    // var a=6;
+    // var b=8;
+    // var temp=0;
+    // temp=a;
+    // a=b;
+    // b=temp;
+    // console.log(a)
+    // console.log(b)
+
+    // var arr = [13, 5, 45, 6, 12, 7];
+    //// 5,13,45,6,12,7
+    //5,13,45,6,12,7
+    //5,13,6,45,12,7
+    // 5,13,6,12,45,7
+    // 5,13,6,12,7,45
+    // for (var i = 0; i < arr.length;i++) {
+    //     for (var j = i+1; j < arr.length; j++) {
+    //        console.log(arr[j])
+    //     }
+
+    // }
+    // console.log(arr)
+    //     function bubbleSort(arr){
+    //         if(Array.isArray(arr)){
+    //          for (var i = 0; i < arr.length-1;i++) {
+    //         for (var j = i+1; j < arr.length; j++) {
+    //             if (arr[i] > arr[j]) {
+    //                 temp = arr[i]
+    //                 arr[i]=arr[j]
+    //                 arr[j]=temp
+    //             }
+    //         }}
+    //       return arr;
+    //     }else{alert('输入的参数不是数组')}
+    //     }
+    //冒泡排序
+    // console.log(bubbleSort([13, 5, 45, 6, 12, 7]))
+    // var arr = [13, 5, 45, 6, 12, 7];
+    // for (var i = 0; i < arr.length-1; i++) {//-1因为6个数字比较5轮
+    //     for (var j = 0; j < arr.length-i-1; j++) {//两两比较,-1:6个数字只需要两两比较5次。-i:每一轮都会有一个数字排行，剩余的数字就少了。
+    //         if (arr[j] > arr[j + 1]) {
+    //             temp = arr[j]
+    //             arr[j] = arr[j + 1]
+    //             arr[j + 1] = temp
+    //         }
+    //     }
+    // }
+    // console.log(arr)
+    //冒泡排序封装函数
+    // function bubbleSort(arr) {
+    //     if (Array.isArray(arr)) {
+    //         for (var i = 0; i < arr.length - 1; i++) {
+    //             for (var j = 0; j < arr.length - i - 1; j++) {//两两比较,-1:6个数字只需要两两比较5次。-i:每一轮都会有一个数字排行，剩余的数字就少了。
+    //                 if (arr[j] > arr[j + 1]) {
+    //                     temp = arr[j]
+    //                     arr[j] = arr[j + 1]
+    //                     arr[j + 1] = temp
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return arr
+    //     }
+    //     console.log(bubbleSort([13, 5, 45, 6, 12, 7]))
+    //第三组：操作方法
+    // concat()//可以基于当前数组中的所有项创建一个新数组，参数可以是数组项或者数组。
+    //    var arr=[1,2,3,4,5,6]
+    //    var arr1=[7,8,9,10,11,12]
+    //    var arr2=[13,14,15,16,17,18]
+    //    console.log(arr.concat())//复制一份原数组
+    //    console.log(arr.concat(arr1))//将数组arr1加到arr后面
+    //    console.log(arr.concat(arr1,arr2))//将arr1和arr2依次排在arr后面
+    //    console.log(arr.concat(55,66,77,88,))//将参数添加到数组后面
+    //    console.log(arr)//原数组不变
+
+    //slice()//它能够基于当前数组中的一或多项创建一个新数组,可以接受一或两个参数，即要返回项的起始和结束位置，不包括结束位置。
+    // var arr=[1,2,3,4,5,6,8,9,10,11]
+    // // console.log(arr.slice())//截取整个数组
+    // // console.log(arr.slice(2))//从索引2开始截取后面的数[3,4,5,6,7,8,9,10,11]
+    // console.log(arr.slice(2,3))//从索引2开始，索引3结束，不包括索引3 [2]
+    // // console.log(arr.slice(3,1))//截取不到，返回空数组
+    // console.log(arr.slice(3,-2));//如果索引是负数，从后往前数位置，从-1开始。[4,5,6,8,9]
+    // console.log(arr.slice(-3,-5));//[]
+    // //注意：负数表示从后往前数，仅仅是位置，截取的方法始终是从前往后，如果根据位置无法截取数组项，返回空数组。
+    // console.log(arr.slice(-4,-1))//[8,9,10]
+    // console.log(arr);//[1,2,3,4,5,6,8,9,10,11]原数组不变
+
+    //splice()方法对数组进行删除、插入、替换，是最强大的数组方法，返回值是数组，改变原数组。
+    //splice的核心就是删除，插入或者替换都是根据删除演变而来的
+    //1.删除
+    // 第一个参数表示删除的起始的索引位置,负数从后往前数，第二个参数删除的数组项的长度，负数当做0处理
+    // var arr=[1,2,3,4,5,6,8,9,10,11]
+    // console.log(arr.splice());//空数组
+    // console.log(arr.splice(2,4))//索引编号从2开始,返回删除4个组项[3,4,5,6]
+    // console.log(arr);//[1,2,8,9,10,11]改变原数组
+
+    // var arr=[1,2,3,4,5,6,8,9,10,11]
+    // console.log(arr.splice(-3,2))//[9,10]
+    // console.log(arr.splice(arr));//[1,2,3,4,5,6,7,8,11]
+
+    // 案例：数组去重，将数组中的重复值去掉。
+    // var arr = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 5, 5];
+    // for (var i = 0; i < arr.length; i++) {
+    //     for (var j = i + 1; j < arr.length; j++) {
+    //         if (arr[i] === arr[j]) {
+    //             arr.splice(j, 1)
+    //             j--//让j一直在索引i+1，否则继续累加就会跳过某个数字(重点)
+    //         }
+
+    //     }
+    // }
+    // console.log(arr);
+    //2.插入操作，删除0个，添加几个，变成插入
+    // 第一个参数表示删除的起始的索引位置,负数从后往前数，
+    // 第二个参数删除的数组项的长度，负数当做0处理
+    // 从第三个参数开始，就是你要插入的数组项。
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.splice(3,0,1,2,3));//返回删除项，[]
+    // console.log(arr)//["a", "b", "c", 1,2,3,"d", "e", "f", "g"]
+    // console.log(arr.splice(-3,0,"F","G"))//["a", "b", "c", "d", "F","G","e", "f", "g"]
+    // console.log(arr);
+    //3.替换操作，删除2项，添加2项，变成替换。
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.splice(2,2,"v","h"));//["c", "d"]返回删除项
+    // console.log(arr)//["a", "b", "v","h", "e", "f", "g"]改变原数组，在删除项后面添加
+
+    //第四组方法：转换方法
+    //join()//将数组转换成对应的字符串。参数就是连接符。不会改变原数组
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.join());
+    // console.log(arr.join("#"))
+    // console.log(arr.join(''));
+    // console.log(arr);//不会改变原数组
+
+    // 二维数组：数组项里面的值还存在数组。
+    // 获取多维数组的值
+    // var arr=[1,2,3]//一维数组
+    // console.log(arr);
+    // console.log(arr[2]);
+    // var arr1=[1,2,3,[4,5,6]]//二维数组
+    // console.log(arr1);
+    // console.log(arr1[3][2]);
+
+    // var arr2=[1,2,3,[4,5,6,[7,8,9]]]//三维数组
+    // console.log(arr2);
+    // console.log(arr2[3][3][2]);
+
+    // 二.二维数组的遍历(循环)
+    // var arr1=[[4,5,6]]
+    // for(i=0;i<arr1.length;i++){
+    // console.log(arr1[i][0])
+    // // console.log(arr1[i])
+    // }
+    // var arr = [
+    //     ["手机壳", "2470299.5639219293"],
+    //     ["手机", "704274.0275933561"],
+    //     ["手机包", "515536.4687897473"],
+    //     ["手机壳苹果12", "369380.99781505537"],
+    //     ["手机壳13苹果", "474438.2683574776"],
+    //     ["手机壳苹果", "548890.8447674289"],
+    //     ["手机壳11苹果", "417811.0827191811"],
+    //     ["手机壳iphone13promax", "313002.4015051929"],
+    //     ["手机壳情侣", "88450.44257076058"],
+    //     ["手机挂绳", "283126.2449620145"],
+    //   ];
+    //   for(var i=0;i<arr.length;i++){
+    //       document.write('<li>'+arr[i][0]+'</li>')
+    //   }
+
+    // 三.注意二维数组的赋值，必须遵循一个前提，一定告知当前数组的这一项的值还是数组。
+    // var arr=[]
+    // arr[0]=[]
+    // arr[0][0]=100
+    // arr[0][1]=200
+    // arr[1]=[]
+    // arr[1][0]=300
+    // arr[1][1]=400
+    // console.log(arr)
+    // 四.输出5*5的二维数组,核心考场索引的识别。
+    //  var arr = [
+    //     [1, 2, 3, 4, 5],
+    //     [6, 7, 8, 9, 10],
+    //     [11, 12, 13, 14, 15],
+    //     [16, 17, 18, 19, 20],
+    //     [21, 22, 23, 24, 25],
+    //   ];
+    //   console.log(arr[0][1])
+    //   console.log(arr[0][2])
+    //   console.log(arr[0][3])
+    //   console.log(arr[0][4])
+    //   console.log(arr[0][5])
+
+    //   console.log(arr[1][1])
+    //   console.log(arr[1][2])
+    //   console.log(arr[1][3])
+    //   console.log(arr[1][4])
+    //   console.log(arr[1][5])
+
+
+    // for循环的嵌套生成二维数组
+    // var num = 0
+    // var arr = []
+    // for (var i = 0; i < 5; i++) {
+    //     arr[i] = []
+    //     for (var j = 0; j < 5; j++) {
+    //         arr[i][j] = ++num
+    //     }
+    // }
+    // console.log(arr)
+
+    // 1.有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中.
+    //方法一push+sort
+    // var arr = [1, 3, 5, 7, 9];
+    // var num=6;
+    // arr.push(num)
+    // console.log(
+    //     arr.sort(function fn(a,b){
+    // return a-b;
+    //     })
+    // );
+
+    //方法二splice可以，splice具有插入功能
+    // var arr = [1, 3, 5, 7, 9];
+    // var num = 6
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] > num) {
+    //         arr.splice(i, 0, num)
+    //         break;
+    //     }
+    // }
+    // if(num>=arr[arr.length-1]){
+    //         arr.push(num)
+    //     }
+    // console.log(arr)
+
+    //方法三：利用遍历比较实现
+    // var arr = [1, 3, 5, 7, 9];
+    // var num=10;//数字为10，i为5，条件不满足，直接占据位置
+    // for(var i=0;i<arr.length;i++){
+    //     if(arr[i]>num){
+    //         break;
+    //     }
+    // }
+    // console.log(i) //获取i的值
+
+    // for(var j=arr.length-1;j>=i;j--){//占据之前让比i索引的数大的都后移一位
+    //     arr[j+1]=arr[j]
+
+    // }
+    // arr[i]=num//占据位置
+    // console.log(arr)
+
+    //定义一个30个整数的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程
+//     var arr = []
+//     var arrNew = []
+//     for (var i = 1; i <= 30; i++) {//i=1-30
+//         arr.push(i * 2)
+//     };
+//     console.log(arr); //[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60]
+    
+//   // 按顺序每五个数求出一个平均值
+//     for (var i = 0, sum = 0; i < arr.length; i++) {//遍历arr数组
+//         sum += arr[i];//arr值的累加
+//         if ((i + 1) % 5 === 0) {//索引+1跟5取余等于0的时候5个数相除push进新数组
+//             arrNew.push(sum / 5)
+//             sum = 0//重新置为0，重新算下一批的5个数字
+//         }
+
+//     }
+//     // console.log(sum)
+//     console.log(arrNew)
+</script>

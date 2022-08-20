@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 一.输出100-200之间所有的素数(素数就是能够被1和自身整除的数)
+  // 思路：标记思维，筛选思维
+  // 让被筛选的值带上标记，根据检测条件对标记进行修改，根据修改后的结果进行筛选。
+  // for (var i = 100; i <= 200; i++) {
+  //   //每个数字进场检测,带上变量flag，表示你是素数
+  //   var flag = "green";
+
+  //   // 检测站
+  //   // 100 -> 如果100能被2-99整除，说明不是。
+  //   // 101 -> 如果100能被2-100整除，说明不是。
+  //   // 102 -> 如果100能被2-101整除，说明不是。
+  //   for (var j = 2; j <= i - 1; j++) {
+  //     //能整除证明不是素数
+  //     if (i % j === 0) {
+  //       flag = "red"; //不是素数的标记
+  //       break; //终止循环，后面的值无需测试，只要满足一次说明不是素数。
+  //     }
+  //   }
+
+  //   // 出场,等待检测结果
+  //   if (flag === "green") {
+  //     //如果条件满足，证明是素数
+  //     document.write(i + ",");
+  //   }
+  // }
+</script>

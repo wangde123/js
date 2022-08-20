@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 第一题：
+  // 作用域，函数参数
+  // var a = 1;
+  // function fn(a) {
+  //   console.log(a); // 1   a是局部变量，参数a  var a = 1
+  //   a = 2;
+  //   console.log(a); //2
+  // }
+  // fn(a); //将全局的a=1传给上面的形参a
+  // console.log(a); //1
+
+  // 第二题：
+  // var a = 1;
+  // function fn() {
+  //   console.log(a); //1 里面所有的a都是全局变量，里面没有声明a，也没有参数
+  //   a = 2;
+  //   console.log(a); //2
+  // }
+  // fn();
+  // console.log(a); //2
+
+  // 第三题：
+  // 预解析
+  // 1.预编译，逐行执行前浏览器干的事情，不可见。
+  // var a = undefined;
+  // a = function a() {
+  //   alert(5);
+  // }
+  // 预编译的时候变量名和函数重名，函数优先
+  // 最终的预编译的结果。
+  // a = function a() {
+  //   alert(5);
+  // };
+
+  // 2.逐行执行，看得见的
+  // alert(a); // function a() { alert(5);};
+  // a(); // 输出5
+  // var a = 3; //覆盖上面a的结果  变成a=3；
+  // function a() {
+  //   //函数声明跳过
+  //   alert(10);
+  // }
+  // alert(a); //3
+  // function a() {
+  //   //函数声明跳过
+  //   alert(5);
+  // }
+  // a = 6;
+  // alert(a); //6
+  // var a = function () {
+  //   // a被值为函数的a覆盖  a = 函数
+  //   alert(8);
+  // };
+  // a(); //8
+
+  // 第四题：
+  // var a = undefined; //全局
+  // (function () {
+  //   var a = (b = 3); // b = 3;全局    var a = b;局部
+  // })();
+  // console.log(a); //undefined
+  // console.log(b); //3
+  // console.log(typeof a); //undefined
+  // console.log(typeof b); //number
+  // console.log(typeof a !== "undefined"); //false
+  // console.log(typeof b !== "undefined"); //true
+
+  // 第五题：
+  // 根据预解析，出现重名的函数，下面覆盖上面。
+  // 函数内部没有return，默认返回undefined。
+  // var x = 20;
+  // var y = 45;
+  // var z = 332;
+
+  // function add(n) {
+  //   n = n + 1;
+  //   return n;
+  // }
+  // y = add(x);
+  // console.log(y); //undefined
+
+  // function add(n) {
+  //   // 最终调用的add，函数内部没有return，默认返回undefined
+  //   n = n + 3;
+  // }
+  // z = add(x);
+  // console.log(z); //undefined
+</script>

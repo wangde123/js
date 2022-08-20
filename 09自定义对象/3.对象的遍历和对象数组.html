@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.对象的遍历
+  // 1.对象是属性的无序集合，对象不适合用for循环，for循环使用有序的。
+  //   var obj = {
+  //     name: "zhangan",
+  //     age: 20,
+  //     sex: "男",
+  //   };
+
+  //   // 2.for...in循环：可以遍历数组和对象，最好遍历对象。
+  //   // 格式： for(var i in obj){ }
+  //   // var i:自定义的，依次表示对象里面的属性名，obj对象的名称
+  //   for (var i in obj) {
+  //     // console.log(i); //name,age,sex
+  //     console.log(obj[i]); //注意，千万不能使用点符号。
+  //   }
+
+  // 二.对象数组：数组项时对象，对象里面包含数组。
+  // 遇到数组操作，利用[]取值，碰到对象，利用点(.)和中括号([])取值
+  // var data = [{
+  //     name: 'zhangan',
+  //     age: 20,
+  //     sex: '男'
+  // }, {
+  //     name: 'lisi',
+  //     age: 25,
+  //     sex: '女'
+  // }, {
+  //     name: 'wangwu',
+  //     age: 18,
+  //     sex: '男'
+  // }];
+  // for (let i = 1; i > 0; i++) {
+  //   console.log(i);
+  // }
+  // console.log(data[0]); //{name: 'zhangan', age: 20, sex: '男'}
+  // console.log(data[0].name); //zhangsan
+  // console.log(data[0].age); //20
+
+  // 对数组里面的对象进行排序，排序的核心是数字和字母，不能对整个对象排序。
+
+  // sort排序数字才需要比较函数
+  // console.log(data.sort(function(a, b) { //a,b表示数组项的值，也就是a,b表示数组里面的对象
+  //     return a.age - b.age;
+  // }));
+</script>

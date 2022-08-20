@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.迭代方法：迭代是重复反馈过程的活动，其目的通常是为了逼近所需目标或结果.
+  // 自带遍历(循环)
+  // 每个方法带有两个参数：
+  // 第一个参数：要在每一项上运行的函数(函数当参数，回调函数),此函数会接收三个参数：数组项的值、该项在数组中的位置、数组对象本身。
+  // 第二个参数： 运行该函数的作用域对象即this 的值[可选的] - 直接忽略
+
+  // // 1.every()对数组中的每一项运行给定函数，如果该函数对每一项都返回 true ，则整个方法返回 true 。
+  // var arr = [1, 2, 3, 4, 5];
+  // var result = arr.every(function (v, i, array) {
+  //   //每一个数组项都会自动执行括号里面的函数
+  //   // console.log(v); //1  数组项的值，因为此方法的特性，仅输出第一个。
+  //   // console.log(i); //0 数组项对应的索引值，因为此方法的特性，仅输出第一个。
+  //   // console.log(array); //[1, 2, 3, 4, 5]  数组对象本身
+  //   return v > 3;
+  // });
+
+  // console.log(result);
+  // 此方法适合数组项都满足某一条件时的应用
+  // 案例：证明一个数组是数字组成的数组。
+  // var arr = [1, 2, 3, 4, 5, 'abc', 6];
+  // var result = arr.every(function(v, i, array) {
+  //     return typeof v === 'number'; //判断数组的每一项值的类型是否是number类型，如果有任意一项不满足，整个every输出false
+  // });
+  // console.log(result);
+
+  // 2.some()对数组中的每一项运行给定函数，如果该函数对任意一项返回 true ，则返回 true 。
+  // var arr = [1, 2, 3, 4, 5];
+  // var result = arr.some(function(v, i, array) { //每一个数组项都会自动执行括号里面的函数
+  //     // console.log(v); // 返回所有数组项的值。
+  //     // console.log(i); //返回所有数组项对应的索引值。
+  //     // console.log(array); //数组对象本身
+  //     return v > 4
+  // });
+  // console.log(result); //true
+
+  // 3.filter()对数组中的每一项运行给定函数，返回该函数结果为 true 的项组成的数组。
+  // filter:过滤，筛选
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var newArr = arr.filter(function (v, i, a) {
+    return v !== 2;
+  });
+  console.log(newArr); //[2, 4, 6, 8, 10]
+  console.log(arr);
+
+  // // 案例：数组去重
+  // var arr = [35, 35, 35, 22, 22, 22, 22, 66, 66, 66, 66, 66];
+  // var result = arr.filter(function (v, i, a) {
+  //   //v:数组项的值  i:数组项对应的索引    a:数组本身
+  //   console.log(arr.indexOf(v)); //获取第一次出现的值的索引位置 0，0，0，3，3，3，3，7，7，7，7，7
+  //   // console.log(i); //每一个数组项对应的索引                   0，1，2，3，4，5，6，7，8，9，10，11
+  //   return arr.indexOf(v) === i; //只有当这两个值相等表示数组项是第一次出现。indexOf只找第一次出现的值的索引位置。
+  // });
+  // console.log(result); //[35, 22, 66]
+
+  // 筛选数组
+  // var arr = [12, 'hello', 'hi', 333, 'abc', 444];
+  // console.log(arr.filter(function(v, i, a) {
+  //     return typeof v === 'string';
+  // }));
+
+  // 4.map() 对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组，返回就是数组，不考虑true或者false；
+  // map：映射，一一对应,就是数组的每一项做完都会输出。比如10项的数组输出还是10项。
+  // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  // var result = arr.map(function(v, i, a) {
+  //     return v * 100;
+  // });
+  // console.log(result); //[100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+  // 5.forEach() 对数组中的每一项运行给定函数。这个方法没有返回值，取代for循环。
+  //   var arr = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  //   //   arr.forEach(function (v, i, a) {
+  //   //     console.log(v);
+  //   //     console.log(i);
+  //   //   });
+  // for (var i = 0; i < arr.length; i++) {
+  //     // console.log(arr[i]);
+  //     console.log(i);
+  // }
+  // const a = 200;
+  // if (a == true) {
+  //   console.log(1);
+  // }
+  // if (a == false) {
+  //   console.log(2);
+  // }
+  // let arr = ["1", "2", "3"].map(parseInt);
+  // console.log(arr);
+  // 最核心的方法
+  // map,filter,forEach
+  //   const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+
+  //   //   console.log(materials.map((material) => material.length));
+  //   let result = materials.map((material) => material.length);
+  //   console.log(result);
+  //   console.log(materials.length);
+</script>

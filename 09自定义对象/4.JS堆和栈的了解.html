@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.JS堆和栈的了解
+    // 1.JS的数据类型
+    // 基本类型：number/string/boolean/null/undefined
+    // 引用类型：object
+
+    // 2.JS内存进行划分
+    // JS的内存分为两部分：栈区和堆区
+    // 栈区：存放基本类型的值和引用类型的地址(基本类型值和地址理解成一个东西，引用类型值和地址是两个东西)。
+    // 堆区：存放引用类型的值。a
+    // 指针就是地址的意义。
+
+    // 3.对象类型(引用类型)：存在地址和值两部分，比较的对象的时候其实比较的是地址。
+    // console.log('hello' == 'hello'); //true 基本类型比较值
+    // console.log('hello' === 'hello'); //true 基本类型比较值
+    // console.log([] == []); //false ,引用类型比较的是地址
+    // console.log({} == {}); //false ,引用类型比较的是地址
+    // console.log(function() {} == function() {}); //false ,引用类型比较的是地址
+
+    // 4.值传递和引用传递
+    // 4.1.基本类型遵循值传递，彼此传递的都是值。
+    // var a = 10;
+    // var b = a; //值传递，将a的值复制一份传给b，所有b=10,而且a,b是两个变量
+    // b++;
+    // console.log(b); //11
+    // console.log(a); //10
+
+    // 4.2.引用类型遵循引用传递，彼此传递的是地址。
+    // 案例：arr2得到arr1里面的值。
+    // var arr1 = [1, 2, 3];
+    // var arr2 = arr1; //引用传递，其实是将arr1的地址给了arr2,最终arr1和arr2指向同一个地址了。
+    // arr2.push(4); //arr2数组末尾追加一个数字4
+    // console.log(arr1); //[1, 2, 3, 4]
+    // console.log(arr2); //[1, 2, 3, 4]
+
+
+
+    // 一般采用逐个赋值的方式
+    // var arr1 = [1, 2, 3];
+    // var arr2 = []; //对比上面等号赋值，arr2重新开劈了地址
+    // for (var i = 0; i < arr1.length; i++) { //逐个赋值
+    //     arr2[i] = arr1[i]
+    // }
+    // arr2.push(4);
+    // console.log(arr1); //[1, 2, 3]
+    // console.log(arr2); //[1, 2, 3,4]
+
+    // 总结：对象间如果采用=进行赋值，其实赋值的是地址，最终指向同一个内存，出现统一改变的情况
+    // 目前解决方式：逐个赋值解决。
+</script>

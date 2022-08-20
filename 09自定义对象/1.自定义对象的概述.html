@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+    // 一.JavaScript最核心的六大对象是前期关注的重点
+    // 1.函数对象 - 30%
+    // 2.数组对象 - 20%
+    // 3.自定义对象 - 35%
+    // 4.字符串对象- 10%
+    // 5.数学对象 ,日期对象 - 5%
+
+    // 二.对象(自定义对象)的概念及创建
+    // 1.对象是javascript的数据类型,对象是一种复合值,它将很多值聚合在一起,可通过名字访问这些值,对象也看做是属性的无序集合,每个属性都是一个键/值对。
+    // 注意：对象是由属性和方法构成的。当属性的值是函数的时候，才会变成对象下面的方法，在不确定值的情况下当作属性的无序集合。
+
+    // 2.对象的创建
+    // 2.1.构造函数创建(类)
+    // var obj = new Object(); //obj:自定义对象    Object:系统约定的类名
+    // // 自由给对象添加任意的属性和方法
+    // obj.name = "zhangsan"; //添加自定义属性   name:自定义的属性名   zhangsan:自定义的属性值
+    // obj.age = 18; //添加自定义属性
+    // obj.show = function () {
+    //   //添加自定义属性(方法)
+    //   return "我是obj对象下面方法的返回值";
+    // };
+
+    // console.log(obj.name); //输出属性值
+    // console.log(obj.show); //输出属性值
+    // console.log(obj.show()); //调用方法的值
+
+    // 2.2.字面量创建对象(注意格式：键值对的格式，key:value格式)
+    // var obj = {
+    //   name: "zhangsan",
+    //   age: 18,
+    //   show: function () {
+    //     return "我是obj对象下面方法的返回值";
+    //   },
+    // };
+
+    // console.log(obj.name); //输出属性值 'zhangsan'
+    // console.log(obj.show); //输出属性值  ƒ () {return "我是obj对象下面方法的返回值";}
+    // console.log(obj.show()); //调用方法的值
+
+    // 作业
+    // 使用字面量形式创建一个对象，该对象包含姓名，学号、年龄、性别、所学专业，和一个自我介绍的方法，用来输出该对象的所有信息.
+
+    // var zhangsanObj = {
+    //     name: "zhangsan",
+    //     id: "00123",
+    //     age: 18,
+    //     sex: "男",
+    //     pro: "web开发",
+    //     instr: function() {
+    //         return (
+    //             "我的名字叫" +
+    //             zhangsanObj.name +
+    //             ",我的学号是" +
+    //             zhangsanObj.id +
+    //             ",我今年" +
+    //             zhangsanObj.age +
+    //             "岁,我是" +
+    //             zhangsanObj.sex +
+    //             "的，我的专业是" +
+    //             zhangsanObj.pro
+    //         );
+    //     },
+    // };
+
+    // console.log(zhangsanObj.instr()); //的名字叫zhangsan,我的学号是00123,我今年18岁,我是男的，我的专业是web开发
+</script>

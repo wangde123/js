@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">123456</div>
+</body>
+
+</html>
+<script>
+    //  "use strict";
+    // 一.介绍数组的其他两个方法
+    //   includes() :判断一个数组中是否包含某一个数组项，返回布尔值，存在返回true，否则返回false.
+    //     var arr = ['apple', 'banana', 'pear', 'orange'];
+    //     console.log(arr.indexOf('pear'))//2
+    // console.log(arr.includes('pear'))//true 判断是否存在某个数组项
+
+
+    //  flat()  :深层次遍历数组，可以将数组项与子数组所有的数组项合并到新的一个数组中。
+    // 参数：一个数字，代表扁平的维度。一般设置为无穷(Infinity)。
+    // 案例：数组扁平化：将一个多维数组变成一维数组。
+    //  var arr = [1, 2, 3, [4, 5, 6, [7, 8, 9, [10]]]];
+    //  var newArr=[]
+    // //  console.log(arr.flat(3))
+    // //  console.log(arr.flat(2))
+    //  var sdc=arr.flat(Infinity)
+    // console.log(sdc);
+    // sdc.forEach(function(v,i,a){
+    // newArr.push(v)
+    // })
+
+    // console.log(newArr);
+
+    //toString():将括号里面的值转换成字符串。
+    // var arr = [1, 2, 3, [4, 5, 6, [7, 8, 9, [10]]]];
+    // console.log(arr.toString());
+
+    // 一.函数内部的特殊对象this
+    //arguments
+    // this
+    // 1.this是javascript语言的一个关键字,它代表函数运行时,自动生成的一个内部对象,只能在函数内部使用;随着函数使用场合的不同，this的值会发生变化;但是有一个总的原则，那就是this指的是调用函数的那个对象(可以理解为谁调用函数，函数内部的this指向谁)
+    //     function fn() {
+    //     console.log(this);
+    // }
+    // fn()//非常不合理的指向window
+    // window.fn()//合理的指向window  普通函数就是window的方法，变量就是window的属性。
+    // box.onclick=fn//指向box,（需要的是函数结构体，fn后面千万不能添加括号,box调用的，不是自调用）
+    // //方法也是函数实现的，方法肯定存在this。
+    //     var obj = {
+    //         name: 'zhnagsan',
+    //         showname:function () {
+    //             console.log(this);
+    //             console.log(this.name);
+    //         }
+    //     };
+    //    obj.showname()
+
+    //严格模式："use strict"
+    //1.变量名不可省略关键字var
+    // i=5//报错
+    // console.log(i)
+    //2.函数不能有重名的参数
+    //3.不允许对arguments赋值并禁止使用arguments下面的部分方法
+    // function fn(){
+    //    console.log(arguments.length); 
+    //    console.log(arguments[0])
+    //    arguments++ //报错
+
+    // }
+    // fn(1,2,3,4)
+
+    //4.禁止使用八进制0开头的数字表示法
+    // var a=00546
+    // console.log(a)//报错
+
+    //5.禁止普通函数内部的this指向全局对象(window)
+    // function fn(){
+    //     console.log(this)
+    // }
+    // fn()//undefined
+
+    // 1.数组去重
+    // 对象属性去重,
+    // 思路
+    // 利用数组项的值做对象的属性名。
+    // 属性名相同，赋值的时候下面覆盖上面。
+    // var arr = ['zhangsan', 'zhangsan', 'lisi', 'lisi', 'lisi', 'wangwu', 'wangwu', 'zhangsan', 'zhangsan', 'lisi', 'lisi', 'lisi', 'wangwu', 'wangwu'];
+    // var obj={}
+    //     for(i=0;i<arr.length;i++){
+    //         if(!obj[arr[i]]){
+    // obj[arr[i]]=1
+    //         }
+    //     }
+    // console.log(obj)
+
+
+    // var obj={}
+    // arr.forEach(function(v){
+    //     !obj[v]? obj[v]=1:null
+    // })
+    // //     console.log(obj)
+
+    // // 扩展自定义对象下面的静态方法
+    // // Object.keys()//获取一个对象的所有属性名，返回一个数组
+    // // Object.values()//获取一个对象的所有属性值，返回一个数组
+    // console.log(Object.keys(obj));//['zhangsan', 'lisi', 'wangwu']
+    // console.log(Object.values(obj));// [1, 1, 1]
+
+    //  var obj1 = {
+    //         1: 2,
+    //         3: 4
+    //     }
+    // console.log(obj1[1]);
+    // console.log(obj1['1']);
+    // console.log(obj1.1);//错误的，点后面不能跟数字，格式上的错误。
+
+
+    // 2.数组扁平化
+    // var arr = [1, 2, 3, 4, [5, 6, 7, [8, 9, 10]]];//递归操做
+    // var arrNew = []
+    // function fn(arr) {
+    //     arr.forEach(function (v) {
+    //         if (Array.isArray(v)) {
+    //             fn(v)
+    //         } else { 
+    //             arrNew.push(v)
+
+    //          }
+    //     })
+
+    //     return arrNew
+    // }
+    // console.log(fn(arr))
+//     var arr1 = [1, 2, 3, 4, [5, 6, 7, [8, 9, 10]]];
+//     var newArr = []
+//     function fn(arr) {
+//         arr.forEach(function (v) {
+//             if (Array.isArray(v)) {
+//                 fn(v)
+//             } else { newArr.push(v) }
+
+//         })
+//         return newArr
+//     }
+//   console.log(fn(arr1));
+</script>

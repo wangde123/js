@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // "use strict";
+    // 一.ES5新增的语法--严格模式
+    // 1.目标
+    // 就是消除JS语法的一些不合理、不严谨之处，减少一些怪异行为，消除代码运行的一些不安全之处，保证代码运行的安全，为未来新版本做好铺垫。
+
+    // 2.进入"严格模式"的标志
+    // 'use strict'
+
+    // 3.如何调用
+    // 将"use strict"放在JS脚本文件的第一行，则整个脚本都将以"严格模式"运行
+
+    // 4.语法和行为改变
+    // 4.1.变量显式声明：一定加var
+    // a = 100;
+    // console.log(a);
+
+    // 4.2.禁止普通函数内部的this关键字在函数单独调用时指向全局对象(window)
+    // function fn() {
+    //     console.log(this);
+    // }
+
+    // fn(); //undefined 合理
+
+    // 4.3.函数不能有重名的参数
+    // function fn(a, a, b) {
+    //     console.log(a + a + b);
+    // }
+
+    // fn(1, 2, 3);
+
+    // 4.4.禁止八进制（0开头的数字）表示法
+    // var num = 0123;
+    // console.log(num); //83  十进制
+
+    // 4.5.不允许对arguments赋值并禁止使用arguments下面的部分方法。
+    // function fn() {
+    //     // console.log(arguments.length);4
+    //     // console.log(arguments[0]);//1
+    //     // arguments+=1; //严格模式报错
+    // }
+    // fn(1, 2, 3, 4);
+</script>

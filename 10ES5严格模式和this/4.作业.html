@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 1.数组去重
+    // 对象属性去重,
+    // 思路
+    // 利用数组项的值做对象的属性名。
+    // 属性名相同，赋值的时候下面覆盖上面。
+    // var arr = ['zhangsan', 'zhangsan', 'lisi', 'lisi', 'lisi', 'wangwu', 'wangwu', 'zhangsan', 'zhangsan', 'lisi', 'lisi', 'lisi', 'wangwu', 'wangwu'];
+    // var obj = {};
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (!obj[arr[i]]) { //给每一个属性进行赋值1，前提是属性不存在值的时候
+    //         obj[arr[i]] = 1
+    //     }
+    // }
+
+
+    // arr.forEach(function(v) {
+    //     if (!obj[v]) obj[v] = 1; // if语句块里面仅存在一行代码，可以省略大括号
+    // });
+
+    // arr.forEach(function(v) {
+    //     !obj[v] ? obj[v] = 1 : null
+    // });
+    // console.log(obj);
+    // 扩展自定义对象下面的静态方法
+    // Object.keys():获取一个对象的所有属性名，返回一个数组
+    // Object.values():获取一个对象的所有属性值，返回一个数组
+    // console.log(Object.keys(obj)); //['zhangsan', 'lisi', 'wangwu']
+    // console.log(Object.values(obj)); //[1, 1, 1]
+
+
+    // var obj1 = {
+    //     1: 2,
+    //     3: 4
+    // }
+    // console.log(obj1[1]); //2
+    // console.log(obj1['1']); //2
+    // console.log(obj.1); 错误的，点后面不能跟数字，格式上的错误。
+
+   
+
+    // 2.数组扁平化
+    //递归
+    // var arr = [1, 2, 3, 4, [5, 6, 7, [8, 9, 10]]];
+    // var result = [];
+
+    // function flatten(arr) {
+    //     arr.forEach(function(v) { //数组项是否还是数组
+    //         if (Array.isArray(v)) {
+    //             flatten(v);
+    //         } else {
+    //             result.push(v); //每个数字最终都要走这里。
+    //         }
+    //     })
+    //     return result;
+    // }
+
+    // console.log(flatten(arr)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 归并方法
+  // 即每一次迭代得到的结果会作为下一次迭代的初始值，这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。
+  // 两个参数：每一项上调用的函数 和（可选的）作为归并的初始值(迭代的初始值)
+  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  //   // 1.reduce() 方法从数组的第一项开始，逐个遍历到最后。从第一项开始迭代所有值的和。
+  //   // 一个参数的情况：
+  //   // 调用的函数接收 4 个参数：前一个值、当前值、项的索引和数组对象。
+  var result = arr.reduce(function (q, h, i, a) {
+    console.log(q, h);
+    return q + h; //q:第一次是数组第一项，后面就是算法迭代的结果。
+    // return q+h;
+    // alert(q+h);
+    // console.log(i);
+    // console.log(a);
+  });
+  console.log(result); //55
+
+  // 两个参数的情况
+  // 第二个参数就是迭代的初始值(100)，使用100去累加这里的1到10
+  // var result = arr.reduce(function(q, h, i, a) {
+  //     return q + h;
+  // }, 100);
+  // console.log(result); //155
+
+  // 2.reduceRight() 方法从数组的最后一项开始，向前遍历到第一项。
+  // var result = arr.reduceRight(function(q, h, i, a) {
+  //     return q + h;
+  // }, 100);
+  // console.log(result); //155
+
+  // 整个ES5新增的核心方法
+  // indexOf/filter/map/forEach/reduce
+
+  //   function sum(arr) {
+  //     return arr.reduce((q, h, i, a) => {
+  //       return q + h;
+  //     });
+  //   }
+  //   console.log(sum([1, 2, 3, 4]));
+</script>

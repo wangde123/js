@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">123345</div>
+</body>
+
+</html>
+<script>
+    // 一.函数内部的特殊对象this
+    // arguments
+    // this
+    // 1.this是javascript语言的一个关键字,它代表函数运行时,自动生成的一个内部对象,只能在函数内部使用;随着函数使用场合的不同，this的值会发生变化;但是有一个总的原则，那就是this指的是调用函数的那个对象(可以理解为谁调用函数，函数内部的this指向谁)
+
+    // function fn() {
+    //     console.log(this);
+    // }
+
+    // fn(); //非常不合理的指向window
+    // window.fn(); //合理的指向window  普通函数就是window的方法，变量就是window的属性。
+    // box.onclick = fn; //指向box，合理的（需要的是函数结构体，fn后面千万不能添加括号,box调用的，不是自调用）
+
+    // 2.方法也是函数实现的，方法肯定存在this。
+    var obj = {
+        name: 'zhangsan',
+        showname: function() {
+            console.log(this); //this->obj
+            console.log(this.name); //zhangsan
+        }
+    };
+    obj.showname(); //this->obj
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 数组的方法
+  // 第三组方法：操作方法
+  // 3.1. concat() 方可以基于当前数组中的所有项创建一个新数组，参数可以是数组项或者数组。
+  var arr1 = [1, 2, 3];
+  var arr2 = [4, 5, 6];
+  var arr3 = [7, 8, 9];
+  console.log(arr1.concat()); //[1, 2, 3]；复制了一份arr1数组项
+  // console.log(arr1.concat("a", "b", "c")); //[1, 2, 3, 'a', 'b', 'c'] 将参数添加到新数组的后面。
+  // console.log(arr1.concat(arr1, arr2, arr3)); //[1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 8, 9]。
+  // console.log(arr1); //[1, 2, 3]
+
+  // 3.2. slice() 方法它能够基于当前数组中的一或多项创建一个新数组,可以接受一或两个参数，即要返回项的起始和结束位置，不包括结束位置。
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.slice()); //没有参数，全部截取 ["a", "b", "c", "d", "e", "f", "g"]
+  // console.log(arr.slice(2)); //从当前这个索引2的位置开始截取，一直到结束["c", "d", "e", "f", "g"]
+  // console.log(arr.slice(2, 5)); //第一个参数表示起始索引位置，第二个参数表示结束的索引位置，不包括结束位置。["c", "d", "e"]
+  // console.log(arr.slice(2, -2)); //如果索引是负数，从后往前数位置，从-1开始。["c", "d", "e"]
+  // //注意：负数表示从后往前数，仅仅是位置，截取的方法始终是从前往后，如果根据位置无法截取数组项，返回空数组。
+  // console.log(arr.slice(2, -20)); //[]
+  // console.log(arr.slice(-5, -2)); //["c", "d", "e"]
+  // console.log(arr); //原数组["a", "b", "c", "d", "e", "f", "g"]
+
+  // 3.3. splice() 方法对数组进行删除、插入、替换，是最强大的数组方法，返回值是数组，改变原数组。
+
+  // splice的核心就是删除，插入或者替换都是根据删除演变而来的
+  // 1)删除
+  // 第一个参数表示删除的起始的索引位置,负数从后往前数，第二个参数删除的数组项的长度，负数当做0处理
+  // 返回值是数组,仅返回删除的值组成的数组。
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.splice(2, 4)); //["c", "d", "e", "f"]
+  // console.log(arr); //原数组["a", "b", "g"]
+
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.splice(-5, 2)); //['c', 'd']
+
+  // 案例：数组去重，将数组中的重复值去掉。
+  var arr = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 5, 5];
+  //splice实现;
+  var re = function (arr) {
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = i + 1; j < arr.length; j++) {
+        if (arr[i] === arr[j]) {
+          //满足条件，后面存在重复，原数组删除
+          arr.splice(j, 1);
+          j--; //splice改变原数组，每删除一位，让索引对应-1，否则继续累加就会跳过某个数字(重点)
+        }
+      }
+    }
+    return arr.sort((a, b) => {
+      return a - b;
+    });
+  };
+  // console.log(re([1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4, 5, 5]));
+  console.log(re([9, 9, 9, 1, 1, 1, 3, 3, 3, 74, 65, 8, 8, 8]));
+
+  // 2)插入操作，删除0个，添加几个，变成插入
+  // 第一个参数表示删除的起始的索引位置,负数从后往前数，
+  // 第二个参数删除的数组项的长度，负数当做0处理
+  // 从第三个参数开始，就是你要插入的数组项。
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.splice(3, 0, "hehe", "xixi", "haha")); //[]
+  // console.log(arr); //["a", "b", "c", "hehe", "xixi", "haha","d", "e", "f", "g"];
+
+  // 3)替换操作，删除2项，添加2项，变成替换。
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.splice(2, 2, "hehe", "xixi")); //["c", "d"]
+  // console.log(arr); //["a", "b", "hehe", "xixi", "e", "f", "g"];
+
+  // 第四组方法：转换方法
+  // 1.join():将数组转换成对应的字符串。参数就是连接符。不会改变原数组
+  // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+  // console.log(arr.join()); //'a,b,c,d,e,f,g'
+  // console.log(arr.join("#")); //'a#b#c#d#e#f#g'
+  // console.log(arr.join("")); //'abcdefg'
+  // console.log(arr);
+
+  // 注意：
+  // 核心的方法:push/pop/sort/splice/join
+</script>

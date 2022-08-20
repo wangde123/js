@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+    // JS-CSS-HTML Formatter：适合初学者的格式化插件
+    // var zhangsanObj = {
+    //     'name': "zhangsan",
+    //     "id": "00123",
+    //     age: 18,
+    //     sex: "男",
+    //     pro: "web开发",
+    //     instr: function() {
+    //         return ("我的名字叫" + zhangsanObj.name + ",我的学号是" + zhangsanObj.id + ",我今年" + zhangsanObj.age + "岁,我是" + zhangsanObj.sex + "的，我的专业是" + zhangsanObj.pro);
+    //     },
+    // };
+
+    // 一.自定义对象的特点 - 非常重要
+    // 1.对象的属性名一定是字符串格式，引号可有可无.
+    // console.log(zhangsanObj.name); //zhangsan
+    // console.log(zhangsanObj.id); //00123
+
+    // 2.对象的属性不存在，不会报错，输出undefined,对象的属性值可以被覆盖。
+    // 注意：方法不存在会报错，方法是要调用，涉及到函数。
+    // console.log(zhangsanObj.hehe); //undefined
+    // console.log(zhangsanObj.speak()); //报错，和函数有关   zhangsanObj.speak is not a function
+    // zhangsanObj.name = '尼古拉斯赵四'; //覆盖前面的name属性
+    // console.log(zhangsanObj.name); //尼古拉斯赵四
+
+    // 3.获取设置对象的属性值可以通过点符号和中括号。
+    // 区别是：访问属性约定点符号后面跟的一定是字符串(必须忽略引号)，中括号里面可以是字符串(必须添加引号)和变量获取其他语法。
+    // console.log(zhangsanObj.name); //zhangsan
+    // console.log(zhangsanObj['name']); //zhangsan
+
+    // 例子：使用变量当对象的属性名 - 非常重要
+    // var a = 'name';
+    // var obj = {
+    //     'a': 'zhangsan', //这里的a和上面的变量没有关系，这里的a依然是自定义的属性。
+    //     [a]: 'lisi', //这里的a是上面的变量,且值为name
+    // }
+
+    // console.log(obj.a); //zhangsan
+    // console.log(obj.name); //lisi
+    // console.log(obj[a]); //这里的a依然是上面的变量,且值为name   lisi
+    // console.log(obj['a']); //zhangsan
+
+
+    // obj.a = 1
+    // obj.1 = 2; //报错，点后面跟字符串，不是数字。
+    // 总结：当处理对象属性出现变量最好采用中括号，否则采用点符号。
+
+    // 4.对象的值是固定的，任何对象输出的值都是[object Object],不是结构是值。
+    // console.log输出对象，基本上都是输出对象的格式，不是值，值可以通过alert输出。
+    var zhangsanObj = {
+        'name': "zhangsan",
+        "id": "00123",
+        age: 18,
+        sex: "男",
+        pro: "web开发",
+        instr: function() {
+            return ("我的名字叫" + zhangsanObj.name + ",我的学号是" + zhangsanObj.id + ",我今年" + zhangsanObj.age + "岁,我是" + zhangsanObj.sex + "的，我的专业是" + zhangsanObj.pro);
+        },
+    };
+
+    var lisiObj = {
+        'name': "lisi",
+        "id": "00145",
+        age: 20,
+        sex: "女",
+        pro: "web开发",
+        instr: function() {
+            return ("我的名字叫" + zhangsanObj.name + ",我的学号是" + zhangsanObj.id + ",我今年" + zhangsanObj.age + "岁,我是" + zhangsanObj.sex + "的，我的专业是" + zhangsanObj.pro);
+        },
+    };
+    console.log(zhangsanObj); //输出对象的结构
+    console.log(lisiObj); //输出对象的结构
+    alert(zhangsanObj); //[object Object]
+    alert(lisiObj); //[object Object]
+</script>

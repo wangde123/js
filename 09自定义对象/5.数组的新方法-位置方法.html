@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.数组前面讲过的方法
+    // 1.栈方法：push/pop
+    // 2.队列方法：unshift/shift
+    // 3.重排序方法：reverse/sort
+    // 4.操作方法：concat/slice/splice
+    // 5.转换方法：join
+    // 6.静态方法：Array.isArray
+
+    // 二.ES5版本里面添加的新方法，ES目前发展到ES11
+    // 1.位置方法----indexOf()  lastIndexOf()返回要查找的项在数组中的索引位置，没找到的情况下返回-1。
+
+    // 两个参数：要查找的数组项 和 表示查找起点位置的索引（可选的）
+
+    // 1.1.indexOf() 方法从数组的开头开始向后查找,查找参数在数组中的索引位置，没找到的情况下返回-1。
+    // var arr = ['zhangsan', 'lisi', 'wangwu', 'zhangsan', 'lisi', 'wangwu'];
+
+    // console.log(arr.indexOf('lisi')); //1 找第一次出现
+    // console.log(arr.indexOf('zhaoliu')); //-1 没有找到
+    // console.log(arr.indexof('zhangsan')); //0
+    // console.log(arr.indexof('zhangsan')); //0
+    // console.log(arr.indexof('zhangsan')); //0
+    // console.log(arr.indexof('zhangsan')); //0
+    // console.log(arr.indexof('zhangsan')); //0
+    // console.log(arr.indexof('zhangsan', 2)); //3 从索引2位置向后找张三。
+
+    // 案例：数组去重
+    // 思路：查看当前的数组项的值是否存在新数组，不存在追加进新数组
+    // var arr = [1, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5];
+    // var newarr = []; //存放去重后的新数组
+    // for (var i = 0; i < arr.length; i++) {
+    //     // 查看当前的数组项的值是否存在新数组,indexOf的返回值等于-1，表示一定不存在新数组。
+    //     if (newarr.indexOf(arr[i]) === -1) { //满足条件，说明新数组不存在这项值，push进新数组
+    //         newarr.push(arr[i]);
+    //     }
+    // }
+    // console.log(newarr); //[1, 2, 3, 4, 5]
+
+
+    // 1.2.lastIndexOf() 方法则从数组的末尾开始向前查找。(注意：索引一定是从前往后数)
+    // var arr = ['zhangsan', 'lisi', 'wangwu', 'zhangsan', 'lisi', 'wangwu'];
+    // console.log(arr.lastIndexOf('lisi')); //4
+
+  
+
+</script>
