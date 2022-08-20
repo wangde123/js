@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <p>ppppppppp</p>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <span>spanspanspan</span>
+    </ul>
+    <!-- <div id="box">
+      <a href="#">a</a>
+      <span>b</span>
+      <p>c</p>
+    </div> -->
+  </body>
+</html>
+<script>
+  // 一.事件委托
+  // 事件冒泡：即事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点,一直到文档document
+  // 事件冒泡就是子元素的事件会冒泡到父元素，逐级向上传播，直到document元素对象。
+
+  // 事件委托的概念：
+  // 利用事件冒泡的原理，将子元素的事件委托给父元素。
+
+  // 案例：获取li元素内部的内容。
+  // var list = document.querySelectorAll("li"); //20个li
+  // for (var i = 0; i < list.length; i++) {
+  //   list[i].onclick = function () {
+  //     //绑定20次
+  //     alert(this.innerHTML);
+  //   };
+  // }
+  // 问题，循环绑定了20次事件。
+  // target属性：事件对象下面的属性，获取当前操作的元素对象。
+  // 注意：判断当前点击的元素是否是需要操作的元素，而不是所有的子元素。
+  // var ul = document.querySelector('ul');
+  // ul.onclick = function (e) { //绑定1次
+  //     // e.target:当前操作的元素对象，通过nodeName获取元素对象，判断是否是需要的元素。
+  //     // 如果不判断，所有的子元素都会冒泡到父元素，达不到我们的目标。
+  //     if (e.target.nodeName === 'LI') {
+  //         alert(e.target.innerHTML);
+  //     }
+  // };
+
+  // 二.事件委托的优缺点。
+  // 1.优点：
+  // 减少事件注册次数(绑定次数)，节约内存，提升性能。
+  // 如果无法确定(获取)子元素，可以直接将事件给父元素。
+
+  // 2.缺点
+  // 如果所有事件都用事件委托，可能会出现事件误判。即本不该被触发的事件被绑定上了事件。
+  // 例如：如果所有的事件都绑定给document,那么只要文档内部任何元素事件触发都会传递document,document不断触发，不该触发被触发，同时内部肯定需要很多的判断。
+  //已知页面结构<div id="box"><a href="#">a</a><span>b</span><p>c</p></div>，给div绑定click事件，在事件触发时判断点击的元素是否为span，如果是则弹出对话框
+  // box.onclick=function(e){
+  //     if(e.target.nodeName==='SPAN'){
+  //         alert(e.target.innerHTML)
+  //     }
+
+  // }
+</script>

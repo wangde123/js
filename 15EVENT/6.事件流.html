@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 50px auto;
+            padding: 100px;
+            border-radius: 50%;
+        }
+        
+        .middle {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            padding: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <div class="middle">
+            <div class="small"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 一.事件流
+    // 事件流描述的是从页面中接收事件的顺序，包括三个阶段：事件捕获阶段、目标阶段和事件冒泡阶段。
+    // 场景：页面层叠了三个盒子，最下面是big盒子，中间是middle盒子，上面是small盒子
+    // 点击small，肯定也点击了middle,big,body,html,document->结束
+    // 事件流就是讨论页面元素接收事件的顺序
+
+    // 1.事件捕获阶段：网景团队提出的事件流叫做事件捕获,即事件开始时由最不具体(document)的节点应该早接收到事件，而最具体的节点(small)应该最后接收到事件。
+
+    // 2.目标阶段：当前操作的元素(samll)
+
+    // 3.事件冒泡阶段：微软团队提出的事件流叫做事件冒泡，即事件开始时由最具体的元素(small)接收，然后逐级向上传播到较为不具体的节点,一直到文档document。
+
+    // 二.测试普通的事件
+    // 注意事件类型必须相同
+    var big = document.querySelector('.big');
+    var middle = document.querySelector('.middle');
+    var small = document.querySelector('.small');
+    document.onclick = function() {
+        alert('document');
+    };
+    document.documentElement.onclick = function() {
+        alert('html');
+    };
+    document.body.onclick = function() {
+        alert('body');
+    };
+    big.onclick = function() {
+        alert('big');
+    };
+    middle.onclick = function() {
+        alert('middle');
+    };
+    small.onclick = function() {
+        alert('small');
+    };
+
+    // 得到的结果：普通事件具有事件冒泡，事件冒泡可以取消。
+</script>

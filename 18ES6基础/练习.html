@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .tab {
+        width: 402px;
+    }
+
+    .title {
+        height: 30px;
+        border: 1px solid #ccc;
+    }
+
+    .title a {
+        display: block;
+        width: 100px;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        float: left;
+        background-color: #ccc;
+    }
+
+    .title a.active {
+        background-color: orange;
+    }
+
+    .pic {
+        width: 400px;
+        border: 1px solid #ccc;
+    }
+
+    .pic img {
+        width: 400px;
+        display: none;
+    }
+
+    .pic img.show {
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+    <!-- <div class="tab">
+        <div class="title">
+            <a href="#" class="active">第一张图</a>
+            <a href="#" >第二张图</a>
+            <a href="#" >第三张图</a>
+            <a href="#" >第四张图</a>
+        </div>
+        <div class="pic">
+            <img src="pic.jpg" alt="" class="show">
+            <img src="pic1.jpg" alt="">
+            <img src="pic2.jpg" alt="">
+            <img src="pic3.jpg" alt="">
+        </div>
+    </div> -->
+    <ul>
+        <li>111111111111</li>
+        <li>111111111111</li>
+        <li>111111111111</li>
+        <li>111111111111</li>
+    </ul>
+</body>
+
+</html>
+<script>
+
+    // var links = document.querySelectorAll('.title a')
+    // var imgs = document.querySelectorAll('.pic img')
+    // for (let i = 0; i < links.length; i++) {
+    //     links[i].onclick = function () {
+    //         for (let i = 0; i < links.length; i++) {
+    //             links[i].className = ''
+    //             imgs[i].className = ''
+    //         }
+    //         links[i].className = 'active'
+    //         imgs[i].className = 'show'
+    //     }
+    // }
+    //let存在于块级作用域，不可变量提升，相同作用域不能重复声明
+    // if(true){
+    //     var a=100
+    //     console.log(a);
+    // }
+    // console.log(a);
+
+    // if(true){
+    //     let a=100
+    //     console.log(a);
+    // }
+    // console.log(a);
+
+    //解构
+    // let arr=[1,2,3,4,5]
+    // let[a,b,c,d,e]=arr
+    // console.log(a,b,c,d,e);
+
+    // let arr=['s','z','a','b']
+    // let[a,b,c,d]=arr
+    // console.log(a,b,c,d);
+
+    // 换一种写法，而且左右不匹配不影响输出，不会产生错误
+    // let [a,b,c,d,e]=[1,2,3]
+    // console.log(a,b,c,d,e);
+    // let [a,b]=[1,2,3]
+    // console.log(a,b);
+
+    // let [a, b, [c, d, [e, f, [g, h, [i, j]]]]] = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]]
+    // console.log(a,b,c,d,e,f,g,h,i,j);
+
+    // let arr=['a', 'b', ['c', 'd', ['e', 'f', ['g', 'h', ['j', 'k']]]]]
+    // let [a, b, [c, d, [e, f, [g, h, [i, j]]]]] = arr
+    // let newArr=[a,b,c,d,e,f,g,h,i,j]
+    // console.log(newArr);
+
+
+    // 对象是无序的，解构变得重要，而且跟后面学的模块化有关系。
+    // 解构的变量名必须和属性名相同，但是也可以修改
+    // const obj={
+    //     name:'zhangsan',
+    //     age:'18',
+    //     sex:'男'
+    // }
+    // let {name,age,sex}=obj
+    // console.log(name,age,sex)
+
+    // const obj={
+    //     name:'zhangsan',
+    //     age:'18',
+    //     sex:'男'
+    // }
+    // let{name:a}=obj//修改名称
+    // console.log(a);
+
+    //     function fn({name,age,sex}={name:'lisi', age:'16',sex:'男'}) {
+    //    console.log(`我叫${name},我今年${age}岁,我是${sex}的`);
+    // }
+    // let a={name:'zhangsan',
+    //     age:'18',
+    //     sex:'男'}
+    // fn(a)
+
+    // 一.扩展运算符
+    // 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值.
+    //数组的合并
+    // arr1=[1,2,3]
+    // arr2=[4,5,6]
+    // arr3=[7,8,9]
+    // console.log(arr1.concat(arr2,arr3));
+    // console.log([...arr1,...arr2,...arr3]);
+
+    //求数组项的最大值，最小值。
+    //  const arr = [13, 45, 6, 23, 1, 10];
+    //  console.log(Math.max(...arr));
+    //  console.log(Math.min(...arr));
+
+    // 4.引用传递的问题
+    // var arr1 = [1, 2, 3];
+    // var arr2 = arr1; //引用传递，其实是将arr1的地址给了arr2,最终arr1和arr2指向同一个地址了。
+    // arr2.push(4); //arr2数组末尾追加一个数字4
+    // console.log(arr1); //[1, 2, 3, 4]
+    // console.log(arr2); //[1, 2, 3, 4]
+
+    // let arr1=[1,2,3]
+    // let arr2=[...arr1]
+    // arr2.push(4)
+    // console.log(arr1);
+    // console.log(arr2);
+    //模板字符串
+    //     let str=`<ul>
+    //         <li></li>
+    //         <li></li>
+    //         <li></li>
+    // </ul>`
+    //     console.log(str);
+
+    // const fn = function (a, b) {
+    //     return (a + b);
+    // }
+    // console.log(fn(1, 2))
+
+    // const fn = (a, b) =>a + b
+    // console.log(fn(1,2));
+    // const fn=function(str){
+    //     return str
+    // }
+
+    // const fn=str=>str
+    // console.log(fn("hello"));
+
+    // const fn = function(n1, n2, n3) {
+    //     let num = n1 + n2 + n3;
+    //     return num;
+    // };
+
+    // const fn=(n1,n2,n3)=>{ let num = n1 + n2 + n3;return num;}
+    // console.log(fn(1,2,3));
+
+    //2.箭头函数的特点。
+    //2.1.箭头函数最吸引人的地方是简洁，同时函数体内this对象，来自于父级(外层)，而且不会被改变。
+    //2.2.不可以当作构造函数使用，不可以使用arguments对象，箭头函数一定是匿名函数(函数表达式)。
+    //2.3.箭头函数适合于简单的函数应用，箭头函数可以取代回调函数(函数做参数)
+    //2.4.当函数内部有this的时候，不要在最外层定义箭头函数，因为this会指window。应该在箭头函数外部包一层函数，将this控制在可见的范围内；
+
+    // const fn = () => { console.log(this); }
+    // fn()
+    // let arr=[1,2,3,4,5,6,7]
+    // arr.forEach((v)=>{console.log(v);})
+
+    // const list=document.querySelectorAll('li')
+    // for(let i=0;i<list.length;i++){
+    //     list[i].onclick=function(){
+    //        window. setTimeout(()=>{
+    //             this.innerHTML='22222'
+    //         },2000)
+
+    //     }
+    // }
+    // const arr=[1,2,3,4,5]
+    // for(v of arr){
+    //     console.log(v);
+    // }
+    // const str=('bxsdgf')
+    // console.log(str[Symbol.iterator]);
+    // for(v of str){
+    //     console.log(v);
+    // }
+    // const obj={
+    //     name:'zhangsan',
+    //     age:18,
+    //     sex:'男'
+    // }
+    // console.log(obj[Symbol.iterrator]);//undefined
+    // for(v in obj){
+    //     console.log(obj[v]);
+    // }
+
+    // 第一个条件：对象的属性名必须是数字格式的字符串。
+    // 第二个条件：对象必须有一个length属性
+    // const obj={
+    //     0:'zhangsan',
+    //     1:17,
+    //     2:'男',
+    //     length:3
+    // }
+    // console.log(Array.from(obj));
+
+
+    //1.2.类数组转换成真正的数组。
+    // const str=('hello')
+    // console.log([...str]);
+    // console.log(Array.from(str));
+
+    //fill:填充内容
+    // const arr=[1,2,3,4]
+    // console.log(arr.fill('name'));
+    // console.log(arr.fill('name',0,2));
+
+    // let a = 'zhangsan'
+    // const obj = {
+    //     a: a,
+    //     b: function () {
+    //         return(this.a);
+    //     }
+
+        
+    // }
+    // console.log(obj.b());
+
+    //简写
+    // let a = 'zhangsan'
+    // const obj={
+    //     a,
+    //     b(){
+    //         return(this.a);
+    //     }
+    // }
+    // console.log(obj.b());
+
+
+//Object.assign()
+//Object.keys()
+//Object.values()
+//     const obj1={
+//         a:1,
+//         b:2,
+//         c:3
+//     }
+//     const obj2={
+//         a:2,
+//         b:3,
+//         c:4
+//     }
+//     const obj3={
+//         d:5,
+//         e:6,
+//         f:7
+//     }
+// console.log(Object.assign(obj1,obj2,obj3));
+// console.log(Object.keys(obj1,obj2,obj3));
+// console.log(Object.values(obj1,obj2,obj3));
+// const arr=[1,1,1,2,2,3,3,4,4,5,5]
+// console.log([...new Set(arr)]);
+// console.log(Array.from(new Set(arr)));
+</script>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        } */
+        .big {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 50px auto;
+            padding: 100px;
+            border-radius: 50%;
+        }
+
+        .middle {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            padding: 100px;
+        }
+
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            padding: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>显示</button>
+    <div class="box"></div> -->
+    <!-- <div class="box">点击我</div> -->
+    <!-- <div class="big">
+        <div class="middle">
+            <div class="small"></div>
+        </div>
+    </div> -->
+    
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <p>ppppppppp</p>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <span>spanspanspan</span>
+    </ul> -->
+    <input type="text" value="123" class="otxt">
+</body>
+
+</html>
+<script>
+    //取消事件冒泡
+    // var btn=document.querySelector('button')
+    // var box=document.querySelector('.box')
+    // btn.onclick=function(e){
+    //     box.style.display='block'
+    //     // e.stopPropagation()
+    //     e.cancelBubble=true
+    // }
+    // document.onclick=function(){
+    //     box.style.display='none'
+    // }
+    // e.stopPropagation//标准取消冒泡和捕获
+    // e.cancelBubble//非标准
+
+    //事件绑定
+    // var box=document.querySelector('.box')
+    // function zhangsan(){
+    //     console.log('张三');
+    // }
+    // box.addEventListener('click',zhangsan)
+    // // box.addEventListener('click',function(){
+    // //     console.log('张三');
+    // // })
+    // box.addEventListener('click',function(){
+    //     console.log('李四');
+    // })
+    // box.addEventListener('click',function(){
+    //     console.log('王五');
+    // })
+    // box.removeEventListener('click',zhangsan)
+
+    //标准浏览器的监听和取消监听
+    //target.addEventListener()
+    //target.removeEventListener()
+    //非标准浏览器的监听和取消监听
+    //target.attachEvent()
+    //target.detachEvent()
+
+    //事件冒泡
+    // var big = document.querySelector('.big');
+    //     var middle = document.querySelector('.middle');
+    //     var small = document.querySelector('.small');
+    // big.addEventListener('click',function(){
+    //     alert("big")
+    // })
+    // middle.addEventListener('click',function(){
+    //     alert("middle")
+    // })
+    // small.addEventListener('click',function(){
+    //     alert("small")
+    // })
+
+    //事件捕获
+    // var big = document.querySelector('.big');
+    //     var middle = document.querySelector('.middle');
+    //     var small = document.querySelector('.small');
+    // big.addEventListener('click',function(){
+    //     alert("big")
+    // },true)
+    // middle.addEventListener('click',function(){
+    //     alert("middle")
+    // },true)
+    // small.addEventListener('click',function(){
+    //     alert("small")
+    // },true)
+
+    //事件委托
+    // var list=document.querySelectorAll('li')
+    // for(var i=0;i<list.length;i++){
+    //    list[i].onclick=function(){
+    //       alert(this.innerHTML)
+    //    }
+    // }
+    // var list=document.querySelector('ul')
+    // list.onclick=function(e){
+    //     if(e.target.nodeName==='LI')
+    //     alert(e.target.innerHTML)
+    // }
+    // var a
+    // function a(){}
+    // console.log(a);
+    // var a = 2;
+    // console.log(a);
+    // function fn(a) {
+
+    //     console.log(a);
+
+    //     var a = 2;
+
+    //     function a(){};
+
+    //     console.log(a);
+
+    // }
+
+    // fn(2);
+
+//     const array = [1, 2, 3, 4];
+
+// function reducer(previous, current, index, array) {
+//     const returns = previous + current;
+//     console.log(`初始值: ${previous}, 当前值: ${current}, 索引值: ${index}, 计数: ${returns}`);
+//     return returns;
+// }
+
+// array.reduce(reducer);\
+// var otxt=document.querySelector('.otxt')
+// console.log(otxt["value"])
+</script>

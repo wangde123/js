@@ -1,0 +1,129 @@
+<!-- 
+案例作用：基础(70%记忆)，编程思想(基础驱动，完善具体的应用)，算法(编程思想的应用)
+所有的同学必须完成的
+
+1. var k=0;  console.log( k++ + ++k +k +k++ );
+2. 利用星型字符（*）输出如下图形：三角形 , 菱形
+3. 输出100-200之间所有的素数(素数就是能够被1和自身整除的数)
+4. 入职薪水10K，每年涨幅5%，50年后薪水是多少？（递归）
+5. 利用递归求两个数字的最大公约数和最小公倍数(最小公倍数的算法，是两个数的乘积除以最大公约数)（递归）
+6. 扩展案例[DOM操作]：以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。
+7. 数组去重，将数组的重复元素去掉
+8. 数组的扁平化（将多维数组转换成一维数组）
+9. 数组的冒泡排序。
+10.数字字母模拟混合验证码(数字+大写字母+小写字母)
+11.随机数如何设定范围（封装函数）. rannum( 4,9) :随机产生4-9之间的整数，包括4和9
+12.编写一个函数，获得一个十六进制的随机颜色的字符串(例如：#20CD4F)
+
+13.倒计时
+14.拖拽效果
+15.事件委托的应用(课堂案例)
+16.掌握综合表单验证
+17.地址栏数据转对象--https://www.baidu.com?a=1&b=2&c=3&d=4
+18.手机号检测/身份证检测/邮件格式检测/中文检测
+19.字符串过滤(敏感词过滤)
+20.get-element-by-id改写成getElementById,包括反向操作
+
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+		/* *{margin:0;padding: 0;}
+		span{
+			display: inline-block;
+			width: 60px;
+			height: 16px;
+			line-height: 16px;
+			padding: 2px;
+			margin: 5px;
+			border: 1px solid red;
+			text-align: center;
+		}
+		a{
+			text-decoration:none;
+		} */
+	</style>
+</head>
+
+<body>
+    <!-- <div id="wrap"></div> -->
+</body>
+
+</html>
+<script>
+    //var k=0;  console.log( k++ + ++k +k +k++ );
+    //0+2+2+2=6
+
+    //利用星型字符（*）输出如下图形：三角形 , 菱形
+    //三角形
+    // for (let i = 1; i <= 9; i++) {
+    //     for(let j=1;j<=i;j++){
+    //        document.write('▲')
+    //     }
+    //     document.write('<br>')
+    // }
+
+    //菱形
+    // for(let i=1;i<=9;i++){
+    //     for(let k=9;k>=i;k--){
+    //         document.write('&emsp;')
+    //     }
+    //     for(let j=1;j<=2*i-1;j++){
+    //         document.write('▲')
+    //     }
+
+    //     document.write('<br>')
+    // }
+    // for(let i=8;i>=1;i--){
+    //     for(let k=9;k>=i;k--){
+    //         document.write('&emsp;')
+    //     }
+    //     for(let j=1;j<=2*i-1;j++){
+    //         document.write('▼')
+    //     }
+
+    //     document.write('<br>')
+    // }
+
+   // 输出1-200之间所有的素数(素数就是能够被1和自身整除的数)
+    // for (let i = 100; i <= 200; i++) {
+    //     let flag = 'green'
+
+    //     for (let j = 2; j <= i - 1; j++) {
+    //         if (i % j === 0) {
+    //             flag = 'red'
+    //             break;
+                
+    //         }
+    //     }
+    //     if (flag === 'green') {
+    //         document.write(`${i},<br>`)
+    //     }
+    // }
+
+
+		// var wrap = document.getElementById("wrap");
+		// var str = "";
+		// for (var i = 2; i <= 100; i++) {
+		// 	var count = 0;
+		// 	for (var j = 1; j <= i; j++) {
+		// 		if( i%j ==0 ){
+		// 			count++;
+		// 		}
+		// 	}
+		// 	if (count == 2) {
+		// 		str += "<span>" + i + "</span><br>";
+		// 	}
+		// 	count = 0;
+		// }
+		// wrap.innerHTML = str;
+
+
+
+</script>

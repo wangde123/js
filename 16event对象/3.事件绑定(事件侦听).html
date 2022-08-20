@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">点击我</div>
+</body>
+
+</html>
+<script>
+    // 一.普通事件
+    // 普通事件：一个元素对象上面仅能绑定一个事件处理函数，如果绑定多个下面的会覆盖上面的。
+    // 普通事件：也叫DOM 0级事件。
+    // var box = document.querySelector('.box');
+    // box.onclick = function() {
+    //     console.log('张三同事写的代码');
+    // };
+
+    // box.onclick = function() {
+    //     console.log('李四同事写的代码');
+    // };
+
+    // 取消普通事件：赋值为null
+    // box.onclick = null;
+
+
+    // 二.事件绑定(事件侦听)
+    // 事件绑定：也叫DOM 2级事件。DOM 1级事件是个标准或者规范，无需代码实现。
+    // 1.事件绑定：一个元素对象上面可以绑定多个事件处理函数,顺序执行。
+    // 标准浏览器：addEventListener(事件类型,事件处理函数,是否捕获)
+    // 事件类型：不带on,前面不带on字符
+    // 事件处理函数：函数名或者函数体
+    // 是否捕获：默认是冒泡(false)，设为true表示捕获。
+    var box = document.querySelector('.box');
+
+    // function zhangsan() {
+        // console.log('张三同事写的代码');
+    // }
+    // box.addEventListener('click', zhangsan);
+    box.addEventListener('click',function(){
+        console.log('张三同学写的代码');
+    })
+    box.addEventListener('click', function() {
+        console.log('李四同事写的代码');
+    });
+    box.addEventListener('click', function() {
+        console.log('王五同事写的代码');
+    });
+
+    // 2.取消事件绑定
+    // 弊端：如果是匿名的事件处理函数，无法取消的，匿名函数和匿名函数之间无法匹配
+    // target.removeEventListener("事件类型", 函数, 是否捕获(布尔值))
+    // 注意：移除事件监听的参数和添加事件监听的参数是一致的
+
+    box.removeEventListener('click', zhangsan);
+
+
+    // 三.IE浏览器的事件绑定和取消
+    // target.attachEvent() --IE浏览器事件监听
+    // target.detachEvent() --IE浏览器取消监听
+
+
+    // 总结：
+    // 事件绑定能够取代普通事件，但是反之不行(DOM 2级事件取代DOM 0级事件,反之不行)
+    // 普通的事件使用return false阻止默认行为，事件绑定下面不能使用，只能使用event.preventDefault() 或者event.returnValue = false
+</script>

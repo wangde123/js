@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // Set和Map结构
+    // JavaScript数据类型可以是：字符串，数组，自定义对象。
+    // ES6里面新增两种新的数据结构：Set结构和Map结构
+
+    // 一.Set结构
+    // ES6提供了数据结构Set. 它类似于数组，但是成员的值都是唯一的，没有重复的值。
+    // Set本身是一个构造函数，用来生成Set数据结构，数组作为参数。每一项即是键也是值,键和值是相同的。
+
+    // let s1 = new Set([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5]);
+    // console.log(s1); //{1, 2, 3, 4, 5}
+
+    // 1.利用set结构实现数组去重。
+    // let arr = [1, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5];
+    // console.log([...new Set(arr)]); //[1, 2, 3, 4, 5]
+    // console.log(Array.from(new Set(arr))); //[1, 2, 3, 4, 5]
+
+    // 2.了解set属性和方法
+    // let s1 = new Set(['zhangsan', 'lisi', 'wangwu']);
+    // Set类的属性--size（长度）
+    // console.log(s1.size); //3
+    // Set.add(value)  添加一个数据，返回Set结构本身，允许进行链式操作。
+    // s1.add('zhaoliu').add('sunqi');
+    // console.log(s1);
+
+    // Set.delete(value) 删除指定数据，返回一个布尔值，表示删除是否成功。
+    // s1.delete('lisi'); //删除
+    // console.log(s1);
+
+
+    // 二.Map结构
+    // JavaScript的对象Object，只能用字符串当作键,这给它的使用带来了很大的限制。ES6提供了Map数据结构。它类似于对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+
+    // const obj = { //这里的true和false都是字符串
+    //     true: 1,
+    //     false: 2
+    // };
+    // console.log(obj.true); //1
+    // console.log(obj['false']); //2
+
+    // 数组做参数，类似于二维数组的格式做参数。
+    let s1 = new Map([
+        ['name', 'zhangsan'], //数组的第一项是key，第二项是value
+        [true, 1],
+        [false, 2],
+        [null, 3],
+        [undefined, 4],
+        [function() {}, 5]
+    ]);
+
+    // console.log(s1); //{'name' => 'zhangsan', true => 1, false => 2, null => 3, undefined => 4}
+    // console.log(s1.get(false)); //2
+    // console.log(s1.get(null)); //3
+    // console.log(s1.get(function() {})); //undefined  对象比较地址，无法匹配，基本类型可以获取对应的值。
+
+    s1.set(100, 250).set(200, 360);
+    console.log(s1);
+</script>

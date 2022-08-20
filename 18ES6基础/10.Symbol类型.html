@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.Symbol类型
+    // 1.表示独一无二的值，它是js中的第七种数据类型，属于基本类型
+    // 基本类型：number/string/boolean/null/undefined/Symbol
+    // 引用类型：object
+
+    // 2.使用方式类似于函数
+    // let s1 = Symbol();
+    // let s2 = Symbol();
+
+    // console.log(s1 == s2); //false
+    // console.log(s1);
+    // console.log(s2);
+
+    // 3.Symbol函数接收一个字符串作为参数，表示对symbol的描述，主要是为了在控制台显示，或者转为字符串的时候，比较容易区分.
+    // 描述的内容相同仅仅表示的是描述，不代表其他的意义。
+    // let s1 = Symbol('name');
+    // let s2 = Symbol('age');
+    // let s3 = Symbol('sex');
+    // 4.目的：对象的属性名相同，很容易出现覆盖，如果是Symbol当作对象的属性名，不会被覆盖。
+    // const obj = {
+    //     [s1]: 'zhangsan',
+    //     [s2]: 18,
+    //     [s3]: '男'
+    // };
+    // console.log(obj[s1]); //zhangsan
+    // console.log(obj[s2]); //18
+    // console.log(obj[s3]); //男
+
+    // const obj = {
+    //     [Symbol('name')]: 'wangwu',
+    //     [Symbol('age')]: 19,
+    //     [Symbol('sex')]: '男'
+    // };
+    // console.log(obj[Symbol('name')]); //undefined
+    // for...in...无法遍历
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.baidu.com">link baidu</a>
+    <!-- <img src="http://contentcms-bj.cdn.bcebos.com/cmspic/958d06c7bd5f51845118ab88a9b65508.jpeg" alt=""> -->
+</body>
+
+</html>
+<script>
+    // 一.浏览器的默认行为
+    // 1.默认行为的概念
+    // 默认行为是指事件本身具有的行为，如a标签可以跳转，文本框可输入文字，右键浏览器会出现菜单等行为便被称为浏览器的默认行为。
+
+    // 浏览器的默认行为会影响到开发，可以通过事件对象下面的属性和方法阻止浏览器的默认行为。
+    // event.preventDefault(); 标准浏览器阻止默认事件。
+    // event.returnValue = false; 非标准浏览器（IE8）阻止默认事件,标准也可以使用
+    // return false;  退出执行, 所有触发事件和动作都不会被执行. 可以用来替代 preventDefault.
+
+    // 小例子:阻止浏览器的默认行为
+    // var link = document.querySelector('a');
+    // link.onclick = function(e) {
+    //     // e.preventDefault();
+    //     return false
+    // };
+
+    // oncontextmenu:右键事件
+    // document.oncontextmenu = function(e) {
+    // e.preventDefault();
+    // e.returnValue = false;
+    // return false;
+    // }
+
+    // 二.拖拽图片
+    // 限制图片不能跑出可视区。
+    // var img = document.querySelector('img');
+    // img.onmousedown = function(e) {
+    //     var shortx = e.offsetX;
+    //     var shorty = e.offsetY;
+    //     document.onmousemove = function(e) {
+    //         var leftPosition = e.clientX - shortx; //盒子的left值
+    //         var topPosition = e.clientY - shorty; //盒子的top值。
+    //         // 限定范围
+    //         if (leftPosition < 0) {
+    //             leftPosition = 0;
+    //         } else if (leftPosition > document.documentElement.clientWidth - img.offsetWidth) {
+    //             leftPosition = document.documentElement.clientWidth - img.offsetWidth;
+    //         }
+
+    //         if (topPosition < 0) {
+    //             topPosition = 0;
+    //         } else if (topPosition > document.documentElement.clientHeight - img.offsetHeight) {
+    //             topPosition = document.documentElement.clientHeight - img.offsetHeight;
+    //         }
+
+    //         img.style.left = leftPosition + 'px';
+    //         img.style.top = topPosition + 'px';
+    //     };
+    //     document.onmouseup = function() {
+    //         document.onmousemove = null;
+    //     };
+    //     return false; //阻止浏览器的默认行为
+    // }
+</script>

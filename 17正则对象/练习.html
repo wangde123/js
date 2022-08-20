@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <fieldset
+      style="
+        width: 700px;
+        margin: 30px auto;
+        font-size: 14px;
+        font-family: 微软雅黑;
+      "
+    >
+      <legend>用户注册：</legend>
+      <form action="success.html" method="post">
+        <p>
+          <label for="">用户姓名：</label
+          ><input type="text" class="username" /> <span></span>
+        </p>
+        <p>
+          <label for="">手机号码：</label><input type="text" class="tel" />
+          <span></span>
+        </p>
+        <p>
+          <label for="">用户密码：</label
+          ><input type="text" class="password" /> <span></span>
+        </p>
+        <p><input type="submit" value="提交注册" class="registry" /></p>
+      </form>
+    </fieldset>
+  </body>
+</html>
+<script>
+  var form = document.querySelector("form");
+  var username = document.querySelector(".username");
+  var tel = document.querySelector(".tel");
+  var password = document.querySelector(".password");
+  var registry = document.querySelector(".registry");
+  var span = document.querySelectorAll("form span");
+  registry.disabled = true;
+  var userflag = false;
+  var telflag = false;
+  var passflag = false;
+  username.onfocus = function () {
+    span[0].innerHTML = "请输入用户名，中英文均可，最长14个英文或7个汉字";
+    span[0].style.color = "#333";
+  };
+  username.onblur = function () {
+    if (this.value != "") {
+      var reg = /^[A-Za-z\u4e00-\u9fa5]+$/;
+      if (reg.test(this.value)) {
+        var len = this.value.replace(/[\u4e00-\u9fa5]/g, "**").length;
+        if (len <= 14) {
+          span[0].innerHTML = "√";
+          span[0].style.color = "#333";
+          userflag = true;
+        } else {
+          span[0].innerHTML = "长度有误";
+          span[0].style.color = "red";
+          userflag = false;
+        }
+      } else {
+        span[0].innerHTML = "输入格式有误";
+        span[0].style.color = "red";
+        userflag = false;
+      }
+    } else {
+      span[0].innerHTML = "不能为空";
+      span[0].style.color = "red";
+      userflag = false;
+    }
+    check();
+  };
+  tel.onfocus = function () {
+    span[1].innerHTML = "请输入手机号码";
+    span[1].style.color = "#333";
+  };
+  tel.onblur = function () {
+    if (this.value != "") {
+      var reg = /^1[3-9]\d{9}$/;
+      if (reg.test(this.value)) {
+        if (this.value.length == 11) {
+          span[1].innerHTML = "√";
+          span[1].style.color = "#333";
+          telflag = true;
+        } else {
+          span[1].innerHTML = "长度有误";
+          span[1].style.color = "red";
+          telflag = false;
+        }
+      } else {
+        span[1].innerHTML = "请输入正确手机号";
+        span[1].style.color = "red";
+        telflag = false;
+      }
+    } else {
+      span[1].innerHTML = "不能为空";
+      span[1].style.color = "red";
+      telflag = false;
+    }
+    check();
+  };
+  password.onfocus = function () {
+    span[2].innerHTML = "请输入6-12位密码";
+    span[2].style.color = "#333";
+  };
+  password.oninput = function () {
+    //检测弱中强
+
+    // 正则简单方式处理弱中强
+    var reg1 = /\d+/; //数字
+    var reg2 = /[a-z]+/; //小写字母
+    var reg3 = /[A-Z]+/; //大写字母
+    var reg4 = /[\W_]+/; //特殊符号
+    var num = 0; //计算种类的变量
+    if (reg1.test(this.value)) {
+      //检测输入框是否存在数字，存在即可
+      num++;
+    }
+
+    if (reg2.test(this.value)) {
+      //检测输入框是否存在小写字母，存在即可
+      num++;
+    }
+
+    if (reg3.test(this.value)) {
+      //检测输入框是否存在大写字母，存在即可
+      num++;
+    }
+
+    if (reg4.test(this.value)) {
+      //检测输入框是否存在特殊符号，存在即可
+      num++;
+    }
+    console.log(num);
+    switch (num) {
+      case 1:
+        span[2].innerHTML = "弱,请输入两种或两种以上字符";
+        span[2].style.color = "red";
+        passflag = false;
+        break;
+      case 2:
+      case 3:
+        span[2].innerHTML = "中";
+        span[2].style.color = "orange";
+        passflag = true;
+        break;
+      case 4:
+        span[2].innerHTML = "强";
+        span[2].style.color = "green";
+        passflag = true;
+        break;
+    }
+  };
+  password.onblur = function () {
+    if (this.value !== "") {
+      if (this.value.length >= 6 && this.value.length <= 12) {
+        if (passflag) {
+          span[2].innerHTML = "√";
+          span[2].style.color = "green";
+          passflag = true;
+        }
+      } else {
+        span[2].innerHTML = "密码长度有误";
+        span[2].style.color = "red";
+        passflag = false;
+      }
+    } else {
+      span[2].innerHTML = "密码不能为空";
+      span[2].style.color = "red";
+      passflag = false;
+    }
+    check();
+  };
+  function check() {
+    if (passflag && telflag && userflag) {
+      registry.disabled = false;
+    } else {
+      registry.disabled = true;
+    }
+  }
+  //类创建
+  // var reg=new RegExp('hello','i')
+  // console.log(reg)///hello/i
+  //参数一：正则表达式实现的规则，可以是字符串或者变量
+  //参数二：可选的，修饰符，i忽略大小写 g找全局 m多行匹配
+  // var a='abc'
+  // var reg=new RegExp(a,"i")
+  // console.log(reg)///abc/i
+
+  //利用字面量创建
+  // var reg=/hello/i;
+  // console.log(reg);///hello/i
+  //参数一：写在双斜杠里面，必须是字符串，无需加引号
+  //参数二：修饰符，写在双杠的外面，修饰符可以多个写到一起，ig img mg
+
+  //正则对象的方法
+  //test(str)//在字符串中查找是否存在的正则表达式，返回布尔值
+  // var reg=/hello/i
+  // console.log(reg.test('abdasdfadashello'));
+  // console.log(reg.test('hel slo'));
+  // console.log(reg.test('HElLOsdx'));
+
+  // exec(str)只找第一项，返回数组
+  // var reg=/a/
+  // console.log(reg.exec('wdafgawea'));//['a', index: 2, input: 'wdafgawea', groups: undefined]
+
+  //支持正则的字符串方法
+  //替换repalce(正则，替换字符),拆分split(正则),匹配match(正则),查找search(正则)
+  // var str = 'a1b2c3d4e5f';
+  // console.log(str.replace(/[0-9]/g,''));
+  // var str = 'a1b2c3d4e5f';
+  // console.log(str.split(/2/));
+  // console.log(str.split(/[0-9]/));
+  // console.log(str.split(/[a-z]/));
+  // var str = 'f789%%$%3hjfs11dGH^&^&JGF222&&US()tyuewry763844hK333KKFGSDFYT';
+  // console.log(str.match(/[a-z]+/g));// ['f', 'hjfs', 'd', 'tyuewry', 'h']
+  // console.log(str.match(/[a-z]/g));//['f', 'h', 'j', 'f', 's', 'd', 't', 'y', 'u', 'e', 'w', 'r', 'y', 'h']
+  // var str = 'a1b2c3d4e5f';
+  // console.log(str.search(/c/));//4 返回索引编号
+  // console.log(str.indexOf('c'));//4
+
+  //中括号[]：表示区间范围
+  //[0-9] [A-Za-z0-9]
+
+  //^：在中括号中表示取反
+  //[^0-9]匹配非数字
+
+  //大括号{}:表示数量范围
+  //x{3}匹配3个x符
+  // console.log(/x{3}/.test('x'));
+  // console.log(/x{3}/.test('xx'));
+  // console.log(/x{3}/.test('xxxcv'));
+  // console.log(/x{3}/.test('xxxxxsd'));
+  //x{3,6}表示至少匹配3个，最多6个
+  //x{3,}表示至少匹配3个，最多无限
+  // console.log(/x{3,6}/.test('xx'));//false
+  // console.log(/x{3,6}/.test('xxx'));//true
+  // console.log(/x{3,6}/.test('xxxxxxxxxxxxasxxxxxxxxxxxxxxasxxxxxxxxxxxxxxxxx'));//true
+  // console.log(/x{3,6}/.test('xxxxxx'));//true
+
+  //（）圆括号：表示整体
+  //abc{3,6}表示匹配ab和3-6个c
+  //abcd{3,6}表示匹配abc和3-6个d
+  // console.log(/abc{3,6}/.test('abccc'));//true
+  //(abc){3,6}表示匹配3-6个abc
+  // console.log(/(abc){3,6}/.test('abcabcabcabc'));//true
+
+  //^$首尾匹配，可以实现恒等匹配
+  //^行首匹配
+  //$行尾匹配
+  // console.log(/^abc/.test('acb'));//false
+  // console.log(/^abc/.test('abc'));//true
+  // console.log(/^abc/.test('abcabc'));//true
+  // console.log(/abc$/.test('cba'));//false
+  // console.log(/abc$/.test('abc'));//true
+  // console.log(/abc$/.test('abcabc'));//true
+  // console.log(/^abc$/.test('abc'));//true
+  // console.log(/^abc$/.test('abcabc'));//false
+  // console.log(/^abc$/.test('abcacb'));//false
+  // console.log(/^(abc){3,6}$/.test('abc'));//false
+  // console.log(/^(abc){3,6}$/.test('abcabcabc'));//true
+  // console.log(/^(abc){3,6}$/.test('abcabcabcabcabcabcabc'));//false
+
+  //数量次：+？*
+  //x?匹配0个或者1个x
+  //x+匹配1个或多个x
+  //x*匹配0个或多个x
+
+  //或者|
+  //this|where|logo  本意匹配this或where或logo中任意一个，具体看使用什么方法测试
+
+  //转义字符
+  //\d0-9类似[0-9]
+  //\D表示非数字，类似[^0-9]
+  //\w表示匹配数字字母下划线。类似[a-zA-Z0-9_]
+  //\W表示匹配非数字字母下划线，类似[^a-zA-Z0-9_]
+  //\s表示匹配空格
+  //\S表示匹配非空格
+  //\n表示匹配换行字符
+  //.匹配除换行符之外的
+</script>

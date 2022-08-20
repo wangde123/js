@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 50px auto;
+            padding: 100px;
+            border-radius: 50%;
+        }
+        
+        .middle {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            padding: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <div class="middle">
+            <div class="small"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // var big = document.querySelector('.big');
+    // var middle = document.querySelector('.middle');
+    // var small = document.querySelector('.small');
+    // 事件捕获
+    // 网景团队提出的另一种事件流叫做事件捕获,即事件开始时由最不具体的节点(document)应该早接收到事件，而最具体的节点应该最后接收到事件。
+
+    // 冒泡  small->middle->big
+    // big.addEventListener('click', function() {
+    //     alert('big');
+    // });
+    // middle.addEventListener('click', function() {
+    //     alert('middle');
+    // });
+    // small.addEventListener('click', function() {
+    //     alert('small');
+    // });
+
+    // 捕获
+    // big->middle->small
+    // big.addEventListener('click', function() {
+    //     alert('big');
+    // }, true);
+    // middle.addEventListener('click', function() {
+    //     alert('middle');
+    // }, true);
+    // small.addEventListener('click', function() {
+    //     alert('small');
+    // }, true);
+</script>

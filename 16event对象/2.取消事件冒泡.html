@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示</button>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 一.模拟select下拉菜单的一个动作
+    // 点击显示按钮，显示box，点击document区域，隐藏box
+    // var btn = document.querySelector('button');
+    // var box = document.querySelector('.box');
+    // btn.onclick = function() {
+    //     box.style.display = 'block';
+    // };
+
+    // document.onclick = function() {
+    //     box.style.display = 'none';
+    // }
+
+    // 出现冒泡，btn的事件会冒泡到document上面
+
+    // 二.取消冒泡和捕获：让当前操作的具体元素对象（冒泡元素）的事件不会冒泡到父级（外层）。
+    // 标准取消冒泡和捕获： event.stopPropagation();
+    // 非标准： event.cancelBubble=true;
+    // 注意：事件冒泡和捕获的前提--事件和事件类型相同  父子元素关系。
+
+    // var btn = document.querySelector('button');
+    // var box = document.querySelector('.box');
+    // btn.onclick = function(e) {
+    //     box.style.display = 'block';
+    //     e.stopPropagation(); //取消冒泡
+    // };
+
+    // document.onclick = function() {
+    //     box.style.display = 'none';
+    // };
+</script>

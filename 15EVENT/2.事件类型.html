@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        }
+        
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text"><span></span> -->
+    <!-- <button>显示盒子</button> <div class="box"></div>-->
+    <div class="box1"></div>
+
+</body>
+
+</html>
+<script>
+    // 一.事件类型 - 触发事件鼠标和键盘涉及的动作。
+    // 1.鼠标类 - 失去和获取焦点。
+    // onfocus : 获得焦点，处于激活状态。
+    // onblur: 失去焦点
+    // var input = document.querySelector('input');
+    // var span = document.querySelector('span');
+    // input.onfocus = function() {
+    //     span.innerHTML = '请输入用户名';
+    // };
+
+    // input.onblur = function() {
+    //     if (this.value == '') {
+    //         span.innerHTML = '用户名不能为空';
+    //     }
+    // };
+
+    // 2.鼠标类 - 鼠标移入移出
+    // onmouseover:当用户将鼠标指针移动到对象内时触发
+    // onmouseout:当用户将鼠标指针移出对象边界时触发
+    // var button = document.querySelector('button');
+    // var box = document.querySelector('.box');
+    // button.onmouseover = function() {
+    //     box.style.display = 'block';
+    // };
+    // button.onmouseout = function() {
+    //     box.style.display = 'none';
+    // };
+
+    // 3.鼠标类 - 鼠标按下，鼠标抬起，鼠标移动
+    // onmousedown
+    // onmouseup
+    // onmousemove
+    // onclick = onmousedown + onmouseup
+
+    // 案例：将鼠标的位置给box1盒子当定位用。
+    // 获取鼠标的位置属性:clientX,clientY
+    // var box1 = document.querySelector('.box1');
+    // document.onmousemove = function(e) { //鼠标在文档中移动
+    //     box1.style.left = e.clientX - box1.offsetWidth / 2 + 'px';
+    //     box1.style.top = e.clientY - box1.offsetHeight / 2 + 'px';
+    // };
+
+
+    // 4.键盘类 - 键盘按下和抬起
+    // onkeydown 当用户按下键盘按键时触发。
+    // onkeyup 当用户释放键盘按键时触发。
+    // onpress = onkeydown + onkeyup
+    // 键盘是固定的,一般都针对文档。
+    // document.onkeydown = function() {
+    //     console.log('你按下了');
+    // };
+    // document.onkeyup = function() {
+    //     console.log('你抬起了');
+    // };
+</script>

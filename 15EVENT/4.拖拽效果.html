@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /* 拖拽的核心改变物体的位置，需要添加定位 */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 拖拽的效果
+    // 1.拖拽的事件类型：onmousedown  onmousemove  onmouseup
+    // 过程：对拖拽的物体鼠标按下，鼠标按下的同时移动鼠标，盒子进行移动，鼠标抬起拖拽结束。
+    // 2.拖拽的思路
+    // 2.1.拖拽的核心就是定位，拖拽的过程中不断的改变物体的位置。
+    // 2.2.拖拽的过程中，鼠标按下的位置一旦确定，到结束的时候还在这个位置。也就会产生一段距离，这段距离利用offsetX,offsetY获取(就是鼠标离当前操作盒子的左上的距离)
+    // 2.3.鼠标按下：确定鼠标离当前操作盒子的左上的距离 (offsetX,offsetY获取)
+    // 2.4.鼠标移动：鼠标在可视区的位置就会发生变化，可以拿到变化的鼠标位置(clientX,clientY),用鼠标可视区的位置减去不变的短线(鼠标离当前操作盒子的左上的距离)，得到的值给盒子的left和top，随着鼠标位置的不断变化得到盒子位置也在不断变化,形成拖拽效果。
+    // 2.5.鼠标抬起，结束拖拽，去掉鼠标移动的事件。将事件的结果设为null,即取消事件。
+    // 总结：拖拽是模拟出来的，随着鼠标位置的改变，不断改变盒子的位置。
+
+
+
+    var box = document.querySelector('.box');
+    box.onmousedown = function(e) {
+        // 鼠标按下，确定不变的短线（鼠标离当前操作盒子的左上的距离）
+        var shortx = e.offsetX;
+        var shorty = e.offsetY;
+
+        // 鼠标移动，针对于文档移动
+        document.onmousemove = function(e) { //重新获取事件对象，才能产生新的鼠标位置，如果不重新获取，位置就是一个值。
+            box.style.left = e.clientX - shortx + 'px';
+            box.style.top = e.clientY - shorty + 'px';
+        };
+
+        // 鼠标抬起，结束拖拽，放到外面或者里面都没关系。
+        document.onmouseup = function() {
+            document.onmousemove = null; //取消鼠标移动事件。
+        };
+    }
+</script>

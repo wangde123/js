@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- <ul>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li>1111111</li>
+    </ul> -->
+  </body>
+</html>
+<script>
+  // 一.扩展运算符
+  // 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值.
+  // 1.数组的合并
+  // const arr1 = [1, 2, 3];
+  // console.log(...arr1);
+  // const arr2 = [4, 5, 6];
+  // const arr3 = [7, 8, 9];
+  // console.log(arr1.concat(arr2, arr3)); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+  // console.log([...arr1, ...arr2, ...arr3]); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  // 2.求数组项的最大值，最小值。
+  // const arr = [13, 45, 6, 23, 1, 10];
+  // console.log(Math.max(arr)); //NaN,Math.max的参数必须时逗号隔开的值。
+  // console.log(Math.max(...arr)); //45
+  // console.log(Math.min(...arr)); //1
+
+  // 3.将类数组转换成真正的数组，让其具有数组的方法。
+  // let list = document.querySelectorAll('li'); //类数组
+  // list.push(document.body); //将body元素push到类数组中，报错，类数组不支持此方法。
+  // list = [...list]; //将其转换成真正的数组。
+  // console.log(list.push(document.body)); //5
+  // console.log(list); //[li, li, li, li, body]  而且里面的元素依然时元素对象，依然可以使用
+
+  // 4.引用传递的问题
+  // var arr1 = [1, 2, 3];
+  // var arr2 = arr1; //引用传递，其实是将arr1的地址给了arr2,最终arr1和arr2指向同一个地址了。
+  // arr2.push(4); //arr2数组末尾追加一个数字4
+  // console.log(arr1); //[1, 2, 3, 4]
+  // console.log(arr2); //[1, 2, 3, 4]
+
+  // var arr1 = [1, 2, 3];
+  // var arr2 = [...arr1]; //重新开辟地址，将arr1数组拆成单个的值，赋值给arr2
+  // arr2.push(4);
+  // console.log(arr1); //[1, 2, 3]
+  // console.log(arr2); //[1, 2, 3, 4]
+
+  //   for (let i = 1; i <= 9; i++) {
+  //     for (let j = 1; j <= i; j++) {
+  //       document.write("▲");
+  //     }
+  //     document.write("<br>");
+  //   }
+  for (let i = 1; i <= 9; i++) {
+    for (let k = 1; k <= 9 - i; k++) {
+      document.write("&emsp;");
+    }
+    for (let j = 1; j <= 2 * i - 1; j++) {
+      document.write("▲");
+    }
+    document.write("<br>");
+  }
+  for (let i = 8; i >= 1; i--) {
+    for (let k = 1; k <= 9 - i; k++) {
+      document.write("&emsp;");
+    }
+    for (let j = 1; j <= 2 * i - 1; j++) {
+      document.write("▲");
+    }
+    document.write("<br>");
+  }
+</script>

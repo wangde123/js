@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // Generators生成器函数
+    // 1.Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。(异步顺序)
+    // 同步和异步
+    // javascript语言是一门“单线程”的语言，只有一个主线程，不能同时进行多个任务和流程，同步和异步的差别就在于这条流水线上各个流程的执行顺序不同。
+    // 同步任务指的是阻塞模式，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；
+    // for (;;) {}
+    // alert('我想被执行');
+    // 异步任务指的是，不进入主线程、而进入"任务队列"的任务，只有等主线程任务执行完毕，该任务才会进入主线程执行(定时器是异步)
+    // setTimeout(() => {
+    //     for (;;) {}
+    // }, 0);
+    // alert('我想被执行');
+
+    // 目前位置定时器是异步的，还有事件也存在异步，不算真正的异步，区分具体的情况。
+
+
+    // 2.Generator 函数是一个状态机，封装了多个内部状态。
+
+    // 3.Generator 函数有两个特征。
+    // function关键字与函数名之间有一个星号；星号存在function和函数名之间即可。
+    // 函数体内部使用yield（产出）表达式，定义不同的内部状态.
+
+    function* fn() {
+        yield '第一个状态';
+        yield '第二个状态';
+        yield '第三个状态';
+        return '最后的状态' //通过return设置最后的状态，也可以没有。
+    }
+
+    // console.log(fn()); //返回当前的所有的状态，需要配合next方法才能获取。
+    let gen = fn(); //Generator函数会返回一个遍历器对象，必须调用遍历器对象的next方法
+    // value:状态的返回值，done：是否还存在状态，等到为false，不再存在状态
+    console.log(gen.next()); //{value: '第一个状态', done: false}  
+    console.log(gen.next().value); //第二个状态
+    console.log(gen.next().done); //false
+    console.log(gen.next()); //{value: '第二个状态', done: false}
+    console.log(gen.next()); //{value: '第三个状态', done: false}
+    console.log(gen.next()); //{value: '最后的状态', done: true}
+    console.log(gen.next()); //{value: undefined, done: true}
+    console.log(gen.next()); //{value: undefined, done: true}
+    console.log(gen.next()); //{value: undefined, done: true}
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.变量的解构赋值
+    // ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构.
+    // 解构的作用是可以快速取得数组或对象当中的元素或属性，而无需使用arr[x]或者	obj[key]等传统方式进行赋值
+    // 1.数组的解构赋值
+    // let arr = [1, 2, 3, 4, 5];
+    // let a = arr[0];
+    // let b = arr[1];
+    // let c = arr[2];
+    // let d = arr[3];
+    // let e = arr[4];
+    // console.log(a, b, c, d, e); //1 2 3 4 5
+
+    // 解构实现
+    // let arr = [1, 2, 3, 4, 5];
+    // let [a, b, c, d, e] = arr;
+    // console.log(a, b, c, d, e); //1 2 3 4 5
+
+    // 换一种写法，而且左右不匹配不影响输出，不会产生错误
+    // let [a, b, c, d, e] = [1, 2, 3, 4, 5];
+    // console.log(a, b, c, d, e); //1 2 3 4 5
+    // let [a1, b1, c1, d1, e1] = [1, 2, 3, 4];
+    // console.log(a1, b1, c1, d1, e1); //1 2 3 4 undefined
+    // let [a2, b2, c2] = [1, 2, 3, 4];
+    // console.log(a2, b2, c2); //1 2 3
+
+    // let [a, b, [c, d, [e, f, [g, h, [i, j]]]]] = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]]
+    // console.log(a, b, c, d, e, f, g, h, i, j); //1 2 3 4 5 6 7 8 9 10
+
+
+
+    // 2.对象的解构赋值 - 重点
+    // 对象是无序的，解构变得重要，而且跟后面学的模块化有关系。
+    // 解构的变量名必须和属性名相同，但是也可以修改
+    // const {
+    //     name,
+    //     age
+    // }={
+    //     name:'zhangsan',
+    //     age:18
+    // }
+    // console.log(name);
+    // console.log(age);
+    const obj = {
+        a,
+        b,
+        c
+    } = {
+        a: 1,
+        b: 2,
+        c: 3
+    }
+    console.log(obj);
+    // const obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // };
+
+    // let {
+    //     c,
+    //     a,
+    //     b
+    // } = obj;
+
+    // console.log(a, b, c);
+    // const obj = {
+    //     xingming: 'zhangsan',
+    //     age: 18,
+    //     sex: '男'
+    // };
+
+    // let {
+    //     age
+    // } = obj;
+    // console.log(age);
+
+    // 修改名称
+    // let {
+    //     xingming: username
+    // } = obj;
+    // console.log(username); //zhangsan
+    // console.log(xingming); //没有值，报错
+
+    // 3.对象配置函数进行解构操作
+    // function fn({ name,age,sex} = { name: 'wangwu',age: 20, sex: '女' }) {
+    //     console.log('我的名字叫' + name + ',我今年' + age + '岁，我是' + sex + '的');
+    // }
+
+    // 调用时如果没有传入实参，使用解构后面的默认参数，如果传入实参，使用传入的参数。
+    // fn({
+    //     name: 'zhangsan',
+    //     age: 18,
+    //     sex: '男'
+    // });
+    //    function fn([foo]=[true]){
+    //        console.log(foo);
+    //    }
+    // const fn1 = ([foo]=[true]) => {
+    //     console.log(foo);
+    // }
+    // fn1([2])
+
+    function f() {
+        console.log('aaa');
+    }
+    let [x = f()] = [];
+    console.log(x);
+//     let [foo=true] = [];
+// console.log(foo);
+</script>

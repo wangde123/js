@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 一.event属性介绍
+    // 1.type属性
+    // 获取当前操作的事件类型 获取的事件类型不显示on
+    // document.onclick = function(e) {
+    //     alert(e.type); //click
+    // }
+
+    // 2.button属性
+    // 标准浏览器的鼠标事件，会有一个button属性，它是一个数字，代表鼠标按键。
+    // 0代表鼠标按下了左键   1代表按下了滚轮    2代表按下了右键
+    // document.onmousedown = function(e) {
+    //     alert(e.button);
+    // };
+
+    // 3.鼠标事件中获取鼠标的位置属性
+    // 3.1.clientX,clientY：鼠标相对于可视区的位置。
+    // 可视区：浏览器内部的文档中看得见的区域。
+    // document.onmousemove = function(e) {
+    //     console.log(e.clientX, e.clientY);
+    // };
+    // 3.2.pageX,pageY：鼠标相对于文档的位置。
+    // document.onmousemove = function(e) {
+    //     console.log('可视区' + e.clientX, e.clientY);
+    //     console.log('文档区' + e.pageX, e.pageY);
+    // };
+    // 3.3.offsetX,offsetY：鼠标相对于操作元素(鼠标位置)到元素边缘(左上)的位置.
+    // var box = document.querySelector('.box');
+    // box.onmousemove = function(e) {
+    //     console.log(e.offsetX, e.offsetY);
+    // };
+    // 3.4.screenX,screenY :鼠标相对于屏幕的位置。
+    // document.onmousemove = function(e) {
+    //     console.log(e.screenX, e.screenY);
+    // };
+
+    // 4.键盘事件的属性
+    // 4.1.keyCode和which获取键盘上按键对应的unicode编码
+    // which:最新的,不仅获取键盘的按键编码，还可以获取鼠标的按键编码
+    // 获取鼠标的按键编码:左键1   滚轮2    右键3
+    // document.onmousedown = function(e) {
+    //     alert(e.which);
+    // };
+
+    // 获取键盘的按键编码
+    // 记住重要的几个按键unicode编码
+    // 0:48（这里指的是电脑键盘那一排数字键上面的数字，不是小键盘上面的数字）
+    // A:65
+    // a:97
+    // 回车：13
+    // 空格：32
+    // document.onkeydown = function(e) {
+    // console.log(e.which);
+    // console.log(e.keyCode);
+    // };
+    // 4.2.event.ctrlKey、event.altKey、event.shiftKey 分别代表ctrl alt shift键
+    // ctrl+enter实现
+    // document.onkeydown = function(e) {
+    //     if (e.ctrlKey && e.which === 13) {
+    //         console.log('ctrl+enter输出内容');
+    //     }
+    // }
+</script>

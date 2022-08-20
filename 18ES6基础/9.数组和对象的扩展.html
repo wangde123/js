@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 数组和对象的扩展
+    // 一.数组的扩展
+    // 1.Array.from()方法用于将对象转为真正的数组(类数组转数组) - Array.isArray
+    // 1.1.对象转换成数组，需要两个条件
+    // 第一个条件：对象的属性名必须是数字格式的字符串。
+    // 第二个条件：对象必须有一个length属性。
+    // const obj = {
+    //     name1: 'zhangsan',
+    //     name2: 'lisi',
+    //     name3: 'wangwu'
+    // };
+    // console.log(Array.from(obj)); //[]  可以转数组，但没有值。
+
+    // const obj = {
+    //     0: 'zhangsan',
+    //     1: 'lisi',
+    //     2: 'wangwu',
+    //     length: 3
+    // };
+    // console.log(Array.from(obj)); //['zhangsan', 'lisi', 'wangwu']
+
+    // 1.2.类数组转换成真正的数组。
+    // 扩展运算符可以。
+    // let str = 'hello';
+    // str = Array.from(str); //类数组转换成真正的数组。
+    // str.push('hehe');
+    // console.log(str); //['h', 'e', 'l', 'l', 'o', 'hehe']
+
+
+    // 2.fill:填充内容
+    // let arr = [1, 2, 3, 4, 5];
+    // console.log(arr.fill('hehe')); //['hehe', 'hehe', 'hehe', 'hehe', 'hehe']
+    // console.log(arr.fill('hehe', 0, 2)); //['hehe', 'hehe', 3, 4, 5]  后面的参数表示填充的起始索引位置和结束的索引位置，不包括结束位置。
+
+
+    // 3.find():函数做参数，输出对应的值，索引
+    // let arr = ['zhangsan', 'lisi', 'wangwu'];
+    // arr.find(function(a, b) {
+    //     console.log(b);
+    // });
+
+    // 4.findIndex():函数做参数，输出对应的值，索引，数组本身
+    // let arr = ['zhangsan', 'lisi', 'wangwu'];
+    // arr.findIndex((a, b, c) => {
+    //     console.log(a, b, c);
+    // });
+
+    // 二.对象的扩展
+    // 1.对象的简洁表示法 - 两点改变 - 重点
+    // 第一点：如果对象的属性名和属性值名称一样，写一个即可。
+    // 第二点：对象里面的方法依然可以省略function
+
+    // let a = 'zhangsan';
+    // const obj = {
+    //     a: a, //后面的a是上面的变量，前面的a是自定义的属性名
+    //     b: function() {
+    //         console.log(this.a); //zhangsan
+    //     }
+    // }
+
+    // 简写
+    // const obj = {
+    //     a,
+    //     b() {
+    //         console.log(this.a); //zhangsan
+    //     }
+    // };
+    // console.log(obj.a); //zhangsan
+    // obj.b(); //zhangsan
+
+    // 2.对象扩展的方法
+    // 2.1.Object.assign()用于对象的合并，将源对象的所有可枚举属性，复制到目标对象。
+    // 方法允许添加多个对象作为参数，后面的对象里面的属性合并到第一个参数位置上。
+    // 如果属性名相同，后面覆盖前面的。
+    const obj1 = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+    const obj2 = {
+        c: 4,
+        d: 5,
+        e: 6,
+    };
+    
+    const obj3 = {
+        d: 7,
+        e: 8,
+        f: 9
+    };
+    const obj = {};
+    console.log(Object.assign(obj, obj1, obj2, obj3)); //{a:1,b:2,c:4,d:7,e:8,f:9}
+    // 2.2.Object.keys()获取对象所有的key(属性)集合，返回一个数组。
+    console.log(Object.keys(obj)); // ['a', 'b', 'c', 'd', 'e', 'f']
+    // 2.3.Object.values()获取对象所有的value(属性值)集合，返回一个数组。
+    console.log(Object.values(obj)); // [1, 2, 4, 7, 8, 9]
+    console.log(Object.entries(obj)); //返回二维数组，将key和value当作数组，插入其中。
+</script>

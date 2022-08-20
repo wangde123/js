@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.正则的控制字符
+    // 1.中括号[]：表示区间范围，一个中括号表示一个字符。
+    // [0-9]:匹配数字0-9中的一个字符。
+    // [4-9]:匹配数字4-9中的一个字符。
+    // console.log(/[0-9]/.test('4')); //true
+    // console.log(/[0-9]/.test('7')); //true
+    // console.log(/[0-9]/.test('777777777777777')); //true
+    // console.log(/[0-9]/.test('a')); //false
+    // [a-z]:匹配字母a-z中的一个字符
+    // [A-Z]:匹配字母A-Z中的一个字符
+    // [a-zA-Z0-9]:匹配字母数字中的任意一个字符
+    // [13690]:匹配13690中的任意一个字符
+
+    // 注意：^符号用在中括号里面表示取反。
+    // [^0-9]:表示匹配一个非数字
+    // console.log(/[^0-9]/.test('a')); //true
+    // console.log(/[^0-9]/.test('2')); //false
+
+
+    // 2.大括号{}：表示数量范围
+    // x{3}:表示匹配三个x字符
+    // console.log(/x{3}/.test('abcxdefg')); //false
+    // console.log(/x{3}/.test('abcxxdefg')); //false
+    // console.log(/x{3}/.test('abcxxxdefg')); //true
+    // console.log(/x{3}/.test('abcxxxxdefg')); //true
+    // x{3,6}:表示匹配至少三个，最多6个
+    // x{3,}:表示匹配至少三个
+
+
+    // 3.圆括号():表示整体
+    // abc{3,6}：表示匹配ab和3-6个c
+    // (abc){3,6}：表示匹配3-6个abc
+
+    // 4.首尾匹配：可以实现恒等匹配
+    // ^:行首匹配，从行首处开始进行匹配,如果放置中括号里面变成取反。
+    // $:行尾匹配，从行尾处开始进行匹配。
+    // console.log(/^abc$/.test('abc')); //true
+    // console.log(/^abc$/.test('abcc')); //false
+    // console.log(/^abc$/.test('aabc')); //false
+    // console.log(/^abc$/.test('abcabc')); //false
+    // console.log(/^abc$/.test('abcabc')); //false
+
+    // console.log(/^(abc){3,5}$/.test('abcabcabc')); //true
+    // console.log(/^(abc){3,5}$/.test('abcabcabcabc')); //true
+    // console.log(/^(abc){3,5}$/.test('abcabcabcabcabc')); //true
+    // console.log(/^(abc){3,5}$/.test('abcabcabcabcabcabc')); //false
+    // console.log(/^(abc){3,5}$/.test('abc')); //false
+    // console.log(/^(abc){3,5}$/.test('abcabc')); //false
+
+    // 5.数量次：+ ? *
+    // x? 匹配0个或者1个x
+    // x+ 匹配1个或者多个x
+    // x* 匹配0个或者多个x
+
+    // 6.或者：|
+    // this|where|logo  本意匹配this或where或logo中任意一个，具体看使用什么方法测试。
+
+    // 7.转义字符
+    // \d:表示数字0-9，类似[0-9]
+    // \D:表示非数字，类似[^0-9]
+    // \w:表示匹配数字字母和下划线，类似[0-9a-zA-Z_]
+    // \W:表示匹配非数字字母下划线，类似[^0-9a-zA-Z_]
+    // \s:表示匹配空格
+    // \S:表示匹配非空格
+    // \n:匹配换行符
+    // .:匹配除了换行符之外的其他字符。
+    // console.log(/[\d]/.test('4')); //true
+    // console.log(/^.$/.test('\n')); //false
+    // console.log(/^.$/.test('a')); //true
+    // console.log(/^.$/.test('1')); //true
+    // console.log(/^.$/.test('#')); //true
+    // console.log(/^.$/.test('D')); //true
+</script>

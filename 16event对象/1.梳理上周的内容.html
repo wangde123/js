@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    // 梳理上周的核心
+    // 一.字符串对象
+    // 1.熟悉包装对象的概念，目的是证明一切皆对象。
+    // 2.类数组的概念，类数组也叫伪数组，具有length属性和0开始的非负整数的下标(不具有数据的方法)。
+    // 3.字符串对象的方法
+    // substring/split/toUpperCase/toLowerCase/indexOf/replace/match/includes
+
+    // 二.数学和日期对象
+    // 1.数学对象的核心方法
+    // Math.random/Math.round/Math.ceil/Math.floor
+    // 2.日期对象
+    // 老外的星期和月份问题
+    // 时间戳
+    // 日期对象下面的方法
+    // getFullYear/getMonth/getDate/getDay/getHours/getMinutes/getSeconds
+    // get改成set，变成设置，除了星期无法设置，其他的都可以
+
+    // 三.BOM
+    // 1.window的意义
+    // window是浏览器的实例，也是ES规定的最大的对象
+
+    // 2.location对象和地址栏的组成
+    // 地址栏组成：协议，域名，端口，路径，数据，哈希值
+    // location.href
+    // location.search
+    // location.hash
+    // location.reload(true)
+
+    // 3.定时器
+    // 两种定时器的语法格式和使用
+    // 同步和异步
+
+
+    // 4.window相关的事件和可视区和滚动条的距离。
+    // onload/onresize/onscroll
+    // document.documentElement.clientWidth
+    // document.documentElement.clientHeight
+    // document.documentElement.scrollTop
+    // document.documentElement.scrollLeft
+
+
+    // 四.DOM
+    // 1.操作元素对象的方法
+    // 查询：querySelector/querySelectorAll
+    // 创建：createElement
+    // 追加：appendChild
+    // 插入：insertBefore
+    // 删除：removeChild/remove
+    // 克隆：cloneNode(true)
+
+    // 2.操作元素对象的属性
+    // 2.1.自定义对象的方法
+    // 2.2.dataset属性
+
+
+    // 3.操作元素对象里面的内容
+    // innerHTML
+    // innerText
+
+    // 4.读写css属性
+    // 4.1.读
+    // offsetLeft/offsetTop/offsetWidth/offsetHeight  - 没有单位
+    // getComputedStyle/currentStyle  - 有单位
+
+    // 4.2.写
+    // 逐个写入：box.style.left = '100px'
+    // cssText
+    // style
+    // 选择器写入
+
+    // 5.高级操作
+    // childNodes:获取子元素，包含空白，类数组。
+    // children:获取子元素，不包括空白，仅包括元素，类数组。
+    // 节点：元素节点，属性节点，文本节点，注释节点
+    // 节点：节点名称nodeName，节点值nodeValue，节点类型nodeType
+    // parentNode:获取当前元素对象的父节点。
+    // var box = document.querySelector('.box');
+    // console.log(box.parentNode); //body
+    // console.log(box.parentNode.parentNode); //html
+    // console.log(box.parentNode.parentNode.parentNode); //document
+    // console.log(box.parentNode.parentNode.parentNode.parentNode); //null
+</script>

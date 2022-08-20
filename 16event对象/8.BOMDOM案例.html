@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #ad {
+            width: 100%;
+            height: 80px;
+            background: rgb(254, 52, 68) url(https://img11.360buyimg.com/babel/jfs/t1/134843/28/21257/97025/625988f1Eed38e7a2/9a86cde80650491b.jpg.webp) no-repeat center top;
+        }
+        
+        #banner {
+            width: 1190px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        #banner span {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+        }
+        
+        #banner em,
+        #banner i {
+            font-style: normal;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="ad">
+        <div id="banner">
+            <span id="close">X</span>
+            <em>离广告关闭还剩<i>5</i>秒</em>
+        </div>
+    </div> -->
+</body>
+
+</html>
+<script>
+    // 广告弹出窗自动关闭 + 添加倒计时效果
+    // 获取元素：
+    // 点击按钮，关闭广告。
+    // var close = document.querySelector('#close');
+    // var ad = document.querySelector('#ad');
+    // var time = document.querySelector('#banner i');
+    // var t = null; //定时器的返回值
+    // close.onclick = function() {
+    //     ad.style.display = 'none';
+    // };
+
+    // 添加倒计时效果:定时器
+    // t = window.setInterval(function() {
+    //     var num = time.innerHTML;
+    //     num--;
+    //     time.innerHTML = num;
+    //     if (num < 1) {
+    //         ad.style.display = 'none';
+    //         clearInterval(t); //关闭定时器
+    //     }
+    // }, 1000);
+
+    // 2.动态创建表格和删除操作
+    // 2.1.张三实现动态创建表格,参数为行和列。
+    // 计算一段代码的执行时间,通过系统提供的两个方法实现  console.time/console.timeEnd
+    // 创建表格实现
+    // function zhangSanCreateTable(rows, cols) {
+    //     console.time('a'); //开始计时
+    //     //创建表格
+    //     var cTable = document.createElement('table');
+    //     cTable.border = 1; //添加边框
+    //     //创建tr
+    //     for (var i = 1; i <= rows; i++) {
+    //         var cTr = document.createElement('tr');
+    //         //创建td
+    //         for (var j = 1; j <= cols; j++) {
+    //             var cTd = document.createElement('td');
+    //             cTd.innerHTML = '1111111111111';
+    //             cTr.appendChild(cTd); //创建一个td,追加一个
+    //         }
+    //         cTable.appendChild(cTr); //创建一个tr，追加一个
+    //     }
+    //     document.body.appendChild(cTable);
+    //     console.timeEnd('a'); //结束计时
+    // }
+
+
+    // 字符串拼接实现 - 比上面的性能要好。
+    function zhangSanCreateTable(rows, cols) {
+        console.time('a'); //开始计时
+        var str = '<table border=1>';
+        for (var i = 1; i <= rows; i++) {
+            str += '<tr>';
+            for (var j = 1; j <= cols; j++) {
+                str += '<td>1111111111111</td>';
+            }
+            str += '</tr>';
+        }
+        str += '</table>';
+        document.body.innerHTML = str; //赋值
+        console.timeEnd('a'); //结束计时
+    }
+    zhangSanCreateTable(10, 10); //a: 4235.251708984375 ms    a: 1273.866943359375 ms
+    // 2.2.李四实现删除操作。
+    function lisiDelTable() {
+        var oT = document.querySelector('table'); //获取table,事件委托
+        oT.onclick = function(e) {
+            if (e.target.nodeName === 'TD') {
+                e.target.parentNode.remove(); //删除当前点击td的父元素。
+            }
+        };
+    }
+    lisiDelTable();
+</script>

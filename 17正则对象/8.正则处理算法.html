@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.正则处理算法的核心是replace方法.
+  // 1.字符串过滤(敏感词过滤)
+  // var str = '这件衣服是你妈的还是你妹的我猜是你大爷的';
+  // console.log(str.replace(/妈|妹|大爷/g, '*')); //这件衣服是你*的还是你*的我猜是你*的
+
+  // 2.封装函数实现字符串首尾去空格(实现字符串的trim方法)
+  // var str = '     abc   def   ghi       ';
+  // // console.log('(' + str + ')');
+  // // console.log('(' + str.trim() + ')');
+
+  // function repeatTrim(str) {
+  //     return str.replace(/^\s+|\s+$/g, '');
+  // }
+  // console.log('(' + repeatTrim(str) + ')');
+
+  // 3.get-element-by-id字符串变成驼峰命名getElementById
+  //   var str = "get-element-by-id";
+  //   console.log(
+  //     str.replace(/-[a-z]/g, function (result) {
+  //       //result:匹配的结果
+  //       console.log(result);
+  //       //   return result.substring(1).toUpperCase();
+  //       //将匹配的结果-e,-b,-i,替换成return后面的值
+  //       //return后面的值将匹配的结果截取后一位，将其转换成大写字母。
+  //     })
+  //   );
+
+  // 结果：getElementById
+  // let str = "get-element-by-id";
+  // str.replace(/-[a-z]/g, function (result) {
+  //   return result.substring(1).toUpperCase;
+  // });
+  // str.replace(/-[a-z]/g, function (result) {
+  //   return result.substring(1).toUpperCase;
+  // });
+
+  // 4.eval函数：字符串做参数，将括号里面的字符串当作js代码执行，如果不能执行就报错。
+  // 可以通过eval将对象格式的字符串转换成真正的对象。
+  // 如果里面是对象格式，通过添加括号将其变成一个整体就可以解析。
+  // eval('var a = 1;var b=2;alert(a+b)'); //3
+  // eval('{a:1,b:2,c:3}');//格式错误，eval没办法将里面的字符串当作一个整体进行解析
+  // var obj = eval('({a:1,b:2,c:3})');
+  // console.log(obj);
+
+  // 案例：字符串https://www.baidu.com?a=1&b=2&c=3&d=4，将数据转换成对象格式{a:'1',b:'2',c:'3',d:'4'}
+
+  // 非正则实现
+  // var str = 'https://www.baidu.com?a=1&b=2&c=3&d=4';
+  // var obj = {};
+  // console.log(str.substring(str.indexOf('?') + 1)); //a=1&b=2&c=3&d=4
+  // var arr = str.substring(str.indexOf('?') + 1).split('&');
+  // console.log(arr); //['a=1', 'b=2', 'c=3', 'd=4']
+  // arr.forEach(function(value) {
+  //     var newarr = value.split('='); //将数组项拆分成四个数组
+  //     obj[newarr[0]] = newarr[1];
+  // });
+  // console.log(obj); //{a: '1', b: '2', c: '3', d: '4'}
+
+  // 正则实现
+  // var str = 'https://www.baidu.com?a=1&b=2&c=3&d=4';
+  // str = str.substring(str.indexOf('?') + 1).replace(/&/g, ',').replace(/=/g, ':');
+  // console.log(eval('({' + str + '})'));
+  // let str = "https://www.baidu.com?a=1&b=2&c=3&d=4";
+  // str = str
+  //   .substring(str.indexOf("?") + 1)
+  //   .replace(/&/g, ",")
+  //   .replace(/=/g, ":");
+  // console.log(eval("({" + str + "})"));
+  let str = "http://www.alipay.com?foo=bar&bac=123&token=xyz";
+  function fn(str) {
+    const arr = str.split("?")[1].split("&");
+    const obj = {};
+    for (v of arr) {
+      let keys = v.split("=")[0];
+      let value = v.split("=")[1];
+      Object.assign(obj, { [keys]: value });
+    }
+    return obj;
+  }
+  console.log(fn("http://www.alipay.com?foo=bar&bac=123&token=xyz"));
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.lastIndex属性
+    // lastIndex属性只有在有全局标志正则表达式中才有作用
+    // lastIndex在全局下面会发生变化，指向的是匹配的元素的下一个索引，
+    // 指向的是匹配的元素的下一个索引,索引之后无法再找到匹配，下一次匹配变成false,lastIndex重新从0索引开始
+    // var reg = /[a-z]/g;
+    // var str = '3a3';
+
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2  
+    // console.log(reg.test(str)); //false
+    // console.log(reg.lastIndex); //0
+
+
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2
+    // console.log(reg.test(str)); //false
+    // console.log(reg.lastIndex); //0
+
+
+    // var reg = /[a-z]/g;
+    // var str = '9a9b9';
+
+    // console.log(reg.test(str)); //找到a,输出true
+    // console.log(reg.lastIndex); //2
+    // console.log(reg.test(str)); //找到b,输出true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //没有找到匹配，返回false
+    // console.log(reg.lastIndex); //0
+
+
+    // console.log(reg.test(str)); //找到a,输出true
+    // console.log(reg.lastIndex); //2
+    // console.log(reg.test(str)); //找到b,输出true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //没有找到匹配，返回false
+    // console.log(reg.lastIndex); //0
+
+
+    // console.log(reg.test(str)); //找到a,输出true
+    // console.log(reg.lastIndex); //2
+    // console.log(reg.test(str)); //找到b,输出true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //没有找到匹配，返回false
+    // console.log(reg.lastIndex); //0
+
+    // 如果修改一下上面的两个正则调用方式，不会有影响。
+    // var reg = /[a-z]/g;
+    // var str = '9a9b9';
+    // console.log(/[a-z]/g.test('9a9b9')); //true 每次都是重新开始，lastIndex值走了一次就结束。
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+    // console.log(/[a-z]/g.test('9a9b9')); //true
+
+    // 二.多行匹配 - m
+    // var str = 'hello\nworld';
+    // console.log(str);
+    // console.log(/o$/.test(str)); //false
+    // console.log(/o$/m.test(str)); //true  m属于多行匹配，\n表示换行，第一行就是o结尾
+    // console.log(/^w/m.test(str)); //true  m属于多行匹配，\n表示换行，第二行就是w开头
+
+
+    // 三.常用的正则表达式
+    // 1.电子邮箱。
+    // var regEmail = /^(\w+[.+-]*\w+)@(\w+[.-]*\w+).(\w+[.-]*\w+)$/; 
+
+    // 2.身份证号码（18位）
+    // var regCartId1 = /^\d{17}(\d|X|x)$/;
+    // var regCartId2 = /^\d{6}(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])\d{3}(\d|x|x)$/;
+    // console.log(regCartId1.test('123456188023561234')); //true
+    // console.log(regCartId2.test('123456188023561234')); //false
+    // console.log(regCartId2.test('123456198812231234')); //true
+
+    // 3.邮政编码和中文检测
+    // 3.1.中文检测：[\u4e00-\u9fa5]
+    // 3.2.邮政编码：/^[1-9]\d{5}$/
+    // 3.3.匹配腾讯QQ号：/^[1-9][0-9]{4,12}$/;
+</script>

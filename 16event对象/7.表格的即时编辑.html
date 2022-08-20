@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td contenteditable="true">11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+<script>
+    // 一.contenteditable 属性是 HTML5 中的新属性。规定是否可编辑元素的内容。
+    // true 规定可以编辑元素内容。
+    // false 规定无法编辑元素内容。
+
+    // 二.表格的即时编辑
+    // 表格里面的内容可以随意编译。
+    // 利用表单进行编译。
+
+    var aTd = document.querySelectorAll('td');
+    for (var i = 0; i < aTd.length; i++) {
+        aTd[i].onclick = function() {
+            // this:当前操作的td
+            // 在当前点击的td里面插入一个文本框，必须保证只插入一个input文本框，多个就有问题，将td的内容写入文本框。
+            // 实现点击td仅插入一个input
+            if (this.children.length < 1) { //td里面的子元素的长度小于1，表示里面不存在子元素，创建子元素
+                this.innerHTML = '<input type="text" value="' + this.innerHTML + '"/>';
+            }
+
+            // 出现事件冒泡，点击input的时候，相当于点击了td元素。 
+            // 取消冒泡
+            // this.children[0]:td里面的input
+            this.children[0].onclick = function(e) {
+                e.stopPropagation();
+            };
+            var _this = this; //当前的td
+            // 修改完成后(失去焦点)，input可以消失。
+            this.children[0].onblur = function() {
+                // this：当前操作的input
+                // 第一种方式：
+                this.outerHTML = this.value;
+                // 第二种方式：
+                // this.parentNode.innerHTML = this.value; //获取当前表单的值，给表单的父元素td
+                // this.remove(); //删除当前的input
+                // 第三种方式：
+                // _this.innerHTML = this.value;
+                // this.remove();
+            };
+        };
+    }
+</script>

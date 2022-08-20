@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.学过的循环(遍历)
+    // 单纯的循环：for,while,do...while...,forEach,for...in...
+    // 1.for循环写法太麻烦，while更麻烦，本来for循环就是while循环的紧凑的写法。
+    // 2.forEach没有返回值，不支持break关键字跳出循环。
+    // 3.for...in...数组的键名是数字，但是for...in循环是以字符串作为键名，遍历对象，对象的属性名都是字符串。
+    // for...in循环主要是为遍历对象而设计的，不适用于遍历数组
+    // 4.for...of循环相比上面几种做法，有一些显著的优点
+    // 有着同for...in一样的简洁语法，但是没有for...in那些缺点.
+    // 不同于forEach方法，它可以与break、continue和return配合使用
+    // 提供了遍历所有数据结构的统一操作接口.
+
+
+    // 二.for...of...循环
+    // 1.forof的基本控制结构
+    // const arr = [1, 2, 3, 4, 5];
+    // for (let value of arr) { //value数组项的值   arr遍历的数组对象
+    //     console.log(value);
+    // }
+
+    // 2.那些类型可以使用forof遍历
+    // 遍历器Iterator它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）
+    // 意思：只要当前的数据类型具有iterator接口，可以使用forof进行遍历。
+
+    // 怎样测试数据类型具有iterator接口
+    // 一个数据结构只要部署了Symbol.iterator属性，就被视为具有iterator接口，就可以用for...of循环遍历它的成员。
+
+    // let str = 'abcde';
+    // let arr = ['zhangsan', 'lisi', 'wangwu'];
+    // let obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // };
+
+    // console.log(str[Symbol.iterator]); //存在ok
+    // console.log(arr[Symbol.iterator]); //存在ok
+    // console.log(obj[Symbol.iterator]); //undefined 不可以
+
+    // for (let v of str) {
+    //     console.log(v);
+    // }
+
+    // for (let v of obj) {
+    //     console.log(v); //报错， obj is not iterable
+    // }
+</script>

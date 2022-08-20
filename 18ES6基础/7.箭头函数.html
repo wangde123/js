@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111111111111</li>
+        <li>111111111111</li>
+        <li>111111111111</li>
+        <li>111111111111</li>
+    </ul>
+</body>
+
+</html>
+<script>
+    // 一.箭头函数
+    // 1.ES6允许使用“箭头”（=>）定义函数，如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分，如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用return语句返回。
+
+    //函数表达式
+    // const fn = function(n1, n2) {
+    //     return n1 + n2;
+    // };
+    // console.log(fn(3, 5)); //8
+
+    // 箭头函数改写
+    // const fn = (n1, n2) => n1 + n2;
+    // console.log(fn(3, 5)); //8
+
+
+    // 函数表达式
+    // const fn = function(str) {
+    //     return str;
+    // };
+    // 箭头函数改写
+    // 如果箭头函数只有一个参数，省略包含参数的括号。
+    // 如果函数体中仅return一条语句，省略return并且省略大括号。
+    // const fn = str => str;
+    // console.log(fn('hello'));
+
+
+    // 函数表达式
+    // const fn = function(n1, n2, n3) {
+    //     let num = n1 + n2 + n3;
+    //     return num;
+    // };
+
+    // 箭头函数改写
+    // const fn = (n1, n2, n3) => {
+    //     let num = n1 + n2 + n3;
+    //     return num;
+    // };
+
+    // 2.箭头函数的特点。
+    // 2.1.箭头函数最吸引人的地方是简洁，同时函数体内this对象，来自于父级(外层)，而且不会被改变。
+    // const fn = () => {
+    //     console.log(this);//window
+    // };
+    // fn();
+
+    // 2.2.不可以当作构造函数使用，不可以使用arguments对象，箭头函数一定是匿名函数(函数表达式)。
+
+    // 2.3.箭头函数适合于简单的函数应用，箭头函数可以取代回调函数(函数做参数)
+    // let arr = ['apple', 'banana', 'pear'];
+    // arr.forEach(function(v) {
+    //     console.log(v);
+    // });
+    // arr.forEach(v => console.log(v));
+
+    // setInterval(() => {
+    //     console.log(1);
+    // }, 1000);
+
+    // 2.4.当函数内部有this的时候，不要在最外层定义箭头函数，因为this会指window。应该在箭头函数外部包一层函数，将this控制在可见的范围内；
+
+    // 案例：点击li元素，2s后li里面的内容变成222222222222222222222
+    // const list = document.querySelectorAll('li');
+    // for (let i = 0; i < list.length; i++) {
+    //     list[i].onclick = function () {
+    //         // this:当前点击的li元素
+    //         window.setTimeout(() => { //改成箭头函数，this来自于父级，指向当前的li，this无法修改。
+    //             //不改箭头函数this:指向window
+    //             this.innerHTML = '222222222222222222222';
+    //         }, 2000);
+    //     };
+    // }
+</script>

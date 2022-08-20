@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box"></div> -->
+    <img src="pic3.jpg" alt="">
+</body>
+
+</html>
+<script>
+    // var box = document.querySelector('.box')
+    // box.onmousedown = function (e) {
+    //     var shortx = e.offsetX
+    //     var shorty = e.offsetY
+    //     document.onmousemove = function (e) {
+    //         var leftPosition = e.clientX - shortx
+    //         var topPosition = e.clientY - shorty
+    //         if(leftPosition<0){
+    //             leftPosition=0
+    //         }else if(leftPosition>document.documentElement.clientWidth- box.offsetWidth){
+    //             leftPosition=document.documentElement.clientWidth- box.offsetWidth
+    //         }
+    //         if(topPosition<0){
+    //             topPosition=0
+    //         }else if(topPosition>document.documentElement.clientHeight-box.offsetHeight){
+    //             topPosition=document.documentElement.clientHeight-box.offsetHeight
+    //         }
+    //         box.style.left = leftPosition + 'px'
+    //         box.style.top = topPosition + 'px'
+    //     }
+
+    //     document.onmouseup = function () {
+    //         document.onmousemove = null
+    //     }
+    // }
+// var img=document.querySelector('img')
+// img.onmousedown=function(e){
+//     var shortx=e.offsetX
+//     var shorty=e.offsetY
+//     document.onmousemove=function(e){
+//         var leftPosition=e.clientX-shortx
+//         var topPosition=e.clientY-shorty
+//         if(leftPosition<0){
+//             leftPosition=0
+//         }else if(leftPosition>document.documentElement.clientWidth-img.offsetWidth){
+//             leftPosition=document.documentElement.clientWidth-img.offsetWidth
+//         }
+//         if(topPosition<0){
+//             topPosition=0
+//         }else if(topPosition>document.documentElement.clientHeight-img.offsetHeight){
+//             topPosition=document.documentElement.clientHeight-img.offsetHeight
+//         }
+//         img.style.left=leftPosition+'px'
+//         img.style.top=topPosition+'px'
+//     }
+//     document.onmouseup=function(){
+//         document.onmousemove=null
+//     }
+//     return false
+// }
+</script>

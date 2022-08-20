@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul>
+      <li>111111</li>
+      <li>222222</li>
+      <li>333333</li>
+      <li>444444</li>
+    </ul>
+  </body>
+</html>
+<script>
+  // 一.let和const关键字
+  // 1.ES6新增了let命令，用来声明变量，它的用法类似于var，
+  // 1.1.let所声明的变量，只在代码块({})内有效，let存在块级作用域。
+  // var存在局部(函数内)和全局，let存在块级和全局
+  // if (true) {
+  //     var num = 100;
+  // }
+  // console.log(num); //100
+
+  // if (true) {
+  //     let a = 100;
+  // }
+  // console.log(a); //报错 a is not defined
+
+  // 1.2.let所声明的变量就绑定这个区域(约定的规则)，不再受外部的影响。
+  // var list = document.querySelectorAll('li'); //四个li元素
+  // for (var i = 0; i < list.length; i++) {
+  //     list[i].onclick = function() {
+  //         console.log(i); //i:循环的最后一次值，循环结束的值。
+  //     }
+  // }
+
+  // var list = document.querySelectorAll('li'); //四个li元素
+  // for (let i = 0; i < list.length; i++) { //i:0,1,2,3
+  //     list[i].onclick = function() {
+  //         console.log(i); //i:0,1,2,3，当前点击的li的索引。
+  //     }
+  // }
+
+  // 1.3.let声明的不存在变量提升(暂时性死区)
+  // console.log(a); //undefined
+  // var a = 100;
+  // console.log(a); //100
+
+  // 暂时性死区
+  // 在代码块内，使用let命令声明变量之前，该变量都是不可用的，这在语法上，称为“暂时性死区”
+
+  // console.log(a);//报错
+  // let a = 100;
+  // console.log(a); //100
+
+  // 1.4.相同的作用域内(同一层级)不能重复声明变量。
+  // var a = 10;
+  // var a = 100;
+  // console.log(a); //100
+
+  // let a = 10;
+  // let a = 100;
+  // console.log(a); //报错
+
+  // 下面的写法是合理的，不再相同的作用域内。
+  // {
+  //     let a = 10;
+  //     {
+  //         let a = 100;
+  //     }
+  // }
+
+  // 1.4.总结let和var的区别 - 重点
+  // var具有局部作用域，let具有块作用域
+  // let声明的变量绑定在块区域内
+  // let不存在变量提升
+  // let相同的作用域内(同一层级)不能重复声明变量
+
+  // 其他的let和var基本类似，比如值可以改变，同时声明多个，松散类型，写入内存。
+
+  // 2.const命令
+  // 2.1.const声明一个只读的常量。一旦声明，常量的值就不能改变。
+  // const a = 100;
+  // a = 10;//报错
+  // 2.2.不可重复声明
+  // 2.3.只在声明所在的块级作用域内有效
+  // 注意：对于对象来说，里面的值可以改变的，只要地址没有改变，都没问题，对象地址是核心。
+  // const obj = {
+  //     name: 'zhangsan'
+  // };
+  // obj.name = 'lisi';
+  // console.log(obj); //{name: 'lisi'}
+
+  // obj = {}; //这里会报错，改变了对象的地址。
+  // console.log(obj);
+
+  // 2.4.常量的使用场景 - 重点
+  // 获取元素对象
+  // 封装函数
+  // 值固定的情况下都可以使用常量，常量的性能优于变量。
+  const arr = [
+    {
+      name: "zhansgan",
+      age: 18,
+    },
+    {
+      name: "lisi",
+      age: 16,
+    },
+    {
+      name: "wangwu",
+      age: 20,
+    },
+  ];
+  // let arr2 = [];
+  // for (const value of arr) {
+  //   arr2.push(value.age);
+  // }
+  //   console.log(arr.sort((a, b) => a.age - b.age));
+</script>
