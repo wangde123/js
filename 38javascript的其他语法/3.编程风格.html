@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 编程风格。
+  // 1.ES6 提出了两个新的声明变量的命令：let和const。其中，let完全可以取代var，因为两者语义相同，而且let没有副作用。
+
+  // 2.在let和const之间，建议优先使用const，尤其是在全局环境，不应该设置变量，应设置常量。原因是const可以提醒阅读程序的人，这个变量不能改变，比较符合函数式编程思想，并且JavaScript 编译器会对const进行优化，所以多使用const，有利于提高程序的运行效率。
+
+  // 3.静态字符串一律使用单引号或反引号，不使用双引号。动态字符串使用反引号。
+
+  // 4.ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
+  // const {
+  //     name,
+  //     age
+  // } = {
+  //     name: 'zhangsan',
+  //     age: 18
+  // };
+  // console.log(name);
+  // console.log(age);
+  const { name, age } = {
+    name: "zhangsan",
+    age: 18,
+  };
+  console.log();
+
+  // 5.对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法。
+  // const obj = {};
+  // obj.name = 'zhangsan';
+  // console.log(obj); //{name: 'zhangsan'}
+
+  // const obj = {};
+  // Object.assign(obj, {
+  //     name: 'zhangsan'
+  // });
+  // console.log(obj);
+
+  // 6.对象的属性和方法，尽量采用简洁表达法
+  // const obj = {
+  //     name: 'zhangsan',
+  //     showname() {
+  //         console.log(this.name);
+  //     }
+  // };
+
+  // 7.使用扩展运算符（...）拷贝数组
+  // 数组的合并
+  // const arr1 = [1, 2, 3];
+  // const arr2 = [4, 5, 6];
+  // const arr3 = [7, 8, 9];
+  // console.log(arr1.concat(arr2, arr3)); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+  // console.log([...arr1, ...arr2, ...arr3]); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  // 使用引号将任何类型的值转成字符串
+  // console.log(true);
+  // console.log('true');
+  // var t = true;
+  // console.log(String(t));
+  // console.log(t.toString());
+
+  // 8.回调函数和立即执行函数可以写成箭头函数的形式
+  // const fn1 = function(str) {
+  //     return str;
+  // };
+  // const fn2 = str => str;
+  // [1, 2, 3, 4, 5].forEach(item => console.log(item));
+
+  // 9.用class取代prototype 的操作。因为 class的写法更简洁，更易于理解。
+
+  // 10.括号的位置 - 语法格式上的编程风格
+  // 10.1.绝大多数的编程语言，都用大括号（{}）表示代码块。对于起首的大括号的位置，有许多不同的写法。最流行的有两种。
+  // 第一种是起首的大括号另起一行 - 推荐
+  // if (true) { //正确
+
+  // }
+
+  // if(true)
+  // {
+
+  // }
+
+  // function fn() {
+  //     return
+  //     {
+  //         name: 'zhangsan'
+  //     };
+  // }
+
+  // console.log(fn());//undefined
+
+  // 10.2.圆括号在Javascript中有两种作用，一种表示调用函数，另一种表示不同的值的组合。我们可以用空格，区分这两种不同的括号。
+
+  // 函数名与参数序列之间，没有空格。
+  // function fn(x, y) {}
+
+  // 调用函数的时候，函数名与左括号之间没有空格。
+  // fn()
+
+  // if (a === 0){...}
+  // if (true) {
+
+  // }
+
+  // if (a === 0) {}
+
+  // 10.3.分号
+  // 分号表示语句的结束。大多数情况下，如果你省略了句尾的分号，Javascript会自动添加。
+  // 但麻烦的是，如果下一行的第一个符号是下面这五个字符之一，Javascript将不对上一行句尾添加分号："("、"["、"/"、"+"和"-"。
+  // (function() {
+  //     console.log(1);
+  // })();
+  // (function() {
+  //     console.log(1);
+  // })();
+
+  // 11.相等和严格相等(恒等)
+  // 因为"相等"运算符会自动转换变量类型(隐式转换)，这样写会造成很多意想不到的情况。
+  // console.log(0 == 0); //true
+  // console.log('' == 0); //true
+  // console.log(false == 0); //true
+
+  // console.log(0 === 0);
+  // console.log(false === 0);
+
+  // 12.函数和变量的声明
+
+  // 所有变量声明都放在函数的头部。
+  // 所有函数都在使用之前定义。
+  // fn();
+
+  // function fn() {
+  //     let a = 1;
+  //     console.log(a);
+  //     let b = 2;
+  //     console.log(a + b);
+  // }
+  // fn();
+
+  // // -------------------------------
+  // function fn() {
+  //     let a = 1;
+  //     let b = 2;
+  //     console.log(a);
+  //     console.log(a + b);
+  // }
+  // fn();
+  // fn();
+  console.log();
+  for (let i = 1; i < 10; i++) {
+    console.log(11);
+  }
+</script>

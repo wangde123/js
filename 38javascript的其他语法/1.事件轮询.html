@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+
+    一.事件轮询
+    1.客户端的事件轮询，前端(h5，web开发，浏览器端，客户端)
+    2.单线程：同步和异步
+    同步：阻塞模式，主线程上面的代码，后一个任务必须等到前一个任务完成才执行。
+    异步：非阻塞模式，不进入主线程，进入队列，讨论就是队列里面的顺序。
+    异步：定时器，promise...then....catch
+    promise里面的代码是同步的
+    then里面的代码是异步的，catch也一样。
+
+    3.调用栈：执行代码的地方，执行的顺序是后进先出。
+
+    4.队列：执行代码的地方，先进先出(宏任务队列，微任务队列)
+
+    5.webapi:依靠webapi进行任务分配(宏任务，微任务)
+
+    6.宏任务：整个script代码，定时器
+
+    7.微任务：promise下面的then
+
+    8.事件轮询
+    执行一次宏任务，清空微任务列表，继续执行宏任务，继续清空微任务。
+
+
+
+
+   -->
+</body>
+
+</html>
+<script>
+    //示例：
+ 
+ console.log('start');
+  
+ var intervalA = setInterval(() => {
+   console.log('intervalA');
+ }, 0);
+  
+ setTimeout(() => {
+   console.log('timeout');
+  
+   clearInterval(intervalA);
+ }, 0);
+  
+ var intervalB = setInterval(() => {
+   console.log('intervalB');
+ }, 0);
+  
+ var intervalC = setInterval(() => {
+   console.log('intervalC');
+ }, 0);
+  
+ new Promise((resolve, reject) => {
+   console.log('promise');
+  
+   for (var i = 0; i < 10000; ++i) {
+     i === 9999 && resolve();
+   }
+  
+   console.log('promise after for-loop');
+ }).then(() => {
+   console.log('promise1');
+ }).then(() => {
+   console.log('promise2');
+  
+   clearInterval(intervalB);
+ });
+  
+ new Promise((resolve, reject) => {
+   setTimeout(() => {
+     console.log('promise in timeout');
+     resolve();
+   });
+  
+   console.log('promise after timeout');
+ }).then(() => {
+   console.log('promise4');
+ }).then(() => {
+   console.log('promise5');
+  
+   clearInterval(intervalC);
+ });
+  
+ Promise.resolve().then(() => {
+   console.log('promise3');
+ });
+  
+ console.log('end');
+ 
+</script>

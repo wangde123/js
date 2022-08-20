@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.值传递和引用传递
+  // 1.值传递：基本类型遵循的，将值克隆一份赋值给另外一个变量。
+  // 基本类型：number/string/boolean/null/undefined/Symbol/BigInt
+  let a = 1;
+  let b = a; //值传递，将a的值复制一份传递给b。a,b本质上是独立的
+  b++;
+  console.log(a); //1
+  console.log(b); //2
+
+  // 2.引用传递：引用类型遵循的，将地址赋值给另外一个变量
+  // 引用类型的地址存在栈内存中，值存储在堆内存中。
+  // let obj1 = {
+  //     name: 'zhangsan'
+  // };
+  // let obj2 = obj1; //引用传递，传递的地址，obj1和obj2同时指向一个地址，
+  // obj2.name = 'lisi';
+  // console.log(obj1); //{name: 'lisi'}
+  // console.log(obj2); //{name: 'lisi'}
+
+  // 3.解决上面的问题，涉及到浅拷贝和深拷贝。
+  // 3.1.浅拷贝。
+  // let obj1 = {
+  //     name: 'zhangsan'
+  // };
+  // let obj2 = {}; //开辟独立地址
+  // 第一种方式：
+  // Object.assign(obj2, obj1); //实现浅拷贝，obj2仅接收obj1里面的值
+  // 第二种方法：
+  // for (let key in obj1) {
+  //     obj2[key] = obj1[key];
+  // }
+  // obj2.name = 'lisi';
+  // console.log(obj1); //{name: 'zhangsan'}
+  // console.log(obj2); //{name: 'lisi'}
+
+  // 3.2.深拷贝：解决对象嵌套对象问题
+  // let obj1 = {
+  //     names: ['zhangsan', 'lisi', 'wangwu']
+  // };
+  // let obj2 = {};
+  // Object.assign(obj2, obj1); //浅拷贝无法解决，浅拷贝仅改变一层对象，而这里是对象里面还存在对象。
+  // obj2.names[0] = '张三';
+  // console.log(obj1); //{names: ['张三', 'lisi', 'wangwu']};
+  // console.log(obj2); //{names: ['张三', 'lisi', 'wangwu']};
+
+  // ------------------------------------------------------------------------
+
+  let obj1 = {
+    names: ["zhangsan", "lisi", "wangwu"],
+  };
+  let obj2 = {};
+  obj2 = JSON.stringify(obj1); //深拷贝最佳的方式，利用对象和字符串间转换实现。
+  // obj2.names[0] = '张三';
+  // console.log(obj1); //{names: ['zhangsan', 'lisi', 'wangwu']};
+  console.log(obj2); //{names: ['张三', 'lisi', 'wangwu']};
+</script>
