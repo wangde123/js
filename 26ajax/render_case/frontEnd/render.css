@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.shoppinglist {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.shoppinglist li {
+    width: 206px;
+    height: 360px;
+    float: left;
+    border: 1px solid #ccc;
+    margin: 0 10px 10px 0;
+    position: relative;
+}
+
+.shoppinglist li a {
+    width: 166px;
+    height: 340px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+}
+
+.shoppinglist li img {
+    width: 180px;
+    height: 180px;
+    display: block;
+}
+
+.shoppinglist li p {
+    width: 180px;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}

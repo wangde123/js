@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 1.ajax的四步曲
+    // ajax概念:异步的JavaScript和XML。
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', true);
+    // xhr.send();
+    // xhr.onreadystatechange = function() { //这里的onreadystatechange可以改成onload事件。
+    //     if (xhr.readyState === 4) {
+    //         console.log(JSON.parse(xhr.responseText));
+    //     }
+    // }
+
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', true);
+    // xhr.send();
+    // xhr.onload = function() { //这里的onreadystatechange可以改成onload事件。
+    //     if (xhr.readyState === 4) {
+    //         console.log(JSON.parse(xhr.responseText));
+    //     }
+    // }
+
+
+    // 2.ajax的同步操作
+    // 同步操作按照顺序执行，无需监听，直接输出即可
+    // 同步的弊端：影响用户体验，并且会造成页面短时间空白，不建议采用。
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', false);
+    // xhr.send();
+    // console.log(JSON.parse(xhr.responseText)); //同步，这里必须等到上面执行完成才继续
+
+
+    // 3.ajax的异步操作讨论
+    // console.log(1);
+    // let xhr = new XMLHttpRequest();
+    // console.log(2);
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', true);
+    // console.log(3);
+    // xhr.send();
+    // console.log(4);
+    // xhr.onreadystatechange = function() { //这里是异步操作
+    //     if (xhr.readyState === 4) {
+    //         console.log(JSON.parse(xhr.responseText));
+    //         console.log(5);
+    //     }
+    // }
+    // console.log(6);
+    // 输出的顺序是：1，2，3，4，6，5   证明ajax的第四步获监听及取接口数据这一步是异步的
+
+    // 4.测试异步
+
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() { //这里的onreadystatechange可以改成onload事件。
+        if (xhr.readyState === 4) {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    }
+    xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/taobaoapi.php', true);
+    xhr.send();
+</script>

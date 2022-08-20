@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.面向对象相关的属性和方法的介绍。
+    // 1.toString() :系统对象下都是自带的 , 自己写的对象都是通过原型链继承Object的，可以把对象转成字符串，进制转换或者类型的判断。
+
+    // 1.1.对象转字符串。
+    // 数组的扁平化
+    // let arr = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+    // console.log(arr.toString().split(',').map(v => +v));
+
+    // 1.2.进制转换
+    // let num = 10;
+    // console.log(num.toString(2)); //将num转换成二进制--1010
+    // console.log(num.toString(8)); //将num转换成八进制--12
+    // console.log(num.toString(16)); //将num转换成十六进制--a
+
+    // 1.3.类型的判断 - js里面最优秀的类型判断的方法。
+    // console.log(typeof null);
+    // console.log(typeof [1, 2, 3]);
+    // console.log(typeof {
+    //     a: 1
+    // });
+    // console.log(typeof new Date());
+
+    // 上面的四个全部返回object，不容易区分
+
+    // 让Object.prototype里面的this指向括号里面的值，人为重构发现的规律。
+    // 后面输出的字符串可以当作判断条件。
+    // console.log(Object.prototype.toString.call(100)); //[object Number]
+    // console.log(Object.prototype.toString.call('hello')); //[object String]
+    // console.log(Object.prototype.toString.call(true)); //[object Boolean]
+    // console.log(Object.prototype.toString.call(null)); //[object Null]
+    // console.log(Object.prototype.toString.call(undefined)); //[object Undefined]
+    // console.log(Object.prototype.toString.call([])); //[object Array]
+    // console.log(Object.prototype.toString.call({})); //[object Object]
+    // console.log(Object.prototype.toString.call(/\d/)); //[object RegExp]
+    // console.log(Object.prototype.toString.call(new Date())); //[object Date]
+    // console.log(Object.prototype.toString.call(Symbol())); //[object Symbol]
+    // console.log(Object.prototype.toString.call(BigInt(100))); //[object BigInt]
+
+    // 2.constructor：输出实例对象的构造函数。
+    // function Person(name, age, sex) { //构造函数
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    // }
+
+    // let p1 = new Person();
+    // console.log(p1.constructor); //输出构造函数体
+    // console.log(Person.prototype.constructor); //输出构造函数体
+
+    // let arr = [];
+    // console.log(arr.constructor);
+    // console.log(arr.constructor.toString().includes('Array')); //也可以勉强判断数据类型，不方便
+
+    // 3.instanceof：判断一个对象是否是一个构造函数（类）的实例。
+    // function Person(name, age, sex) { //构造函数
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    // }
+    // let p1 = new Person();
+
+    // console.log(p1 instanceof Person); //true
+    // console.log(p1 instanceof Object); //true  对象从属于object
+    // console.log(Person instanceof Function); //true Person是构造函数，属于Function类。
+    // console.log(Person instanceof Object); //true  函数属于对象
+    // console.log(p1 instanceof Function); //false
+
+    // 4.hasOwnProperty() : 看是不是实例对象自身下面的属性， 只在属性存在于实例中时才返回 true，不会继承原型链上面的。
+    // 解读：看当前的属性是不是构造函数里面的，不包括原型链上的。
+    function Person() { //构造函数
+        this.name = 'zhangsan';
+    }
+    Person.prototype.age = 18;
+    Object.prototype.sex = '男';
+    let p1 = new Person();
+    // console.log(p1.hasOwnProperty('name')); //true
+    // console.log(p1.hasOwnProperty('age')); //false
+    // console.log(p1.hasOwnProperty('sex')); //false
+
+    // 5.in操作符，看是不是实例对象自身下面的属性，包括原型链上的。
+    console.log('name' in p1); //true
+    console.log('age' in p1); //true
+    console.log('sex' in p1); //true
+    console.log('hehe' in p1); //false
+</script>

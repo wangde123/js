@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.ES6下面class继承
+    // 1.extends
+    // 2.super关键字：
+    // 子类必须在constructor方法中调用super方法，才能继承父类的相关属性和方法，而且子类在调用super方法之前，不能使用this，否则会报错。这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造。
+    // super关键字既可以当作函数使用， 也可以当作对象使用。
+    // 第一种情况， super作为函数调用时， 代表父类的构造函数。
+    // 第二种情况， super作为对象时， 在普通方法中， 指向父类的原型对象；
+
+    // 父类
+    class Person {
+        constructor(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        showinfo() { //这里的方法和原型是一致。传统面向对象不都是把方法绑定在原型上面(super作为对象时， 在普通方法中， 指向父类的原型对象；)
+            return `我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+        }
+    }
+
+
+    // 子类
+    class Student extends Person {
+        constructor(name, age, sex, profession) {
+            super(name, age, sex); //super作为函数调用时， 代表父类的构造函数。
+            this.profession = profession; // 这里的this必须通过父类完成，先super后使用this
+        }
+
+        showinfo() {
+            return `${super.showinfo()}，我的专业是${this.profession}`;
+            //super作为对象时， 在普通方法中， 指向父类的原型对象；
+        }
+    }
+
+    let s1 = new Student('尼古拉斯赵四', 30, '男', '演员');
+    console.log(s1.name); //继承的
+    console.log(s1.age); //继承的
+    console.log(s1.sex); //继承的
+    console.log(s1.profession); //子类自己的属性
+    console.log(s1.showinfo()); //子类自己的方法
+</script>

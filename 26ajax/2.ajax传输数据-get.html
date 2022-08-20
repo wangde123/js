@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.前端将数据传递给后端的方式。
+    // 1.表单直接传输：form + submit + action + method + name 缺一不可，脱离js代码.
+    // 2.ajax可以实现传输：不是每次都有表单，就算有表单，不是每次都有submit.
+
+    // 二.熟悉network面板
+    // 通过此面板查看前端是否传输成功，也可以查看后端返回了什么等信息。
+    // 熟悉面板的其他内容设置，参考上课解释图片。
+    // request:请求，前端给后端
+    // response:响应，后端给前端
+
+    // 三.get请求方式传输
+    // 1.注意get传输数据：会将数据绑定在地址栏的后面，通过?拼接，如果多条数据，通过&符号拼接。
+    // 格式：url?name=zhangsan&age=18&sex=男
+    // 通过控制面板network下面查看是否传递成功，注意最终的格式是键值对形式(通过network->payload查看的数据格式)
+    // name: zhangsan
+    // age: 18
+    // sex: 男
+    // 后端通过key值获取。一定要记住，后端的页面只要和前端有关联，就不能直接预览
+
+    // let data = 'name=zhangsan&age=18&sex=男';
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/get.php?' + data, true);
+    // xhr.send();
+    // xhr.onreadystatechange = function() { //这里是响应数据(获取后端的数据)，忽略
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+
+    const obj = {
+        username: 'zhangsan',
+        tel: '13333333333',
+        email: '123456@qq.com'
+    };
+    //必须改成：username=zhangsand&tel=13333333333&email=123456@qq.com
+    let arr = [];
+    for (let key in obj) {
+        arr.push(key + '=' + obj[key]);
+    }
+    console.log(arr); // ['username=zhangsan', 'tel=13333333333', 'email=123456@qq.com']
+    console.log(arr.join('&')); //username=zhangsan&tel=13333333333&email=123456@qq.com
+
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://localhost/JS2204(2203)/week05/Day26_ajax/code/get.php?' + arr.join('&'), true);
+    xhr.send();
+    // xhr.onreadystatechange = function() { //这里是响应数据(获取后端的数据)，忽略
+    //     if (xhr.readyState === 4) {
+    //         console.log(xhr.responseText);
+    //     }
+    // }
+</script>

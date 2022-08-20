@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.js的容错处理try-catch
+  // 代码逐行执行，遇到错误，立刻终止
+  // 语法结构：try { } catch(){ } finally{ }
+  // 解读：如果try里面的代码有错，执行catch里面的代码，否则执行try里面的代码，但是finally里面的代码无论前面是否有错都会被执行，finally可以省略。
+  // alert(hehe);//报错，终止代码继续执行
+  // alert(123);
+
+  // try {
+  //     console.log(hehe);
+  // } catch (e) { //e:try里面的错误信息
+  //     console.log(123);
+  //     console.log(e);
+  // } finally {
+  //     console.log('无论前面是否有错都会被执行');
+  // }
+
+  // try { //这里如果没有错误，不会执行catch
+  //     console.log('hehe');
+  // } catch (e) { //e:try里面的错误信息
+  //     console.log(123);
+  //     console.log(e);
+  // } finally {
+  //     console.log('无论前面是否有错都会被执行');
+  // }
+
+  // try-catch也是解决兼容的一种方式，类似于分支语句。
+
+  // try {
+  //     fadsfdasf
+  //     dsafadsf
+  //     dasfadsf
+  // } catch (e) {
+  //     console.log(1);
+  // }
+
+  // 二.js里面自定义错误，抛错
+  // Error类定义一个错误对象
+  // let a = new Error('我错了');
+  // console.log(a);//输出错误对象信息，不会阻止后面的代码
+  // console.log('我能被执行吗?'); //可以执行
+
+  // 抛出错误 - 重点
+  // let a = new Error('我错了');
+  // throw a; //抛出错误对象到浏览器，阻止后续的代码
+  // console.log('我能被执行吗?'); //不可以执行
+
+  // 换一种写法
+  // throw new Error('这里是***功能，你是不能修改的'); //抛出错误
+  // console.log('我能被执行吗?'); //不可以执行
+
+  // debug(delete bug 删除程序的错误，漏洞)是程序员一辈子的事情
+</script>

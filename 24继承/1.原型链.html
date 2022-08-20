@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.原型链
+    // 1.构造器原型(prototype)
+    // ES规定，每一个函数都有一个prototype（构造器的原型），指向另一个对象。
+    // prototype的所有属性和方法都会被构造函数的实例继承(实例对象使用),可以把那些不变(公有)的属性和方法，直接定义在prototype对象属性上。
+    // prototype里面的this依然指向实例对象，构造函数里面this指向实例对象
+
+    // 2.内置原型(__proto__)
+    // 概念： 实例对象与原型(prototype)之间的连接， 叫做原型链， 原型链依靠 __proto__进行连接。
+    // 2.1.每个对象都有一个__proto__内部原型属性, 原型链上的对象正是依靠这个属性。
+
+    // 传统面向对象开发：混合开发(构造函数+原型)
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.show = function() {
+        console.log(`我的名字叫${this.name},我今年${this.age}岁`);
+    }
+
+    let p1 = new Person('zhangsan', 18);
+    // p1.show();
+    // 为什么p1能够访问Person.prototype上面的方法？  答案是：依靠__proto__
+    // p1.toString();
+    // 为什么不会报错，因为不管是构造函数还是Person.prototype上面都没有toString方法。
+    // 答案是：通过__proto__构成一个链条，通过原型链条继承Object.prototype上面的
+    // p1.hehe();
+    // 为什么会报错。
+    // Object.prototype上面没有这个方法，但是有toString方法。
+
+    // 3.通过浏览器的控制面板查看原型链的情况
+    // 查看过程中注意：
+    // [[Prototype]] 相当于是__proto__
+    // 3.1.第一层：自身构造函数里面的属性和方法，一般没有方法(方法是公有的，放到原型上面)
+    // 3.2.第二层：原型上面的属性和方法，一般没有属性(属性是私有的，放到构造函数里面)
+    // 3.3.第三层：Object原型上面的属性和方法，这里的属性和方法所有的对象都可以使用，原型链继承。
+
+    // 二.根据原型链划分对象的等级
+    // 1.Object.prototype
+
+    // 2.Object类   Function类
+    // 检测级别的属性：instanceof(判断一个对象是否是一个构造函数或者类的实例,输出布尔值)
+    // console.log(Object instanceof Function); //true   对象是函数构造的
+    // console.log(Function instanceof Object); //true   函数属于对象，一切皆对象
+
+    // 3.Object类(Array,Number/String/Boolean/RegExp/Date.....)     Function类(function)
+</script>

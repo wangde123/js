@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let xhr=new XMLHttpRequest()
+    xhr.open('get',' http://api.k780.com/?app=phone.get&phone=13800138000&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json',true)
+    xhr.send()
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4){
+            console.log(xhr.responseText);
+            console.log(JSON.parse(xhr.responseText));
+            console.log(JSON.parse(xhr.responseText).result);
+            console.log(JSON.parse(xhr.responseText).result.att);
+        }
+    }
+</script>

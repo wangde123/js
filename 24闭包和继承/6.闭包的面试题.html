@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+    // var name = "The Window"; // var声明的变量也是window下面的属性。
+    // var object = {
+    //     name: "My Object",
+    //     getNameFunc: function() { //this->object
+    //         return function() {
+    //             return this.name; //this->window,不是object直接调用，里面的方法返回的函数表达式直接使用。
+    //         };
+    //     }
+    // };
+    // alert(object.getNameFunc()); //返回的是getNameFunc内部的函数体
+    // alert(object.getNameFunc()()); //The Window
+
+
+    // var name = "The Window";
+    // var object = {
+    //     name: "My Object",
+    //     getNameFunc: function() { //this->object
+    //         var that = this; //将指向object的this赋值给that，that指向object的this
+    //         return function() {
+    //             return that.name;
+    //         };
+    //     }
+    // };
+    // alert(object.getNameFunc()()); //My Object
+</script>

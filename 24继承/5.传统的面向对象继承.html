@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.传统的面向对象继承：混合开发（构造函数+原型）--混合继承
+  // 构造函数继承call/apply
+  // 原型继承(拷贝继承/原型链继承)
+
+  // function Person(name, age, sex) {
+  //   //构造函数
+  //   this.name = name;
+  //   this.age = age;
+  //   this.sex = sex;
+  // }
+
+  // Person.prototype.showinfo = function () {
+  //   //原型
+  //   return `我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+  // };
+
+  // // 子构造函数
+  // // 构造函数的继承：call/apply实现，修改this。
+  // function Student(name, age, sex, profession) {
+  //   // this:子类的实例对象
+  //   Person.call(this, name, age, sex); //继承构造函数的属性和方法，将父的构造函数this指向子的实例对象。
+  //   this.profession = profession; //自己的
+  // }
+
+  // 原型的继承：拷贝继承/原型链继承
+  // 直接赋值继承：造成引用传递的麻烦。
+  // Student.prototype = Person.prototype;//引用传递，传递的是地址，对象间不适合用引用传递。地址指向同一内容。
+
+  // 拷贝继承
+  // Object.assign(); //用于对象的合并，将源对象的所有可枚举属性，复制到目标对象。
+  // Object.assign(Student.prototype, Person.prototype);
+
+  // 原型链继承:造成麻烦，将子类的构造函数变成父类的构造函数。
+  // 修改回来，通过函数名等于函数体修改回来。
+  // Student.prototype = new Person(); //将父类的实例全部给子类的原型。
+  // Student.prototype.constructor = Student; // 通过函数名等于函数体修改回来
+
+  // let s1 = new Student('尼古拉斯赵四', 30, '男', '演员');
+  // console.log(s1.name); //继承的
+  // console.log(s1.age); //继承的
+  // console.log(s1.sex); //继承的
+  // console.log(s1.profession); //子类自己的属性
+  // console.log(s1.showinfo()); //继承的
+
+  // constructor属性：可以获取实例对象的构造函数
+  // alert(new Person().constructor); //父类实例对象的构造函数
+
+  // 下面的三种方式都可以输出构造函数体，前提是没有被覆盖的情况下。
+  // alert(Student); //输出子类的构造函数，函数名等于函数体，任何时候都可以获取。
+  // alert(s1.constructor); //子类实例对象的构造函数。
+  // alert(Student.prototype.constructor); //输出子类的构造函数。
+</script>

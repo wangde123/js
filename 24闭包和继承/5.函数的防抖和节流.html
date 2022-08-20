@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    请输入搜索的内容：<input type="text" id="search" style="width: 800px" />
+  </body>
+</html>
+<script>
+  // 函数的防抖和节流采用闭包实现的 - 本身也是高频事件处理的面试。
+  // 类型：触发频率非常高(oninput/onmousemove/onkeydown/onscroll......)
+
+  // 给搜索元素添加事件 - 高频事件
+  // const search = document.querySelector('input');
+  // let num = 0;
+  // function thing() { //事件处理函数
+  //     num++;
+  //     console.log(num);
+  // }
+  // search.oninput = thing; //高频事件，产生一些性能浪费，触发的次数太多了。
+
+  // 1.函数防抖（debounce）：当事件被触发一段时间后再执行事件，如果在这段时间内事件又被触发，则重新计时。
+
+  // 函数防抖封装函数实现,由封装函数实现高频事件的处理。
+  // 封装好此函数，以后的高频事件交由dobounce函数实现。
+  // function debounce(fn, time) { //fn:事件处理函数
+  //     let t = null;
+  //     return function() {
+  //         // 这里的函数第一个参数是事件对象，这里的this是当前操作的元素对象。
+  //         clearTimeout(t); //将前面开启的定时器关闭，防止定时器叠加。
+  //         t = setTimeout(() => {
+  //             fn.call(this, arguments[0]); //将this指向事件处理函数里面的this
+  //             // fn.apply(this, arguments);
+  //         }, time);
+  //     }
+  // }
+  // const search = document.querySelector('input');
+  // let num = 0;
+  // function thing(e) { //事件处理函数(事件对象，this)
+  //     num++;
+  //     // console.log(num);
+  //     console.log(e); //恢复第一次参数是事件对象
+  //     console.log(this); //恢复this指向当前操作的元素
+  // }
+  // search.oninput = debounce(thing, 1000); // debounce(thing)的结果一定是函数体
+  // 问题：通过debounce调用事件处理函数，事件处理函数里面的this和事件对象都没有了，必须修改回来。
+  // 解决：debounce返回的函数变成事件处理函数了
+
+  // 2.函数的节流
+  // 函数节流（throttle）：指定时间间隔内，若事件被多次触发，只会执行一次.
+  // 在事件触发之后开始计时，在规定的时间内，若再次触发事件，不对此事件做任何处理。保证在规定时间内只执行一次事件.
+
+  // 通过事件触发的时间差来进行封装，时间差>=time才触发一次。
+  function throttle(fn, time) {
+    //形成闭包
+    let start = 0; //初始时间
+    return function () {
+      let current = new Date().getTime(); //获取当前时间的时间戳。
+      if (current - start >= time) {
+        // fn.call(this, arguments[0]);
+        console.log(fn());
+        start = current;
+        console.log(start); //将当前时间给起始时间(将获取的当前时间给初始值，继续获取当前时间)
+      }
+    };
+  }
+  const search = document.querySelector("input");
+  let num = 0;
+
+  function thing(e) {
+    //事件处理函数(事件对象，this)
+    num++;
+    console.log(num);
+    //     console.log(e); //恢复第一次参数是事件对象
+    //     console.log(this); //恢复this指向当前操作的元素
+  }
+  search.oninput = throttle(thing, 1000); //throttle(thing)的结果一定是函数体
+</script>

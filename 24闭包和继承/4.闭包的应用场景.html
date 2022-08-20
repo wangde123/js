@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 一.闭包的应用场景
+    // 1.闭包存储循环变量的值(事件或者定时器的情况下)
+    // 2.避免全局变量的污染--利用闭包的写法进行开发,减少冲突.
+    // 雅虎：命名空间写法，避免冲突，利用名称的不同配合对象。后面因为名称太长自动放弃了。
+    // 全局变量和全局函数很容易出现冲突。
+    // var a = 'zhangsan';
+    // function fn() {
+    //     console.log('zhangsan');
+    // }
+    // console.log(a); // zhangsan
+    // fn(); // 下面覆盖上面  lisi
+
+
+    // var a = 'lisi';
+    // function fn() {
+    //     console.log('lisi');
+    // }
+    // console.log(a); // 下面覆盖上面  lisi
+    // fn(); // 下面覆盖上面  lisi
+
+    // ! function() {
+    //     var a = 'zhangsan';
+
+    //     function fn() {
+    //         console.log('zhangsan');
+    //     }
+    //     console.log(a);
+    //     fn();
+    // }();
+
+    // ! function() {
+    //     var a = 'lisi';
+
+    //     function fn() {
+    //         console.log('lisi');
+    //     }
+    //     console.log(a);
+    //     fn();
+    // }();
+
+    // 命名空间
+    // var zhangsan_item1_tool = {
+
+    // };
+    // var zhangsan_taobao_item2_sitem3_tool = {
+
+    // };
+
+    // 3.函数的防抖和节流采用闭包实现的 - 本身也是高频事件处理的面试。
+    // 类型：触发频率非常高(oninput/onmousemove/onkeydown/onscroll......)
+//     function addCount(){
+// 	var count = 0;
+//     // console.log(count);
+// 	return function(){
+// 		count += 1;
+// 		console.log(count);
+// 	}
+// }
+// var fun1 = addCount();
+// var fun2 = addCount();
+// fun1()
+// fun1();//1
+// fun1();//2
+// fun1();//3
+// fun2();//1
+// fun2();//2
+// console.log(fun1===fun2);
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+<script>
+  // 一.原型链的理解
+  // 当实例对象想使用属性和方法的时候，先找构造函数里面的属性和方法，如果构造函数里面没有，找构造函数的原型上面的属性和方法，如果还是没有，找Object.prototype上面的属性和方法，直到原型链结束
+  // 如果原型链结束依然没有这个属性，输出undefined,
+  // 如果原型链结束依然没有这个方法，报错。
+  // Object.prototype.username = 'wangwu'; //排第三
+
+  // function Person() {
+  //     this.username = 'zhangsan'; //排第一
+  // }
+  // Person.prototype.username = 'lisi'; //排第二
+  // let p1 = new Person(); //p1:实例对象
+  // console.log(p1.username); //zhangsan
+
+  // 二.如果将属性和方法绑定在Object.prototype原型上面，所有的对象都可以通过原型链去访问。
+  // 构造函数 -> 构造函数的原型 -> Object.prototype
+
+  //   function Person() {
+  //     this.username = "zhangsan";
+  //     this.hehe = function () {
+  //       return "我是绑定在构造函数里面的方法。";
+  //     };
+  //   }
+
+  //   Object.prototype.hehe = function () {
+  //     //所有的对象都可以通过原型链去访问
+  //     return "我是绑定在Object.prototype上面的方法";
+  //   };
+
+  //   let p1 = new Person(); //p1:实例对象
+  //   console.log(p1.hehe());
+
+  //   let arr = [];
+  //   console.log(arr.hehe());
+  //   const obj = {};
+  //   console.log(obj.hehe());
+  //   let str = "hello";
+  //   console.log(str.hehe());
+  //   new Promise(function (resolve, reject) {
+  //     reject();
+  //   })
+  //     .then(function () {
+  //       console.log(1);
+  //     })
+  //     .then(
+  //       function () {
+  //         console.log(10);
+  //       },
+  //       function (e) {
+  //         console.log(e);
+  //       }
+  //     );
+  // function double(n) {
+  //   return n < 10 ? "0" + n : n;
+  // }
+
+  // var num = 1;
+  // var arr = [];
+  // for (var i = 0; i <= 4; i++) {
+  //   //一维数组的索引
+  //   arr[i] = []; //必须提前告知数组项的值是数组。
+  //   for (var j = 0; j <= 4; j++) {
+  //     //二维数组的索引
+  //     arr[i][j] = num++; //arr[0][0]=1  arr[0][1]=2  arr[0][2]=3
+  //     if (i >= j) {
+  //       document.write(double(arr[i][j]) + "&nbsp;&nbsp;&nbsp;"); //打印数据
+  //     }
+  //   }
+  //   document.write("<br>"); //内层循环完成，打印一个换行
+  // }
+  // console.log(arr);
+  // function fn() {
+  //   console.log(1);
+  // }
+  // fn();
+  let arr = [1, 2, 3, 4, 5, 6];
+  arr.map();
+</script>
