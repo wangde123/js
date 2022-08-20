@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*
+1.判断语句
+@if 指令是 SASS 中的一个控制指令，用于在表达式满足条件（true）的时候输出指定的样式
+@if 条件 {
+​	当条件为真时执行的样式
+}
+同样，也可以通过@else if 和@else 指令结合，进行多条件的判断
+
+*/
+/* 
+@for $var from <开始值> through <结束值>
+@for $var from <start> to <end>
+to 和 through 都是表示一个区间，唯一的区别就是停止循环的地方不一样。$var 可以是
+任意一个变量名称如$i，<start>和<end>是 SASS 表达式并且必须是整数
+@each
+*/
+/* 
+Sass-function介绍
+函数的功能主要是数据的运算，SASS 中可以将一些值交给函数进行处理，具体的处理方式
+由定义的函数具体的设计确定。
+@function 函数名称(参数列表){
+​	样式处理
+} */
+
+/*# sourceMappingURL=other.css.map */

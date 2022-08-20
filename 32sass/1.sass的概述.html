@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="scss/syntax.css">
+</head>
+
+<body>
+  <div class="nav">s</div>
+    <!-- <p>
+        CSS不是一个编程语言，可以用它来开发网页样式，但是没有办法用它进行编程。css的预编译框架的出现，让CSS可以实现编程。
+    </p> -->
+    <!-- 
+    
+    一.css的预编译框架
+    1.CSS不是一个编程语言，可以用它来开发网页样式，但是没有办法用它进行编程。css的预编译框架的出现，让CSS可以实现编程。
+    2.浏览器还是仅识别css文件，所以你加载的还是css文件，但是css文件是利用预编译框架生成的。
+    3.常见的预编译框架有：sass,less, stylus
+
+    二.sass的概述 - https://www.sass.hk/  
+    1.世界上最成熟、最稳定、最强大的专业级CSS扩展语言！
+    2.sass基于Ruby语言开发而成，因此安装sass前需要安装Ruby。（注:mac下自带Ruby无需在安装Ruby!）
+    Ruby：一种简单快捷的面向对象（面向对象程序设计）脚本语言.
+
+    三.sass两种语法格式
+    1.第一种后缀名为sass，里面的代码不使用大括号和分号；
+    2.第二种就是使用的scss文件，这种和写的css文件格式差不多，使用大括号和分号。
+    在此也建议使用后缀名为 scss 的文件，以避免sass后缀名的严格格式要求而报错。
+    注意：scss文件里面同样可以直接编写css代码,只是针对性添加一些其他语法更好的生成和维护css。
+
+    四.环境搭建及编译指令
+    css文件依靠sass/scss文件生成，必须依赖于环境进行编译。
+    1.ruby编译：安装 ruby(sass是具有ruby语言)和gem(ruby自带包管理工具）
+      第一步：安装ruby软件，注意安装过程中请注意勾选Add Ruby executables to your PATH添加到系统环境变量
+      第二步：安装好ruby之后，ruby里面自带gem的包管理工具。
+      第三步：利用gem安装sass，需要命令行安装。
+      win+r启动运行界面，输入cmd，启动磁盘操作系统DOS。
+      输入此命令：gem install sass 
+      如何检查安装是否成功：sass -v  (注意空格),输出对应的版本视为安装成功
+
+    2.vscode下面的easysass插件编译
+      vscode插件栏搜索easysass插件，安装，完成，弊端是路径配置比较麻烦
+
+    3.koala软件编译
+    4.gulp或者webpack编译
+    ......
+    重点讲解前面两种方式  
+
+    五.sass编译css
+      1.切记千万不要去修改css文件，css文件是依靠scss文件生成的，修改css会无效。
+      2.不管是css还是js文件，扩展名中带min的都属于压缩代码。
+      3.ruby编译sass，需要命令行
+
+    六.ruby编译sass
+    1.DOS命令进入scss目录的位置(直接选中地址栏，输入cmd，进入对应的位置)
+    2.输入编译命令
+    sass --watch 编译目录/.:输出目录/.  --expanded(格式)
+    --watch:监听，表示scss内容发生改变，对应的css跟着改变
+    输出目录如果不存在，自动创建，里面的文件名和编译目录里面的文件名是一致的。
+
+    监听的命令行界面不能关闭，关闭无法编译。
+    编译后生成一个放css的目录和缓存目录，css目录里面每个scss生成两个文件，一个css文件提供引入使用，map文件用于调试样式(sass错误调试，不能删除，否则无法完成调试)
+   
+    取消监听或者重新开始编译：两次ctrl+c停止编译或者停止监听
+  -->
+</body>
+
+</html>

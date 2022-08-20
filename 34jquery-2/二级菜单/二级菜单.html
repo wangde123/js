@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body style="height: 1500px;">
+
+    <!-- 头部 -->
+    <div class="header">
+
+    </div>
+
+    <!-- 导航 -->
+    <div class="nav"></div>
+
+    <!-- 二级菜单的结构 -->
+    <div class="banner">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#">家用电器</a>
+                </li>
+                <li>
+                    <a href="#">手机</a><span>/</span><a href="#">运营商</a><span>/</span><a href="#">数码</a>
+                </li>
+                <li>
+                    <a href="#">电脑</a><span>/</span><a href="#">办公</a>
+                </li>
+                <li>
+                    <a href="#">家居</a><span>/</span><a href="#">家具</a><span>/</span><a href="#">家装</a><span>/</span><a href="#">厨具</a>
+                </li>
+                <li>
+                    <a href="#">男装</a><span>/</span><a href="#">女装</a><span>/</span><a href="#">童装</a><span>/</span><a href="#">内衣</a>
+                </li>
+                <li>
+                    <a href="#">美妆</a><span>/</span><a href="#">个护清洁</a><span>/</span><a href="#">宠物</a>
+                </li>
+                <li>
+                    <a href="#">女鞋</a><span>/</span><a href="#">箱包</a><span>/</span><a href="#">钟表</a><span>/</span><a href="#">珠宝</a>
+                </li>
+                <li>
+                    <a href="#">男鞋</a><span>/</span><a href="#">运动</a><span>/</span><a href="#">户外</a>
+                </li>
+                <li>
+                    <a href="#">房产</a><span>/</span><a href="#">汽车</a><span>/</span><a href="#">汽车用品</a>
+                </li>
+                <li>
+                    <a href="#">母婴</a><span>/</span><a href="#">玩具乐器</a>
+                </li>
+                <li>
+                    <a href="#">食品</a><span>/</span><a href="#">酒类</a><span>/</span><a href="#">生鲜</a><span>/</span><a href="#">特产</a>
+                </li>
+                <li>
+                    <a href="#">艺术</a><span>/</span><a href="#">礼品鲜花</a><span>/</span><a href="#">农资绿植</a>
+                </li>
+                <li>
+                    <a href="#">医药保健</a><span>/</span><a href="#">计生情趣</a>
+                </li>
+                <li>
+                    <a href="#">图书</a><span>/</span><a href="#">文娱</a><span>/</span><a href="#">教育</a><span>/</span><a href="#">电子书</a>
+                </li>
+                <li>
+                    <a href="#">机票</a><span>/</span><a href="#">酒店</a><span>/</span><a href="#">旅游</a><span>/</span><a href="#">生活</a>
+                </li>
+                <li>
+                    <a href="#">理财</a><span>/</span><a href="#">众筹</a><span>/</span><a href="#">白条</a><span>/</span><a href="#">保险</a>
+                </li>
+                <li>
+                    <a href="#">安装</a><span>/</span><a href="#">维修</a><span>/</span><a href="#">清洗</a><span>/</span><a href="#">二手</a>
+                </li>
+                <li>
+                    <a href="#">工业品</a>
+                </li>
+            </ul>
+            <!-- 右侧的框，定位布局到这里 -->
+            <div class="cartlist">
+                <div class="item">家用电器</div>
+                <div class="item">手机/运营商/数码</div>
+                <div class="item">电脑/办公</div>
+                <div class="item">家居/家具/家装/厨具</div>
+                <div class="item">男装/女装/童装/内衣</div>
+                <div class="item">美妆/个护清洁/宠物</div>
+                <div class="item">女鞋/箱包/钟表/珠宝</div>
+                <div class="item">男鞋/运动/户外</div>
+                <div class="item">房产/汽车/汽车用品</div>
+                <div class="item">母婴/玩具乐器</div>
+                <div class="item">食品/酒类/生鲜/特产</div>
+                <div class="item">艺术/礼品鲜花/农资绿植</div>
+                <div class="item">医药保健/计生情趣</div>
+                <div class="item">图书/文娱/教育/电子书</div>
+                <div class="item">机票/酒店/旅游/生活</div>
+                <div class="item">理财/众筹/白条/保险</div>
+                <div class="item">安装/维修/清洗/二手</div>
+                <div class="item">第十八块内容工业品</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<script>
+    ! function() {
+        $('.menu li').hover(function() {
+            $('.cartlist').show();
+            $(this).addClass('active').siblings().removeClass('active'); //添加激活状态
+            $('.item').eq($(this).index()).show().siblings().hide(); // 内容块对应切换
+        }, function() {
+            $('.cartlist').hide();
+        });
+
+        // 注意右侧的框和左侧的无序列表1px左右的叠加。
+
+        $('.cartlist').hover(function() {
+            $(this).show();
+        }, function() {
+            $(this).hide();
+        });
+
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > $('.banner').offset().top) {
+                $('.cartlist').css({
+                    top: $(window).scrollTop() - $('.banner').offset().top
+                })
+            } else {
+                $('.cartlist').css({
+                    top: 0
+                })
+            }
+        })
+    }();
+</script>

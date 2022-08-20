@@ -1,0 +1,92 @@
+@charset"UTF-8";
+$boxsize:100px;
+$bgcolor:#ff0000!default;
+$bzcolor:#abcdef;
+$name:text-decoration;
+$none:none;
+$b:box;
+$box-width:100px;
+$box-height:200px;
+// .top{
+//     width: $boxsize;
+//     height: $boxsize;
+// }
+// .box{
+//     $bgcolor:blue;
+//     background-color: $bgcolor;
+//     #{$name}:$none;
+// }
+// .#{$b}{
+//     $bgcolor:blue;
+//     background-color: $bgcolor;
+//     width: $box-width*2;
+//     height: $box-height+20;;
+// }
+/*!
+我是重要注释
+*/
+/*我是单行注释*/
+// .box{
+//     width: 100px;
+//     ul{
+//         height: 200px;
+//         li{
+//             list-style: none;
+//             span{
+//                 background-color: $bgcolor;
+//                 &:hover{
+//                     display: none;
+//                 }
+//                 a{
+//                     #{$name}:$none;
+//                     &:hover{
+//                        background-color: blue;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// @mixin size($size:1px,$style:solid,$color:red) {
+//     border: $size $style $color;
+// }
+// .box{
+//     @include size();
+// }
+// .box1{
+//     @include size(5px, dashed,blue )
+// }
+// .box{
+//     width: $box-width;
+//     height: $box-height;
+//     background-color: $bgcolor;
+// }
+// .box span{
+//     #{$name}:$none
+// }
+// .box li {
+//     width: 100px;
+// }
+// .box li a{
+//     list-style: none;
+// }
+// .box1{
+//     @extend .box
+// }
+// %box{
+//     width: $box-width;
+//     height: $box-height;
+//     background-color: $bgcolor;
+// }
+// %box span{
+//     #{$name}:$none
+// }
+// %box li {
+//     width: 100px;
+// }
+// %box li a{
+//     list-style: none;
+// }
+// .box1{
+//     @extend %box
+// }

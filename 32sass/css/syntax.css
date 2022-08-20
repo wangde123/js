@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.header {
+  background-color: #ff0000;
+  color: #abcdef;
+  width: 1000px;
+  height: 220px;
+}
+
+/* 我是多行注释，编译后显示，压缩后不显示，注意一些和scss语法相关的符号不能使*/
+/*!我是重要注释，一直显示，红色展示*/
+
+/*# sourceMappingURL=syntax.css.map */

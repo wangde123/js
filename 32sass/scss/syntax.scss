@@ -1,0 +1,158 @@
+@charset "utf-8";
+// 一.变量：必须是$符号开头，后面紧跟变量名，变量名称和变量值之间要使用冒号:
+// 普通变量：作为css的属性值使用。如果值后面加上!default就表示默认值.
+// 特殊变量：作为属性名或者其他的特殊情况下，必须使用#{$variable}的形式进行调用。
+// 使用变量的意义和注意事项
+// 重复的值可以使用变量，方便维护修改
+// 变量可以自由的参与加减乘除运算，包括单位。
+// 变量一般用于尺寸，颜色等公共的值。
+@import "nav";
+$bgcolor:#ff0000!default; //普通变量,!default表示默认值，如果没有内部设置使用此变量
+$fzcolor:#abcdef; //普通变量
+$name:text-decoration; //特殊变量,选择器的名称，属性名等
+$b:header;
+$none:none; //普通变量
+$box-width:100px;
+$box-height:200px;
+// .box {
+//     $bgcolor: orange; //普通变量
+//     background-color: $bgcolor;
+//     color: $fzcolor;
+//     #{$name}: $none;
+// }
+
+.#{$b} {
+    background-color: $bgcolor;
+    color: $fzcolor;
+    width: $box-width*10;
+    height: $box-height+20px;
+}
+
+// 二.SASS共有三种注释风格。
+// 1.单行注释，编译后不显示
+// 2.多行注释
+
+/* 我是多行注释，编译后显示，压缩后不显示，注意一些和scss语法相关的符号不能使*/
+
+// 3.在/*后面加一个感叹号，表示这是"重要注释"。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息.
+
+/*!我是重要注释，一直显示，红色展示*/
+
+// 三.Sass-嵌套
+// 选择器可以嵌套编写，但是不能嵌套太深，层级尽量不要超过四级，否则影响性能。
+// 如果你想使用父级元素，通过&符号获取
+// .box {
+//     $n: none;
+//     $w: 100px;
+//     text-decoration: $n;
+//     ul {
+//         list-style: $n;
+//         li {
+//             line-height: $w;
+//             span {
+//                 width: $w;
+//             }
+//             a {
+//                 text-decoration: underline;
+//                 &:hover {
+//                     background-color: red;
+//                 }
+//             }
+//         }
+//     }
+// }
+// 四.Sass-mixin函数
+// sass 中可以通过@mixin 声明混合（混合宏），可以传递参数，参数名称以$开始，多个参数之间使用逗号分隔，@mixin 的混合代码块由@include 来调用。
+// 这里的混合使用重复模块，但是里面有一些值不一样的场景下使用。
+// 没有参数
+// @mixin borderStyle() {
+//     border: 1px solid red;
+// }
+// 带参数
+// @mixin borderStyle($size, $style, $color) {
+//     border: $size $style $color;
+// }
+// 带默认值的参数
+// @mixin borderStyle($size:1px, $style:solid, $color:#ccc) {
+//     border: $size $style $color;
+// }
+// .box {
+//     @include borderStyle(10px, dashed, blue)
+// }
+// .box1 {
+//     @include borderStyle();
+// }
+// css兼容的混合
+// @mixin radius($value:50%) {
+//     -moz-border-radius: $value;
+//     -webkit-border-radius: $value;
+//     -o-border-radius: $value;
+//     -ms-border-radius: $value;
+//     border-radius: $value;
+// }
+// .box {
+//     @include radius(10%);
+// }
+// 透明度的混合
+// @mixin opacity($opacity) {
+//     $opacity-ie: ($opacity * 100); // IE8 filter
+//     filter: alpha(opacity=$opacity-ie);
+//     opacity: $opacity;
+// }
+// 省略号的混合
+// @mixin ell($w:100px, $h:30px) {
+//     width: $w;
+//     height: $h;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     border: 1px solid #ccc;
+// }
+// p {
+//     @include ell(300px);
+// }
+// 五.Sass-继承扩展--@extend
+// 在 SASS 中，通过继承/扩展来减少重复代码，可以让一个选择器去继承另一个选择器中所有的样式，包括子类的样式(占位继承--%)。
+// 1.普通基础
+// .box {
+//     width: 1190px;
+//     height: 500px;
+//     border: 1px solid #ccc;
+// }
+// .box span {
+//     text-decoration: underline;
+// }
+// .box li {
+//     line-height: 30px;
+// }
+// .box a {
+//     color: red;
+// }
+// .box1 {
+//     @extend .box;
+// }
+// 2.占位继承，被继承的选择器不会编译，要求是名称前面添加%
+// %box {
+//     width: 1190px;
+//     height: 500px;
+//     border: 1px solid #ccc;
+// }
+// %box span {
+//     text-decoration: underline;
+// }
+// %box li {
+//     line-height: 30px;
+// }
+// .box1 {
+//     @extend %box;
+// }
+// 六.局部文件(sass的导入)。
+// 利用局部文件可以将一个页面的scss文件进行分割，便于管理。
+// 如果是css直接开发，将css进行拆分引入，影响性能，引入多个css文件，产生多次请求，不推荐使用，但是将scss分割成多个scss文件不会出现这个问题，最终合并编译成一个css文件即可。
+// 总结：多个css文件便于管理，但是不利于引入。但是scss可以拆分，合并编译，不影响引入问题。
+// 1.sass局部文件以下划线开头(_),这样就不会直接编译(easysass需要配置)
+// 2.@import进行引入编译,引入时可以忽略下杠和扩展名
+// @import引入的位置就是编译后的位置。
+// @import "nav";
+// @import "banner";
+// @import "footer";

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    // 1.not(expr|ele|fn)删除与指定表达式匹配的元素
+    // $('li').not('.last'); //获取所以的li元素，排除包含类名叫last的li
+
+    // 2.scrollTop([val])获取匹配元素相对滚动条顶部的偏移
+    // 相当于原生js里面的document.documentElement.scrollTop，获取滚动条的top值
+    // $(window).scrollTop();//读写滚动条的值
+
+    // 3.each(callback)以每一个匹配的元素作为上下文来执行一个函数。
+    // $('li').each(function(index, element) { //index:元素的索引，element:原生的元素对象
+    // console.log(index); //0,1,2,3
+    // console.log(element);
+    // console.log($(element));
+    // });
+    // 注意return false终止遍历
+    
+</script>

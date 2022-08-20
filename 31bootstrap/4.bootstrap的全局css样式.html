@@ -1,0 +1,91 @@
+<!-- 
+  全局 CSS 样式
+  Bootstrap 将设置全局的CSS样式。HTML的基本元素均可以通过class设置样式并得到增强效果。还有先进的栅格系统。
+  bootstrap对于每一个标签进行了样式优化，如果达不到你的要求，还可以通过加载bootstrap默认提供的class来增强效果，如果还无法实现你的需求，那就只能自己编写。
+
+  1.css重置库
+  Normalize.css：第三方的css重置库(不适合我们使用)
+  reset.css第三方的css重置库(适合我们)
+
+
+  2.容器
+  .container 类用于固定宽度并支持响应式布局的容器，居中的容器
+  .container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+
+
+  3.栅格布局
+  系统自动将一行分成最多12列，通过不同的类名，设置不同的尺寸和划分不同的区域。
+  重点关注栅格参数，不要死记，实战中去熟悉和记忆。
+  .col-xs-*
+  .col-sm-*
+  .col-md-*
+  .col-lg-*
+  .col-md-offset-*  偏移
+
+
+ -->
+
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bootstrap的入门</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="background-color: red;">1</div>
+            <div class="col-md-4" style="background-color: green;">2</div>
+            <div class="col-md-4" style="background-color: blue;">3</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3" style="background-color: red;">1</div>
+            <div class="col-md-3" style="background-color: orange;">1</div>
+            <div class="col-md-3" style="background-color: green;">2</div>
+            <div class="col-md-3" style="background-color: blue;">3</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-3" style="background-color: red;">1</div>
+            <div class="col-xs-3" style="background-color: orange;">1</div>
+            <div class="col-xs-3" style="background-color: green;">2</div>
+            <div class="col-xs-3" style="background-color: blue;">3</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+            <div class="col-md-1" style="background-color: red;">1</div>
+            <div class="col-md-1" style="background-color: orange;">1</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-5" style="background-color: red;">1</div>
+            <div class="col-md-5 col-md-offset-2" style="background-color: orange;">1</div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

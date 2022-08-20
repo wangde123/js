@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAAA,IAAK;EACD,KAAK,EAAE,KAAK;;;ACehB,IAAK;EAED,gBAAgB,EADN,MAAM;EAEhB,KAAK,EATA,OAAO;EAUZ,eAAQ,EAPN,IAAI;;;AAUV,OAAO;EACH,gBAAgB,EAfX,OAAO;EAgBZ,KAAK,EAfA,OAAO;EAgBZ,KAAK,EAAE,MAAa;EACpB,MAAM,EAAE,KAAgB;;;AAO5B,4CAA4C;AAI5C,qBAAqB",
+"sources": ["../scss/_top.scss","../scss/syntax.scss"],
+"names": [],
+"file": "syntax.css"
+}

@@ -1,0 +1,56 @@
+<!-- 
+  起步
+  简要介绍 Bootstrap，以及如何下载、使用，还有基本模版和案例等。
+
+  1.生产环境(线上环境，最终放到服务器中的代码)
+  压缩后的 CSS、JavaScript 和字体文件,不包含文档和源码文件
+
+  2.开发环境
+  包含各个文件的源码，清晰的格式。
+
+  3.采用cdn引入相关的文件
+
+  4.拷贝并粘贴下面给出的 HTML 代码，这就是一个最简单的 Bootstrap 页面了。
+
+  5.这一小节的核心：如何引入bootstrap等相关文件，基本模板的介绍
+ -->
+
+<!doctype html>
+<!-- 不同1：简体中文 -->
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bootstrap的入门</title>
+
+    <!-- 不同2：引入Bootstrap的css文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- 
+      不同3：
+      采用IE的hacks方式引入两个js文件，解决兼容问题，仅IE浏览器识别，标准浏览器不识别。
+      html5shiv.min.js：让html5新增的标签能够在低版本的IE浏览器中起作用。
+      respond.min.js：低版本的IE浏览器识别响应式布局(媒体查询)
+    -->
+    <!--[if lt IE 9]>
+      <script src="https://fastly.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://fastly.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+
+    <!-- 
+      不同4：
+      1.jquery.min.js：boostrap的js依赖jquery类库，引入jquery文件
+      2.bootstrap.min.js：bootstrap里面对于部分js效果进行了封装的文件
+     -->
+    <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
